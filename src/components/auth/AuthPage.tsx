@@ -87,7 +87,7 @@ export default function AuthPage({ mode }: AuthPageProps) {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-[#14402a]/50" />
+        <div className="absolute inset-0 bg-[#38b000]/50" />
         <div className="relative z-10 flex p-10 w-full items-start">
           <div className="flex items-center gap-2">
             <Leaf className="w-6 h-6 text-white" />
@@ -98,15 +98,15 @@ export default function AuthPage({ mode }: AuthPageProps) {
 
       <div className="flex flex-col min-h-screen w-full px-5 sm:px-10 lg:px-16 py-8 lg:py-12 justify-center">
         <div className="flex items-center gap-2 mb-8 lg:hidden">
-          <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-[#14402a]">
+          <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-[#38b000]">
             <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z" />
           </svg>
-          <span className="font-serif font-extrabold text-xl text-[#14402a] tracking-tight">GREEN DECOR</span>
+          <span className="font-serif font-extrabold text-xl text-[#38b000] tracking-tight">GREEN DECOR</span>
         </div>
 
         <div className="w-full max-w-md mx-auto">
           <div className="mb-7">
-            <h1 className="text-2xl sm:text-3xl font-serif font-extrabold text-[#14402a]">
+            <h1 className="text-2xl sm:text-3xl font-serif font-extrabold text-[#38b000]">
               {isLogin ? 'Welcome Back' : 'Create Your Account'}
             </h1>
             <p className="text-sm text-[#52685a] mt-1.5">
@@ -120,7 +120,7 @@ export default function AuthPage({ mode }: AuthPageProps) {
             <Link
               href="/login"
               className={`text-center py-2.5 rounded-xl text-sm font-bold transition-all ${
-                isLogin ? 'bg-[#14402a] text-white shadow-sm' : 'text-[#52685a] hover:text-[#14402a]'
+                isLogin ? 'bg-[#38b000] text-white shadow-sm' : 'text-[#52685a] hover:text-[#38b000]'
               }`}
             >
               Sign In
@@ -128,7 +128,7 @@ export default function AuthPage({ mode }: AuthPageProps) {
             <Link
               href="/register"
               className={`text-center py-2.5 rounded-xl text-sm font-bold transition-all ${
-                !isLogin ? 'bg-[#14402a] text-white shadow-sm' : 'text-[#52685a] hover:text-[#14402a]'
+                !isLogin ? 'bg-[#38b000] text-white shadow-sm' : 'text-[#52685a] hover:text-[#38b000]'
               }`}
             >
               Register
@@ -154,7 +154,7 @@ export default function AuthPage({ mode }: AuthPageProps) {
                     placeholder="e.g. Hamza Khan"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full pl-10 pr-3 py-3 rounded-xl border border-[#d6e2d3] text-sm focus:ring-2 focus:ring-[#14402a] focus:outline-none"
+                    className="w-full pl-10 pr-3 py-3 rounded-xl border border-[#d6e2d3] text-sm focus:ring-2 focus:ring-[#38b000] focus:outline-none"
                   />
                 </div>
               </div>
@@ -170,7 +170,7 @@ export default function AuthPage({ mode }: AuthPageProps) {
                   placeholder="you@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full pl-10 pr-3 py-3 rounded-xl border border-[#d6e2d3] text-sm focus:ring-2 focus:ring-[#14402a] focus:outline-none"
+                  className="w-full pl-10 pr-3 py-3 rounded-xl border border-[#d6e2d3] text-sm focus:ring-2 focus:ring-[#38b000] focus:outline-none"
                 />
               </div>
             </div>
@@ -185,7 +185,7 @@ export default function AuthPage({ mode }: AuthPageProps) {
                     placeholder="+92 300 1234567"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full pl-10 pr-3 py-3 rounded-xl border border-[#d6e2d3] text-sm focus:ring-2 focus:ring-[#14402a] focus:outline-none"
+                    className="w-full pl-10 pr-3 py-3 rounded-xl border border-[#d6e2d3] text-sm focus:ring-2 focus:ring-[#38b000] focus:outline-none"
                   />
                 </div>
               </div>
@@ -195,7 +195,7 @@ export default function AuthPage({ mode }: AuthPageProps) {
               <div className="flex items-center justify-between mb-1.5">
                 <label className="block text-xs font-semibold text-[#172b21]">Password</label>
                 {isLogin && (
-                  <a href="#forgot" className="text-xs text-[#14402a] hover:underline font-medium">
+                  <a href="#forgot" className="text-xs text-[#38b000] hover:underline font-medium">
                     Forgot?
                   </a>
                 )}
@@ -209,13 +209,13 @@ export default function AuthPage({ mode }: AuthPageProps) {
                   placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full pl-10 pr-11 py-3 rounded-xl border border-[#d6e2d3] text-sm focus:ring-2 focus:ring-[#14402a] focus:outline-none"
+                  className="w-full pl-10 pr-11 py-3 rounded-xl border border-[#d6e2d3] text-sm focus:ring-2 focus:ring-[#38b000] focus:outline-none"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword((v) => !v)}
                   aria-label="Toggle password visibility"
-                  className="absolute right-3.5 top-3.5 text-gray-400 hover:text-[#14402a]"
+                  className="absolute right-3.5 top-3.5 text-gray-400 hover:text-[#38b000]"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -232,7 +232,7 @@ export default function AuthPage({ mode }: AuthPageProps) {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3.5 rounded-xl bg-[#14402a] text-white text-sm font-bold hover:bg-[#1b5539] transition-all shadow-md hover:shadow-lg disabled:opacity-50"
+              className="w-full py-3.5 rounded-xl bg-[#38b000] text-white text-sm font-bold hover:bg-[#2e9900] transition-all shadow-md hover:shadow-lg disabled:opacity-50"
             >
               {isLoading ? 'Processing...' : isLogin ? 'Sign In' : 'Create Account'}
             </button>
@@ -262,7 +262,7 @@ export default function AuthPage({ mode }: AuthPageProps) {
           {isLogin ? (
             <p className="text-center text-xs text-[#52685a] mt-6">
               New to Green Decor?{' '}
-              <Link href="/register" className="text-[#14402a] font-bold hover:underline">
+              <Link href="/register" className="text-[#38b000] font-bold hover:underline">
                 Create an account
               </Link>
             </p>
@@ -270,14 +270,14 @@ export default function AuthPage({ mode }: AuthPageProps) {
             <p className="text-center text-xs text-[#52685a] mt-6 flex items-center justify-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-[#d47343]" />
               Already a member?{' '}
-              <Link href="/login" className="text-[#14402a] font-bold hover:underline">
+              <Link href="/login" className="text-[#38b000] font-bold hover:underline">
                 Sign in
               </Link>
             </p>
           )}
 
           <div className="mt-8 text-center lg:hidden">
-            <Link href="/" className="text-xs text-[#52685a] hover:text-[#14402a] font-medium">
+            <Link href="/" className="text-xs text-[#52685a] hover:text-[#38b000] font-medium">
               &larr; Back to Home
             </Link>
           </div>

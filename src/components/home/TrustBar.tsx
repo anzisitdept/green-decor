@@ -12,30 +12,30 @@ export default function TrustBar() {
 
   const trustItems = [
     {
-      icon: <Sprout className="w-5 h-5 text-[#14402a]" />,
+      icon: <Sprout className="w-5 h-5 text-[#38b000]" />,
       num: '1000+',
       label: 'Happy Customers',
     },
     {
-      icon: <MapPin className="w-5 h-5 text-[#14402a]" />,
+      icon: <MapPin className="w-5 h-5 text-[#38b000]" />,
       num: 'Across',
       label: 'Pakistan',
     },
     {
-      icon: <ShieldCheck className="w-5 h-5 text-[#14402a]" />,
+      icon: <ShieldCheck className="w-5 h-5 text-[#38b000]" />,
       num: 'Quality',
       label: 'Plants & Materials',
     },
     {
-      icon: <Leaf className="w-5 h-5 text-[#14402a]" />,
+      icon: <Leaf className="w-5 h-5 text-[#38b000]" />,
       num: 'Trusted by Homes',
       label: '& Businesses',
     },
   ];
 
   return (
-    <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="bg-transparent border-t border-[#dce7da] pt-6 flex flex-col lg:flex-row items-center justify-between gap-6">
+    <section className="py-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="bg-transparent pt-4 flex flex-col lg:flex-row items-center justify-between gap-4">
         
         {/* 4 Stats */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 w-full lg:w-3/4">
@@ -62,7 +62,7 @@ export default function TrustBar() {
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full lg:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-[#14402a] text-white text-xs sm:text-sm font-semibold hover:bg-[#1b5539] transition-all shadow-md active:scale-95 group"
+            className="w-full lg:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-[#38b000] text-white text-xs sm:text-sm font-semibold hover:bg-[#2e9900] transition-all shadow-md active:scale-95 group"
           >
             <span>Let&rsquo;s Grow Together</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

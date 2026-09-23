@@ -26,24 +26,24 @@ export default function ContactPage() {
 
   return (
     <div className="py-8 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
-      
+
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-3">
         <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.25em] text-[#52685a]">
           WE&rsquo;D LOVE TO HEAR FROM YOU
         </span>
-        <h1 className="text-3xl sm:text-5xl font-serif font-extrabold text-[#14402a]">
+        <h1 className="text-3xl sm:text-5xl font-serif font-extrabold text-[#38b000]">
           Get in Touch with Green Decor
         </h1>
         <p className="text-xs sm:text-sm text-[#4a5f52]">
-          Visit our nursery hub in Lahore or connect with our plant stylists & landscape architects online.
+          Visit our nursery hub in Sukkur or connect with our plant stylists & landscape architects online.
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-        
+
         {/* Left Column: Direct Contact Info (5 cols) */}
-        <div className="lg:col-span-5 bg-[#14402a] text-white rounded-3xl p-8 sm:p-10 shadow-2xl space-y-8">
+        <div className="lg:col-span-5 bg-[#38b000] text-white rounded-3xl p-8 sm:p-10 shadow-2xl space-y-8">
           <div>
             <h3 className="text-2xl font-serif font-bold text-white mb-2">
               Contact Information
@@ -55,37 +55,37 @@ export default function ContactPage() {
 
           <div className="space-y-6 text-xs text-[#d0e5d8]">
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-[#1e583b] flex items-center justify-center shrink-0 text-emerald-300">
+              <div className="w-10 h-10 rounded-xl bg-[#2e9900] flex items-center justify-center shrink-0 text-emerald-300">
                 <MapPin className="w-5 h-5" />
               </div>
               <div>
-                <strong className="block text-white text-sm">Nursery & Display Hub:</strong>
-                <span>Main Bedian Road, Near DHA Phase 6, Lahore, Punjab, Pakistan</span>
+                <strong className="block text-white text-sm">Location:</strong>
+                <span>100ft Road, Sukkur, Sindh, Pakistan</span>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-[#1e583b] flex items-center justify-center shrink-0 text-emerald-300">
+              <div className="w-10 h-10 rounded-xl bg-[#2e9900] flex items-center justify-center shrink-0 text-emerald-300">
                 <Phone className="w-5 h-5" />
               </div>
               <div>
                 <strong className="block text-white text-sm">Phone Support:</strong>
-                <span>+92 300 1234567 / (042) 3589-7000</span>
+                <span>0333 8951222</span>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-[#1e583b] flex items-center justify-center shrink-0 text-emerald-300">
+              <div className="w-10 h-10 rounded-xl bg-[#2e9900] flex items-center justify-center shrink-0 text-emerald-300">
                 <Mail className="w-5 h-5" />
               </div>
               <div>
                 <strong className="block text-white text-sm">Email Inquiries:</strong>
-                <span>care@greendecor.pk / projects@greendecor.pk</span>
+                <span>info@greendecor.com</span>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-[#1e583b] flex items-center justify-center shrink-0 text-emerald-300">
+              <div className="w-10 h-10 rounded-xl bg-[#2e9900] flex items-center justify-center shrink-0 text-emerald-300">
                 <Clock className="w-5 h-5" />
               </div>
               <div>
@@ -96,14 +96,14 @@ export default function ContactPage() {
           </div>
 
           {/* Direct WhatsApp CTA Button */}
-          <div className="pt-4 border-t border-[#1c4d35]">
+          <div className="pt-4 border-t border-[#2e9900]">
             <a
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3.5 px-6 rounded-2xl bg-white text-[#14402a] text-xs sm:text-sm font-bold hover:bg-[#eaf0e7] transition-all shadow-lg flex items-center justify-center gap-2"
+              className="w-full py-3.5 px-6 rounded-2xl bg-white text-[#38b000] text-xs sm:text-sm font-bold hover:bg-[#eaf0e7] transition-all shadow-lg flex items-center justify-center gap-2"
             >
-              <MessageCircle className="w-4 h-4 text-[#14402a]" />
+              <MessageCircle className="w-4 h-4 text-[#38b000]" />
               <span>Instant Chat on WhatsApp</span>
             </a>
           </div>
@@ -112,7 +112,7 @@ export default function ContactPage() {
         {/* Right Column: Contact Inquiry Form (7 cols) */}
         <div className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-10 border border-[#e5ece3] shadow-md space-y-6">
           <div className="pb-4 border-b border-[#f0f4ee]">
-            <h3 className="text-xl font-serif font-bold text-[#14402a]">
+            <h3 className="text-xl font-serif font-bold text-[#38b000]">
               Send Us a Direct Message
             </h3>
             <p className="text-xs text-[#52685a] mt-1">
@@ -143,7 +143,7 @@ export default function ContactPage() {
                     placeholder="e.g. Fatima Ali"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#14402a]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#38b000]"
                   />
                 </div>
                 <div>
@@ -154,7 +154,7 @@ export default function ContactPage() {
                     placeholder="0300 1234567"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#14402a]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#38b000]"
                   />
                 </div>
               </div>
@@ -168,7 +168,7 @@ export default function ContactPage() {
                     placeholder="you@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#14402a]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#38b000]"
                   />
                 </div>
                 <div>
@@ -176,7 +176,7 @@ export default function ContactPage() {
                   <select
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs font-semibold text-[#14402a] bg-white"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs font-semibold text-[#38b000] bg-white"
                   >
                     <option value="General Inquiry">General Inquiry</option>
                     <option value="Landscape Consultation">Landscape Survey Consultation</option>
@@ -195,13 +195,13 @@ export default function ContactPage() {
                   placeholder="How can we assist you with your green space today?"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#14402a]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#38b000]"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-4 rounded-2xl bg-[#14402a] text-white text-xs sm:text-sm font-bold hover:bg-[#1b5539] transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2"
+                className="w-full py-4 rounded-2xl bg-[#38b000] text-white text-xs sm:text-sm font-bold hover:bg-[#2e9900] transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2"
               >
                 <Send className="w-4 h-4" />
                 <span>Send Message</span>

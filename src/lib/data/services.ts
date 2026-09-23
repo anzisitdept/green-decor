@@ -44,7 +44,7 @@ export const servicesData: ServiceItem[] = [
     title: 'Landscaping',
     shortDescription: 'Design, plantation and maintenance',
     fullDescription: 'Complete residential and commercial landscape design, outdoor patios, rooftop gardens, turf installation, automated irrigation, and recurring garden maintenance across Lahore, Islamabad, and Karachi.',
-    heroImage: 'https://images.unsplash.com/photo-1558904541-efa8c4a08931?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/landscap-service.jfif',
     icon: 'Trees',
     pricingRange: 'Custom Quote / Consultation',
     features: [

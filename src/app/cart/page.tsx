@@ -42,16 +42,16 @@ export default function FullCartPage() {
   if (items.length === 0) {
     return (
       <div className="py-20 px-4 max-w-7xl mx-auto text-center">
-        <div className="w-20 h-20 rounded-full bg-[#eaf0e7] flex items-center justify-center text-[#14402a] mx-auto mb-4">
+        <div className="w-20 h-20 rounded-full bg-[#eaf0e7] flex items-center justify-center text-[#38b000] mx-auto mb-4">
           <ShoppingBag className="w-10 h-10 opacity-60" />
         </div>
-        <h1 className="text-3xl font-serif font-bold text-[#14402a]">Your Shopping Bag is Empty</h1>
+        <h1 className="text-3xl font-serif font-bold text-[#38b000]">Your Shopping Bag is Empty</h1>
         <p className="text-xs sm:text-sm text-[#52685a] max-w-md mx-auto mt-2 mb-8">
           Explore our collection of acclimatized live plants, designer ceramic pots, organic fertilizers, and botanical styling accessories.
         </p>
         <Link
           href="/shop"
-          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#14402a] text-white text-xs sm:text-sm font-bold hover:bg-[#1b5539] transition-all shadow-md"
+          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#38b000] text-white text-xs sm:text-sm font-bold hover:bg-[#2e9900] transition-all shadow-md"
         >
           <span>Continue Shopping</span>
           <ArrowRight className="w-4 h-4" />
@@ -65,7 +65,7 @@ export default function FullCartPage() {
       
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#14402a]">
+        <h1 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#38b000]">
           Your Shopping Bag ({getItemsCount()})
         </h1>
         <p className="text-xs sm:text-sm text-[#52685a] mt-1">
@@ -102,7 +102,7 @@ export default function FullCartPage() {
                     <div>
                       <Link
                         href={`/product/${product.slug}`}
-                        className="text-sm font-bold text-[#172b21] hover:text-[#14402a] line-clamp-2"
+                        className="text-sm font-bold text-[#172b21] hover:text-[#38b000] line-clamp-2"
                       >
                         {product.name}
                       </Link>
@@ -123,7 +123,7 @@ export default function FullCartPage() {
                       <button
                         type="button"
                         onClick={() => updateQuantity(product.id, quantity - 1)}
-                        className="px-2.5 py-1 text-[#14402a] hover:bg-[#f4f7f2]"
+                        className="px-2.5 py-1 text-[#38b000] hover:bg-[#f4f7f2]"
                       >
                         <Minus className="w-3 h-3" />
                       </button>
@@ -131,13 +131,13 @@ export default function FullCartPage() {
                       <button
                         type="button"
                         onClick={() => updateQuantity(product.id, quantity + 1)}
-                        className="px-2.5 py-1 text-[#14402a] hover:bg-[#f4f7f2]"
+                        className="px-2.5 py-1 text-[#38b000] hover:bg-[#f4f7f2]"
                       >
                         <Plus className="w-3 h-3" />
                       </button>
                     </div>
 
-                    <span className="text-sm font-bold text-[#14402a] min-w-[90px] text-right">
+                    <span className="text-sm font-bold text-[#38b000] min-w-[90px] text-right">
                       {formatPKR(effectivePrice * quantity)}
                     </span>
 
@@ -157,7 +157,7 @@ export default function FullCartPage() {
           <div className="pt-4 border-t border-[#f0f4ee] flex items-center justify-between">
             <Link
               href="/shop"
-              className="text-xs font-bold text-[#14402a] hover:underline"
+              className="text-xs font-bold text-[#38b000] hover:underline"
             >
               &larr; Add more plants or decor
             </Link>
@@ -173,14 +173,14 @@ export default function FullCartPage() {
 
         {/* Order Summary Column (4 cols) */}
         <div className="lg:col-span-4 bg-white rounded-3xl p-6 sm:p-8 border border-[#e5ece3] shadow-md space-y-6 sticky top-24">
-          <h3 className="text-base font-serif font-bold text-[#14402a] pb-4 border-b border-[#f0f4ee]">
+          <h3 className="text-base font-serif font-bold text-[#38b000] pb-4 border-b border-[#f0f4ee]">
             Order Summary
           </h3>
 
           {/* Promo code */}
           <div>
             {promoCode ? (
-              <div className="flex items-center justify-between p-3 rounded-2xl bg-[#eaf0e7] text-xs font-semibold text-[#14402a]">
+              <div className="flex items-center justify-between p-3 rounded-2xl bg-[#eaf0e7] text-xs font-semibold text-[#38b000]">
                 <span>Applied: {promoCode}</span>
                 <button
                   type="button"
@@ -197,11 +197,11 @@ export default function FullCartPage() {
                   placeholder="Coupon code"
                   value={couponInput}
                   onChange={(e) => setCouponInput(e.target.value)}
-                  className="flex-1 px-3 py-2 rounded-xl border border-[#d6e2d3] text-xs uppercase focus:ring-2 focus:ring-[#14402a]"
+                  className="flex-1 px-3 py-2 rounded-xl border border-[#d6e2d3] text-xs uppercase focus:ring-2 focus:ring-[#38b000]"
                 />
                 <button
                   type="submit"
-                  className="px-4 py-2 rounded-xl bg-[#eaf0e7] text-[#14402a] text-xs font-bold hover:bg-[#d8e5d4]"
+                  className="px-4 py-2 rounded-xl bg-[#eaf0e7] text-[#38b000] text-xs font-bold hover:bg-[#d8e5d4]"
                 >
                   Apply
                 </button>
@@ -232,7 +232,7 @@ export default function FullCartPage() {
                 {shipping === 0 ? <span className="text-emerald-700 uppercase font-bold">FREE</span> : formatPKR(shipping)}
               </span>
             </div>
-            <div className="flex justify-between text-base font-bold text-[#14402a] pt-3 border-t border-[#f0f4ee]">
+            <div className="flex justify-between text-base font-bold text-[#38b000] pt-3 border-t border-[#f0f4ee]">
               <span>Grand Total</span>
               <span>{formatPKR(total)}</span>
             </div>
@@ -240,7 +240,7 @@ export default function FullCartPage() {
 
           <Link
             href="/checkout"
-            className="w-full py-4 rounded-2xl bg-[#14402a] text-white text-xs sm:text-sm font-bold hover:bg-[#1b5539] transition-all shadow-lg flex items-center justify-center gap-2"
+            className="w-full py-4 rounded-2xl bg-[#38b000] text-white text-xs sm:text-sm font-bold hover:bg-[#2e9900] transition-all shadow-lg flex items-center justify-center gap-2"
           >
             <span>Proceed to Checkout</span>
             <ArrowRight className="w-4 h-4" />

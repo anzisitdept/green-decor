@@ -23,7 +23,7 @@ export default function OrdersHistoryPage() {
     <div className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#14402a]">
+        <h1 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#38b000]">
           Your Orders & Tracking
         </h1>
         <p className="text-xs sm:text-sm text-[#52685a] mt-1">
@@ -33,16 +33,16 @@ export default function OrdersHistoryPage() {
 
       {orders.length === 0 ? (
         <div className="bg-white rounded-3xl p-12 text-center border border-[#e5ece3] shadow-sm max-w-xl mx-auto space-y-4">
-          <div className="w-16 h-16 rounded-full bg-[#f4f7f2] flex items-center justify-center text-[#14402a] mx-auto">
+          <div className="w-16 h-16 rounded-full bg-[#f4f7f2] flex items-center justify-center text-[#38b000] mx-auto">
             <Package className="w-8 h-8 opacity-40" />
           </div>
-          <h3 className="font-serif font-bold text-xl text-[#14402a]">No Orders Yet</h3>
+          <h3 className="font-serif font-bold text-xl text-[#38b000]">No Orders Yet</h3>
           <p className="text-xs text-[#52685a]">
             You have not placed any orders yet. Start your botanical journey with our curated plants.
           </p>
           <Link
             href="/shop"
-            className="inline-block px-6 py-3 rounded-full bg-[#14402a] text-white text-xs font-bold hover:bg-[#1b5539] transition-colors"
+            className="inline-block px-6 py-3 rounded-full bg-[#38b000] text-white text-xs font-bold hover:bg-[#2e9900] transition-colors"
           >
             Explore Shop
           </Link>
@@ -58,7 +58,7 @@ export default function OrdersHistoryPage() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#f0f4ee]">
                 <div>
                   <div className="flex items-center gap-3">
-                    <span className="font-serif font-bold text-lg text-[#14402a]">
+                    <span className="font-serif font-bold text-lg text-[#38b000]">
                       Order #{order.id}
                     </span>
                     <span
@@ -75,12 +75,12 @@ export default function OrdersHistoryPage() {
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <span className="text-base font-extrabold text-[#14402a]">
+                  <span className="text-base font-extrabold text-[#38b000]">
                     {formatPKR(order.total)}
                   </span>
                   <Link
                     href={`/orders/${order.id}`}
-                    className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-[#eaf0e7] text-[#14402a] text-xs font-bold hover:bg-[#d8e5d4] transition-colors"
+                    className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-[#eaf0e7] text-[#38b000] text-xs font-bold hover:bg-[#d8e5d4] transition-colors"
                   >
                     <Eye className="w-3.5 h-3.5" />
                     <span>Track Order</span>
@@ -116,10 +116,10 @@ export default function OrdersHistoryPage() {
               {/* Delivery destination snippet */}
               <div className="flex items-center justify-between text-xs text-[#52685a] pt-2">
                 <div className="flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-[#14402a]" />
+                  <MapPin className="w-4 h-4 text-[#38b000]" />
                   <span>Delivering to <strong>{order.shippingAddress.fullName}</strong> in <strong>{order.shippingAddress.city}</strong></span>
                 </div>
-                <span className="text-[11px] text-[#14402a] font-semibold uppercase">
+                <span className="text-[11px] text-[#38b000] font-semibold uppercase">
                   Payment: {order.paymentMethod.toUpperCase()}
                 </span>
               </div>

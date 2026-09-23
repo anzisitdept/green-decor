@@ -32,9 +32,9 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
   if (!order) {
     return (
       <div className="py-20 px-4 max-w-7xl mx-auto text-center">
-        <h2 className="text-2xl font-serif font-bold text-[#14402a]">Order #{orderId} Not Found</h2>
+        <h2 className="text-2xl font-serif font-bold text-[#38b000]">Order #{orderId} Not Found</h2>
         <p className="text-xs text-[#52685a] mt-2 mb-6">We could not locate this order in our system.</p>
-        <Link href="/orders" className="px-6 py-3 rounded-full bg-[#14402a] text-white text-xs font-bold">
+        <Link href="/orders" className="px-6 py-3 rounded-full bg-[#38b000] text-white text-xs font-bold">
           View All Orders
         </Link>
       </div>
@@ -64,13 +64,13 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
         <div>
           <Link
             href="/orders"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#52685a] hover:text-[#14402a] mb-2"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#52685a] hover:text-[#38b000] mb-2"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to All Orders</span>
           </Link>
           <div className="flex items-center gap-3">
-            <h1 className="text-2xl sm:text-3xl font-serif font-extrabold text-[#14402a]">
+            <h1 className="text-2xl sm:text-3xl font-serif font-extrabold text-[#38b000]">
               Order #{order.id}
             </h1>
             <span className="text-xs font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">
@@ -87,7 +87,7 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
           <button
             type="button"
             onClick={() => window.print()}
-            className="px-4 py-2.5 rounded-xl border border-[#d6e2d3] bg-white text-xs font-bold text-[#14402a] hover:bg-[#f4f7f2] transition-colors flex items-center gap-1.5 shadow-xs"
+            className="px-4 py-2.5 rounded-xl border border-[#d6e2d3] bg-white text-xs font-bold text-[#38b000] hover:bg-[#f4f7f2] transition-colors flex items-center gap-1.5 shadow-xs"
           >
             <Printer className="w-4 h-4" />
             <span>Print Receipt</span>
@@ -96,7 +96,7 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2.5 rounded-xl bg-[#14402a] text-white text-xs font-bold hover:bg-[#1b5539] transition-colors flex items-center gap-1.5 shadow-xs"
+            className="px-4 py-2.5 rounded-xl bg-[#38b000] text-white text-xs font-bold hover:bg-[#2e9900] transition-colors flex items-center gap-1.5 shadow-xs"
           >
             <MessageCircle className="w-4 h-4" />
             <span>WhatsApp Support</span>
@@ -106,7 +106,7 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
 
       {/* Visual Tracking Stepper */}
       <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#e5ece3] shadow-md mb-8">
-        <h3 className="text-base font-serif font-bold text-[#14402a] mb-8 pb-3 border-b border-[#f0f4ee]">
+        <h3 className="text-base font-serif font-bold text-[#38b000] mb-8 pb-3 border-b border-[#f0f4ee]">
           Live Delivery Status Timeline
         </h3>
 
@@ -121,7 +121,7 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs shrink-0 transition-all z-10 ${
                     isCompleted
-                      ? 'bg-[#14402a] text-white ring-4 ring-[#eaf0e7]'
+                      ? 'bg-[#38b000] text-white ring-4 ring-[#eaf0e7]'
                       : 'bg-[#f4f7f2] text-gray-400 border border-[#d6e2d3]'
                   }`}
                 >
@@ -131,7 +131,7 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
                 <div>
                   <h4
                     className={`text-xs font-bold ${
-                      isCurrent ? 'text-[#14402a]' : isCompleted ? 'text-[#172b21]' : 'text-gray-400'
+                      isCurrent ? 'text-[#38b000]' : isCompleted ? 'text-[#172b21]' : 'text-gray-400'
                     }`}
                   >
                     {step.label}
@@ -150,7 +150,7 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
             <div key={idx} className="flex items-start gap-2.5 text-xs text-[#2a3f33]">
               <span className="w-2 h-2 rounded-full bg-emerald-600 mt-1.5 shrink-0" />
               <div>
-                <span className="font-semibold text-[#14402a]">
+                <span className="font-semibold text-[#38b000]">
                   {new Date(hist.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}:
                 </span>{' '}
                 <span>{hist.note}</span>
@@ -164,7 +164,7 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
         
         {/* Itemized Invoice (7 cols) */}
         <div className="md:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-[#e5ece3] shadow-md space-y-4">
-          <h3 className="text-base font-serif font-bold text-[#14402a] pb-3 border-b border-[#f0f4ee]">
+          <h3 className="text-base font-serif font-bold text-[#38b000] pb-3 border-b border-[#f0f4ee]">
             Ordered Items ({order.items.length})
           </h3>
 
@@ -190,7 +190,7 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
                     </div>
                   </div>
 
-                  <span className="text-xs font-bold text-[#14402a]">
+                  <span className="text-xs font-bold text-[#38b000]">
                     {formatPKR(effectivePrice * quantity)}
                   </span>
                 </div>
@@ -215,7 +215,7 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
                 {order.shippingFee === 0 ? 'FREE' : formatPKR(order.shippingFee)}
               </span>
             </div>
-            <div className="flex justify-between text-base font-serif font-bold text-[#14402a] pt-2 border-t border-[#f0f4ee]">
+            <div className="flex justify-between text-base font-serif font-bold text-[#38b000] pt-2 border-t border-[#f0f4ee]">
               <span>Grand Total</span>
               <span>{formatPKR(order.total)}</span>
             </div>
@@ -225,11 +225,11 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
         {/* Shipping & Payment Info (5 cols) */}
         <div className="md:col-span-5 space-y-6">
           <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e5ece3] shadow-md space-y-4">
-            <h3 className="text-base font-serif font-bold text-[#14402a] pb-3 border-b border-[#f0f4ee]">
+            <h3 className="text-base font-serif font-bold text-[#38b000] pb-3 border-b border-[#f0f4ee]">
               Delivery Destination
             </h3>
             <div className="text-xs text-[#384c3f] space-y-1.5">
-              <p className="font-bold text-sm text-[#14402a]">{order.shippingAddress.fullName}</p>
+              <p className="font-bold text-sm text-[#38b000]">{order.shippingAddress.fullName}</p>
               <p>{order.shippingAddress.streetAddress}</p>
               <p>{order.shippingAddress.city}, {order.shippingAddress.province}</p>
               <p className="text-[#52685a]">Phone: {order.shippingAddress.phone}</p>
@@ -243,7 +243,7 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
           </div>
 
           <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e5ece3] shadow-md space-y-3">
-            <h3 className="text-base font-serif font-bold text-[#14402a] pb-3 border-b border-[#f0f4ee]">
+            <h3 className="text-base font-serif font-bold text-[#38b000] pb-3 border-b border-[#f0f4ee]">
               Payment Summary
             </h3>
             <div className="text-xs text-[#384c3f] space-y-2">

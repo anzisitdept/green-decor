@@ -1,75 +1,50 @@
-'use client';
-
 import React from 'react';
-import { Leaf, Users, Globe2, Heart } from 'lucide-react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowRight } from 'lucide-react';
 
 export default function PurposeSection() {
-  const pillars = [
-    {
-      icon: <Leaf className="w-5 h-5 text-[#14402a]" />,
-      label: 'Healthy Living',
-    },
-    {
-      icon: <Users className="w-5 h-5 text-[#14402a]" />,
-      label: 'Better Communities',
-    },
-    {
-      icon: <Globe2 className="w-5 h-5 text-[#14402a]" />,
-      label: 'Sustainable Pakistan',
-    },
-    {
-      icon: <Heart className="w-5 h-5 text-[#14402a]" />,
-      label: 'A Greener Tomorrow',
-    },
-  ];
-
   return (
-    <section className="pt-0 pb-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white">
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e5ece3] shadow-xs">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          
-          {/* Left: Our Purpose & Subcopy (4 cols) */}
-          <div className="lg:col-span-4 space-y-2">
-            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#556b5d]">
-              OUR PURPOSE
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-serif font-extrabold text-[#14402a] leading-tight">
-              Greener Spaces <br />
-              Happier Communities
-            </h2>
-            <p className="text-xs text-[#4a5f52] leading-relaxed">
-              We create green environments that inspire, relax and bring people closer to nature.
-            </p>
-          </div>
+    <section className="relative w-full bg-white overflow-hidden">
+      <div className="relative lg:h-[600px]">
 
-          {/* Center: 4 Circular Pillars (4 cols) */}
-          <div className="lg:col-span-5 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-            {pillars.map((item, idx) => (
-              <div key={idx} className="flex flex-col items-center space-y-2">
-                <div className="w-12 h-12 rounded-full bg-[#f8faf7] shadow-xs border border-[#e5ece3] flex items-center justify-center hover:scale-105 transition-transform">
-                  {item.icon}
-                </div>
-                <span className="text-xs font-semibold text-[#172b21] leading-snug">
-                  {item.label}
-                </span>
-              </div>
-            ))}
+        {/* Left content zone — dark green diagonal band (stacked on top for mobile) */}
+        <div className="relative z-10 bg-[#0d3b2e] text-white px-6 sm:px-10 lg:pl-10 lg:pr-20 py-12 sm:py-14 lg:py-0 lg:h-full lg:absolute lg:inset-0 lg:flex flex-col justify-center lg:[clip-path:polygon(0_0,58%_0,68%_100%,0_100%)]">
+          <span className="text-sm font-bold text-[#8bc34a] tracking-wide uppercase">
+            You think it and we can make it!
+          </span>
+          <h2 className="font-sans font-extrabold text-4xl sm:text-5xl text-white leading-[1.1] mt-3">
+            Unique Planters &amp; Pots
+          </h2>
+          <p className="text-[#f0f3ee] text-sm sm:text-base leading-relaxed mt-4 max-w-[500px]">
+            From hand-thrown terracotta to bespoke concrete and branded corporate planters,
+            every piece is crafted to your vision. We design, cast and deliver planters that
+            turn any corner into a statement.
+          </p>
+          <div className="mt-7">
+            <Link
+              href="/shop?category=home-decor"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#8bc34a] text-[#0d3b2e] text-sm font-bold hover:bg-[#9ccc65] transition-colors group"
+            >
+              <span>More About Planters</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
-
-          {/* Right: Handwritten Quote Box (3 cols) */}
-          <div className="lg:col-span-3 bg-[#f8faf7] rounded-2xl p-5 border border-[#e5ece3] flex flex-col justify-between shadow-xs relative">
-            <span className="text-2xl font-serif text-[#14402a] font-bold leading-none select-none">
-              “
-            </span>
-            <p className="font-script text-lg sm:text-xl text-[#14402a] leading-tight my-2">
-              Nature is not a place to visit, it is a home to create.
-            </p>
-            <div className="flex justify-end">
-              <span className="text-xl">🍃</span>
-            </div>
-          </div>
-
         </div>
+
+        {/* Right image zone — full-bleed photo behind the diagonal (below the green on mobile) */}
+        <div className="relative w-full h-[300px] sm:h-[360px] lg:absolute lg:inset-0 lg:h-full">
+          <Image
+            src="https://images.unsplash.com/photo-1592150621744-aca64f48394a?auto=format&fit=crop&w=1400&q=80"
+            alt="Modern interior styling with tall green planters"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          {/* thin light-gray vertical strip at the far right edge */}
+          <div aria-hidden="true" className="hidden lg:block absolute inset-y-0 right-0 w-1 bg-[#d8dbdc]" />
+        </div>
+
       </div>
     </section>
   );

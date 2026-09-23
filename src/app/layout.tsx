@@ -7,6 +7,7 @@ import CartDrawer from '@/components/cart/CartDrawer';
 import SearchModal from '@/components/search/SearchModal';
 import QuickViewModal from '@/components/product/QuickViewModal';
 import ToastNotification from '@/components/common/ToastNotification';
+import WelcomePopup from '@/components/common/WelcomePopup';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -43,18 +44,19 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${jakarta.variable} ${scriptFont.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-white text-[#172b21] selection:bg-[#14402a] selection:text-white">
+      <body className="min-h-full flex flex-col bg-white text-[#172b21] selection:bg-[#38b000] selection:text-white">
         <Navbar />
         <div className="flex-1">
           {children}
         </div>
-        {/* <Footer /> */}
+        <Footer />
 
         {/* Global Modals, Drawers & Notifications */}
         <CartDrawer />
         <SearchModal />
         <QuickViewModal />
         <ToastNotification />
+        <WelcomePopup />
       </body>
     </html>
   );

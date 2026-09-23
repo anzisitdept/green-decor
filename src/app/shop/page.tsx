@@ -131,13 +131,13 @@ function ShopContent() {
       {/* Page Header */}
       <div className="mb-8">
         <div className="flex items-center gap-2 text-xs font-semibold text-[#52685a] mb-2">
-          <Link href="/" className="hover:text-[#14402a]">Home</Link>
+          <Link href="/" className="hover:text-[#38b000]">Home</Link>
           <span>/</span>
-          <span className="text-[#14402a]">Shop Catalog</span>
+          <span className="text-[#38b000]">Shop Catalog</span>
         </div>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <h1 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#14402a]">
+            <h1 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#38b000]">
               Nursery & Green Decor Collection
             </h1>
             <p className="text-xs sm:text-sm text-[#52685a] mt-1">
@@ -150,7 +150,7 @@ function ShopContent() {
             <button
               type="button"
               onClick={() => setIsMobileFilterOpen(true)}
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-[#d6e2d3] text-xs font-bold text-[#14402a] shadow-xs"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-[#d6e2d3] text-xs font-bold text-[#38b000] shadow-xs"
             >
               <SlidersHorizontal className="w-4 h-4" />
               <span>Filters & Sort</span>
@@ -168,7 +168,7 @@ function ShopContent() {
             onClick={() => setActiveQuickTag(tag.id)}
             className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
               activeQuickTag === tag.id
-                ? 'bg-[#14402a] text-white shadow-xs'
+                ? 'bg-[#38b000] text-white shadow-xs'
                 : 'bg-white text-[#2a3f33] hover:bg-[#eaf0e7] border border-[#e5ece3]'
             }`}
           >
@@ -182,7 +182,7 @@ function ShopContent() {
         {/* Desktop Filter Sidebar (plant.pk adapted) */}
         <aside className="hidden lg:block lg:col-span-1 bg-white rounded-3xl p-6 border border-[#e5ece3] shadow-sm space-y-6 sticky top-24">
           <div className="flex items-center justify-between pb-4 border-b border-[#f0f4ee]">
-            <h3 className="text-sm font-bold font-serif text-[#14402a] flex items-center gap-2">
+            <h3 className="text-sm font-bold font-serif text-[#38b000] flex items-center gap-2">
               <SlidersHorizontal className="w-4 h-4" />
               <span>Filter Catalog</span>
             </h3>
@@ -209,7 +209,7 @@ function ShopContent() {
                 placeholder="e.g. Monstera, Terracotta..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#14402a] focus:outline-none"
+                className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#38b000] focus:outline-none"
               />
             </div>
           </div>
@@ -231,13 +231,13 @@ function ShopContent() {
                     onClick={() => setSelectedCategory(cat.id)}
                     className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-colors ${
                       selectedCategory === cat.id
-                        ? 'bg-[#14402a] text-white font-bold'
+                        ? 'bg-[#38b000] text-white font-bold'
                         : 'text-[#2a3f33] hover:bg-[#f4f7f2]'
                     }`}
                   >
                     <span>{cat.label}</span>
                     <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                      selectedCategory === cat.id ? 'bg-white/20 text-white' : 'bg-[#eaf0e7] text-[#14402a]'
+                      selectedCategory === cat.id ? 'bg-white/20 text-white' : 'bg-[#eaf0e7] text-[#38b000]'
                     }`}>
                       {count}
                     </span>
@@ -253,7 +253,7 @@ function ShopContent() {
               <label className="text-xs font-bold text-[#172b21] uppercase tracking-wider">
                 Max Price
               </label>
-              <span className="text-xs font-bold text-[#14402a]">
+              <span className="text-xs font-bold text-[#38b000]">
                 {formatPKR(maxPrice)}
               </span>
             </div>
@@ -264,7 +264,7 @@ function ShopContent() {
               step="500"
               value={maxPrice}
               onChange={(e) => setMaxPrice(Number(e.target.value))}
-              className="w-full accent-[#14402a] cursor-pointer"
+              className="w-full accent-[#38b000] cursor-pointer"
             />
             <div className="flex justify-between text-[10px] text-gray-400 mt-1">
               <span>PKR 500</span>
@@ -280,7 +280,7 @@ function ShopContent() {
                 type="checkbox"
                 checked={inStockOnly}
                 onChange={(e) => setInStockOnly(e.target.checked)}
-                className="w-4 h-4 rounded text-[#14402a] accent-[#14402a] cursor-pointer"
+                className="w-4 h-4 rounded text-[#38b000] accent-[#38b000] cursor-pointer"
               />
             </label>
           </div>
@@ -298,7 +298,7 @@ function ShopContent() {
                   onClick={() => setMinRating(minRating === stars ? 0 : stars)}
                   className={`w-full flex items-center justify-between px-3 py-1.5 rounded-lg text-xs transition-colors ${
                     minRating === stars
-                      ? 'bg-[#eaf0e7] text-[#14402a] font-bold border border-[#c8d9c5]'
+                      ? 'bg-[#eaf0e7] text-[#38b000] font-bold border border-[#c8d9c5]'
                       : 'hover:bg-[#f8faf7] text-[#52685a]'
                   }`}
                 >
@@ -311,7 +311,7 @@ function ShopContent() {
                     ))}
                     <span className="text-[#172b21] ml-1.5">& Up</span>
                   </div>
-                  {minRating === stars && <Check className="w-3.5 h-3.5 text-[#14402a]" />}
+                  {minRating === stars && <Check className="w-3.5 h-3.5 text-[#38b000]" />}
                 </button>
               ))}
             </div>
@@ -325,7 +325,7 @@ function ShopContent() {
           {/* Top Bar: Count & Sorting */}
           <div className="bg-white rounded-2xl p-4 border border-[#e5ece3] flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
             <div className="text-xs text-[#52685a]">
-              Showing <strong className="text-[#14402a]">{filteredProducts.length}</strong> of <strong>{productsData.length}</strong> products
+              Showing <strong className="text-[#38b000]">{filteredProducts.length}</strong> of <strong>{productsData.length}</strong> products
               {selectedCategory !== 'all' && (
                 <span> in <strong className="text-[#d47343]">{categories.find(c => c.id === selectedCategory)?.label}</strong></span>
               )}
@@ -336,7 +336,7 @@ function ShopContent() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="px-3 py-1.5 rounded-xl border border-[#d6e2d3] text-xs font-semibold text-[#14402a] bg-white focus:outline-none focus:ring-2 focus:ring-[#14402a]"
+                className="px-3 py-1.5 rounded-xl border border-[#d6e2d3] text-xs font-semibold text-[#38b000] bg-white focus:outline-none focus:ring-2 focus:ring-[#38b000]"
               >
                 <option value="featured">Featured & Recommended</option>
                 <option value="price-asc">Price: Low to High</option>
@@ -356,17 +356,17 @@ function ShopContent() {
             </div>
           ) : (
             <div className="bg-white rounded-3xl p-12 text-center border border-[#e5ece3] space-y-4">
-              <div className="w-16 h-16 rounded-full bg-[#f4f7f2] flex items-center justify-center text-[#14402a] mx-auto">
+              <div className="w-16 h-16 rounded-full bg-[#f4f7f2] flex items-center justify-center text-[#38b000] mx-auto">
                 <ShoppingBag className="w-8 h-8 opacity-40" />
               </div>
-              <h3 className="font-serif font-bold text-xl text-[#14402a]">No Products Matched</h3>
+              <h3 className="font-serif font-bold text-xl text-[#38b000]">No Products Matched</h3>
               <p className="text-xs text-[#52685a] max-w-sm mx-auto">
                 No items match your active filters. Try clearing your search term or adjusting the price threshold.
               </p>
               <button
                 type="button"
                 onClick={resetFilters}
-                className="px-6 py-2.5 rounded-full bg-[#14402a] text-white text-xs font-bold hover:bg-[#1b5539] transition-colors"
+                className="px-6 py-2.5 rounded-full bg-[#38b000] text-white text-xs font-bold hover:bg-[#2e9900] transition-colors"
               >
                 Reset All Filters
               </button>
@@ -387,7 +387,7 @@ function ShopContent() {
           <div className="fixed inset-y-0 right-0 max-w-xs w-full bg-white p-6 shadow-2xl flex flex-col justify-between overflow-y-auto animate-in slide-in-from-right">
             <div>
               <div className="flex items-center justify-between pb-4 border-b border-[#f0f4ee]">
-                <h3 className="font-serif font-bold text-base text-[#14402a]">Filters & Sort</h3>
+                <h3 className="font-serif font-bold text-base text-[#38b000]">Filters & Sort</h3>
                 <button
                   type="button"
                   onClick={() => setIsMobileFilterOpen(false)}
@@ -410,7 +410,7 @@ function ShopContent() {
                         setIsMobileFilterOpen(false);
                       }}
                       className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium ${
-                        selectedCategory === cat.id ? 'bg-[#14402a] text-white font-bold' : 'text-[#2a3f33]'
+                        selectedCategory === cat.id ? 'bg-[#38b000] text-white font-bold' : 'text-[#2a3f33]'
                       }`}
                     >
                       {cat.label}
@@ -432,7 +432,7 @@ function ShopContent() {
                   step="500"
                   value={maxPrice}
                   onChange={(e) => setMaxPrice(Number(e.target.value))}
-                  className="w-full accent-[#14402a]"
+                  className="w-full accent-[#38b000]"
                 />
               </div>
             </div>
@@ -441,7 +441,7 @@ function ShopContent() {
               <button
                 type="button"
                 onClick={() => setIsMobileFilterOpen(false)}
-                className="w-full py-3 rounded-xl bg-[#14402a] text-white text-xs font-bold"
+                className="w-full py-3 rounded-xl bg-[#38b000] text-white text-xs font-bold"
               >
                 Apply Filters ({filteredProducts.length} results)
               </button>
@@ -467,7 +467,7 @@ function ShopContent() {
 export default function ShopPage() {
   return (
     <Suspense fallback={
-      <div className="py-24 text-center text-[#14402a] font-serif font-bold text-lg">
+      <div className="py-24 text-center text-[#38b000] font-serif font-bold text-lg">
         Loading Green Decor Catalog...
       </div>
     }>

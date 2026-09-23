@@ -82,101 +82,115 @@ export default function GalleryPage() {
   ];
 
   return (
-    <div className="py-8 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      {/* Header */}
-      <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-        <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.25em] text-[#52685a]">
-          DESIGN INSPIRATION & PORTFOLIO
-        </span>
-        <h1 className="text-3xl sm:text-5xl font-serif font-extrabold text-[#14402a]">
-          Our Green Creations
-        </h1>
-        <p className="text-xs sm:text-sm text-[#4a5f52]">
-          A curated visual showcase of landscape architecture, patio sanctuaries, and biophilic interior setups completed across Pakistan.
-        </p>
-      </div>
+    <div className="w-full bg-white">
+      {/* Hero — full-bleed image, dark green overlay, centered heading, wavy divider */}
+      <section className="relative w-full h-[70vh] min-h-[440px] sm:h-[78vh] lg:h-[80vh] overflow-hidden bg-[#0d3b2e]">
+        <Image
+          src="/gallery-hero.jfif"
+          alt="Green Decor gallery of our green creations"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-[#0d3b2e]/45 to-[#0d3b2e]/75" />
+        <div className="relative z-10 h-full flex items-center justify-center px-4 text-center">
+          <h1 className="font-serif font-extrabold text-white text-5xl md:text-7xl tracking-tight">
+
+          </h1>
+        </div>
+        {/* Wavy divider into white page background */}
+        <svg
+          viewBox="0 0 1440 90"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          className="absolute bottom-0 left-0 w-full h-10 sm:h-14 lg:h-20"
+        >
+          <path d="M0,50 C180,86 420,88 720,62 C1020,36 1260,44 1440,70 L1440,90 L0,90 Z" fill="#ffffff" />
+        </svg>
+      </section>
 
       {/* Filter Tabs */}
-      <div className="flex items-center justify-center gap-2 overflow-x-auto pb-6 mb-8 scrollbar-none">
-        {filters.map((f) => (
-          <button
-            key={f.id}
-            type="button"
-            onClick={() => setActiveFilter(f.id)}
-            className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
-              activeFilter === f.id
-                ? 'bg-[#14402a] text-white shadow-md'
-                : 'bg-white text-[#2a3f33] hover:bg-[#eaf0e7] border border-[#e5ece3]'
-            }`}
-          >
-            {f.label}
-          </button>
-        ))}
-      </div>
-
-      {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filtered.map((item) => (
-          <div
-            key={item.id}
-            onClick={() => setSelectedPhoto(item)}
-            className="group relative aspect-[4/3] rounded-3xl overflow-hidden bg-[#eaf0e7] cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300"
-          >
-            <Image
-              src={item.imageUrl}
-              alt={item.title}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
-
-            {/* Overlay Info */}
-            <div className="absolute inset-0 p-6 flex flex-col justify-end text-white space-y-1">
-              <div className="flex items-center gap-1.5 text-[10px] text-[#fec89a] font-semibold">
-                <MapPin className="w-3 h-3" />
-                <span>{item.location}</span>
-              </div>
-              <h3 className="font-serif font-bold text-base sm:text-lg leading-snug text-white">
-                {item.title}
-              </h3>
-              <p className="text-xs text-[#d0ded6] line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {item.description}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Photo Modal */}
-      {selectedPhoto && (
-        <div className="fixed inset-0 z-50 p-4 sm:p-8 flex items-center justify-center bg-black/80 backdrop-blur-sm">
-          <div className="relative max-w-4xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl">
+      <div className="max-w-7xl mx-auto py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-center gap-2 overflow-x-auto pb-6 mb-8 scrollbar-none">
+          {filters.map((f) => (
             <button
+              key={f.id}
               type="button"
-              onClick={() => setSelectedPhoto(null)}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/50 text-white hover:bg-black/70"
+              onClick={() => setActiveFilter(f.id)}
+              className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${activeFilter === f.id
+                ? 'bg-[#38b000] text-white shadow-md'
+                : 'bg-white text-[#2a3f33] hover:bg-[#eaf0e7] border border-[#e5ece3]'
+                }`}
             >
-              <X className="w-5 h-5" />
+              {f.label}
             </button>
-            <div className="relative aspect-[16/9] w-full bg-black">
+          ))}
+        </div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filtered.map((item) => (
+            <div
+              key={item.id}
+              onClick={() => setSelectedPhoto(item)}
+              className="group relative aspect-[4/3] rounded-3xl overflow-hidden bg-[#eaf0e7] cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300"
+            >
               <Image
-                src={selectedPhoto.imageUrl}
-                alt={selectedPhoto.title}
+                src={item.imageUrl}
+                alt={item.title}
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
-            </div>
-            <div className="p-6 sm:p-8 space-y-2 bg-[#fbfcf9]">
-              <div className="flex items-center gap-2 text-xs font-bold text-[#d47343]">
-                <MapPin className="w-3.5 h-3.5" />
-                <span>{selectedPhoto.location}</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
+
+              {/* Overlay Info */}
+              <div className="absolute inset-0 p-6 flex flex-col justify-end text-white space-y-1">
+                <div className="flex items-center gap-1.5 text-[10px] text-[#fec89a] font-semibold">
+                  <MapPin className="w-3 h-3" />
+                  <span>{item.location}</span>
+                </div>
+                <h3 className="font-serif font-bold text-base sm:text-lg leading-snug text-white">
+                  {item.title}
+                </h3>
+                <p className="text-xs text-[#d0ded6] line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {item.description}
+                </p>
               </div>
-              <h3 className="text-xl font-serif font-bold text-[#14402a]">{selectedPhoto.title}</h3>
-              <p className="text-xs sm:text-sm text-[#52685a] leading-relaxed">{selectedPhoto.description}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Photo Modal */}
+        {selectedPhoto && (
+          <div className="fixed inset-0 z-50 p-4 sm:p-8 flex items-center justify-center bg-black/80 backdrop-blur-sm">
+            <div className="relative max-w-4xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl">
+              <button
+                type="button"
+                onClick={() => setSelectedPhoto(null)}
+                className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/50 text-white hover:bg-black/70"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              <div className="relative aspect-[16/9] w-full bg-black">
+                <Image
+                  src={selectedPhoto.imageUrl}
+                  alt={selectedPhoto.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6 sm:p-8 space-y-2 bg-[#fbfcf9]">
+                <div className="flex items-center gap-2 text-xs font-bold text-[#d47343]">
+                  <MapPin className="w-3.5 h-3.5" />
+                  <span>{selectedPhoto.location}</span>
+                </div>
+                <h3 className="text-xl font-serif font-bold text-[#38b000]">{selectedPhoto.title}</h3>
+                <p className="text-xs sm:text-sm text-[#52685a] leading-relaxed">{selectedPhoto.description}</p>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

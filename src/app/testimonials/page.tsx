@@ -1,71 +1,160 @@
 import React from 'react';
 import Image from 'next/image';
-import { Star, CheckCircle2, Quote, MapPin } from 'lucide-react';
+import { Star, CheckCircle2, PenLine } from 'lucide-react';
 import { testimonialsData } from '@/lib/data/testimonials';
+import ReviewSubmissionForm from '@/components/reviews/ReviewSubmissionForm';
+import LiveReviews from '@/components/reviews/LiveReviews';
 
 export const metadata = {
-  title: 'Customer Testimonials — Green Decor Pakistan | Reviews & Ratings',
-  description: 'Read genuine reviews from homeowners, interior designers, and corporate clients across Lahore, Karachi, and Islamabad.',
+  title: 'Verified Customer Reviews — Green Decor Pakistan',
+  description: 'Read genuine verified buyer reviews from plant lovers, homeowners, and businesses across Pakistan.',
 };
 
 export default function TestimonialsPage() {
   return (
-    <div className="py-8 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
-      {/* Header */}
-      <div className="text-center max-w-3xl mx-auto space-y-3">
-        <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.25em] text-[#52685a]">
-          REAL STORIES & VERIFIED RATINGS
-        </span>
-        <h1 className="text-3xl sm:text-5xl font-serif font-extrabold text-[#14402a]">
-          What Our Clients Say
-        </h1>
-        <p className="text-xs sm:text-sm text-[#4a5f52]">
-          Over 1,000 satisfied plant lovers, estates, and corporate spaces across Pakistan.
-        </p>
-      </div>
+    <div className="bg-[#f8f7f2] min-h-screen py-10 sm:py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto space-y-10">
+        
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto space-y-2">
+          <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#556b5d]">
+            VERIFIED REVIEWS
+          </span>
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-[#38b000] tracking-tight">
+            What Our Customers Say
+          </h1>
+          <p className="text-xs sm:text-sm text-[#52685a]">
+            Genuine feedback from plant lovers across Pakistan.
+          </p>
+        </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {testimonialsData.map((t) => (
-          <div
-            key={t.id}
-            className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e5ece3] shadow-md flex flex-col justify-between space-y-6 hover:shadow-xl transition-all"
-          >
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex text-amber-400">
-                  {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-amber-400" />
-                  ))}
-                </div>
-                <span className="text-[11px] font-bold text-[#d47343] bg-[#fdf3ec] px-2.5 py-0.5 rounded-full flex items-center gap-1">
-                  <MapPin className="w-3 h-3" />
-                  <span>{t.city}</span>
-                </span>
-              </div>
-
-              <p className="text-xs sm:text-sm text-[#2a3f33] leading-relaxed italic">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-            </div>
-
-            <div className="pt-4 border-t border-[#f0f4ee] flex items-center gap-3">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0 border-2 border-[#14402a]">
-                <Image src={t.photoUrl} alt={t.name} fill className="object-cover" />
-              </div>
-              <div className="min-w-0">
-                <div className="flex items-center gap-1">
-                  <h4 className="text-xs font-bold text-[#172b21]">{t.name}</h4>
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                </div>
-                <p className="text-[11px] text-[#52685a] truncate">{t.role}</p>
-                <p className="text-[10px] text-[#d47343] font-medium truncate mt-0.5">
-                  {t.serviceOrProduct}
-                </p>
-              </div>
-            </div>
+        {/* Reviews Grid */}
+        <div>
+          <div className="text-center mb-8">
+            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#556b5d]">
+              CUSTOMER STORIES
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#38b000] mt-1">
+              Featured Testimonials
+            </h2>
           </div>
-        ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {testimonialsData.map((item) => {
+            const hasImage = !!item.image;
+
+            return hasImage ? (
+              /* SPLIT CARD WITH IMAGE */
+              <div
+                key={item.id}
+                className="bg-white rounded-3xl overflow-hidden shadow-xs border border-neutral-200/60 grid grid-cols-1 sm:grid-cols-2 lg:col-span-2"
+              >
+                {/* Left Photo */}
+                <div className="relative aspect-square sm:aspect-auto h-full w-full bg-[#f2f2ee] min-h-[220px]">
+                  <Image
+                    src={item.image!}
+                    alt={item.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+
+                {/* Right Content */}
+                <div className="p-6 flex flex-col justify-between bg-white min-h-[220px]">
+                  <div>
+                    {/* 5 Centered Gold Stars */}
+                    <div className="flex justify-center text-amber-400 gap-1 mb-3">
+                      {[...Array(item.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                      ))}
+                    </div>
+
+                    {/* Quote */}
+                    <p className="text-center text-xs sm:text-sm text-neutral-700 leading-relaxed font-normal mb-6">
+                      {item.quote}
+                    </p>
+                  </div>
+
+                  {/* Footer */}
+                  <div className="flex items-center justify-between pt-4 border-t border-neutral-100 text-xs">
+                    <span className="font-bold text-neutral-900">{item.name}</span>
+                    <span className="flex items-center gap-1 font-semibold text-[#27964c] text-[11px]">
+                      <CheckCircle2 className="w-3.5 h-3.5 fill-[#27964c] text-white" />
+                      <span>Verified Buyer</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              /* TEXT-ONLY CARD */
+              <div
+                key={item.id}
+                className="bg-white rounded-3xl p-6 sm:p-7 shadow-xs border border-neutral-200/60 flex flex-col justify-between"
+              >
+                <div>
+                  {/* 5 Centered Gold Stars */}
+                  <div className="flex justify-center text-amber-400 gap-1 mb-4">
+                    {[...Array(item.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+
+                  {/* Quote */}
+                  <p className="text-center text-xs sm:text-sm text-neutral-700 leading-relaxed font-normal mb-6">
+                    {item.quote}
+                  </p>
+                </div>
+
+                {/* Footer */}
+                <div className="flex items-center justify-between pt-4 border-t border-neutral-100 text-xs">
+                  <span className="font-bold text-neutral-900">{item.name}</span>
+                  <span className="flex items-center gap-1 font-semibold text-[#27964c] text-[11px]">
+                    <CheckCircle2 className="w-3.5 h-3.5 fill-[#27964c] text-white" />
+                    <span>Verified Buyer</span>
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+          </div>
+        </div>
+
+        {/* Live Approved Reviews */}
+        <LiveReviews />
+
+        {/* Submit a Review / Private Feedback */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div className="lg:col-span-8">
+            <ReviewSubmissionForm />
+          </div>
+          <div className="lg:col-span-4 rounded-3xl bg-[#0d3b2e] text-white p-6 sm:p-8 lg:sticky lg:top-24">
+            <span className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#e8d9b5]">
+              <PenLine className="w-3.5 h-3.5" />
+              WE LISTEN
+            </span>
+            <h3 className="font-serif font-bold text-2xl mt-3 text-white">
+              Your Words Shape Our Garden
+            </h3>
+            <p className="text-xs text-[#cfe0d6] leading-relaxed mt-3">
+              Public reviews go live after a quick team review. Private feedback goes straight
+              to our team &mdash; it&rsquo;s never shown publicly, ever.
+            </p>
+            <ul className="mt-6 space-y-3 text-xs text-[#cfe0d6]">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#8bc34a] shrink-0 mt-0.5" />
+                Help other plant lovers choose with confidence
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#8bc34a] shrink-0 mt-0.5" />
+                Private feedback is read by our team every week
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#8bc34a] shrink-0 mt-0.5" />
+                No account needed &mdash; just your name and a few words
+              </li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
   );

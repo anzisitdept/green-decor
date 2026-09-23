@@ -1,152 +1,155 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Star, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { testimonialsData } from '@/lib/data/testimonials';
 
 export default function TestimonialsSection() {
-  const [startIndex, setStartIndex] = useState(0);
-  const [visibleCount, setVisibleCount] = useState(3);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const update = () => {
-      setVisibleCount(window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3);
-    };
-    update();
-    window.addEventListener('resize', update);
-    return () => window.removeEventListener('resize', update);
-  }, []);
-
-  const maxIndex = Math.max(0, testimonialsData.length - visibleCount);
-  const clampedStart = Math.min(startIndex, maxIndex);
-  const cardWidthPct = 100 / visibleCount;
-
-  const nextSlide = () => {
-    setStartIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -400, behavior: 'smooth' });
+    }
   };
 
-  const prevSlide = () => {
-    setStartIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 400, behavior: 'smooth' });
+    }
   };
 
   return (
-    <section className="py-8 lg:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white">
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-[#f8f7f2] select-none">
+      {/* Header & Navigation Arrows */}
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
         <div>
-          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#52685a]">
-            VERIFIED CUSTOMER EXPERIENCES
+          <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#556b5d]">
+            VERIFIED REVIEWS
           </span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#14402a] mt-1">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#38b000] mt-0.5 tracking-tight">
             Loved Across Pakistan
           </h2>
-          <p className="text-xs sm:text-sm text-[#52685a] mt-1">
-            See how homes, offices, and courtyards are flourishing with Green Decor.
-          </p>
         </div>
 
-        {/* Carousel buttons */}
-        <div className="flex items-center gap-2">
+        {/* Circular Green Carousel Navigation Buttons */}
+        <div className="flex items-center gap-2.5 mr-2 sm:mr-6 lg:mr-10">
           <button
             type="button"
-            onClick={prevSlide}
-            aria-label="Previous review"
-            className="p-3 rounded-full bg-white hover:bg-[#eaf0e7] text-[#14402a] border border-[#d6e2d3] shadow-xs transition-colors"
+            onClick={scrollLeft}
+            aria-label="Previous reviews"
+            className="w-10 h-10 rounded-full bg-[#528d56] hover:bg-[#3f7043] text-white flex items-center justify-center shadow-xs transition-all active:scale-95 cursor-pointer"
           >
-            <ChevronLeft className="w-4 h-4" />
+            <ChevronLeft className="w-5 h-5" />
           </button>
+
           <button
             type="button"
-            onClick={nextSlide}
-            aria-label="Next review"
-            className="p-3 rounded-full bg-white hover:bg-[#eaf0e7] text-[#14402a] border border-[#d6e2d3] shadow-xs transition-colors"
+            onClick={scrollRight}
+            aria-label="Next reviews"
+            className="w-10 h-10 rounded-full bg-[#d2e4d3] hover:bg-[#b8d6ba] text-[#245429] flex items-center justify-center shadow-xs transition-all active:scale-95 cursor-pointer"
           >
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-5 h-5" />
           </button>
         </div>
       </div>
 
-      {/* Testimonials Single-Row Carousel */}
-      <div className="overflow-hidden">
-        <div
-          className="flex transition-transform duration-500 ease-out"
-          style={{ transform: `translateX(-${clampedStart * cardWidthPct}%)` }}
-        >
-          {testimonialsData.map((item) => (
+      {/* Reviews Carousel Track */}
+      <div
+        ref={scrollRef}
+        className="flex gap-5 overflow-x-auto snap-x snap-proximity pb-4 px-1 scrollbar-none"
+      >
+        {testimonialsData.map((item) => {
+          const hasImage = !!item.image;
+
+          return (
             <div
               key={item.id}
-              className="shrink-0 px-2 first:pl-0 last:pr-0"
-              style={{ width: `${cardWidthPct}%` }}
+              className={`snap-start shrink-0 ${
+                hasImage ? 'w-[320px] sm:w-[540px]' : 'w-[280px] sm:w-[360px]'
+              }`}
             >
-              <div className="h-full bg-white rounded-3xl p-6 sm:p-7 shadow-md border border-[#e5ece3] flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
-                <div>
-                  {/* Star Rating */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex text-amber-400">
-                      {[...Array(item.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-amber-400" />
-                      ))}
-                    </div>
-                    <span className="text-[10px] font-bold text-[#d47343] bg-[#fdf3ec] px-2 py-0.5 rounded-full">
-                      {item.city}
-                    </span>
-                  </div>
-
-                  {/* Quote */}
-                  <p className="text-xs sm:text-sm text-[#2a3f33] leading-relaxed italic mb-6">
-                    &ldquo;{item.quote}&rdquo;
-                  </p>
-                </div>
-
-                {/* Author Footer */}
-                <div className="pt-4 border-t border-[#f0f4ee] flex items-center gap-3">
-                  <div className="relative w-11 h-11 rounded-full overflow-hidden shrink-0 border-2 border-[#14402a]">
+              {hasImage ? (
+                /* TYPE 2: SPLIT CARD WITH IMAGE */
+                <div className="h-full bg-white rounded-3xl overflow-hidden shadow-xs border border-neutral-200/60 grid grid-cols-1 sm:grid-cols-2">
+                  {/* Left Photo */}
+                  <div className="relative aspect-square sm:aspect-auto h-full w-full bg-[#f2f2ee] min-h-[220px]">
                     <Image
-                      src={item.photoUrl}
+                      src={item.image!}
                       alt={item.name}
                       fill
                       className="object-cover"
                     />
                   </div>
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-1">
-                      <h4 className="text-xs font-bold text-[#172b21] truncate">{item.name}</h4>
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+
+                  {/* Right Content */}
+                  <div className="p-6 flex flex-col justify-between bg-white min-h-[220px]">
+                    <div>
+                      {/* 5 Centered Gold Stars */}
+                      <div className="flex justify-center text-amber-400 gap-1 mb-3">
+                        {[...Array(item.rating)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                        ))}
+                      </div>
+
+                      {/* Quote */}
+                      <p className="text-center text-xs sm:text-sm text-neutral-700 leading-relaxed font-normal mb-6">
+                        {item.quote}
+                      </p>
                     </div>
-                    <p className="text-[11px] text-[#52685a] truncate">{item.role}</p>
-                    <p className="text-[10px] text-[#d47343] font-medium truncate mt-0.5">
-                      Project: {item.serviceOrProduct}
-                    </p>
+
+                    {/* Footer */}
+                    <div className="flex items-center justify-between pt-4 border-t border-neutral-100 text-xs">
+                      <span className="font-bold text-neutral-900">{item.name}</span>
+                      <span className="flex items-center gap-1 font-semibold text-[#27964c] text-[11px]">
+                        <CheckCircle2 className="w-3.5 h-3.5 fill-[#27964c] text-white" />
+                        <span>Verified Buyer</span>
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ) : (
+                /* TYPE 1: TEXT-ONLY CARD (NO IMAGE) */
+                <div className="h-full bg-white rounded-3xl p-6 sm:p-7 shadow-xs border border-neutral-200/60 flex flex-col justify-between">
+                  <div>
+                    {/* 5 Centered Gold Stars */}
+                    <div className="flex justify-center text-amber-400 gap-1 mb-4">
+                      {[...Array(item.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                      ))}
+                    </div>
+
+                    {/* Quote */}
+                    <p className="text-center text-xs sm:text-sm text-neutral-700 leading-relaxed font-normal mb-6">
+                      {item.quote}
+                    </p>
+                  </div>
+
+                  {/* Footer */}
+                  <div className="flex items-center justify-between pt-4 border-t border-neutral-100 text-xs">
+                    <span className="font-bold text-neutral-900">{item.name}</span>
+                    <span className="flex items-center gap-1 font-semibold text-[#27964c] text-[11px]">
+                      <CheckCircle2 className="w-3.5 h-3.5 fill-[#27964c] text-white" />
+                      <span>Verified Buyer</span>
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
 
-      {/* Dots */}
-      <div className="mt-8 flex items-center justify-center gap-1.5">
-        {Array.from({ length: maxIndex + 1 }).map((_, i) => (
-          <button
-            key={i}
-            type="button"
-            onClick={() => setStartIndex(i)}
-            aria-label={`Go to review slide ${i + 1}`}
-            className={`transition-all duration-300 rounded-full ${
-              clampedStart === i ? 'w-6 h-2 bg-[#14402a]' : 'w-2 h-2 bg-[#d6e2d3] hover:bg-[#14402a]/50'
-            }`}
-          />
-        ))}
-      </div>
-
+      {/* Link to Reviews Page */}
       <div className="mt-6 text-center">
         <Link
           href="/testimonials"
-          className="text-xs font-bold text-[#14402a] hover:text-[#d47343] hover:underline inline-flex items-center gap-1"
+          className="text-xs sm:text-sm font-bold text-[#38b000] hover:text-[#27964c] hover:underline inline-flex items-center gap-1.5"
         >
-          Read all 350+ customer reviews from Lahore, Karachi & Islamabad &rarr;
+          <span>Read all verified customer reviews</span>
+          <span>&rarr;</span>
         </Link>
       </div>
     </section>

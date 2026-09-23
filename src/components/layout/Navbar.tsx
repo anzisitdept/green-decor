@@ -25,10 +25,15 @@ export default function Navbar() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const megaMenuRef = useRef<HTMLDivElement>(null);
 
   const cartCount = useCartStore((state) => state.getItemsCount());
   const { openSearch, openLeftMenu } = useUIStore();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,36 +76,40 @@ export default function Navbar() {
             : 'bg-transparent py-4'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-4">
-            
-            {/* Left Menu Toggle + Logo Lockup matching reference design */}
+
+            {/* Left Menu Toggle */}
             <div className="flex items-center gap-2 sm:gap-3 shrink-0">
               <button
                 type="button"
                 onClick={openLeftMenu}
                 aria-label="Open menu"
-                className="relative p-2 rounded-full border border-[#d6e2d3] text-[#14402a] hover:bg-[#eaf0e7] hover:border-[#14402a] transition-colors"
+                className="relative p-2 rounded-full border border-[#d6e2d3] text-[#38b000] hover:bg-[#eaf0e7] hover:border-[#38b000] transition-colors"
               >
                 <Menu className="w-5 h-5" />
-                {cartCount > 0 && (
+                {isMounted && cartCount > 0 && (
                   <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-[#d47343] border-2 border-white text-white text-[10px] font-bold flex items-center justify-center leading-none">
                     {cartCount > 9 ? '9+' : cartCount}
                   </span>
                 )}
               </button>
-
-              <Link href="/" className="flex items-center gap-2.5 group">
-                <div className="flex flex-col min-w-0">
-                  <span className="font-serif tracking-tight font-extrabold text-xl sm:text-2xl text-[#14402a] leading-none truncate">
-                    GREEN DECOR
-                  </span>
-                  <span className="hidden sm:block text-[11px] font-medium text-[#d47343] tracking-wide mt-0.5 truncate max-w-[220px]">
-                    Bringing Nature to Every Space.
-                  </span>
-                </div>
-              </Link>
             </div>
+
+            {/* Logo Lockup (centered on mobile, left-aligned next to menu on desktop) */}
+            <Link
+              href="/"
+              className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2.5 group lg:static lg:left-auto lg:translate-x-0 lg:justify-start"
+            >
+              <div className="flex flex-col min-w-0 text-center lg:text-left">
+                <span className="font-serif tracking-tight font-extrabold text-xl sm:text-2xl text-[#38b000] leading-none truncate">
+                  GREEN DECOR
+                </span>
+                <span className="block text-[11px] font-medium text-[#d47343] tracking-wide mt-0.5 truncate max-w-[220px]">
+                  Bringing Nature to Every Space.
+                </span>
+              </div>
+            </Link>
 
             {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
@@ -121,15 +130,15 @@ export default function Navbar() {
                         onClick={() => setIsMegaMenuOpen(!isMegaMenuOpen)}
                         className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors ${
                           pathname.startsWith('/services')
-                            ? 'text-[#14402a] font-semibold bg-[#eaf0e7]'
-                            : 'text-[#2a3f33] hover:text-[#14402a] hover:bg-[#f0f5ee]'
+                            ? 'text-[#38b000] font-semibold bg-[#eaf0e7]'
+                            : 'text-[#2a3f33] hover:text-[#38b000] hover:bg-[#f0f5ee]'
                         }`}
                       >
                         {link.icon}
                         {link.name}
                         <ChevronDown
                           className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                            isMegaMenuOpen ? 'rotate-180 text-[#14402a]' : ''
+                            isMegaMenuOpen ? 'rotate-180 text-[#38b000]' : ''
                           }`}
                         />
                       </button>
@@ -146,8 +155,8 @@ export default function Navbar() {
                     href={link.href}
                     className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors ${
                       isActive
-                        ? 'text-[#14402a] font-semibold bg-[#eaf0e7]'
-                        : 'text-[#2a3f33] hover:text-[#14402a] hover:bg-[#f0f5ee]'
+                        ? 'text-[#38b000] font-semibold bg-[#eaf0e7]'
+                        : 'text-[#2a3f33] hover:text-[#38b000] hover:bg-[#f0f5ee]'
                     }`}
                   >
                     {link.icon}
@@ -164,7 +173,7 @@ export default function Navbar() {
                 type="button"
                 onClick={openSearch}
                 aria-label="Search products and services"
-                className="p-2 rounded-full text-[#14402a] hover:bg-[#eaf0e7] transition-colors relative"
+                className="p-2 rounded-full text-[#38b000] hover:bg-[#eaf0e7] transition-colors relative"
               >
                 <Search className="w-5 h-5" />
               </button>
@@ -175,7 +184,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="hidden sm:inline-flex p-2 rounded-full text-[#14402a] hover:bg-[#eaf0e7] transition-colors"
+                className="hidden sm:inline-flex p-2 rounded-full text-[#38b000] hover:bg-[#eaf0e7] transition-colors"
               >
                 <svg
                   viewBox="0 0 24 24"
@@ -192,7 +201,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="hidden sm:inline-flex p-2 rounded-full text-[#14402a] hover:bg-[#eaf0e7] transition-colors"
+                className="hidden sm:inline-flex p-2 rounded-full text-[#38b000] hover:bg-[#eaf0e7] transition-colors"
               >
                 <MessageCircle className="w-5 h-5" />
               </a>

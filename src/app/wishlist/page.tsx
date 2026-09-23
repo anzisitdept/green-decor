@@ -29,7 +29,7 @@ export default function WishlistPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
         <div>
-          <h1 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#14402a]">
+          <h1 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#38b000]">
             My Wishlist ({items.length})
           </h1>
           <p className="text-xs sm:text-sm text-[#52685a] mt-1">
@@ -42,7 +42,7 @@ export default function WishlistPage() {
             <button
               type="button"
               onClick={handleMoveAllToCart}
-              className="px-5 py-2.5 rounded-full bg-[#14402a] text-white text-xs font-bold hover:bg-[#1b5539] transition-all shadow-sm flex items-center gap-1.5"
+              className="px-5 py-2.5 rounded-full bg-[#38b000] text-white text-xs font-bold hover:bg-[#2e9900] transition-all shadow-sm flex items-center gap-1.5"
             >
               <ShoppingBag className="w-4 h-4" />
               <span>Move All to Bag</span>
@@ -60,16 +60,16 @@ export default function WishlistPage() {
 
       {items.length === 0 ? (
         <div className="bg-white rounded-3xl p-12 text-center border border-[#e5ece3] shadow-sm max-w-xl mx-auto space-y-4">
-          <div className="w-16 h-16 rounded-full bg-[#f4f7f2] flex items-center justify-center text-[#14402a] mx-auto">
+          <div className="w-16 h-16 rounded-full bg-[#f4f7f2] flex items-center justify-center text-[#38b000] mx-auto">
             <Heart className="w-8 h-8 opacity-40" />
           </div>
-          <h3 className="font-serif font-bold text-xl text-[#14402a]">Your Wishlist is Empty</h3>
+          <h3 className="font-serif font-bold text-xl text-[#38b000]">Your Wishlist is Empty</h3>
           <p className="text-xs text-[#52685a]">
             Click the heart icon on any plant, pot, or garden accessory to save it for later.
           </p>
           <Link
             href="/shop"
-            className="inline-block px-6 py-3 rounded-full bg-[#14402a] text-white text-xs font-bold hover:bg-[#1b5539] transition-colors"
+            className="inline-block px-6 py-3 rounded-full bg-[#38b000] text-white text-xs font-bold hover:bg-[#2e9900] transition-colors"
           >
             Explore Catalog
           </Link>

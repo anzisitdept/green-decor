@@ -5,9 +5,9 @@
   --font-sans-custom: var(--font-jakarta);
   --font-script-custom: var(--font-script);
 
-  --color-forest: #14402a;
+  --color-forest: #38b000;
   --color-forest-dark: #0d2b1c;
-  --color-forest-light: #1e5c3c;
+  --color-forest-light: #33a800;
   --color-forest-soft: #246d47;
   
   --color-sage-bg: #ffffff;
@@ -85,5 +85,15 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #14402a;
+  background: #38b000;
+}
+
+/* Hide scrollbar on horizontal-scroll tracks */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }

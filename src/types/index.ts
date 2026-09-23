@@ -69,6 +69,7 @@ export interface Testimonial {
   quote: string;
   rating: number;
   photoUrl: string;
+  image?: string; // Optional plant/product image for split cards
   serviceOrProduct: string;
   featured?: boolean;
 }
@@ -129,6 +130,22 @@ export interface ServiceRequest {
   message: string;
   createdAt: string;
   status: 'new' | 'contacted' | 'consultation_scheduled' | 'completed';
+}
+
+export type ReviewType = 'private' | 'general';
+
+export type ReviewStatus = 'pending' | 'approved' | 'rejected';
+
+export interface ProductReview {
+  id: string;
+  productId: string;
+  productSlug: string;
+  authorName: string;
+  rating: number;
+  text: string;
+  type: ReviewType;
+  status: ReviewStatus;
+  createdAt: string;
 }
 
 export interface UserProfile {

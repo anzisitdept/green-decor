@@ -83,7 +83,7 @@ export default function QuickViewModal() {
                     type="button"
                     onClick={() => setSelectedImage(idx)}
                     className={`relative w-14 h-14 rounded-xl overflow-hidden border-2 transition-all ${
-                      selectedImage === idx ? 'border-[#14402a] ring-2 ring-[#14402a]/20' : 'border-transparent opacity-70 hover:opacity-100'
+                      selectedImage === idx ? 'border-[#38b000] ring-2 ring-[#38b000]/20' : 'border-transparent opacity-70 hover:opacity-100'
                     }`}
                   >
                     <Image src={img} alt="" fill className="object-cover" />
@@ -107,7 +107,7 @@ export default function QuickViewModal() {
               </div>
 
               {/* Title */}
-              <h3 className="text-lg sm:text-xl font-serif font-bold text-[#14402a] mt-1.5">
+              <h3 className="text-lg sm:text-xl font-serif font-bold text-[#38b000] mt-1.5">
                 {product.name}
               </h3>
 
@@ -129,7 +129,7 @@ export default function QuickViewModal() {
 
               {/* Pricing */}
               <div className="flex items-baseline gap-2 mt-3">
-                <span className="text-2xl font-extrabold text-[#14402a]">
+                <span className="text-2xl font-extrabold text-[#38b000]">
                   {formatPKR(effectivePrice)}
                 </span>
                 {product.salePrice && (
@@ -167,7 +167,7 @@ export default function QuickViewModal() {
                   <button
                     type="button"
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="px-3 py-2 text-[#14402a] hover:bg-[#f4f7f2] font-bold"
+                    className="px-3 py-2 text-[#38b000] hover:bg-[#f4f7f2] font-bold"
                   >
                     -
                   </button>
@@ -175,7 +175,7 @@ export default function QuickViewModal() {
                   <button
                     type="button"
                     onClick={() => setQuantity(quantity + 1)}
-                    className="px-3 py-2 text-[#14402a] hover:bg-[#f4f7f2] font-bold"
+                    className="px-3 py-2 text-[#38b000] hover:bg-[#f4f7f2] font-bold"
                   >
                     +
                   </button>
@@ -185,7 +185,7 @@ export default function QuickViewModal() {
                 <button
                   type="button"
                   onClick={handleAddToCart}
-                  className="flex-1 py-3 px-4 rounded-xl bg-[#14402a] text-white text-xs font-bold hover:bg-[#1b5539] transition-all shadow-md flex items-center justify-center gap-2"
+                  className="flex-1 py-3 px-4 rounded-xl bg-[#38b000] text-white text-xs font-bold hover:bg-[#2e9900] transition-all shadow-md flex items-center justify-center gap-2"
                 >
                   <ShoppingBag className="w-4 h-4" />
                   <span>Add to Bag • {formatPKR(effectivePrice * quantity)}</span>
@@ -198,7 +198,7 @@ export default function QuickViewModal() {
                   className={`p-3 rounded-xl border transition-colors ${
                     inWishlist
                       ? 'bg-rose-50 border-rose-200 text-rose-500'
-                      : 'border-[#d6e2d3] hover:bg-[#f4f7f2] text-[#14402a]'
+                      : 'border-[#d6e2d3] hover:bg-[#f4f7f2] text-[#38b000]'
                   }`}
                   title={inWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
                 >
@@ -211,7 +211,7 @@ export default function QuickViewModal() {
                 <Link
                   href={`/product/${product.slug}`}
                   onClick={closeQuickView}
-                  className="text-[#14402a] hover:underline font-semibold flex items-center gap-1"
+                  className="text-[#38b000] hover:underline font-semibold flex items-center gap-1"
                 >
                   View Full Product Details <ArrowRight className="w-3 h-3" />
                 </Link>

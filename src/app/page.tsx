@@ -1,7 +1,6 @@
 import LeftBrandSidebar from '@/components/layout/LeftBrandSidebar';
 import Hero from '@/components/home/Hero';
-import PromoCarousel from '@/components/home/PromoCarousel';
-import ServicesGrid from '@/components/home/ServicesGrid';
+import OurMostRequestedServices from '@/components/home/OurMostRequestedServices';
 import FeaturedProducts from '@/components/home/FeaturedProducts';
 import PurposeSection from '@/components/home/PurposeSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
@@ -27,21 +26,18 @@ export default function HomePage() {
       <main className="flex-1 min-w-0 flex flex-col overflow-x-hidden bg-white">
         
         {/* Mobile View of Brand Character Banner */}
-        <div className="block lg:hidden w-full border-b border-[#e5ece3]">
+        <div className="block lg:hidden w-full">
           <LeftBrandSidebar />
         </div>
 
         {/* Hero Section */}
         <Hero />
 
-        {/* Solutions for Every Space (6-Cards Services Grid) */}
-        <ServicesGrid />
+        {/* Our Most Requested Services (curved green band) */}
+        <OurMostRequestedServices />
 
         {/* Featured Bestsellers Collection */}
         <FeaturedProducts />
-
-        {/* Promo Carousel (plant.pk pattern offers) */}
-        <PromoCarousel />
 
         {/* Our Purpose ("Greener Spaces Happier Communities" + 4 Pillars + Quote) */}
         <PurposeSection />

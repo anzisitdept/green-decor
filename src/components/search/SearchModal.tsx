@@ -68,7 +68,7 @@ export default function SearchModal() {
         
         {/* Search Input Bar */}
         <div className="p-4 sm:p-5 border-b border-[#f0f4ee] flex items-center gap-3 bg-[#fbfcf9]">
-          <Search className="w-5 h-5 text-[#14402a] shrink-0" />
+          <Search className="w-5 h-5 text-[#38b000] shrink-0" />
           <input
             type="text"
             autoFocus
@@ -89,7 +89,7 @@ export default function SearchModal() {
           <button
             type="button"
             onClick={closeSearch}
-            className="text-xs font-semibold px-2 py-1 rounded bg-[#eaf0e7] text-[#14402a] hover:bg-[#d8e5d4]"
+            className="text-xs font-semibold px-2 py-1 rounded bg-[#eaf0e7] text-[#38b000] hover:bg-[#d8e5d4]"
           >
             ESC
           </button>
@@ -108,7 +108,7 @@ export default function SearchModal() {
                     key={term}
                     type="button"
                     onClick={() => setQuery(term)}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#f4f7f2] text-xs font-medium text-[#14402a] hover:bg-[#eaf0e7] border border-[#e5ece3] transition-colors"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#f4f7f2] text-xs font-medium text-[#38b000] hover:bg-[#eaf0e7] border border-[#e5ece3] transition-colors"
                   >
                     <Tag className="w-3 h-3 text-[#d47343]" />
                     <span>{term}</span>
@@ -128,7 +128,7 @@ export default function SearchModal() {
                     <Link
                       href={`/shop?search=${encodeURIComponent(query)}`}
                       onClick={closeSearch}
-                      className="text-xs text-[#14402a] hover:underline font-semibold"
+                      className="text-xs text-[#38b000] hover:underline font-semibold"
                     >
                       View in Shop &rarr;
                     </Link>
@@ -151,7 +151,7 @@ export default function SearchModal() {
                         </div>
                         <div className="flex-1 min-w-0">
                           <p className="text-xs font-semibold text-[#172b21] truncate">{product.name}</p>
-                          <p className="text-xs font-bold text-[#14402a] mt-0.5">
+                          <p className="text-xs font-bold text-[#38b000] mt-0.5">
                             {formatPKR(product.salePrice ?? product.price)}
                           </p>
                         </div>
@@ -176,10 +176,10 @@ export default function SearchModal() {
                         className="flex items-center justify-between p-3 rounded-xl bg-[#f8faf7] hover:bg-[#eaf0e7] transition-colors border border-[#edf3ec]"
                       >
                         <div>
-                          <p className="text-xs font-bold text-[#14402a]">{service.title}</p>
+                          <p className="text-xs font-bold text-[#38b000]">{service.title}</p>
                           <p className="text-xs text-[#52685a] line-clamp-1">{service.shortDescription}</p>
                         </div>
-                        <ArrowRight className="w-4 h-4 text-[#14402a] shrink-0 ml-2" />
+                        <ArrowRight className="w-4 h-4 text-[#38b000] shrink-0 ml-2" />
                       </Link>
                     ))}
                   </div>

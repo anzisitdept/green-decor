@@ -17,7 +17,7 @@ export default function ToastNotification() {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 animate-in slide-in-from-bottom-5 fade-in duration-200">
-      <div className="flex items-center gap-3 px-4 py-3 bg-[#14402a] text-white rounded-2xl shadow-xl border border-[#246342] max-w-sm">
+      <div className="flex items-center gap-3 px-4 py-3 bg-[#38b000] text-white rounded-2xl shadow-xl border border-[#246342] max-w-sm">
         {icons[toast.type] || icons.success}
         <span className="text-xs font-medium flex-1">{toast.message}</span>
         <button

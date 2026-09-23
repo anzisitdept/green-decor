@@ -14,11 +14,11 @@ export default function MegaMenu({ onClose }: MegaMenuProps) {
   return (
     <div className="absolute top-full left-1/2 -translate-x-1/2 w-[560px] bg-white rounded-2xl shadow-2xl border border-[#e5ece3] p-6 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
       <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#f0f4ee]">
-        <h4 className="text-base font-serif font-bold text-[#14402a]">Our Premium Green Services</h4>
+        <h4 className="text-base font-serif font-bold text-[#38b000]">Our Premium Green Services</h4>
         <Link
           href="/services"
           onClick={onClose}
-          className="text-xs font-semibold text-[#14402a] hover:text-[#d47343] flex items-center gap-1 transition-colors"
+          className="text-xs font-semibold text-[#38b000] hover:text-[#d47343] flex items-center gap-1 transition-colors"
         >
           View All Services <ArrowRight className="w-3.5 h-3.5" />
         </Link>
@@ -41,7 +41,7 @@ export default function MegaMenu({ onClose }: MegaMenuProps) {
                 className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-200"
               />
             </div>
-            <span className="text-sm font-semibold text-[#172b21] group-hover:text-[#14402a] leading-tight">
+            <span className="text-sm font-semibold text-[#172b21] group-hover:text-[#38b000] leading-tight">
               {service.title}
             </span>
           </Link>
