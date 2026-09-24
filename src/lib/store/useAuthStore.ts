@@ -105,11 +105,13 @@ export const useAuthStore = create<AuthStore>()(
 );
 
 const toUserProfile = (u: User): UserProfile => ({
-  id: u.uid,
+  uid: u.uid,
   name: u.displayName || 'Green Decor Member',
   email: u.email || '',
   phone: u.phoneNumber || '',
-  avatarUrl: u.photoURL || undefined,
+  photoURL: u.photoURL || undefined,
+  role: 'customer',
+  status: 'active',
   addresses: [],
   createdAt: new Date().toISOString(),
 });
@@ -119,7 +121,7 @@ if (typeof window !== 'undefined') {
     if (fbUser) {
       const previous = useAuthStore.getState().user;
       const profile = toUserProfile(fbUser);
-      if (previous && previous.id === fbUser.uid && previous.addresses.length > 0) {
+      if (previous && previous.uid === fbUser.uid && previous.addresses.length > 0) {
         profile.addresses = previous.addresses;
       }
       useAuthStore.setState({ user: profile, isAuthenticated: true, isAuthReady: true });

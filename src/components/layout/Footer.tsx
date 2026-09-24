@@ -62,7 +62,7 @@ export default function Footer() {
   const aboutText = content?.footer?.about || DEFAULT_ABOUT;
   const hoursText = settings.workingHours || 'Monday – Sunday : 09:00 AM : 08:00 PM';
   const emailText = settings.contactEmail || 'info@greendecor.com';
-  const phoneText = settings.contactPhone || '0333 8951222';
+  const phoneText = settings.contactPhone || '+92 333 8951222';
   const phoneHref = `tel:${phoneText.replace(/[^0-9+]/g, '')}`;
   const creditsText = content?.footer?.credits;
 

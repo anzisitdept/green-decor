@@ -47,6 +47,20 @@ export interface ServiceItem {
   faqs: { question: string; answer: string }[];
 }
 
+export interface PromoSlide {
+  id: string;
+  title: string;
+  kicker: string;
+  subtitle: string;
+  ctaLabel: string;
+  ctaHref: string;
+  badge?: string;
+  bgGradient: string;
+  imageUrl: string;
+  active: boolean;
+  order: number;
+}
+
 export interface Testimonial {
   id: string;
   name: string;
@@ -55,9 +69,25 @@ export interface Testimonial {
   quote: string;
   rating: number;
   photoUrl: string;
-  image?: string; // Optional plant/product image for split cards
+  image?: string;
   serviceOrProduct: string;
   featured?: boolean;
+  approved?: boolean;
+}
+
+export type ReviewType = 'private' | 'general';
+export type ReviewStatus = 'pending' | 'approved' | 'rejected';
+
+export interface ProductReview {
+  id: string;
+  productId?: string;
+  productSlug?: string;
+  authorName: string;
+  rating: number;
+  text: string;
+  type: ReviewType;
+  status: ReviewStatus;
+  createdAt: string;
 }
 
 export interface CartItem {
@@ -84,6 +114,14 @@ export type PaymentMethod = 'cod' | 'jazzcash' | 'easypaisa' | 'bank_transfer';
 
 export type OrderStatus = 'placed' | 'confirmed' | 'processing' | 'shipped' | 'delivered' | 'cancelled';
 
+export const ORDER_STATUS_FLOW: OrderStatus[] = [
+  'placed',
+  'confirmed',
+  'processing',
+  'shipped',
+  'delivered',
+];
+
 export interface Order {
   id: string;
   userId?: string;
@@ -105,6 +143,8 @@ export interface Order {
   }[];
 }
 
+export type ServiceRequestStatus = 'new' | 'contacted' | 'consultation_scheduled' | 'completed';
+
 export interface ServiceRequest {
   id: string;
   serviceSlug: string;
@@ -117,34 +157,23 @@ export interface ServiceRequest {
   budget?: string;
   message: string;
   createdAt: string;
-  status: 'new' | 'contacted' | 'consultation_scheduled' | 'completed';
+  status: ServiceRequestStatus;
 }
 
-export type ReviewType = 'private' | 'general';
-
-export type ReviewStatus = 'pending' | 'approved' | 'rejected';
-
-export interface ProductReview {
-  id: string;
-  productId: string;
-  productSlug: string;
-  authorName: string;
-  rating: number;
-  text: string;
-  type: ReviewType;
-  status: ReviewStatus;
-  createdAt: string;
-}
+export type UserRole = 'admin' | 'staff' | 'customer';
+export type UserStatus = 'active' | 'disabled';
 
 export interface UserProfile {
-  id: string;
+  uid: string;
   name: string;
   email: string;
   phone?: string;
-  avatarUrl?: string;
+  photoURL?: string;
+  role: UserRole;
+  status: UserStatus;
   addresses: OrderAddress[];
-  savedPaymentMethods?: string[];
   createdAt: string;
+  lastLogin?: string;
 }
 
 export interface Coupon {
@@ -226,4 +255,32 @@ export interface SiteContentDoc {
   published: boolean;
   updatedAt: string;
   content: SiteContent;
+}
+
+/**
+ * Helper to safely convert Firestore Timestamps or Dates into ISO string format
+ */
+export function deserializeValue(value: unknown): unknown {
+  if (value && typeof value === 'object' && 'toDate' in value && typeof (value as { toDate: () => Date }).toDate === 'function') {
+    return (value as { toDate: () => Date }).toDate().toISOString();
+  }
+  if (value instanceof Date) {
+    return value.toISOString();
+  }
+  if (Array.isArray(value)) {
+    return value.map(deserializeValue);
+  }
+  if (value && typeof value === 'object') {
+    const out: Record<string, unknown> = {};
+    for (const [key, val] of Object.entries(value as Record<string, unknown>)) {
+      if (val === undefined) continue;
+      out[key] = deserializeValue(val);
+    }
+    return out;
+  }
+  return value;
+}
+
+export function deserializeDoc<T>(doc: Record<string, unknown>): T {
+  return deserializeValue(doc) as T;
 }

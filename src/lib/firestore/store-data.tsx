@@ -17,8 +17,8 @@ import type {
 } from '@/types';
 
 export const DEFAULT_SETTINGS: SiteSettings = {
-  whatsappNumber: '+923338951222',
-  contactPhone: '+923338951222',
+  whatsappNumber: '+92 333 8951222',
+  contactPhone: '+92 333 8951222',
   contactEmail: 'info@greendecor.com',
   address: '',
   workingHours: '',

@@ -93,7 +93,7 @@ export default function CheckoutPage() {
         shipping,
         discount,
         total,
-        user?.id
+        user?.uid
       );
 
       // Persist to Firestore so the admin panel sees the order immediately.
