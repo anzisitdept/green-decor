@@ -68,7 +68,7 @@ const mockInitialOrders: Order[] = [
     ],
     shippingAddress: {
       fullName: 'Hamza Khan',
-      phone: '+92 300 1234567',
+      phone: '+92 333 8951222',
       email: 'hamza.khan@example.com',
       streetAddress: 'House 42, Sector Y, Phase 3, DHA',
       city: 'Lahore',

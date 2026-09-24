@@ -14,6 +14,7 @@ import {
   User,
 } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
+import { saveUserProfile } from '@/lib/firestore/users';
 
 interface AuthStore {
   user: UserProfile | null;
@@ -46,6 +47,12 @@ export const useAuthStore = create<AuthStore>()(
         if (current && phone) {
           useAuthStore.setState({ user: { ...current, phone } });
         }
+        await saveUserProfile(credential.user.uid, {
+          name,
+          email,
+          phone: phone || undefined,
+          createdAt: new Date().toISOString(),
+        });
       },
 
       loginWithGoogle: async () => {

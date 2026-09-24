@@ -53,6 +53,7 @@ export const useWishlistStore = create<WishlistStore>()(
     }),
     {
       name: 'green-decor-wishlist',
+      skipHydration: true,
     }
   )
 );

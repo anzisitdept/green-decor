@@ -47,20 +47,6 @@ export interface ServiceItem {
   faqs: { question: string; answer: string }[];
 }
 
-export interface PromoSlide {
-  id: string;
-  title: string;
-  kicker: string;
-  subtitle: string;
-  ctaLabel: string;
-  ctaHref: string;
-  badge?: string;
-  bgGradient: string;
-  imageUrl: string;
-  active: boolean;
-  order: number;
-}
-
 export interface Testimonial {
   id: string;
   name: string;
@@ -87,6 +73,8 @@ export interface OrderAddress {
   streetAddress: string;
   apartmentSuite?: string;
   city: string;
+  district?: string;
+  tehsil?: string;
   province: string;
   postalCode?: string;
   notes?: string;
@@ -157,4 +145,85 @@ export interface UserProfile {
   addresses: OrderAddress[];
   savedPaymentMethods?: string[];
   createdAt: string;
+}
+
+export interface Coupon {
+  id: string;
+  code: string;
+  type: 'percent' | 'flat';
+  value: number;
+  minOrder: number;
+  active: boolean;
+  usageLimit?: number;
+  usedCount: number;
+  expiresAt?: string;
+  createdAt: string;
+}
+
+export interface ContactMessage {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+  createdAt: string;
+  status: 'new' | 'read' | 'replied';
+}
+
+export interface SiteSettings {
+  whatsappNumber: string;
+  contactPhone: string;
+  contactEmail: string;
+  address: string;
+  workingHours: string;
+  shippingFreeThreshold: number;
+  shippingFlatFee: number;
+  currencyLabel: string;
+  deliveryCities: string[];
+  supportedProvinces: string[];
+}
+
+export interface HeroSlide {
+  title: string;
+  subtitle: string;
+  image: string;
+  wallScript?: string;
+  badge?: string;
+}
+
+export interface TrustBarStat {
+  number: string;
+  label: string;
+}
+
+export interface SiteContent {
+  heroSlides: HeroSlide[];
+  purpose: {
+    heading: string;
+    subcopy: string;
+    pillars: { label: string; icon: string }[];
+    quote: string;
+  };
+  trustBar: {
+    stats: TrustBarStat[];
+    note: string;
+  };
+  servicesGrid: {
+    heading: string;
+    subcopy: string;
+    serviceIds: string[];
+  };
+  footer: {
+    about: string;
+    hours: string;
+    credits: string;
+  };
+}
+
+export interface SiteContentDoc {
+  id: string;
+  published: boolean;
+  updatedAt: string;
+  content: SiteContent;
 }

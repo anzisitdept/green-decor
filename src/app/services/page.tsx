@@ -1,10 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 import { PhoneCall } from 'lucide-react';
-import { servicesData } from '@/lib/data/services';
-import { getWhatsAppLink } from '@/lib/utils';
-import ServicesCardGrid from '@/components/services/ServicesCardGrid';
+import ServicesGridFromStore from '@/components/services/ServicesGridFromStore';
 import WhyPlantLovers from '@/components/services/WhyPlantLovers';
+import WhatsAppLink from '@/components/common/WhatsAppLink';
 
 export const metadata = {
   title: 'Our Services — Green Decor | Learn, Heal, Transform & Grow',
@@ -12,14 +11,10 @@ export const metadata = {
 };
 
 export default function ServicesOverviewPage() {
-  const whatsappHref = getWhatsAppLink(
-    'Hello Green Decor! I would like to inquire about your turnkey landscaping and interior plant styling services.'
-  );
-
   return (
     <div className="w-full bg-white">
       {/* Hero — full-bleed image, dark green overlay, centered heading, wavy divider into the page bg */}
-      <section className="relative w-full h-[70vh] min-h-[440px] sm:h-[78vh] lg:h-[82vh] overflow-hidden bg-[#0d3b2e]">
+      <section className="relative w-full h-[70vh] min-h-[440px] sm:h-[78vh] lg:h-[82vh] bg-[#0d3b2e]">
         <Image
           src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=2000&q=90"
           alt="Green Decor greenery and landscaping work"
@@ -39,14 +34,14 @@ export default function ServicesOverviewPage() {
           viewBox="0 0 1440 90"
           preserveAspectRatio="none"
           aria-hidden="true"
-          className="absolute bottom-0 left-0 w-full h-10 sm:h-14 lg:h-20"
+          className="block absolute -bottom-px left-0 w-full h-10 sm:h-14 lg:h-20"
         >
           <path d="M0,50 C180,86 420,88 720,62 C1020,36 1260,44 1440,70 L1440,90 L0,90 Z" fill="#ffffff" />
         </svg>
       </section>
 
       {/* Services Cards — 2 per row, reveal row-by-row */}
-      <ServicesCardGrid services={servicesData} />
+      <ServicesGridFromStore />
 
       {/* Why Plant Lovers Choose Green Decor */}
       <WhyPlantLovers />
@@ -66,15 +61,13 @@ export default function ServicesOverviewPage() {
             </p>
           </div>
 
-          <a
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
+          <WhatsAppLink
+            message="Hello Green Decor! I would like to inquire about your turnkey landscaping and interior plant styling services."
             className="px-8 py-4 rounded-full bg-white text-[#38b000] text-xs sm:text-sm font-bold hover:bg-[#eaf0e7] transition-all shadow-lg active:scale-95 shrink-0 flex items-center gap-2"
           >
             <PhoneCall className="w-4 h-4" />
             <span>Book Free Site Assessment</span>
-          </a>
+          </WhatsAppLink>
         </div>
       </section>
     </div>

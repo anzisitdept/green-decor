@@ -73,7 +73,7 @@ export default function AccountPage() {
 
     const address: OrderAddress = {
       fullName: user.name,
-      phone: user.phone || '+92 300 0000000',
+      phone: user.phone || '+92 333 8951222',
       email: user.email,
       streetAddress: newStreet,
       city: newCity,
@@ -294,7 +294,10 @@ export default function AccountPage() {
                       </button>
                     </div>
                     <p className="text-xs text-[#2a3f33]">{addr.streetAddress}</p>
-                    <p className="text-xs font-semibold text-[#52685a]">{addr.city}, {addr.province}</p>
+                    <p className="text-xs font-semibold text-[#52685a]">
+                      {[addr.tehsil, addr.district, addr.city].filter(Boolean).join(', ')}, {addr.province}
+                      {addr.postalCode ? ` · ${addr.postalCode}` : ''}
+                    </p>
                   </div>
                 ))}
               </div>

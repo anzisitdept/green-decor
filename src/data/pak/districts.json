@@ -1,0 +1,7842 @@
+[
+  {
+    "id": "PK101",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "باغ",
+      "en": "Bagh",
+      "slug": "bagh-pk101"
+    },
+    "code": {
+      "id": "PK101",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK1",
+      "level": 1,
+      "name": {
+        "local": "آزاد کشمیر",
+        "en": "Azad Kashmir",
+        "slug": "azad-kashmir-pk1"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK1",
+        "level": 1,
+        "name": {
+          "local": "آزاد کشمیر",
+          "en": "Azad Kashmir",
+          "slug": "azad-kashmir-pk1"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "12510"
+    ],
+    "geo": {
+      "lat": "34.003",
+      "lon": "73.731"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK102",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع بھمبر",
+      "en": "Bhimber",
+      "slug": "bhimber-pk102"
+    },
+    "code": {
+      "id": "PK102",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK1",
+      "level": 1,
+      "name": {
+        "local": "آزاد کشمیر",
+        "en": "Azad Kashmir",
+        "slug": "azad-kashmir-pk1"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK1",
+        "level": 1,
+        "name": {
+          "local": "آزاد کشمیر",
+          "en": "Azad Kashmir",
+          "slug": "azad-kashmir-pk1"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "10030"
+    ],
+    "geo": {
+      "lat": "33.014",
+      "lon": "74.15"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK103",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "وادی جہلم",
+      "en": "Jhelum Valley",
+      "slug": "jhelum-valley-pk103"
+    },
+    "code": {
+      "id": "PK103",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK1",
+      "level": 1,
+      "name": {
+        "local": "آزاد کشمیر",
+        "en": "Azad Kashmir",
+        "slug": "azad-kashmir-pk1"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK1",
+        "level": 1,
+        "name": {
+          "local": "آزاد کشمیر",
+          "en": "Azad Kashmir",
+          "slug": "azad-kashmir-pk1"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "10500"
+    ],
+    "geo": {
+      "lat": "34.188",
+      "lon": "73.797"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK104",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع حویلی",
+      "en": "Haveli",
+      "slug": "haveli-pk104"
+    },
+    "code": {
+      "id": "PK104",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK1",
+      "level": 1,
+      "name": {
+        "local": "آزاد کشمیر",
+        "en": "Azad Kashmir",
+        "slug": "azad-kashmir-pk1"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK1",
+        "level": 1,
+        "name": {
+          "local": "آزاد کشمیر",
+          "en": "Azad Kashmir",
+          "slug": "azad-kashmir-pk1"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "10080"
+    ],
+    "geo": {
+      "lat": "33.935",
+      "lon": "74.12"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK105",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "کوٹلی",
+      "en": "Kotli",
+      "slug": "kotli-pk105"
+    },
+    "code": {
+      "id": "PK105",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK1",
+      "level": 1,
+      "name": {
+        "local": "آزاد کشمیر",
+        "en": "Azad Kashmir",
+        "slug": "azad-kashmir-pk1"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK1",
+        "level": 1,
+        "name": {
+          "local": "آزاد کشمیر",
+          "en": "Azad Kashmir",
+          "slug": "azad-kashmir-pk1"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 6
+    },
+    "zip_codes": [
+      "11210"
+    ],
+    "geo": {
+      "lat": "33.454",
+      "lon": "73.947"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK106",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع میر پور",
+      "en": "Mirpur",
+      "slug": "mirpur-pk106"
+    },
+    "code": {
+      "id": "PK106",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK1",
+      "level": 1,
+      "name": {
+        "local": "آزاد کشمیر",
+        "en": "Azad Kashmir",
+        "slug": "azad-kashmir-pk1"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK1",
+        "level": 1,
+        "name": {
+          "local": "آزاد کشمیر",
+          "en": "Azad Kashmir",
+          "slug": "azad-kashmir-pk1"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "10350"
+    ],
+    "geo": {
+      "lat": "33.239",
+      "lon": "73.759"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK107",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "مظفر آباد",
+      "en": "Muzaffarabad",
+      "slug": "muzaffarabad-pk107"
+    },
+    "code": {
+      "id": "PK107",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK1",
+      "level": 1,
+      "name": {
+        "local": "آزاد کشمیر",
+        "en": "Azad Kashmir",
+        "slug": "azad-kashmir-pk1"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK1",
+        "level": 1,
+        "name": {
+          "local": "آزاد کشمیر",
+          "en": "Azad Kashmir",
+          "slug": "azad-kashmir-pk1"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "13170"
+    ],
+    "geo": {
+      "lat": "34.323",
+      "lon": "73.58"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK108",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع نیلم",
+      "en": "Neelum",
+      "slug": "neelum-pk108"
+    },
+    "code": {
+      "id": "PK108",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK1",
+      "level": 1,
+      "name": {
+        "local": "آزاد کشمیر",
+        "en": "Azad Kashmir",
+        "slug": "azad-kashmir-pk1"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK1",
+        "level": 1,
+        "name": {
+          "local": "آزاد کشمیر",
+          "en": "Azad Kashmir",
+          "slug": "azad-kashmir-pk1"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "89300"
+    ],
+    "geo": {
+      "lat": "34.757",
+      "lon": "73.985"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK109",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع پونچھ",
+      "en": "Poonch",
+      "slug": "poonch-pk109"
+    },
+    "code": {
+      "id": "PK109",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK1",
+      "level": 1,
+      "name": {
+        "local": "آزاد کشمیر",
+        "en": "Azad Kashmir",
+        "slug": "azad-kashmir-pk1"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK1",
+        "level": 1,
+        "name": {
+          "local": "آزاد کشمیر",
+          "en": "Azad Kashmir",
+          "slug": "azad-kashmir-pk1"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "12170"
+    ],
+    "geo": {
+      "lat": "33.786",
+      "lon": "73.897"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK110",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "سدھنوتی",
+      "en": "Sudhnoti",
+      "slug": "sudhnoti-pk110"
+    },
+    "code": {
+      "id": "PK110",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK1",
+      "level": 1,
+      "name": {
+        "local": "آزاد کشمیر",
+        "en": "Azad Kashmir",
+        "slug": "azad-kashmir-pk1"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK1",
+        "level": 1,
+        "name": {
+          "local": "آزاد کشمیر",
+          "en": "Azad Kashmir",
+          "slug": "azad-kashmir-pk1"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "12070"
+    ],
+    "geo": {
+      "lat": "33.704",
+      "lon": "73.739"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK201",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع آواران",
+      "en": "Awaran",
+      "slug": "awaran-pk201"
+    },
+    "code": {
+      "id": "PK201",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "88210"
+    ],
+    "geo": {
+      "lat": "26.424",
+      "lon": "65.465"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK202",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع بارکھان",
+      "en": "Barkhan",
+      "slug": "barkhan-pk202"
+    },
+    "code": {
+      "id": "PK202",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "84100"
+    ],
+    "geo": {
+      "lat": "29.985",
+      "lon": "69.691"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK203",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع چاغی",
+      "en": "Chagai",
+      "slug": "chagai-pk203"
+    },
+    "code": {
+      "id": "PK203",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "95100"
+    ],
+    "geo": {
+      "lat": "28.875",
+      "lon": "63.418"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK204",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ڈیرہ بگٹی",
+      "en": "Dera Bugti",
+      "slug": "dera-bugti-pk204"
+    },
+    "code": {
+      "id": "PK204",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "80100"
+    ],
+    "geo": {
+      "lat": "29.06",
+      "lon": "69.011"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK205",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "گوادر",
+      "en": "Gwadar",
+      "slug": "gwadar-pk205"
+    },
+    "code": {
+      "id": "PK205",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 5
+    },
+    "zip_codes": [
+      "92650"
+    ],
+    "geo": {
+      "lat": "25.425",
+      "lon": "62.548"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK206",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع ہرنائی",
+      "en": "Harnai",
+      "slug": "harnai-pk206"
+    },
+    "code": {
+      "id": "PK206",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "82300"
+    ],
+    "geo": {
+      "lat": "30.042",
+      "lon": "68.086"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK207",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "جعفرآباد",
+      "en": "Jaffarabad",
+      "slug": "jaffarabad-pk207"
+    },
+    "code": {
+      "id": "PK207",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "80300"
+    ],
+    "geo": {
+      "lat": "28.249",
+      "lon": "68.103"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK208",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع جھل مگسی",
+      "en": "Jhal Magsi",
+      "slug": "jhal-magsi-pk208"
+    },
+    "code": {
+      "id": "PK208",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "81100"
+    ],
+    "geo": {
+      "lat": "28.37",
+      "lon": "67.543"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK209",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع کچھی",
+      "en": "Kachhi",
+      "slug": "kachhi-pk209"
+    },
+    "code": {
+      "id": "PK209",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 5
+    },
+    "zip_codes": [
+      "81400"
+    ],
+    "geo": {
+      "lat": "29.341",
+      "lon": "67.659"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK210",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "قلات",
+      "en": "Kalat",
+      "slug": "kalat-pk210"
+    },
+    "code": {
+      "id": "PK210",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "81550"
+    ],
+    "geo": {
+      "lat": "29.088",
+      "lon": "66.77"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK211",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع کیچ",
+      "en": "Kech",
+      "slug": "kech-pk211"
+    },
+    "code": {
+      "id": "PK211",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 5
+    },
+    "zip_codes": [
+      "92500"
+    ],
+    "geo": {
+      "lat": "26.008",
+      "lon": "63.092"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK212",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع خاران",
+      "en": "Kharan",
+      "slug": "kharan-pk212"
+    },
+    "code": {
+      "id": "PK212",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "94100"
+    ],
+    "geo": {
+      "lat": "28.729",
+      "lon": "65.497"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK213",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "خضدار",
+      "en": "Khuzdar",
+      "slug": "khuzdar-pk213"
+    },
+    "code": {
+      "id": "PK213",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 5
+    },
+    "zip_codes": [
+      "89200"
+    ],
+    "geo": {
+      "lat": "27.294",
+      "lon": "66.481"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK214",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع قلعہ عبداللہ",
+      "en": "Killa Abdullah",
+      "slug": "killa-abdullah-pk214"
+    },
+    "code": {
+      "id": "PK214",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "86720"
+    ],
+    "geo": {
+      "lat": "31.116",
+      "lon": "67.024"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK215",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع قلعہ سیف اللہ",
+      "en": "Killa Saifullah",
+      "slug": "killa-saifullah-pk215"
+    },
+    "code": {
+      "id": "PK215",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "85400"
+    ],
+    "geo": {
+      "lat": "31.053",
+      "lon": "68.499"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK216",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع کوہلو",
+      "en": "Kohlu",
+      "slug": "kohlu-pk216"
+    },
+    "code": {
+      "id": "PK216",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "85220"
+    ],
+    "geo": {
+      "lat": "29.644",
+      "lon": "68.807"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK217",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع لسبیلہ",
+      "en": "Lasbela",
+      "slug": "lasbela-pk217"
+    },
+    "code": {
+      "id": "PK217",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 9
+    },
+    "zip_codes": [
+      "90150"
+    ],
+    "geo": {
+      "lat": "25.773",
+      "lon": "66.603"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK218",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع لہڑی",
+      "en": "Lehri",
+      "slug": "lehri-pk218"
+    },
+    "code": {
+      "id": "PK218",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "81250"
+    ],
+    "geo": {
+      "lat": "28.994",
+      "lon": "67.986"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK219",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "لورالائی",
+      "en": "Loralai",
+      "slug": "loralai-pk219"
+    },
+    "code": {
+      "id": "PK219",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "82100"
+    ],
+    "geo": {
+      "lat": "30.478",
+      "lon": "68.88"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK220",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "مستونگ",
+      "en": "Mastung",
+      "slug": "mastung-pk220"
+    },
+    "code": {
+      "id": "PK220",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "88100"
+    ],
+    "geo": {
+      "lat": "29.746",
+      "lon": "66.731"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK221",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع موسیٰ خیل",
+      "en": "Musakhel",
+      "slug": "musakhel-pk221"
+    },
+    "code": {
+      "id": "PK221",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "84600"
+    ],
+    "geo": {
+      "lat": "30.897",
+      "lon": "69.958"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK222",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع نصیر آباد",
+      "en": "Nasirabad",
+      "slug": "nasirabad-pk222"
+    },
+    "code": {
+      "id": "PK222",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "19210"
+    ],
+    "geo": {
+      "lat": "28.626",
+      "lon": "68.129"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK223",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع نوشکی",
+      "en": "Nushki",
+      "slug": "nushki-pk223"
+    },
+    "code": {
+      "id": "PK223",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 1
+    },
+    "zip_codes": [
+      "95150"
+    ],
+    "geo": {
+      "lat": "29.447",
+      "lon": "65.733"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK224",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع پنجگور",
+      "en": "Panjgur",
+      "slug": "panjgur-pk224"
+    },
+    "code": {
+      "id": "PK224",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "93200"
+    ],
+    "geo": {
+      "lat": "26.715",
+      "lon": "64.202"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK225",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "پشین",
+      "en": "Pishin",
+      "slug": "pishin-pk225"
+    },
+    "code": {
+      "id": "PK225",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 5
+    },
+    "zip_codes": [
+      "86000"
+    ],
+    "geo": {
+      "lat": "30.703",
+      "lon": "67.131"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK226",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "کوئٹہ",
+      "en": "Quetta",
+      "slug": "quetta-pk226"
+    },
+    "code": {
+      "id": "PK226",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "87500"
+    ],
+    "geo": {
+      "lat": "30.141",
+      "lon": "67.077"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK227",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع شیرانی",
+      "en": "Sherani",
+      "slug": "sherani-pk227"
+    },
+    "code": {
+      "id": "PK227",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 1
+    },
+    "zip_codes": [
+      "87750"
+    ],
+    "geo": {
+      "lat": "31.681",
+      "lon": "69.764"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK228",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "سبی",
+      "en": "Sibi",
+      "slug": "sibi-pk228"
+    },
+    "code": {
+      "id": "PK228",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 1
+    },
+    "zip_codes": [
+      "85220"
+    ],
+    "geo": {
+      "lat": "29.728",
+      "lon": "68.251"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK229",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع صحبت پور",
+      "en": "Sohbatpur",
+      "slug": "sohbatpur-pk229"
+    },
+    "code": {
+      "id": "PK229",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 1
+    },
+    "zip_codes": [
+      "78200"
+    ],
+    "geo": {
+      "lat": "28.542",
+      "lon": "68.521"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK230",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع واشک",
+      "en": "Washuk",
+      "slug": "washuk-pk230"
+    },
+    "code": {
+      "id": "PK230",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 5
+    },
+    "zip_codes": [
+      "94110"
+    ],
+    "geo": {
+      "lat": "27.792",
+      "lon": "64.308"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK231",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ژوب",
+      "en": "Zhob",
+      "slug": "zhob-pk231"
+    },
+    "code": {
+      "id": "PK231",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "85200"
+    ],
+    "geo": {
+      "lat": "31.212",
+      "lon": "69.197"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK232",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع زیارت",
+      "en": "Ziarat",
+      "slug": "ziarat-pk232"
+    },
+    "code": {
+      "id": "PK232",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "84300"
+    ],
+    "geo": {
+      "lat": "30.381",
+      "lon": "68.066"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK233",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع شہید سکندر آباد",
+      "en": "Shaheed Sikandarabad",
+      "slug": "shaheed-sikandarabad-pk233"
+    },
+    "code": {
+      "id": "PK233",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 1
+    },
+    "zip_codes": [
+      "86200"
+    ],
+    "geo": {
+      "lat": "28.327",
+      "lon": "66.18"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK234",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع دوکی، پاکستان",
+      "en": "Duki",
+      "slug": "duki-pk234"
+    },
+    "code": {
+      "id": "PK234",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 1
+    },
+    "zip_codes": [
+      "82100"
+    ],
+    "geo": {
+      "lat": "30.181",
+      "lon": "68.96"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK235",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "چمن",
+      "en": "Chaman",
+      "slug": "chaman-pk235"
+    },
+    "code": {
+      "id": "PK235",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK2",
+      "level": 1,
+      "name": {
+        "local": "بلوچستان",
+        "en": "Balochistan",
+        "slug": "balochistan-pk2"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK2",
+        "level": 1,
+        "name": {
+          "local": "بلوچستان",
+          "en": "Balochistan",
+          "slug": "balochistan-pk2"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 1
+    },
+    "zip_codes": [
+      "87300"
+    ],
+    "geo": {
+      "lat": "30.856",
+      "lon": "66.527"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK301",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع استور",
+      "en": "Astore",
+      "slug": "astore-pk301"
+    },
+    "code": {
+      "id": "PK301",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK3",
+      "level": 1,
+      "name": {
+        "local": "گلگت بلتستان",
+        "en": "Gilgit Baltistan",
+        "slug": "gilgit-baltistan-pk3"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK3",
+        "level": 1,
+        "name": {
+          "local": "گلگت بلتستان",
+          "en": "Gilgit Baltistan",
+          "slug": "gilgit-baltistan-pk3"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "14100"
+    ],
+    "geo": {
+      "lat": "35.248",
+      "lon": "74.884"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK302",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "دیامر",
+      "en": "Diamir",
+      "slug": "diamir-pk302"
+    },
+    "code": {
+      "id": "PK302",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK3",
+      "level": 1,
+      "name": {
+        "local": "گلگت بلتستان",
+        "en": "Gilgit Baltistan",
+        "slug": "gilgit-baltistan-pk3"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK3",
+        "level": 1,
+        "name": {
+          "local": "گلگت بلتستان",
+          "en": "Gilgit Baltistan",
+          "slug": "gilgit-baltistan-pk3"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 1
+    },
+    "zip_codes": [
+      "14200"
+    ],
+    "geo": {
+      "lat": "35.38",
+      "lon": "74.213"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK303",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع گانچھے",
+      "en": "Ghanche",
+      "slug": "ghanche-pk303"
+    },
+    "code": {
+      "id": "PK303",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK3",
+      "level": 1,
+      "name": {
+        "local": "گلگت بلتستان",
+        "en": "Gilgit Baltistan",
+        "slug": "gilgit-baltistan-pk3"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK3",
+        "level": 1,
+        "name": {
+          "local": "گلگت بلتستان",
+          "en": "Gilgit Baltistan",
+          "slug": "gilgit-baltistan-pk3"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "16910"
+    ],
+    "geo": {
+      "lat": "35.221",
+      "lon": "76.66"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK304",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع غذر (2019ء سے)",
+      "en": "Ghizer",
+      "slug": "ghizer-pk304"
+    },
+    "code": {
+      "id": "PK304",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK3",
+      "level": 1,
+      "name": {
+        "local": "گلگت بلتستان",
+        "en": "Gilgit Baltistan",
+        "slug": "gilgit-baltistan-pk3"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK3",
+        "level": 1,
+        "name": {
+          "local": "گلگت بلتستان",
+          "en": "Gilgit Baltistan",
+          "slug": "gilgit-baltistan-pk3"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "15160"
+    ],
+    "geo": {
+      "lat": "36.377",
+      "lon": "73.887"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK305",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "گلگت",
+      "en": "Gilgit",
+      "slug": "gilgit-pk305"
+    },
+    "code": {
+      "id": "PK305",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK3",
+      "level": 1,
+      "name": {
+        "local": "گلگت بلتستان",
+        "en": "Gilgit Baltistan",
+        "slug": "gilgit-baltistan-pk3"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK3",
+        "level": 1,
+        "name": {
+          "local": "گلگت بلتستان",
+          "en": "Gilgit Baltistan",
+          "slug": "gilgit-baltistan-pk3"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 1
+    },
+    "zip_codes": [
+      "15150"
+    ],
+    "geo": {
+      "lat": "35.967",
+      "lon": "74.509"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK306",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ہنزہ",
+      "en": "Hunza",
+      "slug": "hunza-pk306"
+    },
+    "code": {
+      "id": "PK306",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK3",
+      "level": 1,
+      "name": {
+        "local": "گلگت بلتستان",
+        "en": "Gilgit Baltistan",
+        "slug": "gilgit-baltistan-pk3"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK3",
+        "level": 1,
+        "name": {
+          "local": "گلگت بلتستان",
+          "en": "Gilgit Baltistan",
+          "slug": "gilgit-baltistan-pk3"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "15900"
+    ],
+    "geo": {
+      "lat": "36.551",
+      "lon": "75.205"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK307",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "سکردو",
+      "en": "Skardu",
+      "slug": "skardu-pk307"
+    },
+    "code": {
+      "id": "PK307",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK3",
+      "level": 1,
+      "name": {
+        "local": "گلگت بلتستان",
+        "en": "Gilgit Baltistan",
+        "slug": "gilgit-baltistan-pk3"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK3",
+        "level": 1,
+        "name": {
+          "local": "گلگت بلتستان",
+          "en": "Gilgit Baltistan",
+          "slug": "gilgit-baltistan-pk3"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "16110"
+    ],
+    "geo": {
+      "lat": "35.257",
+      "lon": "75.521"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK308",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع نگر",
+      "en": "Nagar",
+      "slug": "nagar-pk308"
+    },
+    "code": {
+      "id": "PK308",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK3",
+      "level": 1,
+      "name": {
+        "local": "گلگت بلتستان",
+        "en": "Gilgit Baltistan",
+        "slug": "gilgit-baltistan-pk3"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK3",
+        "level": 1,
+        "name": {
+          "local": "گلگت بلتستان",
+          "en": "Gilgit Baltistan",
+          "slug": "gilgit-baltistan-pk3"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "15750"
+    ],
+    "geo": {
+      "lat": "36.298",
+      "lon": "74.842"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK309",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع کھرمنگ",
+      "en": "Kharmang",
+      "slug": "kharmang-pk309"
+    },
+    "code": {
+      "id": "PK309",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK3",
+      "level": 1,
+      "name": {
+        "local": "گلگت بلتستان",
+        "en": "Gilgit Baltistan",
+        "slug": "gilgit-baltistan-pk3"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK3",
+        "level": 1,
+        "name": {
+          "local": "گلگت بلتستان",
+          "en": "Gilgit Baltistan",
+          "slug": "gilgit-baltistan-pk3"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "16200"
+    ],
+    "geo": {
+      "lat": "34.837",
+      "lon": "75.804"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK310",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع شگر",
+      "en": "Shigar",
+      "slug": "shigar-pk310"
+    },
+    "code": {
+      "id": "PK310",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK3",
+      "level": 1,
+      "name": {
+        "local": "گلگت بلتستان",
+        "en": "Gilgit Baltistan",
+        "slug": "gilgit-baltistan-pk3"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK3",
+        "level": 1,
+        "name": {
+          "local": "گلگت بلتستان",
+          "en": "Gilgit Baltistan",
+          "slug": "gilgit-baltistan-pk3"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 1
+    },
+    "zip_codes": [
+      "16300"
+    ],
+    "geo": {
+      "lat": "35.736",
+      "lon": "75.922"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK311",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع داریل",
+      "en": "Darel",
+      "slug": "darel-pk311"
+    },
+    "code": {
+      "id": "PK311",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK3",
+      "level": 1,
+      "name": {
+        "local": "گلگت بلتستان",
+        "en": "Gilgit Baltistan",
+        "slug": "gilgit-baltistan-pk3"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK3",
+        "level": 1,
+        "name": {
+          "local": "گلگت بلتستان",
+          "en": "Gilgit Baltistan",
+          "slug": "gilgit-baltistan-pk3"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 1
+    },
+    "zip_codes": [
+      "15160"
+    ],
+    "geo": {
+      "lat": "35.699",
+      "lon": "73.829"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK312",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع تانگیر",
+      "en": "Tangir",
+      "slug": "tangir-pk312"
+    },
+    "code": {
+      "id": "PK312",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK3",
+      "level": 1,
+      "name": {
+        "local": "گلگت بلتستان",
+        "en": "Gilgit Baltistan",
+        "slug": "gilgit-baltistan-pk3"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK3",
+        "level": 1,
+        "name": {
+          "local": "گلگت بلتستان",
+          "en": "Gilgit Baltistan",
+          "slug": "gilgit-baltistan-pk3"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 1
+    },
+    "zip_codes": [
+      "26014"
+    ],
+    "geo": {
+      "lat": "35.745",
+      "lon": "73.316"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK313",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع گوپیس یاسین",
+      "en": "Gupis-Yasin",
+      "slug": "gupis-yasin-pk313"
+    },
+    "code": {
+      "id": "PK313",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK3",
+      "level": 1,
+      "name": {
+        "local": "گلگت بلتستان",
+        "en": "Gilgit Baltistan",
+        "slug": "gilgit-baltistan-pk3"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK3",
+        "level": 1,
+        "name": {
+          "local": "گلگت بلتستان",
+          "en": "Gilgit Baltistan",
+          "slug": "gilgit-baltistan-pk3"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "15310"
+    ],
+    "geo": {
+      "lat": "36.285",
+      "lon": "73.205"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK314",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "رونڈو",
+      "en": "Rondu",
+      "slug": "rondu-pk314"
+    },
+    "code": {
+      "id": "PK314",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK3",
+      "level": 1,
+      "name": {
+        "local": "گلگت بلتستان",
+        "en": "Gilgit Baltistan",
+        "slug": "gilgit-baltistan-pk3"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK3",
+        "level": 1,
+        "name": {
+          "local": "گلگت بلتستان",
+          "en": "Gilgit Baltistan",
+          "slug": "gilgit-baltistan-pk3"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 1
+    },
+    "zip_codes": [
+      "16400"
+    ],
+    "geo": {
+      "lat": "35.587",
+      "lon": "75.158"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK401",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "اسلام آباد",
+      "en": "Islamabad",
+      "slug": "islamabad-pk401"
+    },
+    "code": {
+      "id": "PK401",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK4",
+      "level": 1,
+      "name": {
+        "local": "اسلام آباد",
+        "en": "Islamabad",
+        "slug": "islamabad-pk4"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK4",
+        "level": 1,
+        "name": {
+          "local": "اسلام آباد",
+          "en": "Islamabad",
+          "slug": "islamabad-pk4"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 1
+    },
+    "zip_codes": [
+      "45200"
+    ],
+    "geo": {
+      "lat": "33.651",
+      "lon": "72.958"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK501",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ایبٹ آباد",
+      "en": "Abbottabad",
+      "slug": "abbottabad-pk501"
+    },
+    "code": {
+      "id": "PK501",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "22200"
+    ],
+    "geo": {
+      "lat": "34.095",
+      "lon": "73.291"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK502",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع باجوڑ",
+      "en": "Bajaur",
+      "slug": "bajaur-pk502"
+    },
+    "code": {
+      "id": "PK502",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 7
+    },
+    "zip_codes": [
+      "21100"
+    ],
+    "geo": {
+      "lat": "34.746",
+      "lon": "71.486"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK503",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "بنوں",
+      "en": "Bannu",
+      "slug": "bannu-pk503"
+    },
+    "code": {
+      "id": "PK503",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 6
+    },
+    "zip_codes": [
+      "28030"
+    ],
+    "geo": {
+      "lat": "32.985",
+      "lon": "70.655"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK504",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "بٹگرام",
+      "en": "Batagram",
+      "slug": "batagram-pk504"
+    },
+    "code": {
+      "id": "PK504",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "21036"
+    ],
+    "geo": {
+      "lat": "34.762",
+      "lon": "73.137"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK505",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع بونیر",
+      "en": "Buner",
+      "slug": "buner-pk505"
+    },
+    "code": {
+      "id": "PK505",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "19140"
+    ],
+    "geo": {
+      "lat": "34.431",
+      "lon": "72.556"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK506",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "چارسدہ",
+      "en": "Charsadda",
+      "slug": "charsadda-pk506"
+    },
+    "code": {
+      "id": "PK506",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "24530"
+    ],
+    "geo": {
+      "lat": "34.248",
+      "lon": "71.699"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK507",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "زیریں چترال",
+      "en": "Chitral Lower",
+      "slug": "chitral-lower-pk507"
+    },
+    "code": {
+      "id": "PK507",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "17210"
+    ],
+    "geo": {
+      "lat": "35.847",
+      "lon": "71.826"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK508",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "بالائی چترال",
+      "en": "Chitral Upper",
+      "slug": "chitral-upper-pk508"
+    },
+    "code": {
+      "id": "PK508",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "17100"
+    ],
+    "geo": {
+      "lat": "36.328",
+      "lon": "72.269"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK509",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ڈیرہ اسماعیل خان",
+      "en": "D. I. Khan",
+      "slug": "d-i-khan-pk509"
+    },
+    "code": {
+      "id": "PK509",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 6
+    },
+    "zip_codes": [
+      "29350"
+    ],
+    "geo": {
+      "lat": "31.85",
+      "lon": "70.625"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK510",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ہنگو",
+      "en": "Hangu",
+      "slug": "hangu-pk510"
+    },
+    "code": {
+      "id": "PK510",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "26250"
+    ],
+    "geo": {
+      "lat": "33.412",
+      "lon": "70.804"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK511",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ہری پور",
+      "en": "Haripur",
+      "slug": "haripur-pk511"
+    },
+    "code": {
+      "id": "PK511",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "22800"
+    ],
+    "geo": {
+      "lat": "34.048",
+      "lon": "72.876"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK512",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "کرک",
+      "en": "Karak",
+      "slug": "karak-pk512"
+    },
+    "code": {
+      "id": "PK512",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "27400"
+    ],
+    "geo": {
+      "lat": "33.101",
+      "lon": "71.111"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK513",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع لنڈی کوتل",
+      "en": "Khyber",
+      "slug": "khyber-pk513"
+    },
+    "code": {
+      "id": "PK513",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "24740"
+    ],
+    "geo": {
+      "lat": "34.04",
+      "lon": "71.205"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK514",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "کوہاٹ",
+      "en": "Kohat",
+      "slug": "kohat-pk514"
+    },
+    "code": {
+      "id": "PK514",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "26352"
+    ],
+    "geo": {
+      "lat": "33.412",
+      "lon": "71.488"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK515",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "زیریں کوہستان",
+      "en": "Kohistan Lower",
+      "slug": "kohistan-lower-pk515"
+    },
+    "code": {
+      "id": "PK515",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "20300"
+    ],
+    "geo": {
+      "lat": "35.15",
+      "lon": "72.923"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK516",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "بالائی کوہستان",
+      "en": "Kohistan Upper",
+      "slug": "kohistan-upper-pk516"
+    },
+    "code": {
+      "id": "PK516",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "26014"
+    ],
+    "geo": {
+      "lat": "35.423",
+      "lon": "73.221"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK517",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "کولائی پالس کوہستان",
+      "en": "Kolai Palas Kohistan",
+      "slug": "kolai-palas-kohistan-pk517"
+    },
+    "code": {
+      "id": "PK517",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "19080"
+    ],
+    "geo": {
+      "lat": "35.067",
+      "lon": "73.175"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK518",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع کرم",
+      "en": "Kurram",
+      "slug": "kurram-pk518"
+    },
+    "code": {
+      "id": "PK518",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "26290"
+    ],
+    "geo": {
+      "lat": "33.69",
+      "lon": "70.384"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK519",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "لکی مروت",
+      "en": "Lakki Marwat",
+      "slug": "lakki-marwat-pk519"
+    },
+    "code": {
+      "id": "PK519",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "19200"
+    ],
+    "geo": {
+      "lat": "32.57",
+      "lon": "70.88"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK520",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع دیر زیریں",
+      "en": "Lower Dir",
+      "slug": "lower-dir-pk520"
+    },
+    "code": {
+      "id": "PK520",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 6
+    },
+    "zip_codes": [
+      "18300"
+    ],
+    "geo": {
+      "lat": "34.841",
+      "lon": "71.82"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK521",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع مالاکنڈ",
+      "en": "Malakand",
+      "slug": "malakand-pk521"
+    },
+    "code": {
+      "id": "PK521",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "23422"
+    ],
+    "geo": {
+      "lat": "34.517",
+      "lon": "71.824"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK522",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "مانسہرہ",
+      "en": "Mansehra",
+      "slug": "mansehra-pk522"
+    },
+    "code": {
+      "id": "PK522",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 5
+    },
+    "zip_codes": [
+      "20200"
+    ],
+    "geo": {
+      "lat": "34.696",
+      "lon": "73.512"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK523",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "مردان",
+      "en": "Mardan",
+      "slug": "mardan-pk523"
+    },
+    "code": {
+      "id": "PK523",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 5
+    },
+    "zip_codes": [
+      "23330"
+    ],
+    "geo": {
+      "lat": "34.303",
+      "lon": "72.081"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK524",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع مہمند",
+      "en": "Mohmand",
+      "slug": "mohmand-pk524"
+    },
+    "code": {
+      "id": "PK524",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 8
+    },
+    "zip_codes": [
+      "87710"
+    ],
+    "geo": {
+      "lat": "34.446",
+      "lon": "71.366"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK525",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "شمالی وزیرستان",
+      "en": "North Waziristan",
+      "slug": "north-waziristan-pk525"
+    },
+    "code": {
+      "id": "PK525",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 10
+    },
+    "zip_codes": [
+      "28210"
+    ],
+    "geo": {
+      "lat": "32.957",
+      "lon": "69.943"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK526",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "نوشہرہ",
+      "en": "Nowshera",
+      "slug": "nowshera-pk526"
+    },
+    "code": {
+      "id": "PK526",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "24540"
+    ],
+    "geo": {
+      "lat": "33.917",
+      "lon": "72.003"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK527",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع اورکزئی",
+      "en": "Orakzai",
+      "slug": "orakzai-pk527"
+    },
+    "code": {
+      "id": "PK527",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "27600"
+    ],
+    "geo": {
+      "lat": "33.695",
+      "lon": "70.878"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK528",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "پشاور",
+      "en": "Peshawar",
+      "slug": "peshawar-pk528"
+    },
+    "code": {
+      "id": "PK528",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 5
+    },
+    "zip_codes": [
+      "24360"
+    ],
+    "geo": {
+      "lat": "33.942",
+      "lon": "71.6"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK529",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع شانگلہ",
+      "en": "Shangla",
+      "slug": "shangla-pk529"
+    },
+    "code": {
+      "id": "PK529",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 6
+    },
+    "zip_codes": [
+      "20500"
+    ],
+    "geo": {
+      "lat": "34.847",
+      "lon": "72.79"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK530",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "جنوبی وزیرستان",
+      "en": "South Waziristan",
+      "slug": "south-waziristan-pk530"
+    },
+    "code": {
+      "id": "PK530",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 8
+    },
+    "zip_codes": [
+      "29540"
+    ],
+    "geo": {
+      "lat": "32.291",
+      "lon": "69.678"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK531",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "صوابی",
+      "en": "Swabi",
+      "slug": "swabi-pk531"
+    },
+    "code": {
+      "id": "PK531",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "23630"
+    ],
+    "geo": {
+      "lat": "34.141",
+      "lon": "72.477"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK532",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "سوات",
+      "en": "Swat",
+      "slug": "swat-pk532"
+    },
+    "code": {
+      "id": "PK532",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 9
+    },
+    "zip_codes": [
+      "26060"
+    ],
+    "geo": {
+      "lat": "35.233",
+      "lon": "72.512"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK533",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ٹانک",
+      "en": "Tank",
+      "slug": "tank-pk533"
+    },
+    "code": {
+      "id": "PK533",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "29440"
+    ],
+    "geo": {
+      "lat": "32.319",
+      "lon": "70.374"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK534",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "تور غر",
+      "en": "Tor Ghar",
+      "slug": "tor-ghar-pk534"
+    },
+    "code": {
+      "id": "PK534",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "21120"
+    ],
+    "geo": {
+      "lat": "34.559",
+      "lon": "72.876"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK535",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "دیر بالا",
+      "en": "Upper Dir",
+      "slug": "upper-dir-pk535"
+    },
+    "code": {
+      "id": "PK535",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK5",
+      "level": 1,
+      "name": {
+        "local": "خیبرپختونخوا",
+        "en": "Khyber Pakhtunkhwa",
+        "slug": "khyber-pakhtunkhwa-pk5"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK5",
+        "level": 1,
+        "name": {
+          "local": "خیبرپختونخوا",
+          "en": "Khyber Pakhtunkhwa",
+          "slug": "khyber-pakhtunkhwa-pk5"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 7
+    },
+    "zip_codes": [
+      "18000"
+    ],
+    "geo": {
+      "lat": "35.311",
+      "lon": "72.048"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK601",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "اٹک",
+      "en": "Attock",
+      "slug": "attock-pk601"
+    },
+    "code": {
+      "id": "PK601",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 6
+    },
+    "zip_codes": [
+      "43320"
+    ],
+    "geo": {
+      "lat": "33.503",
+      "lon": "72.425"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK602",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع بہاولنگر",
+      "en": "Bahawalnagar",
+      "slug": "bahawalnagar-pk602"
+    },
+    "code": {
+      "id": "PK602",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 5
+    },
+    "zip_codes": [
+      "33600"
+    ],
+    "geo": {
+      "lat": "29.577",
+      "lon": "72.997"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK603",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "بہاولپور",
+      "en": "Bahawalpur",
+      "slug": "bahawalpur-pk603"
+    },
+    "code": {
+      "id": "PK603",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 5
+    },
+    "zip_codes": [
+      "63210"
+    ],
+    "geo": {
+      "lat": "28.83",
+      "lon": "71.767"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK604",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "بھکر",
+      "en": "Bhakkar",
+      "slug": "bhakkar-pk604"
+    },
+    "code": {
+      "id": "PK604",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "30030"
+    ],
+    "geo": {
+      "lat": "31.681",
+      "lon": "71.338"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK605",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "چکوال",
+      "en": "Chakwal",
+      "slug": "chakwal-pk605"
+    },
+    "code": {
+      "id": "PK605",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "48540"
+    ],
+    "geo": {
+      "lat": "32.874",
+      "lon": "72.533"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK606",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "چنیوٹ",
+      "en": "Chiniot",
+      "slug": "chiniot-pk606"
+    },
+    "code": {
+      "id": "PK606",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "35480"
+    ],
+    "geo": {
+      "lat": "31.67",
+      "lon": "72.792"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK607",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ڈیرہ غازی خان",
+      "en": "Dera Ghazi Khan",
+      "slug": "dera-ghazi-khan-pk607"
+    },
+    "code": {
+      "id": "PK607",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "32124"
+    ],
+    "geo": {
+      "lat": "30.48",
+      "lon": "70.41"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK608",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "فیصل آباد",
+      "en": "Faisalabad",
+      "slug": "faisalabad-pk608"
+    },
+    "code": {
+      "id": "PK608",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 6
+    },
+    "zip_codes": [
+      "37510"
+    ],
+    "geo": {
+      "lat": "31.231",
+      "lon": "73.198"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK609",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "گوجرانوالہ",
+      "en": "Gujranwala",
+      "slug": "gujranwala-pk609"
+    },
+    "code": {
+      "id": "PK609",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "52320"
+    ],
+    "geo": {
+      "lat": "32.188",
+      "lon": "74.054"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK610",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "گجرات",
+      "en": "Gujrat",
+      "slug": "gujrat-pk610"
+    },
+    "code": {
+      "id": "PK610",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "50900"
+    ],
+    "geo": {
+      "lat": "32.718",
+      "lon": "74.038"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK611",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "حافظ آباد",
+      "en": "Hafizabad",
+      "slug": "hafizabad-pk611"
+    },
+    "code": {
+      "id": "PK611",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "12200"
+    ],
+    "geo": {
+      "lat": "32.051",
+      "lon": "73.543"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK612",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "جھنگ",
+      "en": "Jhang",
+      "slug": "jhang-pk612"
+    },
+    "code": {
+      "id": "PK612",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "35180"
+    ],
+    "geo": {
+      "lat": "31.172",
+      "lon": "72.142"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK613",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "جہلم",
+      "en": "Jhelum",
+      "slug": "jhelum-pk613"
+    },
+    "code": {
+      "id": "PK613",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "49326"
+    ],
+    "geo": {
+      "lat": "32.836",
+      "lon": "73.373"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK614",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "قصور",
+      "en": "Kasur",
+      "slug": "kasur-pk614"
+    },
+    "code": {
+      "id": "PK614",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "55020"
+    ],
+    "geo": {
+      "lat": "31.003",
+      "lon": "74.14"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK615",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "خانیوال",
+      "en": "Khanewal",
+      "slug": "khanewal-pk615"
+    },
+    "code": {
+      "id": "PK615",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "58100"
+    ],
+    "geo": {
+      "lat": "30.316",
+      "lon": "72.065"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK616",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "خوشاب",
+      "en": "Khushab",
+      "slug": "khushab-pk616"
+    },
+    "code": {
+      "id": "PK616",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "41200"
+    ],
+    "geo": {
+      "lat": "32.125",
+      "lon": "72.053"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK617",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "لاہور",
+      "en": "Lahore",
+      "slug": "lahore-pk617"
+    },
+    "code": {
+      "id": "PK617",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "54760"
+    ],
+    "geo": {
+      "lat": "31.486",
+      "lon": "74.405"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK618",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "لیہ",
+      "en": "Leiah",
+      "slug": "leiah-pk618"
+    },
+    "code": {
+      "id": "PK618",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "31300"
+    ],
+    "geo": {
+      "lat": "30.997",
+      "lon": "71.284"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK619",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "لودھراں",
+      "en": "Lodhran",
+      "slug": "lodhran-pk619"
+    },
+    "code": {
+      "id": "PK619",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "59330"
+    ],
+    "geo": {
+      "lat": "29.671",
+      "lon": "71.745"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK620",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "منڈی بہاؤالدین",
+      "en": "Mandi Bahauddin",
+      "slug": "mandi-bahauddin-pk620"
+    },
+    "code": {
+      "id": "PK620",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "50400"
+    ],
+    "geo": {
+      "lat": "32.435",
+      "lon": "73.471"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK621",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "میانوالی",
+      "en": "Mianwali",
+      "slug": "mianwali-pk621"
+    },
+    "code": {
+      "id": "PK621",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "42312"
+    ],
+    "geo": {
+      "lat": "32.704",
+      "lon": "71.515"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK622",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ملتان",
+      "en": "Multan",
+      "slug": "multan-pk622"
+    },
+    "code": {
+      "id": "PK622",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "31150"
+    ],
+    "geo": {
+      "lat": "29.926",
+      "lon": "71.366"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK623",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "مظفرگڑھ",
+      "en": "Muzaffargarh",
+      "slug": "muzaffargarh-pk623"
+    },
+    "code": {
+      "id": "PK623",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "34370"
+    ],
+    "geo": {
+      "lat": "29.892",
+      "lon": "71.013"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK624",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ننکانہ صاحب",
+      "en": "Nankana Sahib",
+      "slug": "nankana-sahib-pk624"
+    },
+    "code": {
+      "id": "PK624",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "52360"
+    ],
+    "geo": {
+      "lat": "31.432",
+      "lon": "73.85"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK625",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع نارووال",
+      "en": "Narowal",
+      "slug": "narowal-pk625"
+    },
+    "code": {
+      "id": "PK625",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "47960"
+    ],
+    "geo": {
+      "lat": "32.206",
+      "lon": "75.043"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK626",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "اوکاڑہ",
+      "en": "Okara",
+      "slug": "okara-pk626"
+    },
+    "code": {
+      "id": "PK626",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "56100"
+    ],
+    "geo": {
+      "lat": "30.697",
+      "lon": "73.733"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK627",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "پاکپتن",
+      "en": "Pakpattan",
+      "slug": "pakpattan-pk627"
+    },
+    "code": {
+      "id": "PK627",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "57110"
+    ],
+    "geo": {
+      "lat": "30.289",
+      "lon": "73.307"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK628",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "رحیم یار خان",
+      "en": "Rahim Yar Khan",
+      "slug": "rahim-yar-khan-pk628"
+    },
+    "code": {
+      "id": "PK628",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "64320"
+    ],
+    "geo": {
+      "lat": "28.485",
+      "lon": "70.461"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK629",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع راجن پور",
+      "en": "Rajanpur",
+      "slug": "rajanpur-pk629"
+    },
+    "code": {
+      "id": "PK629",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "64100"
+    ],
+    "geo": {
+      "lat": "29.145",
+      "lon": "70.153"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK630",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "راولپنڈی",
+      "en": "Rawalpindi",
+      "slug": "rawalpindi-pk630"
+    },
+    "code": {
+      "id": "PK630",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 7
+    },
+    "zip_codes": [
+      "47380"
+    ],
+    "geo": {
+      "lat": "33.541",
+      "lon": "73.438"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK631",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ساہیوال",
+      "en": "Sahiwal",
+      "slug": "sahiwal-pk631"
+    },
+    "code": {
+      "id": "PK631",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "57200"
+    ],
+    "geo": {
+      "lat": "30.55",
+      "lon": "72.896"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK632",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "سرگودھا",
+      "en": "Sargodha",
+      "slug": "sargodha-pk632"
+    },
+    "code": {
+      "id": "PK632",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 7
+    },
+    "zip_codes": [
+      "40462"
+    ],
+    "geo": {
+      "lat": "32.069",
+      "lon": "72.789"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK633",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "شیخوپورہ",
+      "en": "Sheikhupura",
+      "slug": "sheikhupura-pk633"
+    },
+    "code": {
+      "id": "PK633",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 5
+    },
+    "zip_codes": [
+      "49712"
+    ],
+    "geo": {
+      "lat": "31.714",
+      "lon": "73.985"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK634",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "سیالکوٹ",
+      "en": "Sialkot",
+      "slug": "sialkot-pk634"
+    },
+    "code": {
+      "id": "PK634",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "51410"
+    ],
+    "geo": {
+      "lat": "32.442",
+      "lon": "74.568"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK635",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ٹوبہ ٹیک سنگھ",
+      "en": "Toba Tek Singh",
+      "slug": "toba-tek-singh-pk635"
+    },
+    "code": {
+      "id": "PK635",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "43700"
+    ],
+    "geo": {
+      "lat": "30.929",
+      "lon": "72.537"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK636",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "وہاڑی",
+      "en": "Vehari",
+      "slug": "vehari-pk636"
+    },
+    "code": {
+      "id": "PK636",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK6",
+      "level": 1,
+      "name": {
+        "local": "پنجاب",
+        "en": "Punjab",
+        "slug": "punjab-pk6"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK6",
+        "level": 1,
+        "name": {
+          "local": "پنجاب",
+          "en": "Punjab",
+          "slug": "punjab-pk6"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "61220"
+    ],
+    "geo": {
+      "lat": "29.983",
+      "lon": "72.319"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK701",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "بدین",
+      "en": "Badin",
+      "slug": "badin-pk701"
+    },
+    "code": {
+      "id": "PK701",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 5
+    },
+    "zip_codes": [
+      "72200"
+    ],
+    "geo": {
+      "lat": "24.752",
+      "lon": "68.801"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK702",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "وسطی کراچی",
+      "en": "Central Karachi",
+      "slug": "central-karachi-pk702"
+    },
+    "code": {
+      "id": "PK702",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "75840"
+    ],
+    "geo": {
+      "lat": "24.948",
+      "lon": "67.06"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK703",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "دادو",
+      "en": "Dadu",
+      "slug": "dadu-pk703"
+    },
+    "code": {
+      "id": "PK703",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "76190"
+    ],
+    "geo": {
+      "lat": "26.768",
+      "lon": "67.505"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK704",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "مشرقی کراچی",
+      "en": "East Karachi",
+      "slug": "east-karachi-pk704"
+    },
+    "code": {
+      "id": "PK704",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 2
+    },
+    "zip_codes": [
+      "75200"
+    ],
+    "geo": {
+      "lat": "24.932",
+      "lon": "67.163"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK705",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "گھوٹکی",
+      "en": "Ghotki",
+      "slug": "ghotki-pk705"
+    },
+    "code": {
+      "id": "PK705",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 5
+    },
+    "zip_codes": [
+      "65050"
+    ],
+    "geo": {
+      "lat": "27.866",
+      "lon": "69.684"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK706",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "حیدرآباد",
+      "en": "Hyderabad",
+      "slug": "hyderabad-pk706"
+    },
+    "code": {
+      "id": "PK706",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "70210"
+    ],
+    "geo": {
+      "lat": "25.355",
+      "lon": "68.444"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK707",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "جیکب آباد",
+      "en": "Jacobabad",
+      "slug": "jacobabad-pk707"
+    },
+    "code": {
+      "id": "PK707",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "78200"
+    ],
+    "geo": {
+      "lat": "28.176",
+      "lon": "68.514"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK708",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع جامشورو",
+      "en": "Jamshoro",
+      "slug": "jamshoro-pk708"
+    },
+    "code": {
+      "id": "PK708",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "76130"
+    ],
+    "geo": {
+      "lat": "25.786",
+      "lon": "67.852"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK709",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "قمبر شہدادکوٹ",
+      "en": "Qambar Shahdadkot",
+      "slug": "qambar-shahdadkot-pk709"
+    },
+    "code": {
+      "id": "PK709",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 7
+    },
+    "zip_codes": [
+      "77214"
+    ],
+    "geo": {
+      "lat": "27.647",
+      "lon": "67.683"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK710",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع کشمور",
+      "en": "Kashmore",
+      "slug": "kashmore-pk710"
+    },
+    "code": {
+      "id": "PK710",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "79160"
+    ],
+    "geo": {
+      "lat": "28.236",
+      "lon": "69.167"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK711",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "خیرپور",
+      "en": "Khairpur",
+      "slug": "khairpur-pk711"
+    },
+    "code": {
+      "id": "PK711",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 8
+    },
+    "zip_codes": [
+      "66170"
+    ],
+    "geo": {
+      "lat": "26.96",
+      "lon": "68.941"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK712",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "کورنگی کراچی",
+      "en": "Korangi Karachi",
+      "slug": "korangi-karachi-pk712"
+    },
+    "code": {
+      "id": "PK712",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "75190"
+    ],
+    "geo": {
+      "lat": "24.833",
+      "lon": "67.146"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK713",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "لاڑکانہ",
+      "en": "Larkana",
+      "slug": "larkana-pk713"
+    },
+    "code": {
+      "id": "PK713",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "77020"
+    ],
+    "geo": {
+      "lat": "27.531",
+      "lon": "68.202"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK714",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ملیر کراچی",
+      "en": "Malir Karachi",
+      "slug": "malir-karachi-pk714"
+    },
+    "code": {
+      "id": "PK714",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "75340"
+    ],
+    "geo": {
+      "lat": "25.207",
+      "lon": "67.16"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK715",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع مٹیاری",
+      "en": "Matiari",
+      "slug": "matiari-pk715"
+    },
+    "code": {
+      "id": "PK715",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "70130"
+    ],
+    "geo": {
+      "lat": "25.771",
+      "lon": "68.422"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK716",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "میرپور خاص",
+      "en": "Mirpur Khas",
+      "slug": "mirpur-khas-pk716"
+    },
+    "code": {
+      "id": "PK716",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 7
+    },
+    "zip_codes": [
+      "69370"
+    ],
+    "geo": {
+      "lat": "25.307",
+      "lon": "69.16"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK717",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "نوشہرو فیروز",
+      "en": "Naushahro Feroze",
+      "slug": "naushahro-feroze-pk717"
+    },
+    "code": {
+      "id": "PK717",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 5
+    },
+    "zip_codes": [
+      "67080"
+    ],
+    "geo": {
+      "lat": "26.888",
+      "lon": "68.098"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK718",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "سانگھڑ",
+      "en": "Sanghar",
+      "slug": "sanghar-pk718"
+    },
+    "code": {
+      "id": "PK718",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 6
+    },
+    "zip_codes": [
+      "68140"
+    ],
+    "geo": {
+      "lat": "25.979",
+      "lon": "69.291"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK719",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "شہید بینظیر آباد",
+      "en": "Shaheed Benazir Abad",
+      "slug": "shaheed-benazir-abad-pk719"
+    },
+    "code": {
+      "id": "PK719",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "67470"
+    ],
+    "geo": {
+      "lat": "26.309",
+      "lon": "68.284"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK720",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "شکارپور",
+      "en": "Shikarpur",
+      "slug": "shikarpur-pk720"
+    },
+    "code": {
+      "id": "PK720",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "78100"
+    ],
+    "geo": {
+      "lat": "27.922",
+      "lon": "68.572"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK721",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "جنوبی کراچی",
+      "en": "South Karachi",
+      "slug": "south-karachi-pk721"
+    },
+    "code": {
+      "id": "PK721",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "70100"
+    ],
+    "geo": {
+      "lat": "24.893",
+      "lon": "66.842"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK722",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع سجاول",
+      "en": "Sujawal",
+      "slug": "sujawal-pk722"
+    },
+    "code": {
+      "id": "PK722",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 5
+    },
+    "zip_codes": [
+      "73060"
+    ],
+    "geo": {
+      "lat": "24.388",
+      "lon": "68.16"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK723",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "سکھر",
+      "en": "Sukkur",
+      "slug": "sukkur-pk723"
+    },
+    "code": {
+      "id": "PK723",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 5
+    },
+    "zip_codes": [
+      "65150"
+    ],
+    "geo": {
+      "lat": "27.545",
+      "lon": "69.065"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK724",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ٹنڈو الہ یار",
+      "en": "Tando Allahyar",
+      "slug": "tando-allahyar-pk724"
+    },
+    "code": {
+      "id": "PK724",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "70010"
+    ],
+    "geo": {
+      "lat": "25.481",
+      "lon": "68.753"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK725",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع ٹنڈو محمد خان",
+      "en": "Tando Muhammad Khan",
+      "slug": "tando-muhammad-khan-pk725"
+    },
+    "code": {
+      "id": "PK725",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "70220"
+    ],
+    "geo": {
+      "lat": "25.025",
+      "lon": "68.46"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK726",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ضلع تھرپارکر",
+      "en": "Tharparkar",
+      "slug": "tharparkar-pk726"
+    },
+    "code": {
+      "id": "PK726",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 7
+    },
+    "zip_codes": [
+      "69170"
+    ],
+    "geo": {
+      "lat": "24.943",
+      "lon": "70.241"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK727",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "ٹھٹہ",
+      "en": "Thatta",
+      "slug": "thatta-pk727"
+    },
+    "code": {
+      "id": "PK727",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "73200"
+    ],
+    "geo": {
+      "lat": "24.694",
+      "lon": "67.709"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK728",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "عمرکوٹ",
+      "en": "Umerkot",
+      "slug": "umerkot-pk728"
+    },
+    "code": {
+      "id": "PK728",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 4
+    },
+    "zip_codes": [
+      "69120"
+    ],
+    "geo": {
+      "lat": "25.333",
+      "lon": "69.811"
+    },
+    "metadata": {},
+    "source": {}
+  },
+  {
+    "id": "PK729",
+    "level": 2,
+    "level_name": {
+      "local": "ضلع",
+      "en": "District"
+    },
+    "name": {
+      "local": "مغربی کراچی",
+      "en": "West Karachi",
+      "slug": "west-karachi-pk729"
+    },
+    "code": {
+      "id": "PK729",
+      "iso": null
+    },
+    "parent": {
+      "id": "PK7",
+      "level": 1,
+      "name": {
+        "local": "سندھ",
+        "en": "Sindh",
+        "slug": "sindh-pk7"
+      }
+    },
+    "ancestors": [
+      {
+        "id": "PK7",
+        "level": 1,
+        "name": {
+          "local": "سندھ",
+          "en": "Sindh",
+          "slug": "sindh-pk7"
+        }
+      }
+    ],
+    "children_count": {
+      "tehsil": 3
+    },
+    "zip_codes": [
+      "75800"
+    ],
+    "geo": {
+      "lat": "24.987",
+      "lon": "67.008"
+    },
+    "metadata": {},
+    "source": {}
+  }
+]

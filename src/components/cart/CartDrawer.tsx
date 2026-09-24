@@ -23,6 +23,7 @@ export default function CartDrawer() {
     applyPromoCode,
     removePromoCode,
     getItemsCount,
+    shippingFreeThreshold,
   } = useCartStore();
 
   const [couponInput, setCouponInput] = useState('');
@@ -34,14 +35,14 @@ export default function CartDrawer() {
   const discount = getDiscount();
   const shipping = getShippingFee();
   const total = getTotal();
-  const freeShippingThreshold = 4000;
+  const freeShippingThreshold = shippingFreeThreshold || 1;
   const remainingForFreeShipping = Math.max(0, freeShippingThreshold - subtotal);
   const progressPct = Math.min(100, (subtotal / freeShippingThreshold) * 100);
 
-  const handleApplyCoupon = (e: React.FormEvent) => {
+  const handleApplyCoupon = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!couponInput.trim()) return;
-    const res = applyPromoCode(couponInput);
+    const res = await applyPromoCode(couponInput);
     setCouponMsg({ text: res.message, isError: !res.success });
     if (res.success) setCouponInput('');
   };

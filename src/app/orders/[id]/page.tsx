@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { useOrdersStore } from '@/lib/store/useOrdersStore';
 import { formatPKR, getWhatsAppLink } from '@/lib/utils';
+import { useSiteSettings } from '@/lib/firestore/store-data';
 import { OrderStatus } from '@/types';
 
 interface OrderDetailPageProps {
@@ -27,6 +28,7 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
   const resolvedParams = use(params);
   const orderId = resolvedParams.id;
   const { getOrderById } = useOrdersStore();
+  const settings = useSiteSettings();
   const order = getOrderById(orderId);
 
   if (!order) {
@@ -53,7 +55,8 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
   const currentStepIndex = statusOrder.indexOf(order.status);
 
   const whatsappHref = getWhatsAppLink(
-    `Hello Green Decor! I am checking on my Order #${order.id} (Tracking: ${order.trackingNumber}). Could you provide a delivery update?`
+    `Hello Green Decor! I am checking on my Order #${order.id} (Tracking: ${order.trackingNumber}). Could you provide a delivery update?`,
+    settings.whatsappNumber
   );
 
   return (
@@ -231,7 +234,15 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
             <div className="text-xs text-[#384c3f] space-y-1.5">
               <p className="font-bold text-sm text-[#38b000]">{order.shippingAddress.fullName}</p>
               <p>{order.shippingAddress.streetAddress}</p>
-              <p>{order.shippingAddress.city}, {order.shippingAddress.province}</p>
+              <p>
+                {[order.shippingAddress.tehsil, order.shippingAddress.district, order.shippingAddress.city]
+                  .filter(Boolean)
+                  .join(', ')}
+                , {order.shippingAddress.province}
+              </p>
+              {order.shippingAddress.postalCode && (
+                <p className="text-[#52685a]">Postal Code: {order.shippingAddress.postalCode}</p>
+              )}
               <p className="text-[#52685a]">Phone: {order.shippingAddress.phone}</p>
               <p className="text-[#52685a]">Email: {order.shippingAddress.email}</p>
               {order.shippingAddress.notes && (

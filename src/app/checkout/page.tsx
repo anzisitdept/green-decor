@@ -22,8 +22,10 @@ import { useCartStore } from '@/lib/store/useCartStore';
 import { useOrdersStore } from '@/lib/store/useOrdersStore';
 import { useAuthStore } from '@/lib/store/useAuthStore';
 import { useUIStore } from '@/lib/store/useUIStore';
-import { formatPKR, getWhatsAppLink } from '@/lib/utils';
+import { formatPKR } from '@/lib/utils';
+import { createOrder as persistOrder } from '@/lib/firestore/writes';
 import { OrderAddress, PaymentMethod } from '@/types';
+import PakistanLocationFields, { LocationSelection } from '@/components/checkout/PakistanLocationFields';
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -32,12 +34,18 @@ export default function CheckoutPage() {
   const { createOrder } = useOrdersStore();
   const { showToast } = useUIStore();
 
+  const savedAddress = user?.addresses[0];
+
   const [fullName, setFullName] = useState(user?.name || 'Hamza Khan');
-  const [phone, setPhone] = useState(user?.phone || '+92 300 1234567');
+  const [phone, setPhone] = useState(user?.phone || '+92 333 8951222');
   const [email, setEmail] = useState(user?.email || 'hamza.khan@example.com');
-  const [streetAddress, setStreetAddress] = useState(user?.addresses[0]?.streetAddress || 'House 42, Sector Y, Phase 3, DHA');
-  const [city, setCity] = useState(user?.addresses[0]?.city || 'Lahore');
-  const [province, setProvince] = useState(user?.addresses[0]?.province || 'Punjab');
+  const [streetAddress, setStreetAddress] = useState(savedAddress?.streetAddress || 'House 42, Sector Y, Phase 3, DHA');
+  const [location, setLocation] = useState<LocationSelection>(() => ({
+    province: savedAddress?.province || 'Punjab',
+    district: savedAddress?.district || savedAddress?.city || 'Lahore',
+    tehsil: savedAddress?.tehsil || '',
+    postalCode: savedAddress?.postalCode || '',
+  }));
   const [notes, setNotes] = useState('');
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('cod');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -46,11 +54,6 @@ export default function CheckoutPage() {
   const discount = getDiscount();
   const shipping = getShippingFee();
   const total = getTotal();
-
-  const cities = [
-    'Lahore', 'Karachi', 'Islamabad', 'Rawalpindi', 'Faisalabad', 
-    'Multan', 'Peshawar', 'Sialkot', 'Gujranwala', 'Quetta', 'Hyderabad'
-  ];
 
   if (items.length === 0) {
     return (
@@ -73,8 +76,11 @@ export default function CheckoutPage() {
       phone,
       email,
       streetAddress,
-      city,
-      province,
+      city: location.tehsil || location.district,
+      district: location.district,
+      tehsil: location.tehsil,
+      province: location.province,
+      postalCode: location.postalCode,
       notes,
     };
 
@@ -84,11 +90,16 @@ export default function CheckoutPage() {
         shippingAddress,
         paymentMethod,
         subtotal,
-        shippingFee(subtotal),
+        shipping,
         discount,
         total,
         user?.id
       );
+
+      // Persist to Firestore so the admin panel sees the order immediately.
+      persistOrder(order).catch(() => {
+        // Local order is kept as a cache even if the network write fails.
+      });
 
       // Trigger celebratory confetti
       try {
@@ -107,10 +118,6 @@ export default function CheckoutPage() {
       router.push(`/orders/${order.id}`);
     }, 800);
   };
-
-  function shippingFee(sub: number) {
-    return sub >= 4000 ? 0 : 350;
-  }
 
   return (
     <div className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -192,36 +199,7 @@ export default function CheckoutPage() {
               />
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-bold text-[#172b21] mb-1">City *</label>
-                <select
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs font-semibold text-[#38b000] bg-white focus:ring-2 focus:ring-[#38b000]"
-                >
-                  {cities.map((c) => (
-                    <option key={c} value={c}>{c}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-[#172b21] mb-1">Province *</label>
-                <select
-                  value={province}
-                  onChange={(e) => setProvince(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs font-semibold text-[#38b000] bg-white focus:ring-2 focus:ring-[#38b000]"
-                >
-                  <option value="Punjab">Punjab</option>
-                  <option value="Sindh">Sindh</option>
-                  <option value="Islamabad Capital Territory">Islamabad Capital Territory</option>
-                  <option value="Khyber Pakhtunkhwa">Khyber Pakhtunkhwa</option>
-                  <option value="Balochistan">Balochistan</option>
-                  <option value="Azad Kashmir">Azad Kashmir</option>
-                </select>
-              </div>
-            </div>
+            <PakistanLocationFields value={location} onChange={setLocation} />
 
             <div>
               <label className="block text-xs font-bold text-[#172b21] mb-1">Delivery Notes (Optional)</label>

@@ -31,10 +31,10 @@ export default function FullCartPage() {
   const shipping = getShippingFee();
   const total = getTotal();
 
-  const handleApplyCoupon = (e: React.FormEvent) => {
+  const handleApplyCoupon = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!couponInput.trim()) return;
-    const res = applyPromoCode(couponInput);
+    const res = await applyPromoCode(couponInput);
     setCouponMsg({ text: res.message, isError: !res.success });
     if (res.success) setCouponInput('');
   };

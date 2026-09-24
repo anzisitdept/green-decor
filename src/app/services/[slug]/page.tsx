@@ -17,9 +17,10 @@ import {
   Home,
   Check
 } from 'lucide-react';
-import { servicesData } from '@/lib/data/services';
+import { useStoreServices, useSiteSettings } from '@/lib/firestore/store-data';
 import { useUIStore } from '@/lib/store/useUIStore';
 import { getWhatsAppLink } from '@/lib/utils';
+import { submitServiceRequest } from '@/lib/firestore/writes';
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -28,6 +29,8 @@ interface ServicePageProps {
 export default function ServiceDetailPage({ params }: ServicePageProps) {
   const resolvedParams = use(params);
   const slug = resolvedParams.slug;
+  const servicesData = useStoreServices();
+  const settings = useSiteSettings();
   const service = servicesData.find((s) => s.slug === slug);
   const { showToast } = useUIStore();
 
@@ -53,13 +56,30 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
   }
 
   const whatsappDirectHref = getWhatsAppLink(
-    `Hello Green Decor! I would like to request a quote for "${service.title}" in ${city}. Details: ${message || 'Please share portfolio and consultation slots.'}`
+    `Hello Green Decor! I would like to request a quote for "${service.title}" in ${city}. Details: ${message || 'Please share portfolio and consultation slots.'}`,
+    settings.whatsappNumber
   );
 
-  const handleQuoteSubmit = (e: React.FormEvent) => {
+  const handleQuoteSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitted(true);
-    showToast(`Quote request for ${service.title} sent! Our horticulturist will contact you within 2 hours.`);
+    try {
+      await submitServiceRequest({
+        serviceSlug: service.slug,
+        serviceTitle: service.title,
+        fullName: fullName.trim(),
+        phone: phone.trim(),
+        email: email.trim(),
+        city,
+        propertyType,
+        message: message.trim(),
+        createdAt: new Date().toISOString(),
+        status: 'new',
+      });
+      showToast(`Quote request for ${service.title} sent! Our horticulturist will contact you within 2 hours.`);
+    } catch {
+      showToast('Could not send your request. Please reach us on WhatsApp.', 'warning');
+    }
   };
 
   return (

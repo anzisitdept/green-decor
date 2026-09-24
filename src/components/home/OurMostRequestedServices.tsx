@@ -4,38 +4,43 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Sprout, Leaf, Droplet, Scissors } from 'lucide-react';
+import { useStoreServices } from '@/lib/firestore/store-data';
+
+const SERVICE_SLOTS = [
+  {
+    slug: 'book-a-gardener',
+    title: 'Garden Maintenance',
+    image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=600&q=80',
+    Icon: Sprout,
+  },
+  {
+    slug: 'green-care',
+    title: 'Indoor Plants',
+    image: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&q=80',
+    Icon: Leaf,
+  },
+  {
+    slug: 'landscaping',
+    title: 'Irrigation Services',
+    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80',
+    Icon: Droplet,
+  },
+  {
+    slug: 'green-makeover',
+    title: 'Artificial Grass',
+    image: 'https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=600&q=80',
+    Icon: Scissors,
+  },
+];
 
 export default function OurMostRequestedServices() {
-  const servicesList = [
-    {
-      id: 'srv-garden-maint',
-      slug: 'book-a-gardener',
-      title: 'Garden Maintenance',
-      image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=600&q=80',
-      Icon: Sprout,
-    },
-    {
-      id: 'srv-indoor',
-      slug: 'green-care',
-      title: 'Indoor Plants',
-      image: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&q=80',
-      Icon: Leaf,
-    },
-    {
-      id: 'srv-irrigation',
-      slug: 'landscaping',
-      title: 'Irrigation Services',
-      image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80',
-      Icon: Droplet,
-    },
-    {
-      id: 'srv-artificial-grass',
-      slug: 'green-makeover',
-      title: 'Artificial Grass',
-      image: 'https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=600&q=80',
-      Icon: Scissors,
-    },
-  ];
+  const services = useStoreServices();
+  const servicesList = SERVICE_SLOTS.map((slot) => {
+    const match = services.find((s) => s.slug === slot.slug);
+    return match
+      ? { id: match.id, slug: match.slug, title: match.title, image: match.heroImage, Icon: slot.Icon }
+      : { id: slot.slug, slug: slot.slug, title: slot.title, image: slot.image, Icon: slot.Icon };
+  });
 
   return (
     <section className="w-full bg-[#f8f7f2] py-12 sm:py-16 px-4 sm:px-6 lg:px-8 select-none">

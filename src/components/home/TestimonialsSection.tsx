@@ -4,38 +4,55 @@ import React, { useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Star, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
-import { testimonialsData } from '@/lib/data/testimonials';
+import { useStoreTestimonials } from '@/lib/firestore/store-data';
 
 export default function TestimonialsSection() {
+  const testimonialsData = useStoreTestimonials();
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const getScrollAmount = () => {
+    const el = scrollRef.current;
+    if (!el) return 320;
+    const card = el.firstElementChild as HTMLElement | null;
+    return (card?.offsetWidth ?? 320) + 20;
+  };
 
   const scrollLeft = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -400, behavior: 'smooth' });
+      scrollRef.current.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 400, behavior: 'smooth' });
+      scrollRef.current.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
     }
   };
 
   return (
-    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-[#f8f7f2] select-none">
+    <section className="pt-8 sm:pt-12 pb-0 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full bg-[#f8f7f2] select-none">
       {/* Header & Navigation Arrows */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
         <div>
-          <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#556b5d]">
-            VERIFIED REVIEWS
-          </span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#38b000] mt-0.5 tracking-tight">
+          <div className="flex items-center gap-3 sm:gap-4 mb-1.5 flex-wrap">
+            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#556b5d]">
+              VERIFIED REVIEWS
+            </span>
+            <Link
+              href="/testimonials"
+              className="text-xs sm:text-sm font-bold text-[#38b000] hover:text-[#27964c] hover:underline inline-flex items-center gap-1"
+            >
+              <span>Read all verified customer reviews</span>
+              <span>&rarr;</span>
+            </Link>
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#38b000] tracking-tight">
             Loved Across Pakistan
           </h2>
         </div>
 
         {/* Circular Green Carousel Navigation Buttons */}
-        <div className="flex items-center gap-2.5 mr-2 sm:mr-6 lg:mr-10">
+        <div className="flex items-center gap-3 self-start sm:self-auto">
           <button
             type="button"
             onClick={scrollLeft}
@@ -59,7 +76,7 @@ export default function TestimonialsSection() {
       {/* Reviews Carousel Track */}
       <div
         ref={scrollRef}
-        className="flex gap-5 overflow-x-auto snap-x snap-proximity pb-4 px-1 scrollbar-none"
+        className="flex gap-5 overflow-x-auto snap-x snap-proximity pb-2 pt-1 px-1 pr-6 sm:pr-8 scrollbar-none"
       >
         {testimonialsData.map((item) => {
           const hasImage = !!item.image;
@@ -140,17 +157,6 @@ export default function TestimonialsSection() {
             </div>
           );
         })}
-      </div>
-
-      {/* Link to Reviews Page */}
-      <div className="mt-6 text-center">
-        <Link
-          href="/testimonials"
-          className="text-xs sm:text-sm font-bold text-[#38b000] hover:text-[#27964c] hover:underline inline-flex items-center gap-1.5"
-        >
-          <span>Read all verified customer reviews</span>
-          <span>&rarr;</span>
-        </Link>
       </div>
     </section>
   );

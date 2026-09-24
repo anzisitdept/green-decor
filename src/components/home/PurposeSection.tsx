@@ -1,9 +1,23 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import { useSiteContent } from '@/lib/firestore/store-data';
+
+const DEFAULT_HEADING = 'Unique Planters & Pots';
+const DEFAULT_SUBCOPY =
+  'From hand-thrown terracotta to bespoke concrete and branded corporate planters, every piece is crafted to your vision. We design, cast and deliver planters that turn any corner into a statement.';
 
 export default function PurposeSection() {
+  const { content } = useSiteContent();
+  const purpose = content?.purpose;
+  const heading = purpose?.heading || DEFAULT_HEADING;
+  const subcopy = purpose?.subcopy || DEFAULT_SUBCOPY;
+  const pillars = purpose?.pillars ?? [];
+  const quote = purpose?.quote;
+
   return (
     <section className="relative w-full bg-white overflow-hidden">
       <div className="relative lg:h-[600px]">
@@ -14,13 +28,31 @@ export default function PurposeSection() {
             You think it and we can make it!
           </span>
           <h2 className="font-sans font-extrabold text-4xl sm:text-5xl text-white leading-[1.1] mt-3">
-            Unique Planters &amp; Pots
+            {heading}
           </h2>
           <p className="text-[#f0f3ee] text-sm sm:text-base leading-relaxed mt-4 max-w-[500px]">
-            From hand-thrown terracotta to bespoke concrete and branded corporate planters,
-            every piece is crafted to your vision. We design, cast and deliver planters that
-            turn any corner into a statement.
+            {subcopy}
           </p>
+
+          {pillars.length > 0 && (
+            <div className="flex flex-wrap gap-2 mt-5 max-w-[500px]">
+              {pillars.map((pillar, idx) => (
+                <span
+                  key={idx}
+                  className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 border border-[#8bc34a]/40 text-[11px] font-semibold text-[#d7e9c9]"
+                >
+                  {pillar.label}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {quote && (
+            <p className="mt-5 max-w-[500px] font-serif italic text-sm sm:text-base text-[#e8d9b5] border-l-2 border-[#8bc34a] pl-4">
+              {quote}
+            </p>
+          )}
+
           <div className="mt-7">
             <Link
               href="/shop?category=home-decor"

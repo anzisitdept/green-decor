@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import {
   X,
@@ -13,10 +13,13 @@ import {
   Home,
   Trees,
   Fish,
+  Wand2,
   Sparkles,
   Gift,
   MessageCircle,
   ChevronRight,
+  ChevronDown,
+  ArrowRight,
   Info,
   Images,
   Quote,
@@ -27,14 +30,21 @@ import { useWishlistStore } from '@/lib/store/useWishlistStore';
 import { useAuthStore } from '@/lib/store/useAuthStore';
 import { useUIStore } from '@/lib/store/useUIStore';
 import { getWhatsAppLink } from '@/lib/utils';
+import { useSiteSettings } from '@/lib/firestore/store-data';
 import { useRouter } from 'next/navigation';
 
 export default function LeftSidebar() {
   const router = useRouter();
+  const settings = useSiteSettings();
   const cartCount = useCartStore((state) => state.getItemsCount());
   const wishlistCount = useWishlistStore((state) => state.getCount());
   const { user, isAuthenticated } = useAuthStore();
   const { isLeftMenuOpen, closeLeftMenu, openCart } = useUIStore();
+
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
+  const [isQuickOpen, setIsQuickOpen] = useState(false);
 
   const categories = [
     { label: 'Plants & Planters', href: '/shop?category=plants', icon: <Leaf className="w-4 h-4 text-[#38b000]" /> },
@@ -46,6 +56,7 @@ export default function LeftSidebar() {
   ];
 
   const quickLinks = [
+    { label: 'Get Design Ideas', href: '/design-studio', icon: <Wand2 className="w-4 h-4 text-[#38b000]" /> },
     { label: 'Track My Orders', href: '/orders', icon: <Package className="w-4 h-4 text-[#38b000]" /> },
     { label: 'My Wishlist', href: '/wishlist', icon: <Heart className="w-4 h-4 text-[#38b000]" /> },
     { label: 'My Account', href: '/account', icon: <User className="w-4 h-4 text-[#38b000]" /> },
@@ -67,33 +78,23 @@ export default function LeftSidebar() {
   ];
 
   const whatsappHref = getWhatsAppLink(
-    'Hello Green Decor! I would like to inquire about your plants, home decor, and landscaping services.'
+    'Hello Green Decor! I would like to inquire about your plants, home decor, and landscaping services.',
+    settings.whatsappNumber
   );
 
   if (!isLeftMenuOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm">
+      <button
+        type="button"
+        onClick={closeLeftMenu}
+        aria-label="Close menu"
+        className="absolute top-4 z-[60] left-[calc(min(320px,100%)+14px)] w-9 h-9 rounded-full bg-white text-gray-600 hover:text-[#38b000] shadow-md flex items-center justify-center"
+      >
+        <X className="w-5 h-5" />
+      </button>
       <div className="fixed top-0 left-0 bottom-0 w-full max-w-[320px] bg-white p-6 shadow-2xl flex flex-col overflow-y-auto animate-in slide-in-from-left duration-200">
-        <div className="flex items-center justify-between pb-4 border-b border-[#f0f4ee]">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 flex items-center justify-center text-[#38b000]">
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z" />
-              </svg>
-            </div>
-            <span className="font-serif font-bold text-lg text-[#38b000]">GREEN DECOR</span>
-          </div>
-          <button
-            type="button"
-            onClick={closeLeftMenu}
-            aria-label="Close menu"
-            className="p-1.5 rounded-lg text-gray-500 hover:bg-gray-100"
-          >
-            <X className="w-5 h-5" />
-          </button>
-        </div>
-
         {isAuthenticated && user ? (
           <Link
             href="/account"
@@ -148,79 +149,142 @@ export default function LeftSidebar() {
         </button>
 
         <div className="mt-6 pt-4 border-t border-[#f0f4ee]">
-          <p className="text-xs font-bold text-[#52685a] uppercase tracking-wider mb-2">Menu</p>
-          <div className="flex flex-col gap-0.5">
-            <Link
-              href="/services"
-              onClick={closeLeftMenu}
-              className="flex items-center gap-2.5 px-2 py-2 rounded-xl text-sm text-[#2a3f33] hover:bg-[#f4f7f2] hover:text-[#38b000] transition-colors"
-            >
-              <LayoutGrid className="w-4 h-4 text-[#38b000]" />
-              <span>Services</span>
-            </Link>
-            {menuLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                onClick={closeLeftMenu}
-                className="flex items-center gap-2.5 px-2 py-2 rounded-xl text-sm text-[#2a3f33] hover:bg-[#f4f7f2] hover:text-[#38b000] transition-colors"
-              >
-                {link.icon}
-                <span>{link.label}</span>
-              </Link>
-            ))}
-          </div>
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="w-full flex items-center justify-between mb-2"
+          >
+            <span className="text-xs font-bold text-[#52685a] uppercase tracking-wider">Menu</span>
+            <ChevronDown
+              className={`w-4 h-4 text-[#52685a] transition-transform duration-200 ${
+                isMenuOpen ? 'rotate-180 text-[#38b000]' : ''
+              }`}
+            />
+          </button>
+
+          {isMenuOpen && (
+            <div className="flex flex-col gap-0.5">
+              {/* Services dropdown */}
+              <div>
+                <button
+                  type="button"
+                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                  className={`w-full flex items-center gap-2.5 px-2 py-2 rounded-xl text-sm transition-colors ${
+                    isServicesOpen
+                      ? 'text-[#38b000] font-semibold bg-[#f4f7f2]'
+                      : 'text-[#2a3f33] hover:bg-[#f4f7f2] hover:text-[#38b000]'
+                  }`}
+                >
+                  <LayoutGrid className="w-4 h-4 text-[#38b000]" />
+                  <span className="flex-1 text-left">Services</span>
+                  <ChevronDown
+                    className={`w-4 h-4 text-[#52685a] transition-transform duration-200 ${
+                      isServicesOpen ? 'rotate-180 text-[#38b000]' : ''
+                    }`}
+                  />
+                </button>
+
+                {isServicesOpen && (
+                  <div className="flex flex-col gap-0.5 mt-0.5 ml-3 pl-4 border-l-2 border-[#e5ece3]">
+                    {coreServices.map((svc) => (
+                      <Link
+                        key={svc.label}
+                        href={svc.href}
+                        onClick={closeLeftMenu}
+                        className="flex items-center gap-2.5 px-2 py-2 rounded-xl text-sm text-[#52685a] hover:bg-[#f4f7f2] hover:text-[#38b000] transition-colors"
+                      >
+                        <Leaf className="w-3.5 h-3.5 text-[#38b000]" />
+                        <span>{svc.label}</span>
+                      </Link>
+                    ))}
+                    <Link
+                      href="/services"
+                      onClick={closeLeftMenu}
+                      className="flex items-center gap-2.5 px-2 py-2 rounded-xl text-sm font-semibold text-[#38b000] hover:bg-[#f4f7f2] transition-colors"
+                    >
+                      <ArrowRight className="w-3.5 h-3.5" />
+                      <span>View All Services</span>
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              {/* Flat menu links */}
+              {menuLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={closeLeftMenu}
+                  className="flex items-center gap-2.5 px-2 py-2 rounded-xl text-sm text-[#2a3f33] hover:bg-[#f4f7f2] hover:text-[#38b000] transition-colors"
+                >
+                  {link.icon}
+                  <span>{link.label}</span>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
 
-        <div className="mt-6 pt-4 border-t border-[#f0f4ee]">
-          <p className="text-xs font-bold text-[#52685a] uppercase tracking-wider mb-2">Our Core Services</p>
-          <div className="flex flex-col gap-0.5">
-            {coreServices.map((svc) => (
-              <Link
-                key={svc.label}
-                href={svc.href}
-                onClick={closeLeftMenu}
-                className="flex items-center gap-2.5 px-2 py-2 rounded-xl text-sm text-[#2a3f33] hover:bg-[#f4f7f2] hover:text-[#38b000] transition-colors"
-              >
-                <Leaf className="w-4 h-4 text-[#38b000]" />
-                <span>{svc.label}</span>
-              </Link>
-            ))}
-          </div>
+        <div className="mt-4 pt-4 border-t border-[#f0f4ee]">
+          <button
+            type="button"
+            onClick={() => setIsCategoriesOpen(!isCategoriesOpen)}
+            className="w-full flex items-center justify-between mb-2"
+          >
+            <span className="text-xs font-bold text-[#52685a] uppercase tracking-wider">Shop by Category</span>
+            <ChevronDown
+              className={`w-4 h-4 text-[#52685a] transition-transform duration-200 ${
+                isCategoriesOpen ? 'rotate-180 text-[#38b000]' : ''
+              }`}
+            />
+          </button>
+
+          {isCategoriesOpen && (
+            <div className="flex flex-col gap-0.5">
+              {categories.map((cat) => (
+                <Link
+                  key={cat.label}
+                  href={cat.href}
+                  onClick={closeLeftMenu}
+                  className="flex items-center gap-2.5 px-2 py-2 rounded-xl text-sm text-[#2a3f33] hover:bg-[#f4f7f2] hover:text-[#38b000] transition-colors"
+                >
+                  {cat.icon}
+                  <span>{cat.label}</span>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
 
-        <div className="mt-6 pt-4 border-t border-[#f0f4ee]">
-          <p className="text-xs font-bold text-[#52685a] uppercase tracking-wider mb-2">Shop by Category</p>
-          <div className="flex flex-col gap-0.5">
-            {categories.map((cat) => (
-              <Link
-                key={cat.label}
-                href={cat.href}
-                onClick={closeLeftMenu}
-                className="flex items-center gap-2.5 px-2 py-2 rounded-xl text-sm text-[#2a3f33] hover:bg-[#f4f7f2] hover:text-[#38b000] transition-colors"
-              >
-                {cat.icon}
-                <span>{cat.label}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
+        <div className="mt-4 pt-4 border-t border-[#f0f4ee]">
+          <button
+            type="button"
+            onClick={() => setIsQuickOpen(!isQuickOpen)}
+            className="w-full flex items-center justify-between mb-2"
+          >
+            <span className="text-xs font-bold text-[#52685a] uppercase tracking-wider">Quick Links</span>
+            <ChevronDown
+              className={`w-4 h-4 text-[#52685a] transition-transform duration-200 ${
+                isQuickOpen ? 'rotate-180 text-[#38b000]' : ''
+              }`}
+            />
+          </button>
 
-        <div className="mt-6 pt-4 border-t border-[#f0f4ee]">
-          <p className="text-xs font-bold text-[#52685a] uppercase tracking-wider mb-2">Quick Links</p>
-          <div className="flex flex-col gap-0.5">
-            {quickLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                onClick={closeLeftMenu}
-                className="flex items-center gap-2.5 px-2 py-2 rounded-xl text-sm text-[#2a3f33] hover:bg-[#f4f7f2] hover:text-[#38b000] transition-colors"
-              >
-                {link.icon}
-                <span>{link.label}</span>
-              </Link>
-            ))}
-          </div>
+          {isQuickOpen && (
+            <div className="flex flex-col gap-0.5">
+              {quickLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={closeLeftMenu}
+                  className="flex items-center gap-2.5 px-2 py-2 rounded-xl text-sm text-[#2a3f33] hover:bg-[#f4f7f2] hover:text-[#38b000] transition-colors"
+                >
+                  {link.icon}
+                  <span>{link.label}</span>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="mt-6 pt-4 border-t border-[#f0f4ee]">

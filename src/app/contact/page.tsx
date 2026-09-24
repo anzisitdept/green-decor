@@ -1,12 +1,15 @@
 'use client';
 
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, MessageCircle, Send, Check, Sparkles } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, MessageCircle, Send, Check } from 'lucide-react';
 import { getWhatsAppLink } from '@/lib/utils';
 import { useUIStore } from '@/lib/store/useUIStore';
+import { useSiteSettings } from '@/lib/firestore/store-data';
+import { submitContactMessage } from '@/lib/firestore/writes';
 
 export default function ContactPage() {
   const { showToast } = useUIStore();
+  const settings = useSiteSettings();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -15,13 +18,27 @@ export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const whatsappHref = getWhatsAppLink(
-    'Hello Green Decor! I would like to reach out regarding plants, decor, or landscaping services.'
+    'Hello Green Decor! I would like to reach out regarding plants, decor, or landscaping services.',
+    settings.whatsappNumber
   );
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitted(true);
-    showToast('Your message has been received! Our support team will reply shortly.');
+    try {
+      await submitContactMessage({
+        name: name.trim(),
+        email: email.trim(),
+        phone: phone.trim(),
+        subject,
+        message: message.trim(),
+        createdAt: new Date().toISOString(),
+        status: 'new',
+      });
+      showToast('Your message has been received! Our support team will reply shortly.');
+    } catch {
+      showToast('Could not send your message. Please try WhatsApp.', 'warning');
+    }
   };
 
   return (
@@ -43,67 +60,59 @@ export default function ContactPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
 
         {/* Left Column: Direct Contact Info (5 cols) */}
-        <div className="lg:col-span-5 bg-[#38b000] text-white rounded-3xl p-8 sm:p-10 shadow-2xl space-y-8">
+        <div className="lg:col-span-5 space-y-8">
           <div>
-            <h3 className="text-2xl font-serif font-bold text-white mb-2">
+            <h3 className="text-2xl font-serif font-bold text-[#38b000] mb-2">
               Contact Information
             </h3>
-            <p className="text-xs text-[#b8d4c3] leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#52685a] leading-relaxed">
               Have questions regarding our live plants, custom ceramic planters, or want to schedule a landscaping survey? Reach out anytime.
             </p>
           </div>
 
-          <div className="space-y-6 text-xs text-[#d0e5d8]">
+          <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-[#2e9900] flex items-center justify-center shrink-0 text-emerald-300">
-                <MapPin className="w-5 h-5" />
-              </div>
+              <MapPin className="w-5 h-5 text-[#38b000] mt-0.5 shrink-0" />
               <div>
-                <strong className="block text-white text-sm">Location:</strong>
-                <span>100ft Road, Sukkur, Sindh, Pakistan</span>
+                <strong className="block text-sm text-[#172b21] font-bold">Location:</strong>
+                <span className="text-xs sm:text-sm text-[#52685a]">{settings.address}</span>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-[#2e9900] flex items-center justify-center shrink-0 text-emerald-300">
-                <Phone className="w-5 h-5" />
-              </div>
+              <Phone className="w-5 h-5 text-[#38b000] mt-0.5 shrink-0" />
               <div>
-                <strong className="block text-white text-sm">Phone Support:</strong>
-                <span>0333 8951222</span>
+                <strong className="block text-sm text-[#172b21] font-bold">Phone Support:</strong>
+                <span className="text-xs sm:text-sm text-[#52685a]">{settings.contactPhone}</span>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-[#2e9900] flex items-center justify-center shrink-0 text-emerald-300">
-                <Mail className="w-5 h-5" />
-              </div>
+              <Mail className="w-5 h-5 text-[#38b000] mt-0.5 shrink-0" />
               <div>
-                <strong className="block text-white text-sm">Email Inquiries:</strong>
-                <span>info@greendecor.com</span>
+                <strong className="block text-sm text-[#172b21] font-bold">Email Inquiries:</strong>
+                <span className="text-xs sm:text-sm text-[#52685a]">{settings.contactEmail}</span>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-[#2e9900] flex items-center justify-center shrink-0 text-emerald-300">
-                <Clock className="w-5 h-5" />
-              </div>
+              <Clock className="w-5 h-5 text-[#38b000] mt-0.5 shrink-0" />
               <div>
-                <strong className="block text-white text-sm">Visiting Hours:</strong>
-                <span>Monday – Sunday: 9:00 AM – 8:00 PM</span>
+                <strong className="block text-sm text-[#172b21] font-bold">Visiting Hours:</strong>
+                <span className="text-xs sm:text-sm text-[#52685a]">{settings.workingHours}</span>
               </div>
             </div>
           </div>
 
           {/* Direct WhatsApp CTA Button */}
-          <div className="pt-4 border-t border-[#2e9900]">
+          <div>
             <a
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3.5 px-6 rounded-2xl bg-white text-[#38b000] text-xs sm:text-sm font-bold hover:bg-[#eaf0e7] transition-all shadow-lg flex items-center justify-center gap-2"
+              className="inline-flex w-full py-3.5 px-6 rounded-full bg-[#38b000] text-white text-xs sm:text-sm font-bold hover:bg-[#2e9900] transition-all shadow-md items-center justify-center gap-2"
             >
-              <MessageCircle className="w-4 h-4 text-[#38b000]" />
+              <MessageCircle className="w-4 h-4" />
               <span>Instant Chat on WhatsApp</span>
             </a>
           </div>

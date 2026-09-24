@@ -15,12 +15,13 @@ import {
   RefreshCw,
   ShoppingBag
 } from 'lucide-react';
-import { productsData } from '@/lib/data/products';
+import { useStoreProducts } from '@/lib/firestore/store-data';
 import ProductCard from '@/components/product/ProductCard';
 import { formatPKR } from '@/lib/utils';
 
 function ShopContent() {
   const searchParams = useSearchParams();
+  const productsData = useStoreProducts();
   const initialCategory = searchParams.get('category') || 'all';
   const initialSearch = searchParams.get('search') || '';
 
@@ -105,7 +106,7 @@ function ShopContent() {
       if (sortBy === 'newest') return (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0);
       return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
     });
-  }, [selectedCategory, searchQuery, maxPrice, inStockOnly, minRating, sortBy, activeQuickTag]);
+  }, [selectedCategory, searchQuery, maxPrice, inStockOnly, minRating, sortBy, activeQuickTag, productsData]);
 
   const resetFilters = () => {
     setSelectedCategory('all');

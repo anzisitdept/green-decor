@@ -5,12 +5,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Search, X, ArrowRight, Tag, Sparkles } from 'lucide-react';
 import { useUIStore } from '@/lib/store/useUIStore';
-import { productsData } from '@/lib/data/products';
-import { servicesData } from '@/lib/data/services';
+import { useStoreProducts, useStoreServices } from '@/lib/firestore/store-data';
 import { formatPKR } from '@/lib/utils';
 
 export default function SearchModal() {
   const { isSearchOpen, closeSearch } = useUIStore();
+  const productsData = useStoreProducts();
+  const servicesData = useStoreServices();
   const [query, setQuery] = useState('');
 
   // Keyboard shortcut Ctrl+K / Cmd+K to open/close

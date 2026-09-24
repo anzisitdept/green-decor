@@ -7,6 +7,7 @@ import { useUIStore } from '@/lib/store/useUIStore';
 
 export default function WelcomePopup() {
   const [isOpen, setIsOpen] = useState(false);
+  const [contact, setContact] = useState('');
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -28,8 +29,8 @@ export default function WelcomePopup() {
 
   const handleClaimDiscount = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !email.includes('@')) {
-      showToast('Please enter a valid email address.', 'warning');
+    if (!contact.trim()) {
+      showToast('Please enter your contact number.', 'warning');
       return;
     }
 
@@ -118,11 +119,19 @@ export default function WelcomePopup() {
               {/* Form */}
               <form onSubmit={handleClaimDiscount} className="space-y-3">
                 <input
+                  type="tel"
+                  placeholder="Contact number (+92 300 1234567)"
+                  value={contact}
+                  onChange={(e) => setContact(e.target.value)}
+                  required
+                  className="w-full bg-white text-neutral-900 placeholder:text-neutral-400 px-4 py-3.5 rounded-xl text-sm outline-none focus:ring-2 focus:ring-emerald-300 shadow-xs font-medium"
+                />
+
+                <input
                   type="email"
-                  placeholder="Email address"
+                  placeholder="Email address (Optional)"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  required
                   className="w-full bg-white text-neutral-900 placeholder:text-neutral-400 px-4 py-3.5 rounded-xl text-sm outline-none focus:ring-2 focus:ring-emerald-300 shadow-xs font-medium"
                 />
 
@@ -146,7 +155,7 @@ export default function WelcomePopup() {
 
               {/* Fine Print Disclaimer */}
               <p className="mt-6 text-[11px] text-emerald-100/75 text-center leading-tight max-w-[280px] mx-auto">
-                You are signing up to receive communication via email and can unsubscribe at any time.
+                You are signing up to receive communication via contact number and email and can unsubscribe at any time.
               </p>
             </div>
           )}

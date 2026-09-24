@@ -5,16 +5,13 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Leaf } from 'lucide-react';
 import { getWhatsAppLink } from '@/lib/utils';
+import { useSiteSettings, useSiteContent, useStoreServices } from '@/lib/firestore/store-data';
 
 const FOOTER_WAVE =
   'M1440,20 C1260,62 1060,66 880,36 C680,4 480,8 300,22 C160,32 80,26 0,18 L0,0 L1440,0 Z';
 
-const services = [
-  { label: 'Green Your Space', href: '/services/green-your-space' },
-  { label: 'Landscaping', href: '/services/landscaping' },
-  { label: 'Book a Gardener', href: '/services/book-a-gardener' },
-  { label: 'Green Care', href: '/services/green-care' },
-];
+const DEFAULT_ABOUT =
+  'Pakistan’s premier green living studio. We craft bespoke residential landscapes, turnkey office greenery, planted aquariums, and deliver acclimatized houseplants nationwide with a 30-day health guarantee.';
 
 const socials = [
   {
@@ -35,7 +32,7 @@ const socials = [
         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
       </svg>
     ),
-    href: '#',
+    href: 'https://www.instagram.com/greendecorpk',
   },
   {
     label: 'TikTok',
@@ -51,7 +48,23 @@ const socials = [
 export default function Footer() {
   const pathname = usePathname();
   const isHome = pathname === '/';
-  const whatsappHref = getWhatsAppLink('Hello Green Decor! I would like some assistance regarding your products and landscaping services.');
+  const settings = useSiteSettings();
+  const { content } = useSiteContent();
+  const storeServices = useStoreServices();
+  const services = storeServices.slice(0, 4).map((s) => ({
+    label: s.title,
+    href: `/services/${s.slug}`,
+  }));
+  const whatsappHref = getWhatsAppLink(
+    'Hello Green Decor! I would like some assistance regarding your products and landscaping services.',
+    settings.whatsappNumber
+  );
+  const aboutText = content?.footer?.about || DEFAULT_ABOUT;
+  const hoursText = settings.workingHours || 'Monday – Sunday : 09:00 AM : 08:00 PM';
+  const emailText = settings.contactEmail || 'info@greendecor.com';
+  const phoneText = settings.contactPhone || '0333 8951222';
+  const phoneHref = `tel:${phoneText.replace(/[^0-9+]/g, '')}`;
+  const creditsText = content?.footer?.credits;
 
   return (
     <>
@@ -62,7 +75,7 @@ export default function Footer() {
             viewBox="0 0 1440 80"
             preserveAspectRatio="none"
             aria-hidden="true"
-            className="block w-full h-6 sm:h-9 lg:h-12"
+            className="block -mt-px w-full h-6 sm:h-9 lg:h-12"
           >
             <rect width="1440" height="80" fill="#0d3b2e" />
             <path d={FOOTER_WAVE} fill="#fff" />
@@ -79,7 +92,7 @@ export default function Footer() {
             {/* Main 4-column grid */}
             <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
               {/* Brand / About */}
-              <div className="space-y-4">
+              <div className="order-1 space-y-4">
                 <Link href="/" className="inline-flex items-end gap-1 group">
                   <Leaf className="w-5 h-5 text-[#e8d9b5] mb-1" strokeWidth={1.8} />
                   <span className="font-serif font-bold text-2xl text-[#e8d9b5] tracking-wide leading-none">
@@ -87,9 +100,7 @@ export default function Footer() {
                   </span>
                 </Link>
                 <p className="text-xs text-[#cfe0d6] leading-relaxed">
-                  Pakistan&rsquo;s premier green living studio. We craft bespoke residential landscapes,
-                  turnkey office greenery, planted aquariums, and deliver acclimatized houseplants nationwide
-                  with a 30-day health guarantee.
+                  {aboutText}
                 </p>
                 <div>
                   <p className="text-xs font-bold text-white mb-3">Connect with us :</p>
@@ -108,54 +119,54 @@ export default function Footer() {
                 </div>
               </div>
 
-              {/* Our Services */}
-              <div>
-                <h5 className="text-[#e8d9b5] font-bold text-sm mb-5 uppercase tracking-[0.18em]">
-                  Our Services
-                </h5>
-                <ul className="space-y-3.5">
-                  {services.map((service) => (
-                    <li key={service.label}>
-                      <Link href={service.href} className="flex items-start gap-2.5 group">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0 mt-1.5" />
-                        <span className="text-xs text-white leading-relaxed group-hover:text-emerald-200 transition-colors">
-                          {service.label}
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Working Hours */}
-              <div>
-                <h5 className="text-[#e8d9b5] font-bold text-sm mb-5 uppercase tracking-[0.18em]">
-                  Working Hours
-                </h5>
-                <div className="space-y-1.5">
-                  <span className="block text-xs text-white">Monday &ndash; Sunday :</span>
-                  <span className="block text-sm font-bold text-emerald-400">09:00 AM : 08:00 PM</span>
-                </div>
-                <div className="my-4 border-t border-dotted border-white/30" />
-                <div className="space-y-1.5">
-                  <span className="block text-xs font-bold text-white">Email:</span>
-                  <span>
-                    <a href="mailto:info@greendecor.com" className="block text-xs font-bold text-white hover:text-emerald-200 transition-colors">
-                      info@greendecor.com
+              {/* Combined Working Hours & Our Services (2-column layout on mobile) */}
+              <div className="order-2 col-span-1 sm:col-span-2 lg:col-span-2 grid grid-cols-2 gap-5 sm:gap-10">
+                {/* Working Hours */}
+                <div>
+                  <h5 className="text-[#e8d9b5] font-bold text-xs sm:text-sm mb-4 sm:mb-5 uppercase tracking-[0.15em] sm:tracking-[0.18em]">
+                    Working Hours
+                  </h5>
+                  <div className="space-y-1">
+                    <span className="block text-xs sm:text-sm font-bold text-emerald-400">{hoursText}</span>
+                  </div>
+                  <div className="my-3 sm:my-4 border-t border-dotted border-white/30" />
+                  <div className="space-y-1">
+                    <span className="block text-[11px] sm:text-xs font-bold text-white">Email:</span>
+                    <a href={`mailto:${emailText}`} className="block text-[11px] sm:text-xs font-bold text-white hover:text-emerald-200 transition-colors break-words">
+                      {emailText}
                     </a>
-                  </span>
+                  </div>
+                  <div className="my-3 sm:my-4 border-t border-dotted border-white/30" />
+                  <div className="space-y-1">
+                    <span className="block text-[11px] sm:text-xs font-bold text-white">Call at :</span>
+                    <a href={phoneHref} className="block text-xs sm:text-sm font-bold text-white leading-snug hover:text-emerald-200 transition-colors">
+                      {phoneText}
+                    </a>
+                  </div>
                 </div>
-                <div className="my-4 border-t border-dotted border-white/30" />
-                <div className="space-y-1.5">
-                  <span className="block text-xs font-bold text-white">Call at :</span>
-                  <a href="tel:+923338951222" className="block text-sm font-bold text-white leading-snug hover:text-emerald-200 transition-colors">
-                    0333 8951222
-                  </a>
+
+                {/* Our Services */}
+                <div>
+                  <h5 className="text-[#e8d9b5] font-bold text-xs sm:text-sm mb-4 sm:mb-5 uppercase tracking-[0.15em] sm:tracking-[0.18em]">
+                    Our Services
+                  </h5>
+                  <ul className="space-y-3 sm:space-y-3.5">
+                    {services.map((service) => (
+                      <li key={service.label}>
+                        <Link href={service.href} className="flex items-start gap-2 group">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 mt-1.5" />
+                          <span className="text-xs text-white leading-relaxed group-hover:text-emerald-200 transition-colors">
+                            {service.label}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
 
               {/* Subscribe Newsletter */}
-              <div>
+              <div className="order-4">
                 <h5 className="text-[#e8d9b5] font-bold text-sm mb-5 uppercase tracking-[0.18em]">
                   Subscribe Newsletter
                 </h5>
@@ -171,11 +182,30 @@ export default function Footer() {
                   />
                   <button
                     type="submit"
-                    className="w-full py-2.5 rounded-full bg-emerald-600 text-white text-xs font-bold uppercase tracking-widest hover:bg-emerald-500 transition-colors"
+                    className="w-full py-2.5 rounded-full bg-emerald-600 text-white text-xs font-bold uppercase tracking-widest hover:bg-emerald-500 transition-colors cursor-pointer"
                   >
                     Subscribe Now
                   </button>
                 </form>
+
+                {/* Watermark below Subscribe Button */}
+                <div className="mt-4 text-xs font-medium text-center sm:text-left text-[#cfe0d6]">
+                  {creditsText ? (
+                    <span>{creditsText}</span>
+                  ) : (
+                    <>
+                      <span>Design By </span>
+                      <a
+                        href="https://www.anziandco.com?refer=greendecor"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold text-[#e8d9b5] hover:text-emerald-300 underline underline-offset-2 transition-colors cursor-pointer"
+                      >
+                        Anzi &amp; Co.
+                      </a>
+                    </>
+                  )}
+                </div>
               </div>
             </div>
 

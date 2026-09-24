@@ -1,0 +1,240 @@
+[
+  {
+    "id": "PK1",
+    "level": 1,
+    "level_name": {
+      "local": "صوبہ",
+      "en": "Province"
+    },
+    "name": {
+      "local": "آزاد کشمیر",
+      "en": "Azad Kashmir",
+      "slug": "azad-kashmir-pk1"
+    },
+    "code": {
+      "id": "PK1",
+      "iso": null
+    },
+    "parent": null,
+    "ancestors": [],
+    "children_count": {
+      "district": 10,
+      "tehsil": 32
+    },
+    "zip_codes": [],
+    "geo": {
+      "lat": "33.953",
+      "lon": "73.901"
+    },
+    "metadata": {},
+    "source": {
+      "name": "Open Admin Data",
+      "url": "https://openadmindata.org/pk/provinces/azad-kashmir-pk1/",
+      "api": "https://openadmindata.org/api/pk/"
+    }
+  },
+  {
+    "id": "PK2",
+    "level": 1,
+    "level_name": {
+      "local": "صوبہ",
+      "en": "Province"
+    },
+    "name": {
+      "local": "بلوچستان",
+      "en": "Balochistan",
+      "slug": "balochistan-pk2"
+    },
+    "code": {
+      "id": "PK2",
+      "iso": null
+    },
+    "parent": null,
+    "ancestors": [],
+    "children_count": {
+      "district": 35,
+      "tehsil": 103
+    },
+    "zip_codes": [],
+    "geo": {
+      "lat": "28.497",
+      "lon": "65.71"
+    },
+    "metadata": {},
+    "source": {
+      "name": "Open Admin Data",
+      "url": "https://openadmindata.org/pk/provinces/balochistan-pk2/",
+      "api": "https://openadmindata.org/api/pk/"
+    }
+  },
+  {
+    "id": "PK3",
+    "level": 1,
+    "level_name": {
+      "local": "صوبہ",
+      "en": "Province"
+    },
+    "name": {
+      "local": "گلگت بلتستان",
+      "en": "Gilgit Baltistan",
+      "slug": "gilgit-baltistan-pk3"
+    },
+    "code": {
+      "id": "PK3",
+      "iso": null
+    },
+    "parent": null,
+    "ancestors": [],
+    "children_count": {
+      "district": 14,
+      "tehsil": 24
+    },
+    "zip_codes": [],
+    "geo": {
+      "lat": "35.803",
+      "lon": "74.845"
+    },
+    "metadata": {},
+    "source": {
+      "name": "Open Admin Data",
+      "url": "https://openadmindata.org/pk/provinces/gilgit-baltistan-pk3/",
+      "api": "https://openadmindata.org/api/pk/"
+    }
+  },
+  {
+    "id": "PK4",
+    "level": 1,
+    "level_name": {
+      "local": "صوبہ",
+      "en": "Province"
+    },
+    "name": {
+      "local": "اسلام آباد",
+      "en": "Islamabad",
+      "slug": "islamabad-pk4"
+    },
+    "code": {
+      "id": "PK4",
+      "iso": null
+    },
+    "parent": null,
+    "ancestors": [],
+    "children_count": {
+      "district": 1,
+      "tehsil": 1
+    },
+    "zip_codes": [],
+    "geo": {
+      "lat": "33.651",
+      "lon": "72.958"
+    },
+    "metadata": {},
+    "source": {
+      "name": "Open Admin Data",
+      "url": "https://openadmindata.org/pk/provinces/islamabad-pk4/",
+      "api": "https://openadmindata.org/api/pk/"
+    }
+  },
+  {
+    "id": "PK5",
+    "level": 1,
+    "level_name": {
+      "local": "صوبہ",
+      "en": "Province"
+    },
+    "name": {
+      "local": "خیبرپختونخوا",
+      "en": "Khyber Pakhtunkhwa",
+      "slug": "khyber-pakhtunkhwa-pk5"
+    },
+    "code": {
+      "id": "PK5",
+      "iso": null
+    },
+    "parent": null,
+    "ancestors": [],
+    "children_count": {
+      "district": 35,
+      "tehsil": 153
+    },
+    "zip_codes": [],
+    "geo": {
+      "lat": "34.036",
+      "lon": "72.263"
+    },
+    "metadata": {},
+    "source": {
+      "name": "Open Admin Data",
+      "url": "https://openadmindata.org/pk/provinces/khyber-pakhtunkhwa-pk5/",
+      "api": "https://openadmindata.org/api/pk/"
+    }
+  },
+  {
+    "id": "PK6",
+    "level": 1,
+    "level_name": {
+      "local": "صوبہ",
+      "en": "Province"
+    },
+    "name": {
+      "local": "پنجاب",
+      "en": "Punjab",
+      "slug": "punjab-pk6"
+    },
+    "code": {
+      "id": "PK6",
+      "iso": null
+    },
+    "parent": null,
+    "ancestors": [],
+    "children_count": {
+      "district": 36,
+      "tehsil": 139
+    },
+    "zip_codes": [],
+    "geo": {
+      "lat": "30.862",
+      "lon": "72.32"
+    },
+    "metadata": {},
+    "source": {
+      "name": "Open Admin Data",
+      "url": "https://openadmindata.org/pk/provinces/punjab-pk6/",
+      "api": "https://openadmindata.org/api/pk/"
+    }
+  },
+  {
+    "id": "PK7",
+    "level": 1,
+    "level_name": {
+      "local": "صوبہ",
+      "en": "Province"
+    },
+    "name": {
+      "local": "سندھ",
+      "en": "Sindh",
+      "slug": "sindh-pk7"
+    },
+    "code": {
+      "id": "PK7",
+      "iso": null
+    },
+    "parent": null,
+    "ancestors": [],
+    "children_count": {
+      "district": 29,
+      "tehsil": 125
+    },
+    "zip_codes": [],
+    "geo": {
+      "lat": "26.134",
+      "lon": "68.756"
+    },
+    "metadata": {},
+    "source": {
+      "name": "Open Admin Data",
+      "url": "https://openadmindata.org/pk/provinces/sindh-pk7/",
+      "api": "https://openadmindata.org/api/pk/"
+    }
+  }
+]

@@ -11,7 +11,7 @@ export default function AboutPage() {
   return (
     <div className="w-full bg-white">
       {/* Hero — full-bleed image, dark green overlay, centered heading, wavy divider */}
-      <section className="relative w-full h-[70vh] min-h-[440px] sm:h-[78vh] lg:h-[82vh] overflow-hidden bg-[#0d3b2e]">
+      <section className="relative w-full h-[70vh] min-h-[440px] sm:h-[78vh] lg:h-[82vh] bg-[#0d3b2e]">
         <Image
           src="/about-hero.jpg"
           alt="Green Decor nursery greenery"
@@ -30,7 +30,7 @@ export default function AboutPage() {
           viewBox="0 0 1440 90"
           preserveAspectRatio="none"
           aria-hidden="true"
-          className="absolute bottom-0 left-0 w-full h-10 sm:h-14 lg:h-20"
+          className="block absolute -bottom-px left-0 w-full h-10 sm:h-14 lg:h-20"
         >
           <path d="M0,50 C180,86 420,88 720,62 C1020,36 1260,44 1440,70 L1440,90 L0,90 Z" fill="#ffffff" />
         </svg>

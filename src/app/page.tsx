@@ -3,6 +3,7 @@ import Hero from '@/components/home/Hero';
 import OurMostRequestedServices from '@/components/home/OurMostRequestedServices';
 import FeaturedProducts from '@/components/home/FeaturedProducts';
 import PurposeSection from '@/components/home/PurposeSection';
+import DesignCTASection from '@/components/home/DesignCTASection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import TrustBar from '@/components/home/TrustBar';
 
@@ -24,11 +25,6 @@ export default function HomePage() {
 
       {/* Main Content Area */}
       <main className="flex-1 min-w-0 flex flex-col overflow-x-hidden bg-white">
-        
-        {/* Mobile View of Brand Character Banner */}
-        <div className="block lg:hidden w-full">
-          <LeftBrandSidebar />
-        </div>
 
         {/* Hero Section */}
         <Hero />
@@ -41,6 +37,9 @@ export default function HomePage() {
 
         {/* Our Purpose ("Greener Spaces Happier Communities" + 4 Pillars + Quote) */}
         <PurposeSection />
+
+        {/* Design Studio CTA (upload your space → get design ideas) */}
+        <DesignCTASection />
 
         {/* Testimonials Carousel */}
         <TestimonialsSection />

@@ -8,6 +8,9 @@ import SearchModal from '@/components/search/SearchModal';
 import QuickViewModal from '@/components/product/QuickViewModal';
 import ToastNotification from '@/components/common/ToastNotification';
 import WelcomePopup from '@/components/common/WelcomePopup';
+import StoreHydrator from '@/components/common/StoreHydrator';
+import SettingsSync from '@/components/common/SettingsSync';
+import { StoreDataProvider } from '@/lib/firestore/store-data';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -45,18 +48,24 @@ export default function RootLayout({
       className={`${playfair.variable} ${jakarta.variable} ${scriptFont.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white text-[#172b21] selection:bg-[#38b000] selection:text-white">
-        <Navbar />
-        <div className="flex-1">
-          {children}
-        </div>
-        <Footer />
+        <StoreDataProvider>
+          <Navbar />
+          <div className="flex-1">
+            {children}
+          </div>
+          <Footer />
+          <SettingsSync />
 
-        {/* Global Modals, Drawers & Notifications */}
-        <CartDrawer />
-        <SearchModal />
-        <QuickViewModal />
-        <ToastNotification />
-        <WelcomePopup />
+          {/* Global Modals, Drawers & Notifications */}
+          <CartDrawer />
+          <SearchModal />
+          <QuickViewModal />
+          <ToastNotification />
+          <WelcomePopup />
+        </StoreDataProvider>
+
+        {/* Rehydrate persisted client stores after mount (avoids SSR/CSR hydration mismatch) */}
+        <StoreHydrator />
       </body>
     </html>
   );
