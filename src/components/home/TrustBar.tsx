@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Sprout, MapPin, ShieldCheck, Leaf, ArrowRight } from 'lucide-react';
 import { getWhatsAppLink } from '@/lib/utils';
-import { useSiteContent, useSiteSettings } from '@/lib/firestore/store-data';
+import { useSiteContent } from '@/lib/firestore/store-data';
 
 const ICONS = [
   <Sprout key="sprout" className="w-5 h-5 text-[#38b000]" />,
@@ -15,10 +15,8 @@ const ICONS = [
 
 export default function TrustBar() {
   const { content } = useSiteContent();
-  const settings = useSiteSettings();
   const whatsappHref = getWhatsAppLink(
-    'Hello Green Decor! I would like to explore your green decor solutions for my space.',
-    settings.whatsappNumber
+    'Hello Green Decor! I would like to explore your green decor solutions for my space.'
   );
 
   const trustItems = content?.trustBar?.stats?.length

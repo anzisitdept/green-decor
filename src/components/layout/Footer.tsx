@@ -5,6 +5,12 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Leaf } from 'lucide-react';
 import { getWhatsAppLink } from '@/lib/utils';
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
+  CONTACT_PHONE_HREF,
+  CONTACT_EMAIL_HREF,
+} from '@/lib/contact';
 import { useSiteSettings, useSiteContent, useStoreServices } from '@/lib/firestore/store-data';
 
 const FOOTER_WAVE =
@@ -56,15 +62,13 @@ export default function Footer() {
     href: `/services/${s.slug}`,
   }));
   const whatsappHref = getWhatsAppLink(
-    'Hello Green Decor! I would like some assistance regarding your products and landscaping services.',
-    settings.whatsappNumber
+    'Hello Green Decor! I would like some assistance regarding your services.'
   );
   const aboutText = content?.footer?.about || DEFAULT_ABOUT;
   const hoursText = settings.workingHours || 'Monday – Sunday : 09:00 AM : 08:00 PM';
-  const emailText = settings.contactEmail || 'info@greendecor.com';
-  const phoneText = settings.contactPhone || '+92 333 8951222';
-  const phoneHref = `tel:${phoneText.replace(/[^0-9+]/g, '')}`;
-  const creditsText = content?.footer?.credits;
+  const emailText = CONTACT_EMAIL;
+  const phoneText = CONTACT_PHONE;
+  const phoneHref = CONTACT_PHONE_HREF;
 
   return (
     <>
@@ -127,12 +131,12 @@ export default function Footer() {
                     Working Hours
                   </h5>
                   <div className="space-y-1">
-                    <span className="block text-xs sm:text-sm font-bold text-emerald-400">{hoursText}</span>
+                    <span className="block text-xs sm:text-sm font-bold text-white">{hoursText}</span>
                   </div>
                   <div className="my-3 sm:my-4 border-t border-dotted border-white/30" />
                   <div className="space-y-1">
                     <span className="block text-[11px] sm:text-xs font-bold text-white">Email:</span>
-                    <a href={`mailto:${emailText}`} className="block text-[11px] sm:text-xs font-bold text-white hover:text-emerald-200 transition-colors break-words">
+                    <a href={CONTACT_EMAIL_HREF} className="block text-[11px] sm:text-xs font-bold text-white hover:text-emerald-200 transition-colors break-words">
                       {emailText}
                     </a>
                   </div>
@@ -190,21 +194,15 @@ export default function Footer() {
 
                 {/* Watermark below Subscribe Button */}
                 <div className="mt-4 text-xs font-medium text-center sm:text-left text-[#cfe0d6]">
-                  {creditsText ? (
-                    <span>{creditsText}</span>
-                  ) : (
-                    <>
-                      <span>Design By </span>
-                      <a
-                        href="https://www.anziandco.com?refer=greendecor"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-bold text-[#e8d9b5] hover:text-emerald-300 underline underline-offset-2 transition-colors cursor-pointer"
-                      >
-                        Anzi &amp; Co.
-                      </a>
-                    </>
-                  )}
+                  <span>Design By </span>
+                  <a
+                    href="https://www.anziandco.com?refer=greendecor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-[#e8d9b5] hover:text-emerald-300 underline underline-offset-2 transition-colors cursor-pointer"
+                  >
+                    Anzi &amp; Co.
+                  </a>
                 </div>
               </div>
             </div>

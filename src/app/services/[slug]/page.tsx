@@ -17,7 +17,7 @@ import {
   Home,
   Check
 } from 'lucide-react';
-import { useStoreServices, useSiteSettings } from '@/lib/firestore/store-data';
+import { useStoreServices } from '@/lib/firestore/store-data';
 import { useUIStore } from '@/lib/store/useUIStore';
 import { getWhatsAppLink } from '@/lib/utils';
 import { submitServiceRequest } from '@/lib/firestore/writes';
@@ -30,7 +30,6 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
   const resolvedParams = use(params);
   const slug = resolvedParams.slug;
   const servicesData = useStoreServices();
-  const settings = useSiteSettings();
   const service = servicesData.find((s) => s.slug === slug);
   const { showToast } = useUIStore();
 
@@ -56,8 +55,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
   }
 
   const whatsappDirectHref = getWhatsAppLink(
-    `Hello Green Decor! I would like to request a quote for "${service.title}" in ${city}. Details: ${message || 'Please share portfolio and consultation slots.'}`,
-    settings.whatsappNumber
+    `Hello Green Decor! I would like to request a quote for "${service.title}" in ${city}. Details: ${message || 'Please share portfolio and consultation slots.'}`
   );
 
   const handleQuoteSubmit = async (e: React.FormEvent) => {

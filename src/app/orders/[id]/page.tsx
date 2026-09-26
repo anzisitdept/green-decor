@@ -17,7 +17,6 @@ import {
 } from 'lucide-react';
 import { useOrdersStore } from '@/lib/store/useOrdersStore';
 import { formatPKR, getWhatsAppLink } from '@/lib/utils';
-import { useSiteSettings } from '@/lib/firestore/store-data';
 import { OrderStatus } from '@/types';
 
 interface OrderDetailPageProps {
@@ -28,7 +27,6 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
   const resolvedParams = use(params);
   const orderId = resolvedParams.id;
   const { getOrderById } = useOrdersStore();
-  const settings = useSiteSettings();
   const order = getOrderById(orderId);
 
   if (!order) {
@@ -55,8 +53,7 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
   const currentStepIndex = statusOrder.indexOf(order.status);
 
   const whatsappHref = getWhatsAppLink(
-    `Hello Green Decor! I am checking on my Order #${order.id} (Tracking: ${order.trackingNumber}). Could you provide a delivery update?`,
-    settings.whatsappNumber
+    `Hello Green Decor! I am checking on my Order #${order.id} (Tracking: ${order.trackingNumber}). Could you provide a delivery update?`
   );
 
   return (

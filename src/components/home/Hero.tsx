@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Leaf } from 'lucide-react';
 import { getWhatsAppLink } from '@/lib/utils';
-import { useSiteContent, useSiteSettings } from '@/lib/firestore/store-data';
+import { useSiteContent } from '@/lib/firestore/store-data';
 import type { HeroSlide } from '@/types';
 
 const DEFAULT_SLIDES = [
@@ -67,7 +67,6 @@ function mapAdminSlides(heroSlides: HeroSlide[]) {
 
 export default function Hero() {
   const { content } = useSiteContent();
-  const settings = useSiteSettings();
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -87,8 +86,7 @@ export default function Hero() {
 
   const current = slides[activeSlide] ?? slides[0];
   const whatsappHref = getWhatsAppLink(
-    'Hello Green Decor! I would like to book a free consultation for my home/office space.',
-    settings.whatsappNumber
+    'Hello Green Decor! I would like to book a free consultation for my home/office space.'
   );
 
   return (

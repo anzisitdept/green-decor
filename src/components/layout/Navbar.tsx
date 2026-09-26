@@ -18,13 +18,11 @@ import {
 import { useCartStore } from '@/lib/store/useCartStore';
 import { useUIStore } from '@/lib/store/useUIStore';
 import { getWhatsAppLink } from '@/lib/utils';
-import { useSiteSettings } from '@/lib/firestore/store-data';
 import MegaMenu from './MegaMenu';
 import LeftSidebar from './LeftSidebar';
 
 export default function Navbar() {
   const pathname = usePathname();
-  const settings = useSiteSettings();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -66,8 +64,7 @@ export default function Navbar() {
   ];
 
   const whatsappHref = getWhatsAppLink(
-    'Hello Green Decor! I would like to inquire about your plants, home decor, and landscaping services.',
-    settings.whatsappNumber
+    'Hello Green Decor! I would like to inquire about your plants, home decor, and landscaping services.'
   );
 
   return (

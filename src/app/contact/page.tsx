@@ -3,6 +3,13 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, MessageCircle, Send, Check } from 'lucide-react';
 import { getWhatsAppLink } from '@/lib/utils';
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
+  CONTACT_ADDRESS,
+  CONTACT_PHONE_HREF,
+  CONTACT_EMAIL_HREF,
+} from '@/lib/contact';
 import { useUIStore } from '@/lib/store/useUIStore';
 import { useSiteSettings } from '@/lib/firestore/store-data';
 import { submitContactMessage } from '@/lib/firestore/writes';
@@ -18,8 +25,7 @@ export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const whatsappHref = getWhatsAppLink(
-    'Hello Green Decor! I would like to reach out regarding plants, decor, or landscaping services.',
-    settings.whatsappNumber
+    'Hello Green Decor! I would like to reach out regarding plants, decor, or landscaping services.'
   );
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -75,7 +81,7 @@ export default function ContactPage() {
               <MapPin className="w-5 h-5 text-[#38b000] mt-0.5 shrink-0" />
               <div>
                 <strong className="block text-sm text-[#172b21] font-bold">Location:</strong>
-                <span className="text-xs sm:text-sm text-[#52685a]">{settings.address}</span>
+                <span className="text-xs sm:text-sm text-[#52685a]">{CONTACT_ADDRESS}</span>
               </div>
             </div>
 
@@ -83,7 +89,12 @@ export default function ContactPage() {
               <Phone className="w-5 h-5 text-[#38b000] mt-0.5 shrink-0" />
               <div>
                 <strong className="block text-sm text-[#172b21] font-bold">Phone Support:</strong>
-                <span className="text-xs sm:text-sm text-[#52685a]">{settings.contactPhone}</span>
+                <a
+                  href={CONTACT_PHONE_HREF}
+                  className="block text-xs sm:text-sm text-[#52685a] hover:text-[#38b000] transition-colors"
+                >
+                  {CONTACT_PHONE}
+                </a>
               </div>
             </div>
 
@@ -91,7 +102,12 @@ export default function ContactPage() {
               <Mail className="w-5 h-5 text-[#38b000] mt-0.5 shrink-0" />
               <div>
                 <strong className="block text-sm text-[#172b21] font-bold">Email Inquiries:</strong>
-                <span className="text-xs sm:text-sm text-[#52685a]">{settings.contactEmail}</span>
+                <a
+                  href={CONTACT_EMAIL_HREF}
+                  className="block text-xs sm:text-sm text-[#52685a] hover:text-[#38b000] transition-colors break-words"
+                >
+                  {CONTACT_EMAIL}
+                </a>
               </div>
             </div>
 

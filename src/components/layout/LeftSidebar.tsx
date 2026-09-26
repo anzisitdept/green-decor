@@ -30,12 +30,10 @@ import { useWishlistStore } from '@/lib/store/useWishlistStore';
 import { useAuthStore } from '@/lib/store/useAuthStore';
 import { useUIStore } from '@/lib/store/useUIStore';
 import { getWhatsAppLink } from '@/lib/utils';
-import { useSiteSettings } from '@/lib/firestore/store-data';
 import { useRouter } from 'next/navigation';
 
 export default function LeftSidebar() {
   const router = useRouter();
-  const settings = useSiteSettings();
   const cartCount = useCartStore((state) => state.getItemsCount());
   const wishlistCount = useWishlistStore((state) => state.getCount());
   const { user, isAuthenticated } = useAuthStore();
@@ -78,8 +76,7 @@ export default function LeftSidebar() {
   ];
 
   const whatsappHref = getWhatsAppLink(
-    'Hello Green Decor! I would like to inquire about your plants, home decor, and landscaping services.',
-    settings.whatsappNumber
+    'Hello Green Decor! I would like to inquire about your plants, home decor, and landscaping services.'
   );
 
   if (!isLeftMenuOpen) return null;

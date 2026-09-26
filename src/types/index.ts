@@ -201,10 +201,6 @@ export interface ContactMessage {
 }
 
 export interface SiteSettings {
-  whatsappNumber: string;
-  contactPhone: string;
-  contactEmail: string;
-  address: string;
   workingHours: string;
   shippingFreeThreshold: number;
   shippingFlatFee: number;
@@ -246,7 +242,6 @@ export interface SiteContent {
   footer: {
     about: string;
     hours: string;
-    credits: string;
   };
 }
 

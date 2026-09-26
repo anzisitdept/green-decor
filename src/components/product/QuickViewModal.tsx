@@ -8,13 +8,11 @@ import { useUIStore } from '@/lib/store/useUIStore';
 import { useCartStore } from '@/lib/store/useCartStore';
 import { useWishlistStore } from '@/lib/store/useWishlistStore';
 import { formatPKR, getWhatsAppLink } from '@/lib/utils';
-import { useSiteSettings } from '@/lib/firestore/store-data';
 
 export default function QuickViewModal() {
   const { quickViewProduct, closeQuickView, openCart, showToast } = useUIStore();
   const { addItem } = useCartStore();
   const { toggleWishlist, isInWishlist } = useWishlistStore();
-  const settings = useSiteSettings();
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
 
@@ -37,8 +35,7 @@ export default function QuickViewModal() {
   };
 
   const whatsappInquiry = getWhatsAppLink(
-    `Hello Green Decor! I have a question about ${product.name} (PKR ${effectivePrice}). Could you provide more details?`,
-    settings.whatsappNumber
+    `Hello Green Decor! I have a question about ${product.name} (PKR ${effectivePrice}). Could you provide more details?`
   );
 
   return (

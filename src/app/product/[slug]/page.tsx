@@ -22,7 +22,7 @@ import {
   Sparkles,
   ArrowRight
 } from 'lucide-react';
-import { useStoreProducts, useSiteSettings } from '@/lib/firestore/store-data';
+import { useStoreProducts } from '@/lib/firestore/store-data';
 import { useCartStore } from '@/lib/store/useCartStore';
 import { useWishlistStore } from '@/lib/store/useWishlistStore';
 import { useUIStore } from '@/lib/store/useUIStore';
@@ -38,7 +38,6 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
   const resolvedParams = use(params);
   const slug = resolvedParams.slug;
   const productsData = useStoreProducts();
-  const settings = useSiteSettings();
   const product = productsData.find((p) => p.slug === slug);
 
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -79,8 +78,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
     .slice(0, 4);
 
   const whatsappHref = getWhatsAppLink(
-    `Hello Green Decor! I am interested in ordering "${product.name}" (PKR ${effectivePrice}). Please confirm availability and delivery time.`,
-    settings.whatsappNumber
+    `Hello Green Decor! I am interested in ordering "${product.name}" (PKR ${effectivePrice}). Please confirm availability and delivery time.`
   );
 
   const handleAddToCart = () => {

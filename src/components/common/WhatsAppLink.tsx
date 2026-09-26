@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { getWhatsAppLink } from '@/lib/utils';
-import { useSiteSettings } from '@/lib/firestore/store-data';
 
 interface WhatsAppLinkProps {
   message: string;
@@ -11,11 +10,9 @@ interface WhatsAppLinkProps {
 }
 
 export default function WhatsAppLink({ message, className, children }: WhatsAppLinkProps) {
-  const settings = useSiteSettings();
-
   return (
     <a
-      href={getWhatsAppLink(message, settings.whatsappNumber)}
+      href={getWhatsAppLink(message)}
       target="_blank"
       rel="noopener noreferrer"
       className={className}

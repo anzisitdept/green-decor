@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Eye, EyeOff, Lock, Mail, User, Phone, Leaf, CheckCircle, X } from 'lucide-react';
+import { Eye, EyeOff, Lock, Mail, User, Phone, CheckCircle, X } from 'lucide-react';
 import { useAuthStore } from '@/lib/store/useAuthStore';
 import { useUIStore } from '@/lib/store/useUIStore';
 
@@ -251,21 +251,15 @@ export default function AuthPage({ mode }: AuthPageProps) {
 
   return (
     <div className="min-h-screen w-full bg-white lg:grid lg:grid-cols-2">
-      <div className="hidden lg:flex relative h-screen sticky top-0 overflow-hidden">
+      <div className="hidden lg:flex relative h-screen sticky top-0 overflow-hidden bg-white">
         <Image
-          src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1400&q=80"
-          alt="Green Decor Plants"
+          src="/logo.png"
+          alt="Green Decor"
           fill
           priority
-          className="object-cover"
+          sizes="50vw"
+          className="object-contain"
         />
-        <div className="absolute inset-0 bg-[#38b000]/50" />
-        <div className="relative z-10 flex p-10 w-full items-start">
-          <div className="flex items-center gap-2">
-            <Leaf className="w-6 h-6 text-white" />
-            <span className="font-serif font-extrabold text-xl text-white tracking-tight">GREEN DECOR</span>
-          </div>
-        </div>
       </div>
 
       {/* Mobile: full-page image behind the bottom sheet */}
@@ -307,11 +301,6 @@ export default function AuthPage({ mode }: AuthPageProps) {
 
       {/* Desktop column */}
       <div className="hidden lg:flex flex-col min-h-screen w-full px-5 sm:px-10 lg:px-16 py-8 lg:py-12 justify-center">
-        <div className="flex items-center gap-2 mb-8">
-          <Leaf className="w-6 h-6 text-[#38b000]" />
-          <span className="font-serif font-extrabold text-xl text-[#38b000] tracking-tight">GREEN DECOR</span>
-        </div>
-
         <div className="w-full max-w-md mx-auto">
           <div className="mb-6">
             <h1 className="text-2xl sm:text-3xl font-serif font-extrabold text-[#38b000]">
