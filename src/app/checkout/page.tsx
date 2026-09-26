@@ -24,13 +24,14 @@ import { useAuthStore } from '@/lib/store/useAuthStore';
 import { useUIStore } from '@/lib/store/useUIStore';
 import { formatPKR } from '@/lib/utils';
 import { createOrder as persistOrder } from '@/lib/firestore/writes';
+import { redeemCoupon } from '@/lib/redeemCoupon';
 import { OrderAddress, PaymentMethod } from '@/types';
 import PakistanLocationFields, { LocationSelection } from '@/components/checkout/PakistanLocationFields';
 
 export default function CheckoutPage() {
   const router = useRouter();
   const { user } = useAuthStore();
-  const { items, getSubtotal, getDiscount, getShippingFee, getTotal, clearCart } = useCartStore();
+  const { items, promoCode, getSubtotal, getDiscount, getShippingFee, getTotal, clearCart } = useCartStore();
   const { createOrder } = useOrdersStore();
   const { showToast } = useUIStore();
 
@@ -67,9 +68,26 @@ export default function CheckoutPage() {
     );
   }
 
-  const handlePlaceOrder = (e: React.FormEvent) => {
+  const handlePlaceOrder = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    // Consume the coupon before the order exists. Firestore rules block the
+    // browser from incrementing usedCount, so the server has to do it, and a
+    // code that turns out to be exhausted has to stop the order rather than
+    // quietly apply a discount nobody paid for.
+    if (promoCode) {
+      try {
+        await redeemCoupon(promoCode);
+      } catch (err) {
+        setIsSubmitting(false);
+        showToast(
+          err instanceof Error ? err.message : 'We could not verify your promo code.',
+          'warning'
+        );
+        return;
+      }
+    }
 
     const shippingAddress: OrderAddress = {
       fullName,
@@ -93,7 +111,8 @@ export default function CheckoutPage() {
         shipping,
         discount,
         total,
-        user?.uid
+        user?.uid,
+        promoCode ?? undefined
       );
 
       // Persist to Firestore so the admin panel sees the order immediately.

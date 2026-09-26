@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Green Decor">
+  <rect width="64" height="64" rx="15" fill="#38b000" />
+  <g transform="rotate(35 32 32)">
+    <path d="M32 9c11.6 11.6 11.6 34.4 0 46C20.4 43.4 20.4 20.6 32 9Z" fill="#ffffff" />
+    <path d="M32 14v36" stroke="#38b000" stroke-width="3" stroke-linecap="round" />
+  </g>
+</svg>

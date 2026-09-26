@@ -32,7 +32,6 @@ interface CartStore {
 const FALLBACK_COUPONS: Record<string, { type: 'percent' | 'flat'; value: number }> = {
   GREENDECOR10: { type: 'percent', value: 10 },
   PLANT10: { type: 'percent', value: 10 },
-  WELCOME15: { type: 'percent', value: 15 },
   FREESHIP: { type: 'percent', value: 5 },
 };
 

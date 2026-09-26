@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { User, MapPin, Package, Heart, LogOut, Plus, ShieldCheck, Edit3, Check } from 'lucide-react';
 import { useAuthStore } from '@/lib/store/useAuthStore';
 import { useOrdersStore } from '@/lib/store/useOrdersStore';
+import { useMounted } from '@/lib/store/useMounted';
 import { useWishlistStore } from '@/lib/store/useWishlistStore';
 import { formatPKR } from '@/lib/utils';
 import { OrderAddress } from '@/types';
@@ -15,7 +16,9 @@ import { useUIStore } from '@/lib/store/useUIStore';
 export default function AccountPage() {
   const router = useRouter();
   const { user, isAuthenticated, isAuthReady, logout, updateProfile, addAddress, removeAddress } = useAuthStore();
-  const { orders } = useOrdersStore();
+  const { orders, hydrated: ordersHydrated } = useOrdersStore();
+  const mounted = useMounted();
+  const ordersReady = mounted && ordersHydrated;
   const wishlistCount = useWishlistStore((state) => state.getCount());
   const { showToast } = useUIStore();
 
@@ -307,29 +310,40 @@ export default function AccountPage() {
           {activeTab === 'orders' && (
             <div className="space-y-4">
               <h3 className="text-lg font-serif font-bold text-[#38b000] pb-3 border-b border-[#f0f4ee]">
-                Past Orders ({orders.length})
+                Past Orders ({ordersReady ? orders.length : 0})
               </h3>
-              {orders.map((order) => (
-                <div key={order.id} className="flex items-center justify-between p-4 rounded-2xl bg-[#f8faf7] border border-[#edf3ec]">
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <span className="font-bold text-xs text-[#172b21]">Order #{order.id}</span>
-                      <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
-                        {order.status}
-                      </span>
-                    </div>
-                    <p className="text-[11px] text-[#52685a] mt-0.5">
-                      {order.items.length} item(s) · Total: {formatPKR(order.total)}
-                    </p>
-                  </div>
-                  <Link
-                    href={`/orders/${order.id}`}
-                    className="text-xs font-bold text-[#38b000] hover:underline"
-                  >
-                    View Status &rarr;
-                  </Link>
+              {/* isAuthReady covers the auth store, not the orders store, so the
+                  order list needs its own mount + rehydration guard. */}
+              {!ordersReady ? (
+                <div className="py-10 text-center">
+                  <div className="w-10 h-10 rounded-full border-4 border-[#e5ece3] border-t-[#38b000] animate-spin mx-auto mb-3" />
+                  <p className="text-xs text-[#52685a]">Loading your orders...</p>
                 </div>
-              ))}
+              ) : orders.length === 0 ? (
+                <p className="text-xs text-[#52685a]">You have no orders yet.</p>
+              ) : (
+                orders.map((order) => (
+                  <div key={order.id} className="flex items-center justify-between p-4 rounded-2xl bg-[#f8faf7] border border-[#edf3ec]">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="font-bold text-xs text-[#172b21]">Order #{order.id}</span>
+                        <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
+                          {order.status}
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-[#52685a] mt-0.5">
+                        {order.items.length} item(s) · Total: {formatPKR(order.total)}
+                      </p>
+                    </div>
+                    <Link
+                      href={`/orders/${order.id}`}
+                      className="text-xs font-bold text-[#38b000] hover:underline"
+                    >
+                      View Status &rarr;
+                    </Link>
+                  </div>
+                ))
+              )}
             </div>
           )}
 

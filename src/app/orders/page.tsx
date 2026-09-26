@@ -5,10 +5,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Package, Truck, ArrowRight, CheckCircle2, Clock, MapPin, Eye } from 'lucide-react';
 import { useOrdersStore } from '@/lib/store/useOrdersStore';
+import { useMounted } from '@/lib/store/useMounted';
 import { formatPKR } from '@/lib/utils';
 
 export default function OrdersHistoryPage() {
-  const { orders } = useOrdersStore();
+  const { orders, hydrated } = useOrdersStore();
+  const mounted = useMounted();
+  const ready = mounted && hydrated;
 
   const statusColors: Record<string, string> = {
     placed: 'bg-blue-50 text-blue-700 border-blue-200',
@@ -31,7 +34,14 @@ export default function OrdersHistoryPage() {
         </p>
       </div>
 
-      {orders.length === 0 ? (
+      {/* Wait for mount and store rehydration, otherwise the server sends the
+          mock seed order and the client swaps in the real ones. */}
+      {!ready ? (
+        <div className="py-16 text-center">
+          <div className="w-12 h-12 rounded-full border-4 border-[#e5ece3] border-t-[#38b000] animate-spin mx-auto mb-4" />
+          <p className="text-xs text-[#52685a]">Loading your orders...</p>
+        </div>
+      ) : orders.length === 0 ? (
         <div className="bg-white rounded-3xl p-12 text-center border border-[#e5ece3] shadow-sm max-w-xl mx-auto space-y-4">
           <div className="w-16 h-16 rounded-full bg-[#f4f7f2] flex items-center justify-center text-[#38b000] mx-auto">
             <Package className="w-8 h-8 opacity-40" />

@@ -6,6 +6,14 @@ import { Order, CartItem, OrderAddress, PaymentMethod, OrderStatus } from '@/typ
 
 interface OrdersStore {
   orders: Order[];
+  /**
+   * False on the server and on the very first client render, true once the
+   * persisted state has been read back from localStorage. Anything that renders
+   * order data must wait for this, otherwise the server paints the mock seed
+   * data and the client immediately repaints with the real orders.
+   */
+  hydrated: boolean;
+  setHydrated: (hydrated: boolean) => void;
   createOrder: (
     items: CartItem[],
     shippingAddress: OrderAddress,
@@ -14,7 +22,8 @@ interface OrdersStore {
     shippingFee: number,
     discount: number,
     total: number,
-    userId?: string
+    userId?: string,
+    promoCode?: string
   ) => Order;
   getOrderById: (orderId: string) => Order | undefined;
   updateOrderStatus: (orderId: string, status: OrderStatus, note?: string) => void;
@@ -113,6 +122,8 @@ export const useOrdersStore = create<OrdersStore>()(
   persist(
     (set, get) => ({
       orders: mockInitialOrders,
+      hydrated: false,
+      setHydrated: (hydrated) => set({ hydrated }),
 
       createOrder: (
         items,
@@ -122,7 +133,8 @@ export const useOrdersStore = create<OrdersStore>()(
         shippingFee,
         discount,
         total,
-        userId
+        userId,
+        promoCode
       ) => {
         const orderId = `GD-${Math.floor(10000 + Math.random() * 90000)}`;
         const trackingNumber = `TCS-${Math.floor(1000000000 + Math.random() * 9000000000)}`;
@@ -139,6 +151,7 @@ export const useOrdersStore = create<OrdersStore>()(
           shippingFee,
           discount,
           total,
+          ...(promoCode ? { promoCode } : {}),
           status: 'placed',
           trackingNumber,
           createdAt: now,
@@ -183,6 +196,11 @@ export const useOrdersStore = create<OrdersStore>()(
     }),
     {
       name: 'green-decor-orders',
+      // Fires after the persisted state has been merged back in, so `hydrated`
+      // flips at the moment the real orders become available.
+      onRehydrateStorage: () => (state) => {
+        state?.setHydrated(true);
+      },
     }
   )
 );

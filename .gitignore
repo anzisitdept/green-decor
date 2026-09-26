@@ -29,9 +29,13 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+dev-server.log
+
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+
 
 # vercel
 .vercel
@@ -39,3 +43,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# service account keys contain a live private key - never commit these
+service-account.json
+*-service-account.json
+*serviceAccount*.json

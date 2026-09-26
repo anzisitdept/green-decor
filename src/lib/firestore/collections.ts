@@ -10,6 +10,7 @@ export const COLLECTIONS = {
   settings: 'settings',
   siteContent: 'siteContent',
   contactInquiries: 'contactInquiries',
+  welcomeSubscribers: 'welcomeSubscribers',
 } as const;
 
 export const SETTINGS_GENERAL_ID = 'general';

@@ -110,11 +110,12 @@ const toUserProfile = (u: User): UserProfile => ({
   email: u.email || '',
   phone: u.phoneNumber || '',
   photoURL: u.photoURL || undefined,
-  role: 'customer',
+  role: 'user',
   status: 'active',
   addresses: [],
   createdAt: new Date().toISOString(),
 });
+
 
 if (typeof window !== 'undefined') {
   onAuthStateChanged(auth, (fbUser) => {
@@ -125,6 +126,21 @@ if (typeof window !== 'undefined') {
         profile.addresses = previous.addresses;
       }
       useAuthStore.setState({ user: profile, isAuthenticated: true, isAuthReady: true });
+
+      // Mirror into `users/{uid}` on every sign-in, not just on the email
+      // registration form. Google sign-in never went through `register`, which
+      // left those accounts with no Firestore document and therefore invisible
+      // in the admin Users panel. Failures are swallowed: a profile-sync problem
+      // must never block someone from shopping.
+      void saveUserProfile(fbUser.uid, {
+        name: profile.name,
+        email: profile.email,
+        phone: profile.phone || undefined,
+        photoURL: profile.photoURL,
+        createdAt: previous?.createdAt ?? profile.createdAt,
+      }).catch(() => {
+        /* offline, permission denied, or rules not deployed yet */
+      });
     } else {
       useAuthStore.setState({ user: null, isAuthenticated: false, isAuthReady: true });
     }

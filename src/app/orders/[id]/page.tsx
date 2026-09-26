@@ -16,6 +16,7 @@ import {
   Calendar
 } from 'lucide-react';
 import { useOrdersStore } from '@/lib/store/useOrdersStore';
+import { useMounted } from '@/lib/store/useMounted';
 import { formatPKR, getWhatsAppLink } from '@/lib/utils';
 import { OrderStatus } from '@/types';
 
@@ -26,8 +27,22 @@ interface OrderDetailPageProps {
 export default function OrderDetailPage({ params }: OrderDetailPageProps) {
   const resolvedParams = use(params);
   const orderId = resolvedParams.id;
-  const { getOrderById } = useOrdersStore();
+  const { getOrderById, hydrated } = useOrdersStore();
+  const mounted = useMounted();
   const order = getOrderById(orderId);
+
+  // The store is persisted to localStorage and rehydrates before React hydrates,
+  // so the server only ever has the mock seed data. Waiting for mount *and*
+  // rehydration is what stops "Not Found" being painted on the server and then
+  // replaced with the real order on the client.
+  if (!mounted || !hydrated) {
+    return (
+      <div className="py-20 px-4 max-w-xl mx-auto text-center">
+        <div className="w-12 h-12 rounded-full border-4 border-[#e5ece3] border-t-[#38b000] animate-spin mx-auto mb-4" />
+        <p className="text-xs text-[#52685a]">Loading your order...</p>
+      </div>
+    );
+  }
 
   if (!order) {
     return (

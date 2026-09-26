@@ -47,20 +47,6 @@ export interface ServiceItem {
   faqs: { question: string; answer: string }[];
 }
 
-export interface PromoSlide {
-  id: string;
-  title: string;
-  kicker: string;
-  subtitle: string;
-  ctaLabel: string;
-  ctaHref: string;
-  badge?: string;
-  bgGradient: string;
-  imageUrl: string;
-  active: boolean;
-  order: number;
-}
-
 export interface Testimonial {
   id: string;
   name: string;
@@ -133,6 +119,7 @@ export interface Order {
   shippingFee: number;
   discount: number;
   total: number;
+  promoCode?: string;
   status: OrderStatus;
   trackingNumber: string;
   createdAt: string;
@@ -160,7 +147,7 @@ export interface ServiceRequest {
   status: ServiceRequestStatus;
 }
 
-export type UserRole = 'admin' | 'staff' | 'customer';
+export type UserRole = 'admin' | 'user';
 export type UserStatus = 'active' | 'disabled';
 
 export interface UserProfile {
@@ -198,6 +185,19 @@ export interface ContactMessage {
   message: string;
   createdAt: string;
   status: 'new' | 'read' | 'replied';
+}
+
+export interface WelcomeSubscriber {
+  id: string;
+  contact: string;
+  email?: string;
+  code: string;
+  status: 'active' | 'used' | 'expired';
+  source: 'welcome-popup';
+  ipHash?: string;
+  userAgent?: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface SiteSettings {

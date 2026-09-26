@@ -4,19 +4,28 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Sprout, CheckCircle2 } from 'lucide-react';
 import { useUIStore } from '@/lib/store/useUIStore';
+import {
+  claimWelcomeCoupon,
+  describeDiscount,
+  normalizeContact,
+  SUBSCRIBED_KEY,
+  DISMISSED_KEY,
+} from '@/lib/welcomeCoupon';
 
 export default function WelcomePopup() {
   const [isOpen, setIsOpen] = useState(false);
+  const [name, setName] = useState('');
   const [contact, setContact] = useState('');
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [error, setError] = useState('');
+  const [coupon, setCoupon] = useState<{ code: string; type: 'percent' | 'flat'; value: number } | null>(null);
   const { showToast } = useUIStore();
 
   useEffect(() => {
     // Check if user is already subscribed or dismissed popup
-    const subscribed = localStorage.getItem('green_decor_subscribed');
-    const dismissed = localStorage.getItem('green_decor_popup_dismissed');
+    const subscribed = localStorage.getItem(SUBSCRIBED_KEY);
+    const dismissed = localStorage.getItem(DISMISSED_KEY);
 
     if (!subscribed && !dismissed) {
       // Trigger popup 2.5s after initial page load
@@ -27,30 +36,50 @@ export default function WelcomePopup() {
     }
   }, []);
 
-  const handleClaimDiscount = (e: React.FormEvent) => {
+  const handleClaimDiscount = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError('');
+
     if (!contact.trim()) {
       showToast('Please enter your contact number.', 'warning');
       return;
     }
 
+    if (!normalizeContact(contact)) {
+      setError('Please enter a valid Pakistani mobile number, e.g. 0300 1234567.');
+      return;
+    }
+
     setIsSubmitting(true);
 
-    // Simulate subscription API call
-    setTimeout(() => {
-      localStorage.setItem('green_decor_subscribed', 'true');
+    try {
+      const result = await claimWelcomeCoupon(contact, email, name);
+
+      // Only suppress the popup once the coupon is actually stored.
+      localStorage.setItem(SUBSCRIBED_KEY, result.code);
+      setCoupon(result);
       setIsSubmitting(false);
-      setIsSubscribed(true);
-      showToast('🎉 Thank you for subscribing! Your 5% discount code is WELCOME5', 'success');
+      showToast(
+        result.alreadyExisted
+          ? `Welcome back! Your code ${result.code} is ready.`
+          : `🎉 Your ${describeDiscount(result.type, result.value)} code is ${result.code}`,
+        'success'
+      );
 
       setTimeout(() => {
         setIsOpen(false);
-      }, 2000);
-    }, 600);
+      }, 3500);
+    } catch (err) {
+      setIsSubmitting(false);
+      const message =
+        err instanceof Error ? err.message : 'Something went wrong. Please try again.';
+      setError(message);
+      showToast(message, 'warning');
+    }
   };
 
   const handleDismiss = () => {
-    localStorage.setItem('green_decor_popup_dismissed', 'true');
+    localStorage.setItem(DISMISSED_KEY, 'true');
     setIsOpen(false);
   };
 
@@ -84,7 +113,7 @@ export default function WelcomePopup() {
             <X className="w-5 h-5" />
           </button>
 
-          {isSubscribed ? (
+          {coupon ? (
             /* Success State */
             <div className="py-6 text-center space-y-4">
               <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto text-emerald-200">
@@ -92,7 +121,11 @@ export default function WelcomePopup() {
               </div>
               <h3 className="text-2xl font-extrabold text-white">You&apos;re All Set! 🌱</h3>
               <p className="text-sm text-emerald-100">
-                Use promo code <span className="font-bold text-white bg-black/30 px-2.5 py-1 rounded-md">WELCOME5</span> at checkout for 5% off your first order!
+                Use promo code{' '}
+                <span className="font-bold text-white bg-black/30 px-2.5 py-1 rounded-md break-all">
+                  {coupon.code}
+                </span>{' '}
+                at checkout for {describeDiscount(coupon.type, coupon.value)} on your first order!
               </p>
             </div>
           ) : (
@@ -113,11 +146,21 @@ export default function WelcomePopup() {
 
               {/* Subheadline */}
               <p className="text-xs sm:text-sm text-emerald-100 text-center font-normal mt-2 mb-6">
-                We&rsquo;ll give you 5% off &mdash; You bring the sunshine.
+                We&rsquo;ll give you a welcome discount &mdash; You bring the sunshine.
               </p>
 
               {/* Form */}
               <form onSubmit={handleClaimDiscount} className="space-y-3">
+                <input
+                  type="text"
+                  placeholder="Your name (Optional)"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  maxLength={80}
+                  autoComplete="name"
+                  className="w-full bg-white text-neutral-900 placeholder:text-neutral-400 px-4 py-3.5 rounded-xl text-sm outline-none focus:ring-2 focus:ring-emerald-300 shadow-xs font-medium"
+                />
+
                 <input
                   type="tel"
                   placeholder="Contact number (+92 300 1234567)"
@@ -142,6 +185,15 @@ export default function WelcomePopup() {
                 >
                   {isSubmitting ? 'Claiming...' : 'Claim discount'}
                 </button>
+
+                {error && (
+                  <p
+                    role="alert"
+                    className="text-xs text-red-100 bg-red-900/40 border border-red-300/40 rounded-xl px-3 py-2.5 leading-snug"
+                  >
+                    {error}
+                  </p>
+                )}
               </form>
 
               {/* No thanks button */}

@@ -1,4 +1,4 @@
-export const CONTACT_EMAIL = 'info@greendecor.com';
+export const CONTACT_EMAIL = 'info@greendecor.pk';
 export const CONTACT_PHONE = '+92 333 8951222';
 export const CONTACT_ADDRESS = '100ft Road, Sukkur, Sindh, Pakistan';
 

@@ -27,7 +27,7 @@ const socials = [
         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
       </svg>
     ),
-    href: '#',
+    href: 'https://www.facebook.com/share/1QKGrBCGVP/?mibextid=wwXIfr',
   },
   {
     label: 'Instagram',
@@ -210,7 +210,7 @@ export default function Footer() {
             {/* Bottom bar */}
             <div className="relative z-10 mt-12 pt-6 border-t border-dotted border-white/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
               <p className="text-[#c8d8cf] text-center sm:text-left">
-                &copy; {new Date().getFullYear()} greendecor.com. All rights reserved.
+                &copy; {new Date().getFullYear()} greendecor.pk. All rights reserved.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-white">
                 <Link href="#" className="hover:text-emerald-200 hover:underline transition-colors">Terms &amp; Condition</Link>
