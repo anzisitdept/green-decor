@@ -24,7 +24,7 @@ export default function HomePage() {
       </div>
 
       {/* Main Content Area */}
-      <main className="flex-1 min-w-0 flex flex-col overflow-x-hidden bg-white">
+      <main className="flex-1 min-w-0 flex flex-col overflow-x-hidden bg-[#0d3b2e]">
 
         {/* Hero Section */}
         <Hero />

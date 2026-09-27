@@ -55,7 +55,7 @@ export default function ContactPage() {
         <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.25em] text-[#52685a]">
           WE&rsquo;D LOVE TO HEAR FROM YOU
         </span>
-        <h1 className="text-3xl sm:text-5xl font-serif font-extrabold text-[#38b000]">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-[#0d3b2e]">
           Get in Touch with Green Decor
         </h1>
         <p className="text-xs sm:text-sm text-[#4a5f52]">
@@ -68,7 +68,7 @@ export default function ContactPage() {
         {/* Left Column: Direct Contact Info (5 cols) */}
         <div className="lg:col-span-5 space-y-8">
           <div>
-            <h3 className="text-2xl font-serif font-bold text-[#38b000] mb-2">
+            <h3 className="text-2xl font-bold text-[#0d3b2e] mb-2">
               Contact Information
             </h3>
             <p className="text-xs sm:text-sm text-[#52685a] leading-relaxed">
@@ -78,7 +78,7 @@ export default function ContactPage() {
 
           <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <MapPin className="w-5 h-5 text-[#38b000] mt-0.5 shrink-0" />
+              <MapPin className="w-5 h-5 text-[#0d3b2e] mt-0.5 shrink-0" />
               <div>
                 <strong className="block text-sm text-[#172b21] font-bold">Location:</strong>
                 <span className="text-xs sm:text-sm text-[#52685a]">{CONTACT_ADDRESS}</span>
@@ -86,12 +86,12 @@ export default function ContactPage() {
             </div>
 
             <div className="flex items-start gap-4">
-              <Phone className="w-5 h-5 text-[#38b000] mt-0.5 shrink-0" />
+              <Phone className="w-5 h-5 text-[#0d3b2e] mt-0.5 shrink-0" />
               <div>
                 <strong className="block text-sm text-[#172b21] font-bold">Phone Support:</strong>
                 <a
                   href={CONTACT_PHONE_HREF}
-                  className="block text-xs sm:text-sm text-[#52685a] hover:text-[#38b000] transition-colors"
+                  className="block text-xs sm:text-sm text-[#52685a] hover:text-[#0d3b2e] transition-colors"
                 >
                   {CONTACT_PHONE}
                 </a>
@@ -99,12 +99,12 @@ export default function ContactPage() {
             </div>
 
             <div className="flex items-start gap-4">
-              <Mail className="w-5 h-5 text-[#38b000] mt-0.5 shrink-0" />
+              <Mail className="w-5 h-5 text-[#0d3b2e] mt-0.5 shrink-0" />
               <div>
                 <strong className="block text-sm text-[#172b21] font-bold">Email Inquiries:</strong>
                 <a
                   href={CONTACT_EMAIL_HREF}
-                  className="block text-xs sm:text-sm text-[#52685a] hover:text-[#38b000] transition-colors break-words"
+                  className="block text-xs sm:text-sm text-[#52685a] hover:text-[#0d3b2e] transition-colors break-words"
                 >
                   {CONTACT_EMAIL}
                 </a>
@@ -112,7 +112,7 @@ export default function ContactPage() {
             </div>
 
             <div className="flex items-start gap-4">
-              <Clock className="w-5 h-5 text-[#38b000] mt-0.5 shrink-0" />
+              <Clock className="w-5 h-5 text-[#0d3b2e] mt-0.5 shrink-0" />
               <div>
                 <strong className="block text-sm text-[#172b21] font-bold">Visiting Hours:</strong>
                 <span className="text-xs sm:text-sm text-[#52685a]">{settings.workingHours}</span>
@@ -126,7 +126,7 @@ export default function ContactPage() {
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full py-3.5 px-6 rounded-full bg-[#38b000] text-white text-xs sm:text-sm font-bold hover:bg-[#2e9900] transition-all shadow-md items-center justify-center gap-2"
+              className="inline-flex w-full py-3.5 px-6 rounded-full bg-[#0d3b2e] text-white text-xs sm:text-sm font-bold hover:bg-[#145c43] transition-all shadow-md items-center justify-center gap-2"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Instant Chat on WhatsApp</span>
@@ -137,7 +137,7 @@ export default function ContactPage() {
         {/* Right Column: Contact Inquiry Form (7 cols) */}
         <div className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-10 border border-[#e5ece3] shadow-md space-y-6">
           <div className="pb-4 border-b border-[#f0f4ee]">
-            <h3 className="text-xl font-serif font-bold text-[#38b000]">
+            <h3 className="text-xl font-bold text-[#0d3b2e]">
               Send Us a Direct Message
             </h3>
             <p className="text-xs text-[#52685a] mt-1">
@@ -150,7 +150,7 @@ export default function ContactPage() {
               <div className="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center mx-auto">
                 <Check className="w-6 h-6" />
               </div>
-              <h4 className="font-serif font-bold text-lg text-emerald-900">
+              <h4 className="font-bold text-lg text-emerald-900">
                 Message Sent Successfully!
               </h4>
               <p className="text-xs text-emerald-800 max-w-md mx-auto">
@@ -168,7 +168,7 @@ export default function ContactPage() {
                     placeholder="e.g. Fatima Ali"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#38b000]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#0d3b2e]"
                   />
                 </div>
                 <div>
@@ -179,7 +179,7 @@ export default function ContactPage() {
                     placeholder="0300 1234567"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#38b000]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#0d3b2e]"
                   />
                 </div>
               </div>
@@ -193,7 +193,7 @@ export default function ContactPage() {
                     placeholder="you@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#38b000]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#0d3b2e]"
                   />
                 </div>
                 <div>
@@ -201,7 +201,7 @@ export default function ContactPage() {
                   <select
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs font-semibold text-[#38b000] bg-white"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs font-semibold text-[#0d3b2e] bg-white"
                   >
                     <option value="General Inquiry">General Inquiry</option>
                     <option value="Landscape Consultation">Landscape Survey Consultation</option>
@@ -220,13 +220,13 @@ export default function ContactPage() {
                   placeholder="How can we assist you with your green space today?"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#38b000]"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#0d3b2e]"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-4 rounded-2xl bg-[#38b000] text-white text-xs sm:text-sm font-bold hover:bg-[#2e9900] transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2"
+                className="w-full py-4 rounded-2xl bg-[#0d3b2e] text-white text-xs sm:text-sm font-bold hover:bg-[#145c43] transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2"
               >
                 <Send className="w-4 h-4" />
                 <span>Send Message</span>

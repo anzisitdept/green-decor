@@ -15,13 +15,14 @@ import {
   RefreshCw,
   ShoppingBag
 } from 'lucide-react';
-import { useStoreProducts } from '@/lib/firestore/store-data';
+import { useStoreProducts, useStoreCategories } from '@/lib/firestore/store-data';
 import ProductCard from '@/components/product/ProductCard';
 import { formatPKR } from '@/lib/utils';
 
 function ShopContent() {
   const searchParams = useSearchParams();
   const productsData = useStoreProducts();
+  const storeCategories = useStoreCategories();
   const initialCategory = searchParams.get('category') || 'all';
   const initialSearch = searchParams.get('search') || '';
 
@@ -35,15 +36,26 @@ function ShopContent() {
   const [activeQuickTag, setActiveQuickTag] = useState<string>('all');
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
-  const categories = [
-    { id: 'all', label: 'All Categories' },
-    { id: 'plants', label: 'Plants & Planters' },
-    { id: 'home-decor', label: 'Home Decor' },
-    { id: 'landscaping', label: 'Landscaping' },
-    { id: 'aquariums', label: 'Aquariums' },
-    { id: 'plant-care', label: 'Plant Care Products' },
-    { id: 'gift-pots', label: 'Gift Pots & Custom' },
-  ];
+  // Sourced from the `categories` Firestore collection so the filter, the
+  // counts, and the sidebar links can never drift from the live list.
+  const categories = useMemo(
+    () => [
+      { id: 'all', label: 'All Categories' },
+      ...storeCategories.map(({ id, label }) => ({ id, label })),
+    ],
+    [storeCategories]
+  );
+
+  // A stale `?category=` value (an old slug from a bookmark or a pre-rename
+  // link) would otherwise match nothing and render an empty grid, so fall
+  // back to "all" whenever the requested category is not in the live list.
+  const validCategoryIds = useMemo(
+    () => new Set(categories.map((c) => c.id)),
+    [categories]
+  );
+  const activeCategory = validCategoryIds.has(selectedCategory)
+    ? selectedCategory
+    : 'all';
 
   const quickTags = [
     { id: 'all', label: 'All Items' },
@@ -58,7 +70,7 @@ function ShopContent() {
   const filteredProducts = useMemo(() => {
     return productsData.filter((product) => {
       // Category match
-      if (selectedCategory !== 'all' && product.category !== selectedCategory) {
+      if (activeCategory !== 'all' && product.category !== activeCategory) {
         return false;
       }
 
@@ -106,7 +118,7 @@ function ShopContent() {
       if (sortBy === 'newest') return (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0);
       return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
     });
-  }, [selectedCategory, searchQuery, maxPrice, inStockOnly, minRating, sortBy, activeQuickTag, productsData]);
+  }, [activeCategory, searchQuery, maxPrice, inStockOnly, minRating, sortBy, activeQuickTag, productsData]);
 
   const resetFilters = () => {
     setSelectedCategory('all');
@@ -119,7 +131,7 @@ function ShopContent() {
   };
 
   const hasActiveFilters =
-    selectedCategory !== 'all' ||
+    activeCategory !== 'all' ||
     searchQuery !== '' ||
     maxPrice < 30000 ||
     inStockOnly ||
@@ -132,13 +144,13 @@ function ShopContent() {
       {/* Page Header */}
       <div className="mb-8">
         <div className="flex items-center gap-2 text-xs font-semibold text-[#52685a] mb-2">
-          <Link href="/" className="hover:text-[#38b000]">Home</Link>
+          <Link href="/" className="hover:text-[#0d3b2e]">Home</Link>
           <span>/</span>
-          <span className="text-[#38b000]">Shop Catalog</span>
+          <span className="text-[#0d3b2e]">Shop Catalog</span>
         </div>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <h1 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#38b000]">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#0d3b2e]">
               Nursery & Green Decor Collection
             </h1>
             <p className="text-xs sm:text-sm text-[#52685a] mt-1">
@@ -151,7 +163,7 @@ function ShopContent() {
             <button
               type="button"
               onClick={() => setIsMobileFilterOpen(true)}
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-[#d6e2d3] text-xs font-bold text-[#38b000] shadow-xs"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-[#d6e2d3] text-xs font-bold text-[#0d3b2e] shadow-xs"
             >
               <SlidersHorizontal className="w-4 h-4" />
               <span>Filters & Sort</span>
@@ -169,7 +181,7 @@ function ShopContent() {
             onClick={() => setActiveQuickTag(tag.id)}
             className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
               activeQuickTag === tag.id
-                ? 'bg-[#38b000] text-white shadow-xs'
+                ? 'bg-[#0d3b2e] text-white shadow-xs'
                 : 'bg-white text-[#2a3f33] hover:bg-[#eaf0e7] border border-[#e5ece3]'
             }`}
           >
@@ -183,7 +195,7 @@ function ShopContent() {
         {/* Desktop Filter Sidebar (plant.pk adapted) */}
         <aside className="hidden lg:block lg:col-span-1 bg-white rounded-3xl p-6 border border-[#e5ece3] shadow-sm space-y-6 sticky top-24">
           <div className="flex items-center justify-between pb-4 border-b border-[#f0f4ee]">
-            <h3 className="text-sm font-bold font-serif text-[#38b000] flex items-center gap-2">
+            <h3 className="text-sm font-bold text-[#0d3b2e] flex items-center gap-2">
               <SlidersHorizontal className="w-4 h-4" />
               <span>Filter Catalog</span>
             </h3>
@@ -210,7 +222,7 @@ function ShopContent() {
                 placeholder="e.g. Monstera, Terracotta..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#38b000] focus:outline-none"
+                className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#0d3b2e] focus:outline-none"
               />
             </div>
           </div>
@@ -231,14 +243,14 @@ function ShopContent() {
                     type="button"
                     onClick={() => setSelectedCategory(cat.id)}
                     className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-colors ${
-                      selectedCategory === cat.id
-                        ? 'bg-[#38b000] text-white font-bold'
+                      activeCategory === cat.id
+                        ? 'bg-[#0d3b2e] text-white font-bold'
                         : 'text-[#2a3f33] hover:bg-[#f4f7f2]'
                     }`}
                   >
                     <span>{cat.label}</span>
                     <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                      selectedCategory === cat.id ? 'bg-white/20 text-white' : 'bg-[#eaf0e7] text-[#38b000]'
+                      activeCategory === cat.id ? 'bg-white/20 text-white' : 'bg-[#eaf0e7] text-[#0d3b2e]'
                     }`}>
                       {count}
                     </span>
@@ -254,7 +266,7 @@ function ShopContent() {
               <label className="text-xs font-bold text-[#172b21] uppercase tracking-wider">
                 Max Price
               </label>
-              <span className="text-xs font-bold text-[#38b000]">
+              <span className="text-xs font-bold text-[#0d3b2e]">
                 {formatPKR(maxPrice)}
               </span>
             </div>
@@ -265,7 +277,7 @@ function ShopContent() {
               step="500"
               value={maxPrice}
               onChange={(e) => setMaxPrice(Number(e.target.value))}
-              className="w-full accent-[#38b000] cursor-pointer"
+              className="w-full accent-[#0d3b2e] cursor-pointer"
             />
             <div className="flex justify-between text-[10px] text-gray-400 mt-1">
               <span>PKR 500</span>
@@ -281,7 +293,7 @@ function ShopContent() {
                 type="checkbox"
                 checked={inStockOnly}
                 onChange={(e) => setInStockOnly(e.target.checked)}
-                className="w-4 h-4 rounded text-[#38b000] accent-[#38b000] cursor-pointer"
+                className="w-4 h-4 rounded text-[#0d3b2e] accent-[#0d3b2e] cursor-pointer"
               />
             </label>
           </div>
@@ -299,7 +311,7 @@ function ShopContent() {
                   onClick={() => setMinRating(minRating === stars ? 0 : stars)}
                   className={`w-full flex items-center justify-between px-3 py-1.5 rounded-lg text-xs transition-colors ${
                     minRating === stars
-                      ? 'bg-[#eaf0e7] text-[#38b000] font-bold border border-[#c8d9c5]'
+                      ? 'bg-[#eaf0e7] text-[#0d3b2e] font-bold border border-[#c8d9c5]'
                       : 'hover:bg-[#f8faf7] text-[#52685a]'
                   }`}
                 >
@@ -312,7 +324,7 @@ function ShopContent() {
                     ))}
                     <span className="text-[#172b21] ml-1.5">& Up</span>
                   </div>
-                  {minRating === stars && <Check className="w-3.5 h-3.5 text-[#38b000]" />}
+                  {minRating === stars && <Check className="w-3.5 h-3.5 text-[#0d3b2e]" />}
                 </button>
               ))}
             </div>
@@ -326,9 +338,9 @@ function ShopContent() {
           {/* Top Bar: Count & Sorting */}
           <div className="bg-white rounded-2xl p-4 border border-[#e5ece3] flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
             <div className="text-xs text-[#52685a]">
-              Showing <strong className="text-[#38b000]">{filteredProducts.length}</strong> of <strong>{productsData.length}</strong> products
-              {selectedCategory !== 'all' && (
-                <span> in <strong className="text-[#d47343]">{categories.find(c => c.id === selectedCategory)?.label}</strong></span>
+              Showing <strong className="text-[#0d3b2e]">{filteredProducts.length}</strong> of <strong>{productsData.length}</strong> products
+              {activeCategory !== 'all' && (
+                <span> in <strong className="text-[#d47343]">{categories.find(c => c.id === activeCategory)?.label}</strong></span>
               )}
             </div>
 
@@ -337,7 +349,7 @@ function ShopContent() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="px-3 py-1.5 rounded-xl border border-[#d6e2d3] text-xs font-semibold text-[#38b000] bg-white focus:outline-none focus:ring-2 focus:ring-[#38b000]"
+                className="px-3 py-1.5 rounded-xl border border-[#d6e2d3] text-xs font-semibold text-[#0d3b2e] bg-white focus:outline-none focus:ring-2 focus:ring-[#0d3b2e]"
               >
                 <option value="featured">Featured & Recommended</option>
                 <option value="price-asc">Price: Low to High</option>
@@ -350,24 +362,24 @@ function ShopContent() {
 
           {/* Products Grid */}
           {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
               {filteredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
           ) : (
             <div className="bg-white rounded-3xl p-12 text-center border border-[#e5ece3] space-y-4">
-              <div className="w-16 h-16 rounded-full bg-[#f4f7f2] flex items-center justify-center text-[#38b000] mx-auto">
+              <div className="w-16 h-16 rounded-full bg-[#f4f7f2] flex items-center justify-center text-[#0d3b2e] mx-auto">
                 <ShoppingBag className="w-8 h-8 opacity-40" />
               </div>
-              <h3 className="font-serif font-bold text-xl text-[#38b000]">No Products Matched</h3>
+              <h3 className="font-bold text-xl text-[#0d3b2e]">No Products Matched</h3>
               <p className="text-xs text-[#52685a] max-w-sm mx-auto">
                 No items match your active filters. Try clearing your search term or adjusting the price threshold.
               </p>
               <button
                 type="button"
                 onClick={resetFilters}
-                className="px-6 py-2.5 rounded-full bg-[#38b000] text-white text-xs font-bold hover:bg-[#2e9900] transition-colors"
+                className="px-6 py-2.5 rounded-full bg-[#0d3b2e] text-white text-xs font-bold hover:bg-[#145c43] transition-colors"
               >
                 Reset All Filters
               </button>
@@ -388,7 +400,7 @@ function ShopContent() {
           <div className="fixed inset-y-0 right-0 max-w-xs w-full bg-white p-6 shadow-2xl flex flex-col justify-between overflow-y-auto animate-in slide-in-from-right">
             <div>
               <div className="flex items-center justify-between pb-4 border-b border-[#f0f4ee]">
-                <h3 className="font-serif font-bold text-base text-[#38b000]">Filters & Sort</h3>
+                <h3 className="font-bold text-base text-[#0d3b2e]">Filters & Sort</h3>
                 <button
                   type="button"
                   onClick={() => setIsMobileFilterOpen(false)}
@@ -411,7 +423,7 @@ function ShopContent() {
                         setIsMobileFilterOpen(false);
                       }}
                       className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium ${
-                        selectedCategory === cat.id ? 'bg-[#38b000] text-white font-bold' : 'text-[#2a3f33]'
+                        activeCategory === cat.id ? 'bg-[#0d3b2e] text-white font-bold' : 'text-[#2a3f33]'
                       }`}
                     >
                       {cat.label}
@@ -433,7 +445,7 @@ function ShopContent() {
                   step="500"
                   value={maxPrice}
                   onChange={(e) => setMaxPrice(Number(e.target.value))}
-                  className="w-full accent-[#38b000]"
+                  className="w-full accent-[#0d3b2e]"
                 />
               </div>
             </div>
@@ -442,7 +454,7 @@ function ShopContent() {
               <button
                 type="button"
                 onClick={() => setIsMobileFilterOpen(false)}
-                className="w-full py-3 rounded-xl bg-[#38b000] text-white text-xs font-bold"
+                className="w-full py-3 rounded-xl bg-[#0d3b2e] text-white text-xs font-bold"
               >
                 Apply Filters ({filteredProducts.length} results)
               </button>
@@ -468,7 +480,7 @@ function ShopContent() {
 export default function ShopPage() {
   return (
     <Suspense fallback={
-      <div className="py-24 text-center text-[#38b000] font-serif font-bold text-lg">
+      <div className="py-24 text-center text-[#0d3b2e] font-serif font-bold text-lg">
         Loading Green Decor Catalog...
       </div>
     }>

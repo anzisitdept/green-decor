@@ -44,7 +44,7 @@ export default function WhyPlantLovers() {
 
             {/* Right Side: Features & CTAs */}
             <div className="lg:col-span-6 space-y-6 sm:space-y-8">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#38b000] leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0d3b2e] leading-tight">
                 Why Plant Lovers Choose <br className="hidden sm:block" />
                 Green Decor
               </h2>
@@ -53,11 +53,11 @@ export default function WhyPlantLovers() {
               <div className="space-y-5">
                 {whyChooseUsPillars.map((pillar, idx) => (
                   <div key={idx} className="flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-2xl bg-white shadow-xs border border-emerald-900/10 flex items-center justify-center shrink-0 text-[#38b000] mt-0.5">
+                    <div className="w-11 h-11 rounded-2xl bg-white shadow-xs border border-emerald-900/10 flex items-center justify-center shrink-0 text-[#0d3b2e] mt-0.5">
                       <pillar.Icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="text-sm sm:text-base font-bold text-[#38b000]">
+                      <h3 className="text-sm sm:text-base font-bold text-[#0d3b2e]">
                         {pillar.title}
                       </h3>
                       <p className="text-xs sm:text-sm text-[#52685a] leading-relaxed mt-0.5 max-w-lg">

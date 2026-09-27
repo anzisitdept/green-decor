@@ -2,18 +2,20 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { 
-  Search, 
+import {
+  Search,
   Home,
   Info,
   Leaf,
   Images,
   Quote,
   Phone,
-  ChevronDown, 
-  Menu, 
-  MessageCircle, 
+  ChevronDown,
+  Menu,
+  MessageCircle,
+  ShoppingBag,
 } from 'lucide-react';
 import { useCartStore } from '@/lib/store/useCartStore';
 import { useUIStore } from '@/lib/store/useUIStore';
@@ -26,20 +28,33 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [isNavHidden, setIsNavHidden] = useState(false);
   const megaMenuRef = useRef<HTMLDivElement>(null);
+  const lastScrollYRef = useRef(0);
 
   const cartCount = useCartStore((state) => state.getItemsCount());
-  const { openSearch, openLeftMenu } = useUIStore();
+  const { openSearch, openCart, openLeftMenu } = useUIStore();
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
   useEffect(() => {
+    lastScrollYRef.current = window.scrollY;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentY = window.scrollY;
+      const lastY = lastScrollYRef.current;
+      setIsScrolled(currentY > 20);
+
+      // Hide the navbar on any scroll down, bring it back on scroll up (or at the top)
+      setIsNavHidden(currentY > 40 && currentY > lastY);
+
+      lastScrollYRef.current = currentY;
     };
-    window.addEventListener('scroll', handleScroll);
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -70,14 +85,14 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`sticky top-0 z-40 w-full transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#e5ece3] py-3'
-            : 'bg-transparent py-4'
-        }`}
+        className={`sticky top-0 z-40 w-full transition-all duration-300 ${isNavHidden ? '-translate-y-full' : 'translate-y-0'
+          } ${isScrolled
+            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#e5ece3] py-4 sm:py-3'
+            : 'bg-transparent py-5 lg:py-4'
+          }`}
       >
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center justify-between gap-4 min-h-[104px] lg:min-h-0">
 
             {/* Left Menu Toggle */}
             <div className="flex items-center gap-2 sm:gap-3 shrink-0">
@@ -85,14 +100,9 @@ export default function Navbar() {
                 type="button"
                 onClick={openLeftMenu}
                 aria-label="Open menu"
-                className="relative p-2 rounded-full border border-[#d6e2d3] text-[#38b000] hover:bg-[#eaf0e7] hover:border-[#38b000] transition-colors"
+                className="relative p-2.5 rounded-full border border-[#d6e2d3] text-[#0d3b2e] hover:bg-[#eaf0e7] hover:border-[#0d3b2e] transition-colors"
               >
-                <Menu className="w-5 h-5" />
-                {isMounted && cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-[#d47343] border-2 border-white text-white text-[10px] font-bold flex items-center justify-center leading-none">
-                    {cartCount > 9 ? '9+' : cartCount}
-                  </span>
-                )}
+                <Menu className="w-6 h-6" />
               </button>
             </div>
 
@@ -101,8 +111,19 @@ export default function Navbar() {
               href="/"
               className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2.5 group lg:static lg:left-auto lg:translate-x-0 lg:justify-start"
             >
-              <div className="flex flex-col min-w-0 text-center lg:text-left">
-                <span className="font-serif tracking-tight font-extrabold text-xl sm:text-2xl text-[#38b000] leading-none truncate">
+              {/* Mobile: brand logo image */}
+              <Image
+                src="/logo.png"
+                alt="Green Decor"
+                width={77}
+                height={98}
+                priority
+                sizes="77px"
+                className="h-28 w-auto object-contain lg:hidden"
+              />
+
+              <div className="hidden lg:flex flex-col min-w-0 text-left">
+                <span className="font-serif tracking-tight font-extrabold text-xl sm:text-2xl text-[#0d3b2e] leading-none truncate">
                   GREEN DECOR
                 </span>
                 <span className="block text-[11px] font-medium text-[#d47343] tracking-wide mt-0.5 truncate max-w-[220px]">
@@ -128,18 +149,16 @@ export default function Navbar() {
                       <button
                         type="button"
                         onClick={() => setIsMegaMenuOpen(!isMegaMenuOpen)}
-                        className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors ${
-                          pathname.startsWith('/services')
-                            ? 'text-[#38b000] font-semibold bg-[#eaf0e7]'
-                            : 'text-[#2a3f33] hover:text-[#38b000] hover:bg-[#f0f5ee]'
-                        }`}
+                        className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors ${pathname.startsWith('/services')
+                            ? 'text-[#0d3b2e] font-semibold bg-[#eaf0e7]'
+                            : 'text-[#2a3f33] hover:text-[#0d3b2e] hover:bg-[#f0f5ee]'
+                          }`}
                       >
                         {link.icon}
                         {link.name}
                         <ChevronDown
-                          className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                            isMegaMenuOpen ? 'rotate-180 text-[#38b000]' : ''
-                          }`}
+                          className={`w-3.5 h-3.5 transition-transform duration-200 ${isMegaMenuOpen ? 'rotate-180 text-[#0d3b2e]' : ''
+                            }`}
                         />
                       </button>
                       {isMegaMenuOpen && (
@@ -153,11 +172,10 @@ export default function Navbar() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors ${
-                      isActive
-                        ? 'text-[#38b000] font-semibold bg-[#eaf0e7]'
-                        : 'text-[#2a3f33] hover:text-[#38b000] hover:bg-[#f0f5ee]'
-                    }`}
+                    className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors ${isActive
+                        ? 'text-[#0d3b2e] font-semibold bg-[#eaf0e7]'
+                        : 'text-[#2a3f33] hover:text-[#0d3b2e] hover:bg-[#f0f5ee]'
+                      }`}
                   >
                     {link.icon}
                     {link.name}
@@ -167,15 +185,30 @@ export default function Navbar() {
             </nav>
 
             {/* Right Action Icons */}
-            <div className="flex items-center gap-1.5 sm:gap-2">
+            <div className="flex items-center gap-1 sm:gap-1.5">
               {/* Search Modal Trigger */}
               <button
                 type="button"
                 onClick={openSearch}
                 aria-label="Search products and services"
-                className="p-2 rounded-full text-[#38b000] hover:bg-[#eaf0e7] transition-colors relative"
+                className="p-2.5 rounded-full text-[#0d3b2e] hover:bg-[#eaf0e7] transition-colors"
               >
-                <Search className="w-5 h-5" />
+                <Search className="w-6 h-6" />
+              </button>
+
+              {/* Cart Drawer Trigger */}
+              <button
+                type="button"
+                onClick={openCart}
+                aria-label="Open cart"
+                className="relative p-2.5 rounded-full text-[#0d3b2e] hover:bg-[#eaf0e7] transition-colors"
+              >
+                <ShoppingBag className="w-6 h-6" />
+                {isMounted && cartCount > 0 && (
+                  <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 rounded-full bg-[#d47343] border-2 border-white text-white text-[10px] font-bold flex items-center justify-center leading-none">
+                    {cartCount > 9 ? '9+' : cartCount}
+                  </span>
+                )}
               </button>
 
               {/* Facebook */}
@@ -184,26 +217,26 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="hidden sm:inline-flex p-2 rounded-full text-[#38b000] hover:bg-[#eaf0e7] transition-colors"
+                className="hidden sm:inline-flex p-2.5 rounded-full text-[#0d3b2e] hover:bg-[#eaf0e7] transition-colors"
               >
                 <svg
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="w-5 h-5"
+                  className="w-6 h-6"
                 >
                   <path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.2 0-1-.1-1.9-.1-1.9 0-3.2 1.2-3.2 3.3V11H9v3h2.3v7h2.2z" />
                 </svg>
               </a>
 
-{/* WhatsApp */}
+              {/* WhatsApp */}
               <a
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="hidden sm:inline-flex p-2 rounded-full text-[#38b000] hover:bg-[#eaf0e7] transition-colors"
+                className="hidden sm:inline-flex p-2.5 rounded-full text-[#0d3b2e] hover:bg-[#eaf0e7] transition-colors"
               >
-                <MessageCircle className="w-5 h-5" />
+                <MessageCircle className="w-6 h-6" />
               </a>
             </div>
           </div>

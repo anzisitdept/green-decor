@@ -20,7 +20,7 @@ export default function ServicesGridFromStore() {
       {(grid?.heading || grid?.subcopy) && (
         <div className="pt-12 sm:pt-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center space-y-2">
           {grid?.heading && (
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#38b000] tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0d3b2e] tracking-tight">
               {grid.heading}
             </h2>
           )}

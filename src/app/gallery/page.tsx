@@ -94,7 +94,7 @@ export default function GalleryPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-[#0d3b2e]/45 to-[#0d3b2e]/75" />
         <div className="relative z-10 h-full flex items-center justify-center px-4 text-center">
-          <h1 className="font-serif font-extrabold text-white text-5xl md:text-7xl tracking-tight">
+          <h1 className="font-extrabold text-white text-5xl md:text-7xl tracking-tight">
 
           </h1>
         </div>
@@ -118,7 +118,7 @@ export default function GalleryPage() {
               type="button"
               onClick={() => setActiveFilter(f.id)}
               className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${activeFilter === f.id
-                ? 'bg-[#38b000] text-white shadow-md'
+                ? 'bg-[#0d3b2e] text-white shadow-md'
                 : 'bg-white text-[#2a3f33] hover:bg-[#eaf0e7] border border-[#e5ece3]'
                 }`}
             >
@@ -149,7 +149,7 @@ export default function GalleryPage() {
                   <MapPin className="w-3 h-3" />
                   <span>{item.location}</span>
                 </div>
-                <h3 className="font-serif font-bold text-base sm:text-lg leading-snug text-white">
+                <h3 className="font-bold text-base sm:text-lg leading-snug text-white">
                   {item.title}
                 </h3>
                 <p className="text-xs text-[#d0ded6] line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -184,7 +184,7 @@ export default function GalleryPage() {
                   <MapPin className="w-3.5 h-3.5" />
                   <span>{selectedPhoto.location}</span>
                 </div>
-                <h3 className="text-xl font-serif font-bold text-[#38b000]">{selectedPhoto.title}</h3>
+                <h3 className="text-xl font-bold text-[#0d3b2e]">{selectedPhoto.title}</h3>
                 <p className="text-xs sm:text-sm text-[#52685a] leading-relaxed">{selectedPhoto.description}</p>
               </div>
             </div>

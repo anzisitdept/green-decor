@@ -5,9 +5,9 @@
   --font-sans-custom: var(--font-jakarta);
   --font-script-custom: var(--font-script);
 
-  --color-forest: #38b000;
-  --color-forest-dark: #0d2b1c;
-  --color-forest-light: #33a800;
+  --color-forest: #0d3b2e;
+  --color-forest-dark: #082419;
+  --color-forest-light: #12694a;
   --color-forest-soft: #246d47;
   
   --color-sage-bg: #ffffff;
@@ -85,7 +85,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #38b000;
+  background: #0d3b2e;
 }
 
 /* Hide scrollbar on horizontal-scroll tracks */

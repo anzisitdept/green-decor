@@ -1,8 +1,32 @@
+/**
+ * Slugs for the shop categories. These mirror the documents in the
+ * `categories` Firestore collection, which is the live source of truth; the
+ * list in `src/lib/data/categories.ts` is only the offline fallback.
+ */
+export const PRODUCT_CATEGORY_IDS = [
+  'aquarium',
+  'candles',
+  'pots',
+  'wall-hangings',
+  'chemicals',
+  'other',
+] as const;
+
+export type ProductCategory = (typeof PRODUCT_CATEGORY_IDS)[number];
+
+/** A category document as stored in Firestore. */
+export interface ProductCategoryDoc {
+  id: ProductCategory;
+  label: string;
+  order: number;
+  active: boolean;
+}
+
 export interface Product {
   id: string;
   name: string;
   slug: string;
-  category: 'plants' | 'home-decor' | 'landscaping' | 'aquariums' | 'plant-care' | 'gift-pots';
+  category: ProductCategory;
   categoryLabel: string;
   price: number;
   salePrice?: number;

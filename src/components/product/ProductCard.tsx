@@ -3,7 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Heart, ShoppingBag, Eye, Star, Sun, Droplet, Check } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { Heart, ShoppingBag, Eye, Star, Sun, Droplet, Check, Zap } from 'lucide-react';
 import { Product } from '@/types';
 import { useCartStore } from '@/lib/store/useCartStore';
 import { useWishlistStore } from '@/lib/store/useWishlistStore';
@@ -15,6 +16,7 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const router = useRouter();
   const { addItem } = useCartStore();
   const { toggleWishlist, isInWishlist } = useWishlistStore();
   const { openQuickView, openCart, showToast } = useUIStore();
@@ -25,6 +27,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   const discountPercentage = hasDiscount
     ? Math.round(((product.price - product.salePrice!) / product.price) * 100)
     : 0;
+  const isOutOfStock = product.stock <= 0;
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -32,6 +35,14 @@ export default function ProductCard({ product }: ProductCardProps) {
     addItem(product, 1);
     showToast(`Added "${product.name}" to your bag!`);
     openCart();
+  };
+
+  const handleBuyNow = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (isOutOfStock) return;
+    addItem(product, 1);
+    router.push('/checkout');
   };
 
   const handleToggleWishlist = (e: React.MouseEvent) => {
@@ -73,7 +84,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               {discountPercentage}% OFF
             </span>
           ) : product.featured ? (
-            <span className="bg-[#38b000] text-white text-[11px] font-medium px-3 py-1 rounded-full shadow-xs">
+            <span className="bg-[#0d3b2e] text-white text-[11px] font-medium px-3 py-1 rounded-full shadow-xs">
               Popular
             </span>
           ) : null}
@@ -93,15 +104,28 @@ export default function ProductCard({ product }: ProductCardProps) {
           <Heart className={`w-4 h-4 ${inWishlist ? 'fill-rose-500' : ''}`} />
         </button>
 
-        {/* Action Button (Bottom-Right Floating Pill e.g. Choose / Quick Add) */}
-        <button
-          type="button"
-          onClick={handleAddToCart}
-          className="absolute bottom-3 right-3 z-10 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-xs text-neutral-900 text-xs font-semibold shadow-xs hover:shadow-md hover:bg-white hover:scale-105 transition-all flex items-center gap-1.5"
-        >
-          <ShoppingBag className="w-3.5 h-3.5 text-neutral-800" />
-          <span>Choose</span>
-        </button>
+        {/* Action Buttons: Choose (add to bag) + Buy Now (add & go to checkout) */}
+        <div className="absolute bottom-2.5 left-2.5 right-2.5 z-10 flex items-center gap-1.5">
+          <button
+            type="button"
+            onClick={handleAddToCart}
+            disabled={isOutOfStock}
+            className="flex-1 min-w-0 px-2 py-1.5 rounded-full bg-white/95 backdrop-blur-xs text-neutral-900 text-[10px] sm:text-xs font-semibold shadow-xs hover:shadow-md hover:bg-white transition-all flex items-center justify-center gap-1 disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            <ShoppingBag className="w-3.5 h-3.5 shrink-0 text-neutral-800" />
+            <span className="truncate">Choose</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={handleBuyNow}
+            disabled={isOutOfStock}
+            className="flex-1 min-w-0 px-2 py-1.5 rounded-full bg-[#0d3b2e] text-white text-[10px] sm:text-xs font-semibold shadow-xs hover:bg-[#145c43] transition-all flex items-center justify-center gap-1 disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            <Zap className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">Buy Now</span>
+          </button>
+        </div>
       </div>
 
       {/* Content Area */}
@@ -110,7 +134,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           {/* Product Name */}
           <Link
             href={`/product/${product.slug}`}
-            className="text-sm sm:text-[15px] font-normal text-neutral-900 hover:text-[#38b000] transition-colors truncate block"
+            className="text-sm sm:text-[15px] font-normal text-neutral-900 hover:text-[#0d3b2e] transition-colors truncate block"
           >
             {product.name}
           </Link>

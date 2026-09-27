@@ -13,7 +13,7 @@ export default function LiveReviews() {
         <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#556b5d]">
           APPROVED &amp; LIVE
         </span>
-        <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#38b000] mt-1">
+        <h2 className="text-2xl sm:text-3xl font-bold text-[#0d3b2e] mt-1">
           Latest Reviews
         </h2>
       </div>
@@ -25,7 +25,7 @@ export default function LiveReviews() {
         </div>
       ) : reviews.length === 0 ? (
         <div className="bg-white rounded-3xl border border-dashed border-[#d6e2d3] p-10 text-center">
-          <Star className="w-8 h-8 text-[#38b000] mx-auto mb-3" />
+          <Star className="w-8 h-8 text-[#0d3b2e] mx-auto mb-3" />
           <p className="text-sm font-bold text-[#172b21]">No public reviews yet</p>
           <p className="text-xs text-[#52685a] mt-1">
             Be the first to share your Green Decor experience below.

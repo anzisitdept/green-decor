@@ -25,7 +25,7 @@ export default function ServicesOverviewPage() {
         {/* Subtle bottom-only gradient overlay for text readability without obscuring upper image */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         <div className="relative z-10 h-full flex items-center justify-center px-4 text-center">
-          <h1 className="font-serif font-extrabold text-white text-5xl md:text-7xl tracking-tight">
+          <h1 className="font-extrabold text-white text-5xl md:text-7xl tracking-tight">
             Our Services
           </h1>
         </div>
@@ -48,12 +48,12 @@ export default function ServicesOverviewPage() {
 
       {/* Consultation Banner */}
       <section className="pb-14 sm:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="bg-[#38b000] text-white rounded-3xl p-8 sm:p-12 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="bg-[#0d3b2e] text-white rounded-3xl p-8 sm:p-12 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="max-w-xl space-y-2">
             <span className="text-[11px] font-bold uppercase tracking-wider text-[#d47343]">
               BESPOKE SITE VISIT & CONSULTATION
             </span>
-            <h3 className="text-2xl sm:text-3xl font-serif font-bold">
+            <h3 className="text-2xl sm:text-3xl font-bold">
               Need an on-site landscape assessment?
             </h3>
             <p className="text-xs sm:text-sm text-[#b8d4c3] leading-relaxed">
@@ -63,7 +63,7 @@ export default function ServicesOverviewPage() {
 
           <WhatsAppLink
             message="Hello Green Decor! I would like to inquire about your turnkey landscaping and interior plant styling services."
-            className="px-8 py-4 rounded-full bg-white text-[#38b000] text-xs sm:text-sm font-bold hover:bg-[#eaf0e7] transition-all shadow-lg active:scale-95 shrink-0 flex items-center gap-2"
+            className="px-8 py-4 rounded-full bg-white text-[#0d3b2e] text-xs sm:text-sm font-bold hover:bg-[#eaf0e7] transition-all shadow-lg active:scale-95 shrink-0 flex items-center gap-2"
           >
             <PhoneCall className="w-4 h-4" />
             <span>Book Free Site Assessment</span>

@@ -56,21 +56,21 @@ export default function FeaturedProducts() {
   };
 
   return (
-    <section className="pt-8 sm:pt-10 pb-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full bg-white">
+    <section className="pt-8 sm:pt-10 pb-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full bg-[#0d3b2e]">
       <div className="mb-6">
         <div className="flex items-center gap-4 sm:gap-5 mb-2 sm:mb-3 flex-wrap">
-          <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#556b5d] block">
+          <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-white/70 block">
             FEATURED COLLECTION
           </span>
           <Link
             href="/shop"
-            className="inline-flex items-center justify-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-[#38b000] text-white text-xs sm:text-sm font-bold hover:bg-[#2e9900] transition-all shadow-md hover:shadow-lg active:scale-95 shrink-0 whitespace-nowrap"
+            className="inline-flex items-center justify-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-white text-[#0d3b2e] text-xs sm:text-sm font-bold hover:bg-[#eaf0e7] transition-all shadow-md hover:shadow-lg active:scale-95 shrink-0 whitespace-nowrap"
           >
             <span>Shop All Products</span>
             <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </Link>
         </div>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#38b000] tracking-tight">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
           Featured Plants &amp; Decor
         </h2>
       </div>

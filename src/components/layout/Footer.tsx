@@ -97,12 +97,17 @@ export default function Footer() {
             <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
               {/* Brand / About */}
               <div className="order-1 space-y-4">
-                <Link href="/" className="inline-flex items-end gap-1 group">
-                  <Leaf className="w-5 h-5 text-[#e8d9b5] mb-1" strokeWidth={1.8} />
-                  <span className="font-serif font-bold text-2xl text-[#e8d9b5] tracking-wide leading-none">
-                    GREEN DECOR
-                  </span>
-                </Link>
+                <div>
+                  <Link href="/" className="inline-flex items-center gap-1.5 group">
+                    <Leaf className="w-5 h-5 text-[#e8d9b5]" strokeWidth={1.8} />
+                    <span className="font-serif font-bold text-2xl text-[#e8d9b5] tracking-wide leading-none">
+                      GREEN DECOR
+                    </span>
+                  </Link>
+                  <p className="text-xs font-medium text-[#cfe0d6] mt-2.5 leading-snug">
+                    Plants • Pots • Landscaping • Décor • Doorstep Services
+                  </p>
+                </div>
                 <p className="text-xs text-[#cfe0d6] leading-relaxed">
                   {aboutText}
                 </p>

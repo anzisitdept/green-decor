@@ -37,7 +37,7 @@ export default function AccountPage() {
   if (!isAuthReady) {
     return (
       <div className="py-20 px-4 max-w-xl mx-auto text-center">
-        <div className="w-12 h-12 rounded-full border-4 border-[#e5ece3] border-t-[#38b000] animate-spin mx-auto mb-4" />
+        <div className="w-12 h-12 rounded-full border-4 border-[#e5ece3] border-t-[#0d3b2e] animate-spin mx-auto mb-4" />
         <p className="text-xs text-[#52685a]">Loading your account...</p>
       </div>
     );
@@ -46,17 +46,17 @@ export default function AccountPage() {
   if (!isAuthenticated || !user) {
     return (
       <div className="py-20 px-4 max-w-xl mx-auto text-center">
-        <div className="w-16 h-16 rounded-full bg-[#eaf0e7] flex items-center justify-center text-[#38b000] mx-auto mb-4">
+        <div className="w-16 h-16 rounded-full bg-[#eaf0e7] flex items-center justify-center text-[#0d3b2e] mx-auto mb-4">
           <User className="w-8 h-8 opacity-60" />
         </div>
-        <h2 className="text-2xl font-serif font-bold text-[#38b000]">Sign in to Your Account</h2>
+        <h2 className="text-2xl font-bold text-[#0d3b2e]">Sign in to Your Account</h2>
         <p className="text-xs text-[#52685a] mt-1 mb-6">
           Access your past orders, manage delivery addresses, and view saved plants.
         </p>
         <button
           type="button"
           onClick={() => router.push('/login')}
-          className="px-8 py-3 rounded-full bg-[#38b000] text-white text-xs font-bold hover:bg-[#2e9900] transition-colors"
+          className="px-8 py-3 rounded-full bg-[#0d3b2e] text-white text-xs font-bold hover:bg-[#145c43] transition-colors"
         >
           Sign In / Register
         </button>
@@ -95,11 +95,11 @@ export default function AccountPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-6 border-b border-[#e5ece3]">
         <div className="flex items-center gap-4">
-          <div className="w-16 h-16 rounded-full bg-[#38b000] text-white font-serif text-2xl font-bold flex items-center justify-center border-4 border-white shadow-md">
+          <div className="w-16 h-16 rounded-full bg-[#0d3b2e] text-white font-serif text-2xl font-bold flex items-center justify-center border-4 border-white shadow-md">
             {user.name.charAt(0)}
           </div>
           <div>
-            <h1 className="text-2xl sm:text-3xl font-serif font-extrabold text-[#38b000]">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0d3b2e]">
               {user.name}
             </h1>
             <p className="text-xs text-[#52685a]">{user.email} · {user.phone}</p>
@@ -124,7 +124,7 @@ export default function AccountPage() {
             type="button"
             onClick={() => setActiveTab('profile')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-xs font-bold transition-colors ${
-              activeTab === 'profile' ? 'bg-[#38b000] text-white' : 'text-[#2a3f33] hover:bg-[#f4f7f2]'
+              activeTab === 'profile' ? 'bg-[#0d3b2e] text-white' : 'text-[#2a3f33] hover:bg-[#f4f7f2]'
             }`}
           >
             <User className="w-4 h-4" />
@@ -135,7 +135,7 @@ export default function AccountPage() {
             type="button"
             onClick={() => setActiveTab('addresses')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-xs font-bold transition-colors ${
-              activeTab === 'addresses' ? 'bg-[#38b000] text-white' : 'text-[#2a3f33] hover:bg-[#f4f7f2]'
+              activeTab === 'addresses' ? 'bg-[#0d3b2e] text-white' : 'text-[#2a3f33] hover:bg-[#f4f7f2]'
             }`}
           >
             <MapPin className="w-4 h-4" />
@@ -146,7 +146,7 @@ export default function AccountPage() {
             type="button"
             onClick={() => setActiveTab('orders')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-xs font-bold transition-colors ${
-              activeTab === 'orders' ? 'bg-[#38b000] text-white' : 'text-[#2a3f33] hover:bg-[#f4f7f2]'
+              activeTab === 'orders' ? 'bg-[#0d3b2e] text-white' : 'text-[#2a3f33] hover:bg-[#f4f7f2]'
             }`}
           >
             <Package className="w-4 h-4" />
@@ -167,7 +167,7 @@ export default function AccountPage() {
           
           {activeTab === 'profile' && (
             <div className="space-y-6 max-w-xl">
-              <h3 className="text-lg font-serif font-bold text-[#38b000] pb-3 border-b border-[#f0f4ee]">
+              <h3 className="text-lg font-bold text-[#0d3b2e] pb-3 border-b border-[#f0f4ee]">
                 Personal Profile Details
               </h3>
 
@@ -179,7 +179,7 @@ export default function AccountPage() {
                     required
                     value={editName}
                     onChange={(e) => setEditName(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#38b000]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#0d3b2e]"
                   />
                 </div>
 
@@ -199,13 +199,13 @@ export default function AccountPage() {
                     type="tel"
                     value={editPhone}
                     onChange={(e) => setEditPhone(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#38b000]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#0d3b2e]"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="px-6 py-2.5 rounded-xl bg-[#38b000] text-white text-xs font-bold hover:bg-[#2e9900] transition-colors"
+                  className="px-6 py-2.5 rounded-xl bg-[#0d3b2e] text-white text-xs font-bold hover:bg-[#145c43] transition-colors"
                 >
                   Save Profile Changes
                 </button>
@@ -216,13 +216,13 @@ export default function AccountPage() {
           {activeTab === 'addresses' && (
             <div className="space-y-6">
               <div className="flex items-center justify-between pb-3 border-b border-[#f0f4ee]">
-                <h3 className="text-lg font-serif font-bold text-[#38b000]">
+                <h3 className="text-lg font-bold text-[#0d3b2e]">
                   Delivery Address Book
                 </h3>
                 <button
                   type="button"
                   onClick={() => setIsAddingAddress(!isAddingAddress)}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#eaf0e7] text-[#38b000] text-xs font-bold hover:bg-[#d8e5d4]"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#eaf0e7] text-[#0d3b2e] text-xs font-bold hover:bg-[#d8e5d4]"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   <span>Add New Address</span>
@@ -231,7 +231,7 @@ export default function AccountPage() {
 
               {isAddingAddress && (
                 <form onSubmit={handleAddAddress} className="p-4 rounded-2xl bg-[#f8faf7] border border-[#d6e2d3] space-y-3">
-                  <h4 className="text-xs font-bold text-[#38b000] uppercase">New Address Details</h4>
+                  <h4 className="text-xs font-bold text-[#0d3b2e] uppercase">New Address Details</h4>
                   <div>
                     <label className="block text-xs font-semibold text-[#172b21] mb-1">Street Address</label>
                     <input
@@ -268,7 +268,7 @@ export default function AccountPage() {
                   <div className="flex gap-2">
                     <button
                       type="submit"
-                      className="px-4 py-2 rounded-xl bg-[#38b000] text-white text-xs font-bold"
+                      className="px-4 py-2 rounded-xl bg-[#0d3b2e] text-white text-xs font-bold"
                     >
                       Save Address
                     </button>
@@ -287,7 +287,7 @@ export default function AccountPage() {
                 {user.addresses.map((addr, idx) => (
                   <div key={idx} className="p-4 rounded-2xl bg-[#fafbf9] border border-[#edf3ec] space-y-2 relative">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-[#38b000]">Address #{idx + 1}</span>
+                      <span className="text-xs font-bold text-[#0d3b2e]">Address #{idx + 1}</span>
                       <button
                         type="button"
                         onClick={() => removeAddress(idx)}
@@ -309,14 +309,14 @@ export default function AccountPage() {
 
           {activeTab === 'orders' && (
             <div className="space-y-4">
-              <h3 className="text-lg font-serif font-bold text-[#38b000] pb-3 border-b border-[#f0f4ee]">
+              <h3 className="text-lg font-bold text-[#0d3b2e] pb-3 border-b border-[#f0f4ee]">
                 Past Orders ({ordersReady ? orders.length : 0})
               </h3>
               {/* isAuthReady covers the auth store, not the orders store, so the
                   order list needs its own mount + rehydration guard. */}
               {!ordersReady ? (
                 <div className="py-10 text-center">
-                  <div className="w-10 h-10 rounded-full border-4 border-[#e5ece3] border-t-[#38b000] animate-spin mx-auto mb-3" />
+                  <div className="w-10 h-10 rounded-full border-4 border-[#e5ece3] border-t-[#0d3b2e] animate-spin mx-auto mb-3" />
                   <p className="text-xs text-[#52685a]">Loading your orders...</p>
                 </div>
               ) : orders.length === 0 ? (
@@ -337,7 +337,7 @@ export default function AccountPage() {
                     </div>
                     <Link
                       href={`/orders/${order.id}`}
-                      className="text-xs font-bold text-[#38b000] hover:underline"
+                      className="text-xs font-bold text-[#0d3b2e] hover:underline"
                     >
                       View Status &rarr;
                     </Link>

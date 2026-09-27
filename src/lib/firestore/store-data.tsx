@@ -4,11 +4,13 @@ import { createContext, useContext, useMemo, ReactNode } from 'react';
 import { useFirestoreCollection, useFirestoreDoc } from '@/lib/firestore/hooks';
 import { COLLECTIONS, SETTINGS_GENERAL_ID, SITE_CONTENT_ID } from '@/lib/firestore/collections';
 import { productsData } from '@/lib/data/products';
+import { DEFAULT_CATEGORIES } from '@/lib/data/categories';
 import { servicesData } from '@/lib/data/services';
 import { testimonialsData } from '@/lib/data/testimonials';
 import type {
   Coupon,
   Product,
+  ProductCategoryDoc,
   ServiceItem,
   SiteContent,
   SiteContentDoc,
@@ -27,6 +29,7 @@ export const DEFAULT_SETTINGS: SiteSettings = {
 
 interface StoreDataValue {
   products: Product[];
+  categories: ProductCategoryDoc[];
   services: ServiceItem[];
   testimonials: Testimonial[];
   coupons: Coupon[];
@@ -34,6 +37,7 @@ interface StoreDataValue {
   content: SiteContent | null;
   loading: {
     products: boolean;
+    categories: boolean;
     services: boolean;
     testimonials: boolean;
     coupons: boolean;
@@ -46,6 +50,10 @@ const StoreDataContext = createContext<StoreDataValue | null>(null);
 
 export function StoreDataProvider({ children }: { children: ReactNode }) {
   const productsQ = useFirestoreCollection<Product>(COLLECTIONS.products);
+  const categoriesQ = useFirestoreCollection<ProductCategoryDoc>(
+    COLLECTIONS.categories,
+    { orderByField: 'order', orderDirection: 'asc' }
+  );
   const servicesQ = useFirestoreCollection<ServiceItem>(COLLECTIONS.services);
   const testimonialsQ = useFirestoreCollection<Testimonial>(COLLECTIONS.testimonials);
   const couponsQ = useFirestoreCollection<Coupon>(COLLECTIONS.coupons);
@@ -56,7 +64,22 @@ export function StoreDataProvider({ children }: { children: ReactNode }) {
   const contentQ = useFirestoreDoc<SiteContentDoc>(COLLECTIONS.siteContent, SITE_CONTENT_ID);
 
   const value = useMemo<StoreDataValue>(() => {
-    const products = productsQ.data.length > 0 ? productsQ.data : productsData;
+    const categories =
+      categoriesQ.data.length > 0 ? categoriesQ.data : DEFAULT_CATEGORIES;
+
+    // Labels live in the category documents so a rename in Firestore updates
+    // every product card and breadcrumb without touching product records.
+    const categoryLabels = new Map(
+      categories.map((category) => [category.id, category.label])
+    );
+    const productsSource = productsQ.data.length > 0 ? productsQ.data : productsData;
+    const products = productsSource.map((product) => {
+      const label = categoryLabels.get(product.category);
+      return label && label !== product.categoryLabel
+        ? { ...product, categoryLabel: label }
+        : product;
+    });
+
     const services = servicesQ.data.length > 0 ? servicesQ.data : servicesData;
     const testimonials =
       testimonialsQ.data.length > 0
@@ -72,6 +95,7 @@ export function StoreDataProvider({ children }: { children: ReactNode }) {
 
     return {
       products,
+      categories,
       services,
       testimonials,
       coupons: couponsQ.data,
@@ -79,6 +103,7 @@ export function StoreDataProvider({ children }: { children: ReactNode }) {
       content: publishedContent,
       loading: {
         products: productsQ.loading,
+        categories: categoriesQ.loading,
         services: servicesQ.loading,
         testimonials: testimonialsQ.loading,
         coupons: couponsQ.loading,
@@ -89,6 +114,8 @@ export function StoreDataProvider({ children }: { children: ReactNode }) {
   }, [
     productsQ.data,
     productsQ.loading,
+    categoriesQ.data,
+    categoriesQ.loading,
     servicesQ.data,
     servicesQ.loading,
     testimonialsQ.data,
@@ -114,6 +141,14 @@ export function useStoreData(): StoreDataValue {
 
 export function useStoreProducts(): Product[] {
   return useStoreData().products;
+}
+
+/**
+ * Live shop categories, ordered by their `order` field. Inactive categories are
+ * dropped here so every consumer (shop filter, sidebars) agrees on what shows.
+ */
+export function useStoreCategories(): ProductCategoryDoc[] {
+  return useStoreData().categories.filter((category) => category.active !== false);
 }
 
 export function useStoreServices(): ServiceItem[] {

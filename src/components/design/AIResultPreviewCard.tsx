@@ -18,11 +18,11 @@ export default function AIResultPreviewCard() {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/10" />
       <div className="absolute inset-x-0 bottom-0 pt-8 pb-3 px-4">
-        <span className="inline-flex items-center gap-1 rounded-full bg-[#38b000] text-white text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1">
+        <span className="inline-flex items-center gap-1 rounded-full bg-white text-[#0d3b2e] text-[9px] font-extrabold uppercase tracking-wider px-2.5 py-1">
           <Sparkles className="w-3 h-3" />
           AI Rendered Idea
         </span>
-        <p className="font-serif font-bold text-white text-base sm:text-lg mt-1.5 leading-snug">
+        <p className="font-bold text-white text-base sm:text-lg mt-1.5 leading-snug">
           Urban Jungle Balcony
         </p>
         <div className="flex flex-wrap gap-1.5 mt-1.5">
@@ -31,7 +31,7 @@ export default function AIResultPreviewCard() {
               key={chip}
               className="inline-flex items-center gap-1 rounded-full bg-white/10 border border-white/20 px-2.5 py-0.5 text-[10px] font-semibold text-white"
             >
-              <Check className="w-3 h-3 text-[#38b000]" />
+              <Check className="w-3 h-3 text-[#8bc34a]" />
               {chip}
             </span>
           ))}

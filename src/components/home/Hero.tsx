@@ -93,7 +93,7 @@ export default function Hero() {
     <section
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative w-full overflow-hidden bg-white select-none"
+      className="relative w-full overflow-hidden bg-[#0d3b2e] select-none"
     >
       {/* Full-Bleed Background Image */}
       <div className="absolute inset-0 z-0 overflow-hidden">
@@ -123,11 +123,11 @@ export default function Hero() {
 
             {/* Floating Pill Card: "Small Green Changes Make a Big Difference" */}
             <div className="hidden sm:block absolute bottom-24 right-6 lg:right-10 z-20 bg-[#edf4ea]/95 backdrop-blur-xs px-4 py-3.5 sm:px-5 sm:py-4 rounded-2xl border border-white/90 max-w-[175px] text-center shadow-md">
-              <div className="w-7 h-7 rounded-full bg-[#38b000] text-white flex items-center justify-center mx-auto mb-1">
+              <div className="w-7 h-7 rounded-full bg-[#0d3b2e] text-white flex items-center justify-center mx-auto mb-1">
                 <Leaf className="w-3.5 h-3.5 text-emerald-300" />
               </div>
-              <p className="text-[10px] sm:text-[11px] font-serif font-bold text-[#38b000] leading-tight">
-                <span className="font-script text-xs sm:text-sm font-normal block text-[#33a800] italic">
+              <p className="text-[10px] sm:text-[11px] font-serif font-bold text-[#0d3b2e] leading-tight">
+                <span className="font-script text-xs sm:text-sm font-normal block text-[#12694a] italic">
                   {current.badgeWord}
                 </span>
                 {current.badgeLine1} <br />
@@ -147,7 +147,7 @@ export default function Hero() {
 
           {/* Eyebrow */}
           <div className="flex items-center gap-2">
-            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-[#38b000]">
+            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-[#0d3b2e] bg-white/95 px-3 py-1.5 rounded-full shadow-sm w-fit">
               WE PLAN · WE PLANT · WE PROTECT
             </span>
           </div>
@@ -162,10 +162,10 @@ export default function Hero() {
               transition={{ duration: 0.35 }}
               className="space-y-2.5"
             >
-              <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-[#38b000] leading-[1.08] tracking-tight bg-white/95 px-4 py-2.5 sm:px-6 sm:py-3 rounded-2xl shadow-sm w-fit">
+              <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-[#0d3b2e] leading-[1.08] tracking-tight bg-white/95 px-4 py-2.5 sm:px-6 sm:py-3 rounded-2xl shadow-sm w-fit">
                 {current.titleLine1} <br />
                 {current.titleLine2} <br />
-                <span className="text-[#38b000]">{current.titleLine3}</span>
+                <span className="text-[#0d3b2e]">{current.titleLine3}</span>
               </h1>
 
 
@@ -178,7 +178,7 @@ export default function Hero() {
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2.5 sm:px-6 sm:py-3 rounded-full bg-[#38b000] text-white text-[11px] sm:text-sm font-semibold hover:bg-[#2e9900] transition-all shadow-sm hover:shadow flex items-center gap-2 active:scale-95"
+              className="px-4 py-2.5 sm:px-6 sm:py-3 rounded-full bg-[#0d3b2e] text-white text-[11px] sm:text-sm font-semibold hover:bg-[#145c43] transition-all shadow-sm hover:shadow flex items-center gap-2 active:scale-95"
             >
               <span>Get a Free Consultation</span>
               <ArrowRight className="w-4 h-4" />
@@ -186,7 +186,7 @@ export default function Hero() {
 
             <Link
               href="/services"
-              className="px-4 py-2.5 sm:px-6 sm:py-3 rounded-full border border-[#38b000] bg-white text-[#38b000] text-[11px] sm:text-sm font-semibold hover:bg-[#eaf0e7] transition-all"
+              className="px-4 py-2.5 sm:px-6 sm:py-3 rounded-full border border-[#0d3b2e] bg-white text-[#0d3b2e] text-[11px] sm:text-sm font-semibold hover:bg-[#eaf0e7] transition-all"
             >
               Explore Our Services
             </Link>
@@ -199,11 +199,11 @@ export default function Hero() {
                 key={slide.id}
                 type="button"
                 onClick={() => setActiveSlide(idx)}
-                className={`flex items-center gap-1.5 transition-all cursor-pointer ${activeSlide === idx ? 'text-[#38b000] font-black scale-105' : 'text-[#8da597] hover:text-[#38b000]'
+                className={`flex items-center gap-1.5 transition-all cursor-pointer ${activeSlide === idx ? 'text-[#0d3b2e] font-black scale-105' : 'text-[#8da597] hover:text-[#0d3b2e]'
                   }`}
               >
                 <span
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${activeSlide === idx ? 'bg-[#38b000] scale-110 ring-2 ring-[#38b000]/20' : 'bg-[#c5d6cc]'
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${activeSlide === idx ? 'bg-[#0d3b2e] scale-110 ring-2 ring-[#0d3b2e]/20' : 'bg-[#c5d6cc]'
                     }`}
                 />
                 <span>0{idx + 1}</span>

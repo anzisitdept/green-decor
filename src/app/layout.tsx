@@ -47,7 +47,7 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${jakarta.variable} ${scriptFont.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-white text-[#172b21] selection:bg-[#38b000] selection:text-white">
+      <body className="min-h-full flex flex-col bg-white text-[#172b21] selection:bg-[#0d3b2e] selection:text-white">
         <StoreDataProvider>
           <Navbar />
           <div className="flex-1">

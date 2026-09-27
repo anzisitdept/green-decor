@@ -25,7 +25,7 @@ interface Props {
 }
 
 const selectClass =
-  'w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs font-semibold text-[#38b000] bg-white focus:ring-2 focus:ring-[#38b000] focus:outline-none';
+  'w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs font-semibold text-[#0d3b2e] bg-white focus:ring-2 focus:ring-[#0d3b2e] focus:outline-none';
 const labelClass = 'block text-xs font-bold text-[#172b21] mb-1';
 const hintClass = 'text-[10px] text-[#9fb3a5] mt-1';
 
@@ -69,7 +69,7 @@ export default function PakistanLocationFields({ value, onChange }: Props) {
   return (
     <div>
       <div className="flex items-center gap-1.5 text-[10px] font-semibold text-[#52685a] bg-[#f4f7f2] rounded-xl px-3 py-2 mb-4">
-        <Globe2 className="w-3.5 h-3.5 text-[#38b000]" />
+        <Globe2 className="w-3.5 h-3.5 text-[#0d3b2e]" />
         <span>Locations powered by Pakistan Admin Data (Open Admin Data API)</span>
       </div>
 
@@ -148,7 +148,7 @@ export default function PakistanLocationFields({ value, onChange }: Props) {
             value={value.postalCode}
             onChange={(e) => onChange({ ...value, postalCode: e.target.value.replace(/[^\d]/g, '') })}
             placeholder="Auto-filled from Tehsil"
-            className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#38b000] focus:outline-none"
+            className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#0d3b2e] focus:outline-none"
           />
           <p className={hintClass}>{tehsil ? `Zip for ${tehsil.name.en}: ${value.postalCode || postalCodeFor(tehsil)}` : 'Auto-filled once Tehsil is selected'}</p>
         </div>

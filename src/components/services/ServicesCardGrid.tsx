@@ -44,15 +44,15 @@ export default function ServicesCardGrid({ services }: { services: ServiceItem[]
                 <Icon
                   aria-hidden="true"
                   strokeWidth={1.2}
-                  className="absolute -top-4 -right-4 w-32 h-32 text-[#38b000] opacity-10 rotate-12 pointer-events-none"
+                  className="absolute -top-4 -right-4 w-32 h-32 text-[#0d3b2e] opacity-10 rotate-12 pointer-events-none"
                 />
 
                 <div className="flex-1 p-8 sm:p-10">
                   {/* Outline icon top-left */}
-                  <Icon strokeWidth={1.4} className="w-16 h-16 text-[#38b000]" />
+                  <Icon strokeWidth={1.4} className="w-16 h-16 text-[#0d3b2e]" />
 
                   {/* Title */}
-                  <h3 className="relative z-10 font-serif font-bold text-2xl text-[#38b000] mt-5 group-hover:text-[#d47343] transition-colors">
+                  <h3 className="relative z-10 font-bold text-2xl text-[#0d3b2e] mt-5 group-hover:text-[#d47343] transition-colors">
                     {service.title}
                   </h3>
 
@@ -70,9 +70,6 @@ export default function ServicesCardGrid({ services }: { services: ServiceItem[]
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <span className="absolute top-3 right-3 bg-[#38b000]/90 backdrop-blur-xs text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-xs">
-                    {service.pricingRange}
-                  </span>
                 </div>
               </Link>
             );

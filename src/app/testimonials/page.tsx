@@ -19,7 +19,7 @@ export default function TestimonialsPage() {
           <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#556b5d]">
             VERIFIED REVIEWS
           </span>
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-[#38b000] tracking-tight">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-[#0d3b2e] tracking-tight">
             What Our Customers Say
           </h1>
           <p className="text-xs sm:text-sm text-[#52685a]">
@@ -33,7 +33,7 @@ export default function TestimonialsPage() {
             <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#556b5d]">
               CUSTOMER STORIES
             </span>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#38b000] mt-1">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#0d3b2e] mt-1">
               Featured Testimonials
             </h2>
           </div>
@@ -53,7 +53,7 @@ export default function TestimonialsPage() {
               <PenLine className="w-3.5 h-3.5" />
               WE LISTEN
             </span>
-            <h3 className="font-serif font-bold text-2xl mt-3 text-white">
+            <h3 className="font-bold text-2xl mt-3 text-white">
               Your Words Shape Our Garden
             </h3>
             <p className="text-xs text-[#cfe0d6] leading-relaxed mt-3">

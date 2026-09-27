@@ -7,10 +7,10 @@ import { getWhatsAppLink } from '@/lib/utils';
 import { useSiteContent } from '@/lib/firestore/store-data';
 
 const ICONS = [
-  <Sprout key="sprout" className="w-5 h-5 text-[#38b000]" />,
-  <MapPin key="map" className="w-5 h-5 text-[#38b000]" />,
-  <ShieldCheck key="shield" className="w-5 h-5 text-[#38b000]" />,
-  <Leaf key="leaf" className="w-5 h-5 text-[#38b000]" />,
+  <Sprout key="sprout" className="w-5 h-5 text-[#0d3b2e]" />,
+  <MapPin key="map" className="w-5 h-5 text-[#0d3b2e]" />,
+  <ShieldCheck key="shield" className="w-5 h-5 text-[#0d3b2e]" />,
+  <Leaf key="leaf" className="w-5 h-5 text-[#0d3b2e]" />,
 ];
 
 export default function TrustBar() {
@@ -27,22 +27,22 @@ export default function TrustBar() {
       }))
     : [
         {
-          icon: <Sprout className="w-5 h-5 text-[#38b000]" />,
+          icon: <Sprout className="w-5 h-5 text-[#0d3b2e]" />,
           num: '1000+',
           label: 'Happy Customers',
         },
         {
-          icon: <MapPin className="w-5 h-5 text-[#38b000]" />,
+          icon: <MapPin className="w-5 h-5 text-[#0d3b2e]" />,
           num: 'Across',
           label: 'Pakistan',
         },
         {
-          icon: <ShieldCheck className="w-5 h-5 text-[#38b000]" />,
+          icon: <ShieldCheck className="w-5 h-5 text-[#0d3b2e]" />,
           num: 'Quality',
           label: 'Plants & Materials',
         },
         {
-          icon: <Leaf className="w-5 h-5 text-[#38b000]" />,
+          icon: <Leaf className="w-5 h-5 text-[#0d3b2e]" />,
           num: 'Trusted by Homes',
           label: '& Businesses',
         },
@@ -60,10 +60,10 @@ export default function TrustBar() {
                 {item.icon}
               </div>
               <div>
-                <span className="text-xs font-bold text-[#172b21] block leading-tight">
+                <span className="text-xs font-bold text-white block leading-tight">
                   {item.num}
                 </span>
-                <span className="text-[11px] text-[#52685a] block leading-tight">
+                <span className="text-[11px] text-white/70 block leading-tight">
                   {item.label}
                 </span>
               </div>
@@ -74,13 +74,13 @@ export default function TrustBar() {
         {/* Right Button: Let's Grow Together -> */}
         <div className="shrink-0 w-full lg:w-auto text-center lg:text-right">
           {content?.trustBar?.note ? (
-            <p className="text-[11px] text-[#52685a] mb-2">{content.trustBar.note}</p>
+            <p className="text-[11px] text-white/70 mb-2">{content.trustBar.note}</p>
           ) : null}
           <a
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full lg:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-[#38b000] text-white text-xs sm:text-sm font-semibold hover:bg-[#2e9900] transition-all shadow-md active:scale-95 group"
+            className="w-full lg:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-white text-[#0d3b2e] text-xs sm:text-sm font-semibold hover:bg-[#eaf0e7] transition-all shadow-md active:scale-95 group"
           >
             <span>Let&rsquo;s Grow Together</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

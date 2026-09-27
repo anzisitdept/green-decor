@@ -59,9 +59,9 @@ export default function CheckoutPage() {
   if (items.length === 0) {
     return (
       <div className="py-20 px-4 max-w-7xl mx-auto text-center">
-        <h1 className="text-2xl font-serif font-bold text-[#38b000]">Your Bag is Empty</h1>
+        <h1 className="text-2xl font-bold text-[#0d3b2e]">Your Bag is Empty</h1>
         <p className="text-xs text-[#52685a] mt-2 mb-6">Add plants and decor before proceeding to checkout.</p>
-        <Link href="/shop" className="px-6 py-3 rounded-full bg-[#38b000] text-white text-xs font-bold">
+        <Link href="/shop" className="px-6 py-3 rounded-full bg-[#0d3b2e] text-white text-xs font-bold">
           Go to Shop
         </Link>
       </div>
@@ -126,7 +126,7 @@ export default function CheckoutPage() {
           particleCount: 100,
           spread: 70,
           origin: { y: 0.6 },
-          colors: ['#38b000', '#2d6a4f', '#d47343', '#52b788'],
+          colors: ['#0d3b2e', '#2d6a4f', '#d47343', '#52b788'],
         });
       } catch (err) {
         // ignore
@@ -144,11 +144,11 @@ export default function CheckoutPage() {
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center gap-2 text-xs font-semibold text-[#52685a] mb-2">
-          <Link href="/cart" className="hover:text-[#38b000]">Cart</Link>
+          <Link href="/cart" className="hover:text-[#0d3b2e]">Cart</Link>
           <span>/</span>
-          <span className="text-[#38b000]">Secure Checkout</span>
+          <span className="text-[#0d3b2e]">Secure Checkout</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#38b000]">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-[#0d3b2e]">
           Express Checkout
         </h1>
         <p className="text-xs sm:text-sm text-[#52685a] mt-1">
@@ -163,8 +163,8 @@ export default function CheckoutPage() {
           
           {/* Shipping Address Section */}
           <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e5ece3] shadow-sm space-y-4">
-            <h3 className="text-base font-serif font-bold text-[#38b000] flex items-center gap-2 pb-3 border-b border-[#f0f4ee]">
-              <MapPin className="w-5 h-5 text-[#38b000]" />
+            <h3 className="text-base font-bold text-[#0d3b2e] flex items-center gap-2 pb-3 border-b border-[#f0f4ee]">
+              <MapPin className="w-5 h-5 text-[#0d3b2e]" />
               <span>1. Pakistan Delivery Address</span>
             </h3>
 
@@ -177,7 +177,7 @@ export default function CheckoutPage() {
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   placeholder="e.g. Hamza Khan"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#38b000] focus:outline-none"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#0d3b2e] focus:outline-none"
                 />
               </div>
 
@@ -189,7 +189,7 @@ export default function CheckoutPage() {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="0300 1234567"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#38b000] focus:outline-none"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#0d3b2e] focus:outline-none"
                 />
               </div>
             </div>
@@ -202,7 +202,7 @@ export default function CheckoutPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#38b000] focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#0d3b2e] focus:outline-none"
               />
             </div>
 
@@ -214,7 +214,7 @@ export default function CheckoutPage() {
                 value={streetAddress}
                 onChange={(e) => setStreetAddress(e.target.value)}
                 placeholder="House #, Street #, Sector / Block / Phase"
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#38b000] focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#0d3b2e] focus:outline-none"
               />
             </div>
 
@@ -227,15 +227,15 @@ export default function CheckoutPage() {
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder="e.g. Ring gate bell, leave with guard if unavailable"
-                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#38b000] focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#0d3b2e] focus:outline-none"
               />
             </div>
           </div>
 
           {/* Payment Method Section */}
           <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#e5ece3] shadow-sm space-y-4">
-            <h3 className="text-base font-serif font-bold text-[#38b000] flex items-center gap-2 pb-3 border-b border-[#f0f4ee]">
-              <Banknote className="w-5 h-5 text-[#38b000]" />
+            <h3 className="text-base font-bold text-[#0d3b2e] flex items-center gap-2 pb-3 border-b border-[#f0f4ee]">
+              <Banknote className="w-5 h-5 text-[#0d3b2e]" />
               <span>2. Payment Method</span>
             </h3>
 
@@ -245,7 +245,7 @@ export default function CheckoutPage() {
                 onClick={() => setPaymentMethod('cod')}
                 className={`flex items-start gap-3 p-4 rounded-2xl border-2 cursor-pointer transition-all ${
                   paymentMethod === 'cod'
-                    ? 'border-[#38b000] bg-[#f4f7f2]'
+                    ? 'border-[#0d3b2e] bg-[#f4f7f2]'
                     : 'border-[#edf3ec] hover:border-[#d6e2d3] bg-white'
                 }`}
               >
@@ -254,12 +254,12 @@ export default function CheckoutPage() {
                   name="payment"
                   checked={paymentMethod === 'cod'}
                   onChange={() => setPaymentMethod('cod')}
-                  className="mt-1 accent-[#38b000]"
+                  className="mt-1 accent-[#0d3b2e]"
                 />
                 <div className="flex-1">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-bold text-[#172b21]">Cash on Delivery (COD)</span>
-                    <span className="text-[10px] font-bold text-[#38b000] bg-[#eaf0e7] px-2 py-0.5 rounded-full">
+                    <span className="text-[10px] font-bold text-[#0d3b2e] bg-[#eaf0e7] px-2 py-0.5 rounded-full">
                       Most Popular in PK
                     </span>
                   </div>
@@ -274,7 +274,7 @@ export default function CheckoutPage() {
                 onClick={() => setPaymentMethod('jazzcash')}
                 className={`flex items-start gap-3 p-4 rounded-2xl border-2 cursor-pointer transition-all ${
                   paymentMethod === 'jazzcash'
-                    ? 'border-[#38b000] bg-[#f4f7f2]'
+                    ? 'border-[#0d3b2e] bg-[#f4f7f2]'
                     : 'border-[#edf3ec] hover:border-[#d6e2d3] bg-white'
                 }`}
               >
@@ -283,7 +283,7 @@ export default function CheckoutPage() {
                   name="payment"
                   checked={paymentMethod === 'jazzcash'}
                   onChange={() => setPaymentMethod('jazzcash')}
-                  className="mt-1 accent-[#38b000]"
+                  className="mt-1 accent-[#0d3b2e]"
                 />
                 <div className="flex-1">
                   <div className="flex items-center justify-between">
@@ -303,7 +303,7 @@ export default function CheckoutPage() {
                 onClick={() => setPaymentMethod('bank_transfer')}
                 className={`flex items-start gap-3 p-4 rounded-2xl border-2 cursor-pointer transition-all ${
                   paymentMethod === 'bank_transfer'
-                    ? 'border-[#38b000] bg-[#f4f7f2]'
+                    ? 'border-[#0d3b2e] bg-[#f4f7f2]'
                     : 'border-[#edf3ec] hover:border-[#d6e2d3] bg-white'
                 }`}
               >
@@ -312,7 +312,7 @@ export default function CheckoutPage() {
                   name="payment"
                   checked={paymentMethod === 'bank_transfer'}
                   onChange={() => setPaymentMethod('bank_transfer')}
-                  className="mt-1 accent-[#38b000]"
+                  className="mt-1 accent-[#0d3b2e]"
                 />
                 <div className="flex-1">
                   <div className="flex items-center justify-between">
@@ -333,7 +333,7 @@ export default function CheckoutPage() {
 
         {/* Right Column: Order Summary (5 cols) */}
         <div className="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 border border-[#e5ece3] shadow-md space-y-6 sticky top-24">
-          <h3 className="text-base font-serif font-bold text-[#38b000] pb-4 border-b border-[#f0f4ee]">
+          <h3 className="text-base font-bold text-[#0d3b2e] pb-4 border-b border-[#f0f4ee]">
             Order Review ({items.length} items)
           </h3>
 
@@ -352,7 +352,7 @@ export default function CheckoutPage() {
                       <p className="text-[#52685a]">Qty: {quantity} &times; {formatPKR(effectivePrice)}</p>
                     </div>
                   </div>
-                  <span className="font-bold text-[#38b000] shrink-0">
+                  <span className="font-bold text-[#0d3b2e] shrink-0">
                     {formatPKR(effectivePrice * quantity)}
                   </span>
                 </div>
@@ -378,7 +378,7 @@ export default function CheckoutPage() {
                 {shipping === 0 ? <span className="text-emerald-700 uppercase font-bold">FREE</span> : formatPKR(shipping)}
               </span>
             </div>
-            <div className="flex justify-between text-lg font-serif font-bold text-[#38b000] pt-3 border-t border-[#f0f4ee]">
+            <div className="flex justify-between text-lg font-serif font-bold text-[#0d3b2e] pt-3 border-t border-[#f0f4ee]">
               <span>Grand Total</span>
               <span>{formatPKR(total)}</span>
             </div>
@@ -388,7 +388,7 @@ export default function CheckoutPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-4 rounded-2xl bg-[#38b000] text-white text-sm font-bold hover:bg-[#2e9900] transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 disabled:opacity-50 active:scale-95"
+            className="w-full py-4 rounded-2xl bg-[#0d3b2e] text-white text-sm font-bold hover:bg-[#145c43] transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 disabled:opacity-50 active:scale-95"
           >
             <Lock className="w-4 h-4" />
             <span>{isSubmitting ? 'Placing Your Order...' : `Place Order • ${formatPKR(total)}`}</span>

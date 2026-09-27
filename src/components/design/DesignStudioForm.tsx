@@ -67,8 +67,8 @@ export default function DesignStudioForm() {
           onDrop={onDrop}
           className={`rounded-3xl border-2 border-dashed p-5 sm:p-6 flex flex-col items-center justify-center text-center min-h-[280px] transition-colors ${
             imagePreview
-              ? 'border-[#38b000]/40 bg-white'
-              : 'border-[#d6e2d3] bg-[#f8faf7] hover:border-[#38b000]/60 hover:bg-[#f2f7ef]'
+              ? 'border-[#0d3b2e]/40 bg-white'
+              : 'border-[#d6e2d3] bg-[#f8faf7] hover:border-[#0d3b2e]/60 hover:bg-[#f2f7ef]'
           }`}
         >
           {imagePreview ? (
@@ -85,19 +85,19 @@ export default function DesignStudioForm() {
                 </button>
               </div>
               <p className="text-xs text-[#52685a] mt-3 flex items-center justify-center gap-1.5">
-                <Check className="w-3.5 h-3.5 text-[#38b000]" /> {imageName}
+                <Check className="w-3.5 h-3.5 text-[#0d3b2e]" /> {imageName}
               </p>
               <button
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
-                className="mt-3 text-xs font-semibold text-[#38b000] hover:text-[#2e9900] underline underline-offset-4"
+                className="mt-3 text-xs font-semibold text-[#0d3b2e] hover:text-[#145c43] underline underline-offset-4"
               >
                 Replace image
               </button>
             </div>
           ) : (
             <>
-              <div className="w-14 h-14 rounded-full bg-[#eaf0e7] flex items-center justify-center text-[#38b000] mb-4">
+              <div className="w-14 h-14 rounded-full bg-[#eaf0e7] flex items-center justify-center text-[#0d3b2e] mb-4">
                 <ImagePlus className="w-7 h-7" />
               </div>
               <p className="text-sm font-semibold text-[#172b21]">Upload a photo of your area or land</p>
@@ -107,7 +107,7 @@ export default function DesignStudioForm() {
               <button
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
-                className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#38b000] text-white text-xs font-bold hover:bg-[#2e9900] transition-colors"
+                className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0d3b2e] text-white text-xs font-bold hover:bg-[#145c43] transition-colors"
               >
                 <UploadCloud className="w-4 h-4" />
                 Browse Image
@@ -131,7 +131,7 @@ export default function DesignStudioForm() {
             onChange={(e) => setDescription(e.target.value)}
             placeholder="e.g. I have a sunny balcony in Lahore and I want a tropical relaxing corner with a seating area…"
             rows={5}
-            className="w-full flex-1 resize-none rounded-2xl border border-[#d6e2d3] bg-[#fbfcf9] p-4 text-sm text-[#172b21] placeholder:text-[#9fb3a5] focus:outline-none focus:ring-2 focus:ring-[#38b000]/40 focus:border-[#38b000]"
+            className="w-full flex-1 resize-none rounded-2xl border border-[#d6e2d3] bg-[#fbfcf9] p-4 text-sm text-[#172b21] placeholder:text-[#9fb3a5] focus:outline-none focus:ring-2 focus:ring-[#0d3b2e]/40 focus:border-[#0d3b2e]"
           />
           <div className="mt-4 flex items-center justify-between gap-3">
             <p className="text-[11px] text-[#9fb3a5]">
@@ -151,7 +151,7 @@ export default function DesignStudioForm() {
                 </>
               ) : (
                 <>
-                  <Sparkles className="w-4 h-4 text-[#38b000]" />
+                  <Sparkles className="w-4 h-4" />
                   Get Design Ideas
                 </>
               )}
@@ -163,7 +163,7 @@ export default function DesignStudioForm() {
       {/* Results */}
       {isGenerating && (
         <div className="mt-10 rounded-3xl bg-white border border-[#e5ece3] p-8 text-center">
-          <Wand2 className="w-8 h-8 text-[#38b000] animate-pulse mx-auto" />
+          <Wand2 className="w-8 h-8 text-[#0d3b2e] animate-pulse mx-auto" />
           <p className="mt-3 text-sm font-semibold text-[#172b21]">Sketching design ideas for your space…</p>
           <p className="text-xs text-[#52685a] mt-1">Matching plants, palettes and layouts. This takes a few seconds.</p>
         </div>
@@ -173,7 +173,7 @@ export default function DesignStudioForm() {
         <div className="mt-10">
           <div className="flex items-center justify-between mb-5">
             <div>
-              <h3 className="font-serif font-bold text-xl sm:text-2xl text-[#172b21]">Your Design Ideas</h3>
+              <h3 className="font-bold text-xl sm:text-2xl text-[#172b21]">Your Design Ideas</h3>
               <p className="text-xs text-[#52685a] mt-1">
                 {suggestions.length} concept{suggestions.length > 1 ? 's' : ''} rendered for your space.
               </p>
@@ -181,7 +181,7 @@ export default function DesignStudioForm() {
             <button
               type="button"
               onClick={handleSubmit}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#d6e2d3] text-[#38b000] text-xs font-bold hover:bg-[#f2f7ef] transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#d6e2d3] text-[#0d3b2e] text-xs font-bold hover:bg-[#f2f7ef] transition-colors"
             >
               <RefreshCw className="w-3.5 h-3.5" />
               Generate More
@@ -195,11 +195,11 @@ export default function DesignStudioForm() {
                 className="group rounded-3xl bg-white border border-[#e5ece3] overflow-hidden hover:card-shadow-hover transition-shadow"
               >
                 <div className="p-5">
-                  <span className="inline-flex items-center gap-1.5 bg-[#eaf0e7] text-[#38b000] text-[10px] font-extrabold px-2.5 py-1 rounded-full mb-3">
+                  <span className="inline-flex items-center gap-1.5 bg-[#eaf0e7] text-[#0d3b2e] text-[10px] font-extrabold px-2.5 py-1 rounded-full mb-3">
                     <Sparkles className="w-3 h-3" />
                     Concept {index + 1} · AI Idea
                   </span>
-                  <h4 className="font-serif font-bold text-lg text-[#172b21]">{suggestion.theme}</h4>
+                  <h4 className="font-bold text-lg text-[#172b21]">{suggestion.theme}</h4>
                   <p className="text-xs text-[#52685a] leading-relaxed mt-1.5">{suggestion.tagline}</p>
                   <div className="flex flex-wrap gap-1.5 mt-3">
                     {suggestion.tags.map((tag) => (
@@ -207,7 +207,7 @@ export default function DesignStudioForm() {
                         key={tag}
                         className="inline-flex items-center gap-1 rounded-full bg-[#f2f7ef] border border-[#e5ece3] px-2.5 py-1 text-[10px] font-semibold text-[#2a3f33]"
                       >
-                        <Check className="w-3 h-3 text-[#38b000]" />
+                        <Check className="w-3 h-3 text-[#0d3b2e]" />
                         {tag}
                       </span>
                     ))}

@@ -30,23 +30,23 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="pt-8 sm:pt-12 pb-0 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full bg-[#f8f7f2] select-none">
+    <section className="pt-8 sm:pt-12 pb-0 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full bg-[#0d3b2e] select-none">
       {/* Header & Navigation Arrows */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
         <div>
           <div className="flex items-center gap-3 sm:gap-4 mb-1.5 flex-wrap">
-            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#556b5d]">
+            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
               VERIFIED REVIEWS
             </span>
             <Link
               href="/testimonials"
-              className="text-xs sm:text-sm font-bold text-[#38b000] hover:text-[#27964c] hover:underline inline-flex items-center gap-1"
+              className="text-xs sm:text-sm font-bold text-[#8bc34a] hover:text-white hover:underline inline-flex items-center gap-1"
             >
               <span>Read all verified customer reviews</span>
               <span>&rarr;</span>
             </Link>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#38b000] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
             Loved Across Pakistan
           </h2>
         </div>

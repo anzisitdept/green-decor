@@ -4,7 +4,7 @@ import type { Order, ServiceRequest, ContactMessage } from '@/types';
 import { CONTACT_PHONE, CONTACT_ADDRESS } from '@/lib/contact';
 import type { SendMailInput } from '@/lib/email';
 
-const BRAND = '#38b000';
+const BRAND = '#0d3b2e';
 const INK = '#172b21';
 const MUTED = '#52685a';
 

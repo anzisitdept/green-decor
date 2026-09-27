@@ -19,7 +19,7 @@ export default function PurposeSection() {
   const quote = purpose?.quote;
 
   return (
-    <section className="relative w-full bg-white overflow-hidden">
+    <section className="relative w-full bg-[#0d3b2e] overflow-hidden">
       <div className="relative lg:h-[600px]">
 
         {/* Left content zone — dark green diagonal band (stacked on top for mobile) */}
@@ -55,7 +55,7 @@ export default function PurposeSection() {
 
           <div className="mt-7">
             <Link
-              href="/shop?category=home-decor"
+              href="/shop?category=pots"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#8bc34a] text-[#0d3b2e] text-sm font-bold hover:bg-[#9ccc65] transition-colors group"
             >
               <span>More About Planters</span>
@@ -74,7 +74,7 @@ export default function PurposeSection() {
             className="object-cover object-center"
           />
           {/* thin light-gray vertical strip at the far right edge */}
-          <div aria-hidden="true" className="hidden lg:block absolute inset-y-0 right-0 w-1 bg-[#d8dbdc]" />
+          <div aria-hidden="true" className="hidden lg:block absolute inset-y-0 right-0 w-1 bg-[#0d3b2e]" />
         </div>
 
       </div>
