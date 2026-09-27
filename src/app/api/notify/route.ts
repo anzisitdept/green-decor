@@ -6,22 +6,31 @@ import {
   buildOrderNotification,
   buildQuoteNotification,
   buildContactNotification,
+  buildNewsletterNotification,
 } from '@/lib/emailTemplates';
 import type { SendMailInput } from '@/lib/email';
-import type { Order, ServiceRequest, ContactMessage } from '@/types';
+import type { Order, ServiceRequest, ContactMessage, WelcomeSubscriber } from '@/types';
 
 export const runtime = 'nodejs';
 
-type NotifyType = 'order' | 'quote' | 'contact';
+type NotifyType = 'order' | 'quote' | 'contact' | 'newsletter';
 
 const COLLECTION_FOR: Record<NotifyType, string> = {
   order: COLLECTIONS.orders,
   quote: COLLECTIONS.serviceRequests,
   contact: COLLECTIONS.contactInquiries,
+  // Newsletter subscribers share the collection with welcome-coupon claims,
+  // which is why the record is keyed by the normalised phone number.
+  newsletter: COLLECTIONS.welcomeSubscribers,
 };
 
 function isNotifyType(value: unknown): value is NotifyType {
-  return value === 'order' || value === 'quote' || value === 'contact';
+  return (
+    value === 'order' ||
+    value === 'quote' ||
+    value === 'contact' ||
+    value === 'newsletter'
+  );
 }
 
 /**
@@ -63,6 +72,8 @@ function buildFor(type: NotifyType, data: Record<string, unknown>): SendMailInpu
       return buildQuoteNotification(data as unknown as ServiceRequest);
     case 'contact':
       return buildContactNotification(data as unknown as ContactMessage);
+    case 'newsletter':
+      return buildNewsletterNotification(data as unknown as WelcomeSubscriber);
   }
 }
 

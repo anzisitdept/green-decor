@@ -7,26 +7,37 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   updateProfile,
-  signInWithPopup,
-  GoogleAuthProvider,
   signOut,
   onAuthStateChanged,
   User,
 } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
-import { saveUserProfile } from '@/lib/firestore/users';
+import { saveUserProfile, readUserProfile } from '@/lib/firestore/users';
+import { normalizeContact, phoneToAuthEmail, phoneFromAuthEmail } from '@/lib/phone';
+
+export class InvalidPhoneError extends Error {
+  constructor() {
+    super('Enter a valid Pakistani mobile number, e.g. 0300 1234567.');
+    this.name = 'InvalidPhoneError';
+  }
+}
 
 interface AuthStore {
   user: UserProfile | null;
   isAuthenticated: boolean;
   isAuthReady: boolean;
-  login: (email: string, password: string) => Promise<void>;
-  register: (name: string, email: string, password: string, phone: string) => Promise<void>;
-  loginWithGoogle: () => Promise<void>;
+  login: (phone: string, password: string) => Promise<void>;
+  register: (name: string, phone: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
   updateProfile: (data: Partial<UserProfile>) => void;
   addAddress: (address: OrderAddress) => void;
   removeAddress: (index: number) => void;
+}
+
+function requireNormalizedPhone(phone: string): string {
+  const normalized = normalizeContact(phone);
+  if (!normalized) throw new InvalidPhoneError();
+  return normalized;
 }
 
 export const useAuthStore = create<AuthStore>()(
@@ -36,29 +47,24 @@ export const useAuthStore = create<AuthStore>()(
       isAuthenticated: false,
       isAuthReady: false,
 
-      login: async (email, password) => {
-        await signInWithEmailAndPassword(auth, email, password);
+      login: async (phone, password) => {
+        const normalized = requireNormalizedPhone(phone);
+        await signInWithEmailAndPassword(auth, phoneToAuthEmail(normalized), password);
       },
 
-      register: async (name, email, password, phone) => {
-        const credential = await createUserWithEmailAndPassword(auth, email, password);
+      register: async (name, phone, password) => {
+        const normalized = requireNormalizedPhone(phone);
+        const credential = await createUserWithEmailAndPassword(
+          auth,
+          phoneToAuthEmail(normalized),
+          password
+        );
         await updateProfile(credential.user, { displayName: name });
-        const current = useAuthStore.getState().user;
-        if (current && phone) {
-          useAuthStore.setState({ user: { ...current, phone } });
-        }
         await saveUserProfile(credential.user.uid, {
           name,
-          email,
-          phone: phone || undefined,
+          phone: normalized,
           createdAt: new Date().toISOString(),
         });
-      },
-
-      loginWithGoogle: async () => {
-        const provider = new GoogleAuthProvider();
-        provider.setCustomParameters({ prompt: 'select_account' });
-        await signInWithPopup(auth, provider);
       },
 
       logout: async () => {
@@ -104,18 +110,24 @@ export const useAuthStore = create<AuthStore>()(
   )
 );
 
+/**
+ * The Auth record for a phone-keyed account carries no usable display fields:
+ * the email is synthetic and `phoneNumber` is always null because the
+ * credential is an email/password one. The phone is therefore recovered from
+ * the synthetic email, and the name/role/status are filled in from Firestore
+ * by `refreshProfileFromFirestore` a moment later.
+ */
 const toUserProfile = (u: User): UserProfile => ({
   uid: u.uid,
   name: u.displayName || 'Green Decor Member',
-  email: u.email || '',
-  phone: u.phoneNumber || '',
+  email: phoneFromAuthEmail(u.email) ? undefined : u.email || undefined,
+  phone: phoneFromAuthEmail(u.email) || '',
   photoURL: u.photoURL || undefined,
   role: 'user',
   status: 'active',
   addresses: [],
   createdAt: new Date().toISOString(),
 });
-
 
 if (typeof window !== 'undefined') {
   onAuthStateChanged(auth, (fbUser) => {
@@ -127,22 +139,42 @@ if (typeof window !== 'undefined') {
       }
       useAuthStore.setState({ user: profile, isAuthenticated: true, isAuthReady: true });
 
-      // Mirror into `users/{uid}` on every sign-in, not just on the email
-      // registration form. Google sign-in never went through `register`, which
-      // left those accounts with no Firestore document and therefore invisible
-      // in the admin Users panel. Failures are swallowed: a profile-sync problem
-      // must never block someone from shopping.
-      void saveUserProfile(fbUser.uid, {
-        name: profile.name,
-        email: profile.email,
-        phone: profile.phone || undefined,
-        photoURL: profile.photoURL,
-        createdAt: previous?.createdAt ?? profile.createdAt,
-      }).catch(() => {
-        /* offline, permission denied, or rules not deployed yet */
-      });
+      // Correct the name, role, and status from Firestore. Without this the
+      // header would show "Green Decor Member" for anyone whose profile was
+      // created ahead of time in the admin panel, and addresses would be lost
+      // on a fresh device.
+      void refreshProfileFromFirestore(fbUser.uid, previous);
     } else {
       useAuthStore.setState({ user: null, isAuthenticated: false, isAuthReady: true });
     }
   });
+}
+
+async function refreshProfileFromFirestore(uid: string, previous: UserProfile | null) {
+  try {
+    const stored = await readUserProfile(uid);
+    if (!stored) return;
+
+    const current = useAuthStore.getState().user;
+    if (!current || current.uid !== uid) return;
+
+    const addresses =
+      previous && previous.uid === uid && previous.addresses.length > 0
+        ? previous.addresses
+        : current.addresses;
+
+    useAuthStore.setState({
+      user: {
+        ...current,
+        name: stored.name || current.name,
+        phone: stored.phone || current.phone,
+        role: stored.role === 'admin' ? 'admin' : 'user',
+        status: stored.status === 'disabled' ? 'disabled' : 'active',
+        createdAt: stored.createdAt || current.createdAt,
+        addresses,
+      },
+    });
+  } catch {
+    /* offline or rules not deployed yet: keep the Auth-derived profile */
+  }
 }

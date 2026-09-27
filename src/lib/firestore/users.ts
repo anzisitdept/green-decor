@@ -1,12 +1,33 @@
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
+import type { UserProfile, UserRole, UserStatus } from '@/types';
 
 export interface StoredUserProfile {
   name: string;
-  email: string;
   phone?: string;
   photoURL?: string;
   createdAt: string;
+}
+
+/**
+ * Reads the stored profile for an account. Returns null when the document is
+ * missing so callers can fall back to whatever the Auth record implies.
+ */
+export async function readUserProfile(uid: string): Promise<UserProfile | null> {
+  const snap = await getDoc(doc(db, 'users', uid));
+  if (!snap.exists()) return null;
+  const data = snap.data();
+  return {
+    uid,
+    name: (data.name as string) || 'Green Decor Member',
+    email: (data.email as string) || undefined,
+    phone: (data.phone as string) || undefined,
+    photoURL: (data.photoURL as string) || undefined,
+    role: (data.role as UserRole) === 'admin' ? 'admin' : 'user',
+    status: (data.status as UserStatus) === 'disabled' ? 'disabled' : 'active',
+    addresses: [],
+    createdAt: (data.createdAt as string) || new Date().toISOString(),
+  };
 }
 
 /**
@@ -19,6 +40,12 @@ export interface StoredUserProfile {
  *
  * Firestore rules reject a client that tries to create its own document with
  * `role: 'admin'`, so creating new records as `'user'` is safe.
+ *
+ * The admin panel can also pre-create a profile under `users/{phone}` before
+ * the person ever signs up. This function cannot claim that document: the
+ * `/users` rules only let a client touch its own uid-keyed record, so a
+ * non-admin writing to a phone-keyed document is denied outright. The admin
+ * users panel pairs the two records on read instead.
  */
 export async function saveUserProfile(uid: string, profile: StoredUserProfile): Promise<void> {
   const ref = doc(db, 'users', uid);
@@ -29,7 +56,6 @@ export async function saveUserProfile(uid: string, profile: StoredUserProfile): 
     const current = existing.data() as Partial<StoredUserProfile>;
     const changed =
       current.name !== profile.name ||
-      current.email !== profile.email ||
       (current.phone ?? '') !== (profile.phone ?? '') ||
       (current.photoURL ?? '') !== (profile.photoURL ?? '');
     if (!changed) return;
@@ -40,7 +66,7 @@ export async function saveUserProfile(uid: string, profile: StoredUserProfile): 
 
   await setDoc(
     ref,
-    { ...profile, uid, role: 'user', status: 'active' },
+    { ...profile, uid, role: 'user', status: 'active', source: 'registration' },
     { merge: true }
   );
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Leaf } from 'lucide-react';
@@ -11,6 +11,8 @@ import {
   CONTACT_PHONE_HREF,
   CONTACT_EMAIL_HREF,
 } from '@/lib/contact';
+import { normalizeContact, formatContact } from '@/lib/phone';
+import { notifyByEmail } from '@/lib/firestore/notify';
 import { useSiteSettings, useSiteContent, useStoreServices } from '@/lib/firestore/store-data';
 
 const FOOTER_WAVE =
@@ -70,6 +72,57 @@ export default function Footer() {
   const phoneText = CONTACT_PHONE;
   const phoneHref = CONTACT_PHONE_HREF;
 
+  const [phone, setPhone] = useState('');
+  const [subscribeState, setSubscribeState] = useState<
+    'idle' | 'sending' | 'done' | 'error'
+  >('idle');
+  const [subscribeMessage, setSubscribeMessage] = useState('');
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (subscribeState === 'sending') return;
+
+    const contact = normalizeContact(phone);
+    if (!contact) {
+      setSubscribeState('error');
+      setSubscribeMessage('Enter a valid mobile number, e.g. 0300 1234567.');
+      return;
+    }
+
+    setSubscribeState('sending');
+    setSubscribeMessage('');
+
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ contact }),
+      });
+      const data = await res.json().catch(() => null);
+
+      if (!res.ok) {
+        throw new Error(data?.error ?? 'Something went wrong. Please try again.');
+      }
+
+      setSubscribeState('done');
+      setSubscribeMessage(
+        data?.alreadySubscribed
+          ? `You are already subscribed as ${formatContact(contact)}.`
+          : `Subscribed. We will keep you posted as ${formatContact(contact)}.`
+      );
+      setPhone('');
+
+      // The subscriber list is keyed by phone number, which is also the
+      // document id, so the notification can be resolved server-side.
+      void notifyByEmail('newsletter', contact);
+    } catch (err) {
+      setSubscribeState('error');
+      setSubscribeMessage(
+        err instanceof Error ? err.message : 'Something went wrong. Please try again.'
+      );
+    }
+  };
+
   return (
     <>
       {!isHome && (
@@ -97,18 +150,13 @@ export default function Footer() {
             <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
               {/* Brand / About */}
               <div className="order-1 space-y-4">
-                <div>
-                  <Link href="/" className="inline-flex items-center gap-1.5 group">
-                    <Leaf className="w-5 h-5 text-[#e8d9b5]" strokeWidth={1.8} />
-                    <span className="font-serif font-bold text-2xl text-[#e8d9b5] tracking-wide leading-none">
-                      GREEN DECOR
-                    </span>
-                  </Link>
-                  <p className="text-xs font-medium text-[#cfe0d6] mt-2.5 leading-snug">
-                    Plants • Pots • Landscaping • Décor • Doorstep Services
-                  </p>
-                </div>
-                <p className="text-xs text-[#cfe0d6] leading-relaxed">
+                <Link href="/" className="inline-flex items-center gap-1.5 group">
+                  <Leaf className="w-5 h-5 text-[#e8d9b5]" strokeWidth={1.8} />
+                  <span className="font-serif font-bold text-2xl text-[#e8d9b5] tracking-wide leading-none">
+                    GREEN DECOR
+                  </span>
+                </Link>
+                <p className="whitespace-pre-line text-xs text-[#cfe0d6] leading-relaxed">
                   {aboutText}
                 </p>
                 <div>
@@ -180,21 +228,36 @@ export default function Footer() {
                   Subscribe Newsletter
                 </h5>
                 <p className="text-xs text-white leading-relaxed mb-4">
-                  Get seasonal plant care tips, new arrivals and exclusive offers in your inbox.
+                  Get seasonal plant care tips, new arrivals and exclusive offers on your number.
                 </p>
-                <form onSubmit={(e) => e.preventDefault()} className="space-y-3">
+                <form onSubmit={handleSubscribe} className="space-y-3" noValidate>
                   <input
-                    type="email"
-                    required
-                    placeholder="Email Address.."
+                    type="tel"
+                    inputMode="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="Mobile number.."
+                    aria-label="Mobile number"
+                    aria-invalid={subscribeState === 'error'}
                     className="w-full px-4 py-2.5 rounded-full bg-white/95 text-[#52685a] text-xs placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-400"
                   />
                   <button
                     type="submit"
-                    className="w-full py-2.5 rounded-full bg-emerald-600 text-white text-xs font-bold uppercase tracking-widest hover:bg-emerald-500 transition-colors cursor-pointer"
+                    disabled={subscribeState === 'sending'}
+                    className="w-full py-2.5 rounded-full bg-emerald-600 text-white text-xs font-bold uppercase tracking-widest hover:bg-emerald-500 transition-colors cursor-pointer disabled:opacity-70"
                   >
-                    Subscribe Now
+                    {subscribeState === 'sending' ? 'Subscribing...' : 'Subscribe Now'}
                   </button>
+                  {subscribeMessage ? (
+                    <p
+                      role="status"
+                      className={`text-[11px] leading-snug ${
+                        subscribeState === 'error' ? 'text-red-200' : 'text-emerald-100'
+                      }`}
+                    >
+                      {subscribeMessage}
+                    </p>
+                  ) : null}
                 </form>
 
                 {/* Watermark below Subscribe Button */}

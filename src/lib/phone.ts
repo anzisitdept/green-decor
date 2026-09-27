@@ -30,3 +30,33 @@ export function formatContact(input: string): string {
   if (!normalized) return input.trim();
   return `+${normalized.slice(0, 3)} ${normalized.slice(3, 6)} ${normalized.slice(6)}`;
 }
+
+/**
+ * Firebase Auth has no phone+password provider, so the phone number is stored
+ * as a synthetic email address and the real number is kept on the Firestore
+ * profile. This is the single place that mapping is defined; register and
+ * login both go through it so a normalisation mismatch can never lock someone
+ * out of their own account.
+ *
+ * The domain is deliberately unroutable in practice and must stay identical
+ * everywhere it appears, including the admin panel and the seed scripts.
+ */
+export const PHONE_AUTH_EMAIL_DOMAIN = 'greendecor.com';
+
+/** Builds the Firebase Auth email for a phone number. */
+export function phoneToAuthEmail(normalizedPhone: string): string {
+  return `${normalizedPhone}@${PHONE_AUTH_EMAIL_DOMAIN}`;
+}
+
+/**
+ * Recovers the phone number from a synthetic auth email. Returns null for a
+ * real email, which is how callers tell a legacy account apart from a
+ * phone-keyed one.
+ */
+export function phoneFromAuthEmail(email: string | null | undefined): string | null {
+  if (!email) return null;
+  const suffix = `@${PHONE_AUTH_EMAIL_DOMAIN}`;
+  if (!email.toLowerCase().endsWith(suffix)) return null;
+  const local = email.slice(0, -suffix.length);
+  return /^923\d{9}$/.test(local) ? local : null;
+}

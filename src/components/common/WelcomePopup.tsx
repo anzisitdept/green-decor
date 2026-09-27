@@ -16,7 +16,6 @@ export default function WelcomePopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState('');
   const [contact, setContact] = useState('');
-  const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [coupon, setCoupon] = useState<{ code: string; type: 'percent' | 'flat'; value: number } | null>(null);
@@ -53,7 +52,7 @@ export default function WelcomePopup() {
     setIsSubmitting(true);
 
     try {
-      const result = await claimWelcomeCoupon(contact, email, name);
+      const result = await claimWelcomeCoupon(contact, name);
 
       // Only suppress the popup once the coupon is actually stored.
       localStorage.setItem(SUBSCRIBED_KEY, result.code);
@@ -163,18 +162,11 @@ export default function WelcomePopup() {
 
                 <input
                   type="tel"
-                  placeholder="Contact number (+92 300 1234567)"
+                  inputMode="tel"
+                  placeholder="Contact number (0300 1234567)"
                   value={contact}
                   onChange={(e) => setContact(e.target.value)}
                   required
-                  className="w-full bg-white text-neutral-900 placeholder:text-neutral-400 px-4 py-3.5 rounded-xl text-sm outline-none focus:ring-2 focus:ring-emerald-300 shadow-xs font-medium"
-                />
-
-                <input
-                  type="email"
-                  placeholder="Email address (Optional)"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-white text-neutral-900 placeholder:text-neutral-400 px-4 py-3.5 rounded-xl text-sm outline-none focus:ring-2 focus:ring-emerald-300 shadow-xs font-medium"
                 />
 
@@ -207,7 +199,7 @@ export default function WelcomePopup() {
 
               {/* Fine Print Disclaimer */}
               <p className="mt-6 text-[11px] text-emerald-100/75 text-center leading-tight max-w-[280px] mx-auto">
-                You are signing up to receive communication via contact number and email and can unsubscribe at any time.
+                You are signing up to receive communication via your contact number and can unsubscribe at any time.
               </p>
             </div>
           )}

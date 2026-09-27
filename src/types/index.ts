@@ -109,7 +109,8 @@ export interface CartItem {
 export interface OrderAddress {
   fullName: string;
   phone: string;
-  email: string;
+  /** Optional: accounts are phone-keyed, so there is no guaranteed email. */
+  email?: string;
   streetAddress: string;
   apartmentSuite?: string;
   city: string;
@@ -177,7 +178,9 @@ export type UserStatus = 'active' | 'disabled';
 export interface UserProfile {
   uid: string;
   name: string;
-  email: string;
+  /** Accounts are keyed by phone number, so this is absent for phone-keyed logins. */
+  email?: string;
+  /** Normalised E.164 form, e.g. `923001234567`. */
   phone?: string;
   photoURL?: string;
   role: UserRole;
@@ -215,9 +218,15 @@ export interface WelcomeSubscriber {
   id: string;
   contact: string;
   email?: string;
-  code: string;
+  /**
+   * Only set when the subscriber also claimed a welcome discount. A plain
+   * newsletter signup reuses this collection but has no code to redeem.
+   */
+  code?: string;
   status: 'active' | 'used' | 'expired';
-  source: 'welcome-popup';
+  source: 'welcome-popup' | 'newsletter';
+  /** Set when the record was created by the footer newsletter form. */
+  newsletter?: boolean;
   ipHash?: string;
   userAgent?: string;
   createdAt: string;

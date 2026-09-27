@@ -1,6 +1,6 @@
 import 'server-only';
 
-import type { Order, ServiceRequest, ContactMessage } from '@/types';
+import type { Order, ServiceRequest, ContactMessage, WelcomeSubscriber } from '@/types';
 import { CONTACT_PHONE, CONTACT_ADDRESS } from '@/lib/contact';
 import type { SendMailInput } from '@/lib/email';
 
@@ -158,5 +158,28 @@ export function buildContactNotification(message: ContactMessage): SendMailInput
     `${message.subject} from ${message.name}`,
     rows,
     'Someone contacted you through the website contact form. Reply directly to their email address.'
+  );
+}
+
+/**
+ * New newsletter subscriber. Subscribers are identified by phone number rather
+ * than email, so this is the notice that keeps that number reachable by the
+ * team — without it a phone-only audience is awkward to mail.
+ */
+export function buildNewsletterNotification(subscriber: WelcomeSubscriber): SendMailInput {
+  const rows: [string, string][] = [
+    ['Phone', escapeHtml(subscriber.contact)],
+    ['Source', escapeHtml(subscriber.source)],
+    ['Joined', escapeHtml(subscriber.createdAt)],
+  ];
+
+  if (subscriber.code) rows.push(['Welcome code', escapeHtml(subscriber.code)]);
+  if (subscriber.email) rows.push(['Email', escapeHtml(subscriber.email)]);
+
+  return layout(
+    'New newsletter subscriber',
+    `${subscriber.contact} subscribed to the newsletter`,
+    rows,
+    'Manage subscribers in the admin panel under Welcome Subscribers.'
   );
 }

@@ -4,9 +4,10 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Eye, EyeOff, Lock, Mail, User, Phone, CheckCircle, X } from 'lucide-react';
+import { Eye, EyeOff, Lock, User, Phone, CheckCircle, X } from 'lucide-react';
 import { useAuthStore } from '@/lib/store/useAuthStore';
 import { useUIStore } from '@/lib/store/useUIStore';
+import { normalizeContact } from '@/lib/phone';
 
 interface AuthPageProps {
   mode: 'login' | 'register';
@@ -14,13 +15,12 @@ interface AuthPageProps {
 
 export default function AuthPage({ mode }: AuthPageProps) {
   const router = useRouter();
-  const { login, register, loginWithGoogle } = useAuthStore();
+  const { login, register } = useAuthStore();
   const { showToast } = useUIStore();
 
-  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
-  const [contact, setContact] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [formError, setFormError] = useState('');
@@ -29,55 +29,42 @@ export default function AuthPage({ mode }: AuthPageProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
     setFormError('');
 
+    const normalized = normalizeContact(phone);
+    if (!normalized) {
+      setFormError('Enter a valid Pakistani mobile number, e.g. 0300 1234567.');
+      return;
+    }
+
+    setIsLoading(true);
     try {
       if (isLogin) {
-        await login(email, password);
+        await login(normalized, password);
         showToast('Successfully logged in! Welcome back to Green Decor.');
       } else {
-        if (!contact.trim()) {
-          setFormError('Please enter your contact number.');
-          setIsLoading(false);
-          return;
-        }
-        const authEmail = email.trim() || `${contact.replace(/\D/g, '')}@greendecor.com`;
-        await register(name, authEmail, password, contact.trim());
+        await register(name.trim(), normalized, password);
         showToast('Account created! Welcome to the Green Decor family.');
       }
       router.push('/account');
     } catch (err) {
-      const fbError = err as { code?: string; message?: string };
+      const fbError = err as { code?: string; message?: string; name?: string };
       const friendly =
-        fbError.code === 'auth/invalid-credential' || fbError.code === 'auth/invalid-login-credentials' || fbError.code === 'auth/user-not-found' || fbError.code === 'auth/wrong-password'
-          ? 'Incorrect email or password. Please try again.'
+        fbError.code === 'auth/invalid-credential' ||
+        fbError.code === 'auth/invalid-login-credentials' ||
+        fbError.code === 'auth/user-not-found' ||
+        fbError.code === 'auth/wrong-password'
+          ? 'Incorrect phone number or password. Please try again.'
           : fbError.code === 'auth/email-already-in-use'
-          ? 'An account with that email already exists. Try signing in instead.'
+          ? 'An account with that phone number already exists. Try signing in instead.'
           : fbError.code === 'auth/weak-password'
           ? 'Password should be at least 6 characters.'
           : fbError.code === 'auth/network-request-failed'
           ? 'Network error — check your connection and try again.'
+          : fbError.name === 'InvalidPhoneError'
+          ? 'Enter a valid Pakistani mobile number, e.g. 0300 1234567.'
           : fbError.message || 'Authentication failed. Please try again.';
       setFormError(friendly);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleGoogleSignIn = async () => {
-    setIsLoading(true);
-    setFormError('');
-
-    try {
-      await loginWithGoogle();
-      showToast('Signed in with Google!');
-      router.push('/account');
-    } catch (err) {
-      const fbError = err as { code?: string; message?: string };
-      if (fbError.code !== 'auth/popup-closed-by-user') {
-        setFormError(fbError.message || 'Google sign-in failed. Please try again.');
-      }
     } finally {
       setIsLoading(false);
     }
@@ -129,53 +116,35 @@ export default function AuthPage({ mode }: AuthPageProps) {
           </div>
         )}
 
-        {!isLogin && (
-          <div>
-            <label className="block text-xs font-semibold text-gray-700 mb-1.5">Contact Number</label>
-            <div className="relative">
-              <Phone className="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5" />
-              <input
-                type="tel"
-                required
-                placeholder="+92 300 1234567"
-                value={contact}
-                onChange={(e) => setContact(e.target.value)}
-                className="w-full pl-10 pr-3 py-3 rounded-full border border-gray-200 text-sm focus:ring-2 focus:ring-[#0d3b2e] focus:outline-none"
-              />
-            </div>
-          </div>
-        )}
-
         <div>
-          <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-            Email Address{!isLogin && <span className="font-normal text-gray-400"> (Optional)</span>}
-          </label>
+          <label className="block text-xs font-semibold text-gray-700 mb-1.5">Phone Number</label>
           <div className="relative">
-            <Mail className="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5" />
+            <Phone className="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5" />
             <input
-              type="email"
-              required={isLogin}
-              placeholder="you@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="tel"
+              inputMode="tel"
+              autoComplete="tel"
+              required
+              placeholder="+92 300 1234567"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
               className="w-full pl-10 pr-3 py-3 rounded-full border border-gray-200 text-sm focus:ring-2 focus:ring-[#0d3b2e] focus:outline-none"
             />
           </div>
+          <p className="text-[11px] text-gray-400 mt-1.5">
+            {isLogin
+              ? 'Use the same number you registered with.'
+              : 'We use this to sign you in. No email needed.'}
+          </p>
         </div>
 
         <div>
-          <div className="flex items-center justify-between mb-1.5">
-            <label className="block text-xs font-semibold text-gray-700">Password</label>
-            {isLogin && (
-              <a href="#forgot" className="text-xs text-[#0d3b2e] hover:underline font-medium">
-                Forgot?
-              </a>
-            )}
-          </div>
+          <label className="block text-xs font-semibold text-gray-700 mb-1.5">Password</label>
           <div className="relative">
             <Lock className="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5" />
             <input
               type={showPassword ? 'text' : 'password'}
+              autoComplete={isLogin ? 'current-password' : 'new-password'}
               required
               minLength={6}
               placeholder="••••••••"
@@ -209,27 +178,6 @@ export default function AuthPage({ mode }: AuthPageProps) {
           {isLoading ? 'Processing...' : isLogin ? 'Sign In' : 'Create Account'}
         </button>
       </form>
-
-      <div className="my-5 flex items-center gap-3 text-[11px] text-gray-400">
-        <span className="flex-1 h-px bg-gray-200" />
-        or
-        <span className="flex-1 h-px bg-gray-200" />
-      </div>
-
-      <button
-        type="button"
-        onClick={handleGoogleSignIn}
-        disabled={isLoading}
-        className="w-full py-3 rounded-full bg-white hover:bg-gray-50 text-gray-700 text-sm font-semibold border border-gray-200 transition-colors flex items-center justify-center gap-2.5 disabled:opacity-50"
-      >
-        <svg viewBox="0 0 24 24" className="w-4 h-4">
-          <path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z" />
-          <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09C3.26 21.3 7.31 24 12 24z" />
-          <path fill="#FBBC05" d="M5.27 14.29c-.25-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.98-3.09z" />
-          <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.98 3.09c.95-2.85 3.6-4.96 6.73-4.96z" />
-        </svg>
-        <span>Sign in with Google</span>
-      </button>
 
       {isLogin ? (
         <p className="text-center text-xs text-gray-500 mt-5">

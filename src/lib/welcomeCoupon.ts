@@ -11,7 +11,6 @@ export const DISMISSED_KEY = 'green_decor_popup_dismissed';
 
 export interface WelcomeCouponRequest {
   contact: string;
-  email?: string;
   name?: string;
 }
 
@@ -37,7 +36,6 @@ export interface WelcomeCouponResponse {
  */
 export async function claimWelcomeCoupon(
   contact: string,
-  email?: string,
   name?: string
 ): Promise<WelcomeCouponResponse> {
   const normalized = normalizeContact(contact);
@@ -52,7 +50,6 @@ export async function claimWelcomeCoupon(
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         contact: normalized,
-        ...(email?.trim() ? { email: email.trim() } : {}),
         ...(name?.trim() ? { name: name.trim() } : {}),
       }),
     });
