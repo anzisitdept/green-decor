@@ -2,52 +2,82 @@ export interface DesignSuggestion {
   theme: string;
   tagline: string;
   tags: string[];
+  imageUrl?: string;
+  fallbackImageUrl?: string;
+  layoutTips?: string[];
+  recommendedPlants?: string[];
+  imagePrompt?: string;
 }
 
-interface ThemeOption extends DesignSuggestion {
-  keywords: string[];
+export interface GenerateDesignInput {
+  description?: string;
+  image?: {
+    data: string; // Base64 image
+    mimeType: string;
+    name?: string;
+  } | null;
 }
 
-const THEME_OPTIONS: ThemeOption[] = [
+const FALLBACK_SUGGESTIONS: DesignSuggestion[] = [
   {
-    keywords: ['balcony', 'terrace', 'patio', 'outdoor', 'garden', 'lawn', 'land', 'backyard', 'roof', 'rooftop'],
     theme: 'Urban Jungle Balcony',
-    tagline: 'A layered tropical balcony with a vertical green wall and cozy seating.',
-    tags: ['Tropical Plants', 'Hanging Baskets', 'Cozy Seating'],
+    tagline: 'A layered tropical balcony featuring vertical wall accents, hanging baskets, and warm ambient outdoor lighting.',
+    tags: ['Monstera Deliciosa', 'Hanging Baskets', 'Terracotta Planters'],
+    imageUrl: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=80',
+    fallbackImageUrl: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=80',
+    layoutTips: ['Hang trailing plants along railings', 'Position taller potted palms in corners for depth'],
+    recommendedPlants: ['Monstera Deliciosa', 'Golden Pothos', 'Areca Palm'],
+    imagePrompt: 'lush tropical balcony garden with monstera plants, terracotta pots, ambient festoon lighting, cozy lounge chair, 8k photorealistic architectural photography',
   },
   {
-    keywords: ['office', 'indoor', 'living', 'room', 'studio', 'bedroom', 'desk', 'home'],
     theme: 'Serene Biophilic Interior',
-    tagline: 'Calm, air-purifying indoor styling with soft greens and natural textures.',
-    tags: ['Air Purifiers', 'Soft Lighting', 'Natural Textures'],
+    tagline: 'Calm, air-purifying indoor styling with sleek ceramic pots, soft organic foliage, and natural wooden stands.',
+    tags: ['Fiddle Leaf Fig', 'Air Purifiers', 'Ceramic Pots'],
+    imageUrl: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=900&q=80',
+    fallbackImageUrl: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=900&q=80',
+    layoutTips: ['Place near bright indirect light sources', 'Cluster 3 pots of varying heights'],
+    recommendedPlants: ['Fiddle Leaf Fig', 'Snake Plant', 'Peace Lily'],
+    imagePrompt: 'modern biophilic living room green corner, tall fiddle leaf fig in sleek ceramic pot, warm natural wood stand, soft sunlight, 8k render',
   },
   {
-    keywords: ['minimal', 'modern', 'clean', 'concrete', 'apartment', 'loft', 'scandinavian'],
-    theme: 'Minimal Modern Oasis',
-    tagline: 'Crisp modern look with sculptural plants and clean-line planters.',
-    tags: ['Clean Lines', 'Neutral Tones', 'Sculptural Plants'],
-  },
-  {
-    keywords: ['pool', 'lounge', 'entertain', 'party', 'deck', 'resort', 'commercial'],
-    theme: 'Modern Outdoor Oasis',
-    tagline: 'Resort-worthy lounge with palms and sun-friendly planters.',
-    tags: ['Palm Trees', 'Poolside Decor', 'Low Maintenance'],
+    theme: 'Minimal Modern Outdoor Oasis',
+    tagline: 'Crisp modern look with sculptural plants, clean-line concrete planters, and low-maintenance greenery.',
+    tags: ['Clean Concrete', 'Sun Hardy', 'Sculptural Plants'],
+    imageUrl: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80',
+    fallbackImageUrl: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80',
+    layoutTips: ['Use uniform concrete planter colors for a cohesive look', 'Add automated drip irrigation'],
+    recommendedPlants: ['Majesty Palm', 'Bougainvillea', 'Aloe Vera'],
+    imagePrompt: 'luxury modern resort patio lawn with palm trees, clean concrete planters, outdoor lighting, high end landscape design photography 8k',
   },
 ];
 
-export async function generateDesignSuggestions(input: {
-  description?: string;
-  image?: { name: string };
-}): Promise<DesignSuggestion[]> {
-  // TODO(dummy): Replace with a real Gemini API call when integrated.
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+export async function generateDesignSuggestions(input: GenerateDesignInput): Promise<DesignSuggestion[]> {
+  try {
+    const response = await fetch('/api/design-studio', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        description: input.description,
+        image: input.image
+          ? {
+              data: input.image.data,
+              mimeType: input.image.mimeType,
+            }
+          : null,
+      }),
+    });
 
-  const text = `${input.description ?? ''} ${input.image?.name ?? ''}`.toLowerCase();
-  const matched = THEME_OPTIONS.filter((option) => option.keywords.some((k) => text.includes(k)));
-  const candidates = matched.length > 0 ? matched : THEME_OPTIONS;
+    if (response.ok) {
+      const data = await response.json();
+      if (data.success && Array.isArray(data.suggestions) && data.suggestions.length > 0) {
+        return data.suggestions;
+      }
+    }
+  } catch (error) {
+    console.error('Client failed to fetch design suggestions from API:', error);
+  }
 
-  const shuffled = [...candidates].sort(() => Math.random() - 0.5);
-  return shuffled
-    .slice(0, Math.min(3, shuffled.length))
-    .map(({ theme, tagline, tags }) => ({ theme, tagline, tags }));
+  return FALLBACK_SUGGESTIONS;
 }

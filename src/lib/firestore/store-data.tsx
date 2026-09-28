@@ -9,6 +9,8 @@ import { servicesData } from '@/lib/data/services';
 import { testimonialsData } from '@/lib/data/testimonials';
 import type {
   Coupon,
+  GalleryCategory,
+  GalleryProject,
   Product,
   ProductCategoryDoc,
   ServiceItem,
@@ -31,6 +33,8 @@ interface StoreDataValue {
   products: Product[];
   categories: ProductCategoryDoc[];
   services: ServiceItem[];
+  galleryProjects: GalleryProject[];
+  galleryCategories: GalleryCategory[];
   testimonials: Testimonial[];
   coupons: Coupon[];
   settings: SiteSettings;
@@ -39,6 +43,8 @@ interface StoreDataValue {
     products: boolean;
     categories: boolean;
     services: boolean;
+    galleryProjects: boolean;
+    galleryCategories: boolean;
     testimonials: boolean;
     coupons: boolean;
     settings: boolean;
@@ -55,6 +61,14 @@ export function StoreDataProvider({ children }: { children: ReactNode }) {
     { orderByField: 'order', orderDirection: 'asc' }
   );
   const servicesQ = useFirestoreCollection<ServiceItem>(COLLECTIONS.services);
+  const galleryProjectsQ = useFirestoreCollection<GalleryProject>(COLLECTIONS.galleryProjects, {
+    orderByField: 'order',
+    orderDirection: 'asc',
+  });
+  const galleryCategoriesQ = useFirestoreCollection<GalleryCategory>(
+    COLLECTIONS.galleryCategories,
+    { orderByField: 'order', orderDirection: 'asc' }
+  );
   const testimonialsQ = useFirestoreCollection<Testimonial>(COLLECTIONS.testimonials);
   const couponsQ = useFirestoreCollection<Coupon>(COLLECTIONS.coupons);
   const settingsQ = useFirestoreDoc<SiteSettings & { id: string }>(
@@ -86,6 +100,11 @@ export function StoreDataProvider({ children }: { children: ReactNode }) {
         ? testimonialsQ.data
         : testimonialsData;
 
+    // The gallery has no offline fallback on purpose: it shows only what staff
+    // have published from the admin panel, so nothing stale can appear.
+    const galleryProjects = galleryProjectsQ.data;
+    const galleryCategories = galleryCategoriesQ.data;
+
     const settings = settingsQ.data
       ? { ...DEFAULT_SETTINGS, ...settingsQ.data }
       : DEFAULT_SETTINGS;
@@ -97,6 +116,8 @@ export function StoreDataProvider({ children }: { children: ReactNode }) {
       products,
       categories,
       services,
+      galleryProjects,
+      galleryCategories,
       testimonials,
       coupons: couponsQ.data,
       settings,
@@ -105,6 +126,8 @@ export function StoreDataProvider({ children }: { children: ReactNode }) {
         products: productsQ.loading,
         categories: categoriesQ.loading,
         services: servicesQ.loading,
+        galleryProjects: galleryProjectsQ.loading,
+        galleryCategories: galleryCategoriesQ.loading,
         testimonials: testimonialsQ.loading,
         coupons: couponsQ.loading,
         settings: settingsQ.loading,
@@ -118,6 +141,10 @@ export function StoreDataProvider({ children }: { children: ReactNode }) {
     categoriesQ.loading,
     servicesQ.data,
     servicesQ.loading,
+    galleryProjectsQ.data,
+    galleryProjectsQ.loading,
+    galleryCategoriesQ.data,
+    galleryCategoriesQ.loading,
     testimonialsQ.data,
     testimonialsQ.loading,
     couponsQ.data,
@@ -153,6 +180,20 @@ export function useStoreCategories(): ProductCategoryDoc[] {
 
 export function useStoreServices(): ServiceItem[] {
   return useStoreData().services;
+}
+
+/**
+ * Live gallery projects, ordered by their `order` field. Projects an admin has
+ * hidden (`active: false`) are dropped so the public gallery only shows what is
+ * published.
+ */
+export function useStoreGalleryProjects(): GalleryProject[] {
+  return useStoreData().galleryProjects.filter((project) => project.active !== false);
+}
+
+/** Live gallery filter categories, ordered by `order`. Inactive ones are dropped. */
+export function useStoreGalleryCategories(): GalleryCategory[] {
+  return useStoreData().galleryCategories.filter((category) => category.active !== false);
 }
 
 export function useStoreTestimonials(): Testimonial[] {

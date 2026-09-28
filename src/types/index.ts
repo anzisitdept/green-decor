@@ -71,6 +71,39 @@ export interface ServiceItem {
   faqs: { question: string; answer: string }[];
 }
 
+/**
+ * Filter categories for the public gallery, mirroring the documents in the
+ * `galleryCategories` collection. The collection is the live source of truth,
+ * managed from the admin panel; this is only the offline fallback.
+ */
+export interface GalleryCategory {
+  id: string;
+  label: string;
+  order: number;
+  active: boolean;
+}
+
+/**
+ * One project card on the public gallery page. Written from the admin panel
+ * (Gallery Projects) and read here live.
+ */
+export interface GalleryProject {
+  id: string;
+  title: string;
+  /** Slug of a `galleryCategories` document. */
+  category: string;
+  /** Slug of a `services` document, when the project maps to a service. */
+  serviceSlug?: string;
+  image: string;
+  shortDetails: string;
+  details: string;
+  /** Lower sorts first. */
+  order: number;
+  /** Hidden from the gallery when false. */
+  active: boolean;
+  createdAt?: string;
+}
+
 export interface Testimonial {
   id: string;
   name: string;
