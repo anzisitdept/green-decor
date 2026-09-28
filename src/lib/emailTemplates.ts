@@ -104,6 +104,21 @@ export function buildOrderNotification(order: Order): SendMailInput {
 
   if (order.promoCode) rows.push(['Promo code', escapeHtml(order.promoCode)]);
 
+  if (order.paymentDetails) {
+    const proof = order.paymentDetails;
+    rows.push(
+      ['Paid from', escapeHtml(`${proof.senderName} (${proof.senderAccount})`)],
+      ['Amount sent', proof.paidAmount ? pkr(proof.paidAmount) : 'not stated']
+    );
+    if (proof.transactionId) rows.push(['Transaction / TID', escapeHtml(proof.transactionId)]);
+    rows.push([
+      'Receipt',
+      proof.receiptDataUrl
+        ? 'attached by the customer — open the order in the admin panel to view it'
+        : 'not attached',
+    ]);
+  }
+
   const a = order.shippingAddress;
   rows.push(
     ['Customer', escapeHtml(a.fullName)],
@@ -118,6 +133,68 @@ export function buildOrderNotification(order: Order): SendMailInput {
     rows,
     'A new order has been placed on the storefront. Review it in the admin panel to confirm and begin processing.'
   );
+}
+
+const PAYMENT_LABELS: Record<string, string> = {
+  cod: 'Cash on delivery',
+  jazzcash: 'JazzCash',
+  easypaisa: 'EasyPaisa',
+  bank_transfer: 'Bank transfer',
+};
+
+/**
+ * The copy the customer receives, as opposed to the copy the shop receives.
+ * Addressed from the order's own `shippingAddress.email`, so it is only sent
+ * when the checkout actually collected one.
+ */
+export function buildOrderConfirmation(order: Order, baseUrl: string): SendMailInput {
+  const a = order.shippingAddress;
+  const items = order.items
+    .map((item) => `${item.product?.name ?? 'Product'} &times; ${item.quantity}`)
+    .join(', ');
+
+  const rows: [string, string][] = [
+    ['Order ID', escapeHtml(order.id)],
+    ['Placed on', escapeHtml(order.createdAt)],
+    ['Items', escapeHtml(items)],
+    ['Subtotal', pkr(order.subtotal)],
+    ['Shipping', pkr(order.shippingFee)],
+  ];
+
+  if (order.discount) rows.push(['Discount', `-${pkr(order.discount)}`]);
+  if (order.promoCode) rows.push(['Promo code', escapeHtml(order.promoCode)]);
+
+  rows.push(
+    ['Total', `<strong>${pkr(order.total)}</strong>`],
+    ['Payment', escapeHtml(PAYMENT_LABELS[order.paymentMethod] ?? order.paymentMethod)],
+    ['Tracking no.', escapeHtml(order.trackingNumber)],
+    [
+      'Delivering to',
+      escapeHtml(
+        [
+          a.fullName,
+          a.streetAddress,
+          a.apartmentSuite,
+          a.city,
+          a.district,
+          a.province,
+          a.postalCode,
+        ]
+          .filter(Boolean)
+          .join(', ')
+      ),
+    ]
+  );
+
+  const trackUrl = `${baseUrl}/orders/${encodeURIComponent(order.id)}`;
+  const mail = layout(
+    'Order received',
+    `Thanks ${a.fullName} — your Green Decor order ${order.id} for ${pkr(order.total)} is confirmed`,
+    rows,
+    `Our team will confirm your order shortly. You can follow its progress here:<br /><a href="${escapeHtml(trackUrl)}" style="color:#0d3b2e;font-weight:700;">${escapeHtml(trackUrl)}</a><br /><br />Questions? Reply to this email or message us on ${escapeHtml(CONTACT_PHONE)}.`
+  );
+
+  return { ...mail, to: a.email };
 }
 
 export function buildQuoteNotification(request: ServiceRequest): SendMailInput {

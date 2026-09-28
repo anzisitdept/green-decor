@@ -32,6 +32,33 @@ import { useUIStore } from '@/lib/store/useUIStore';
 import { getWhatsAppLink } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 
+type SidebarLinkItem = { label: string; href: string; icon: React.ReactNode };
+
+function SidebarLink({
+  link,
+  onClick,
+  emphasis = false,
+}: {
+  link: SidebarLinkItem;
+  onClick: () => void;
+  emphasis?: boolean;
+}) {
+  return (
+    <Link
+      href={link.href}
+      onClick={onClick}
+      className={`flex items-center gap-2.5 px-2 py-2 rounded-xl text-sm transition-colors ${
+        emphasis
+          ? 'font-semibold text-[#0d3b2e] bg-[#f4f7f2] hover:bg-[#eaf0e7]'
+          : 'text-[#2a3f33] hover:bg-[#f4f7f2] hover:text-[#0d3b2e]'
+      }`}
+    >
+      {link.icon}
+      <span>{link.label}</span>
+    </Link>
+  );
+}
+
 export default function LeftSidebar() {
   const router = useRouter();
   const cartCount = useCartStore((state) => state.getItemsCount());
@@ -54,18 +81,25 @@ export default function LeftSidebar() {
   ];
 
   const quickLinks = [
-    { label: 'Get Design Ideas', href: '/design-studio', icon: <Wand2 className="w-4 h-4 text-[#0d3b2e]" /> },
     { label: 'Track My Orders', href: '/orders', icon: <Package className="w-4 h-4 text-[#0d3b2e]" /> },
     { label: 'My Wishlist', href: '/wishlist', icon: <Heart className="w-4 h-4 text-[#0d3b2e]" /> },
     { label: 'My Account', href: '/account', icon: <User className="w-4 h-4 text-[#0d3b2e]" /> },
   ];
 
+  const homeLink = { label: 'Home', href: '/', icon: <Home className="w-4 h-4 text-[#0d3b2e]" /> };
+
+  const ideaLink = {
+    label: 'Get Design Ideas',
+    href: '/design-studio',
+    icon: <Wand2 className="w-4 h-4 text-[#0d3b2e]" />,
+  };
+
+  // Rendered after Home, Services, About, Contact and Testimonials.
   const menuLinks = [
-    { label: 'Home', href: '/', icon: <Home className="w-4 h-4 text-[#0d3b2e]" /> },
     { label: 'About Us', href: '/about', icon: <Info className="w-4 h-4 text-[#0d3b2e]" /> },
-    { label: 'Gallery', href: '/gallery', icon: <Images className="w-4 h-4 text-[#0d3b2e]" /> },
-    { label: 'Testimonials', href: '/testimonials', icon: <Quote className="w-4 h-4 text-[#0d3b2e]" /> },
     { label: 'Contact', href: '/contact', icon: <Phone className="w-4 h-4 text-[#0d3b2e]" /> },
+    { label: 'Testimonials', href: '/testimonials', icon: <Quote className="w-4 h-4 text-[#0d3b2e]" /> },
+    { label: 'Gallery', href: '/gallery', icon: <Images className="w-4 h-4 text-[#0d3b2e]" /> },
   ];
 
   const coreServices = [
@@ -161,6 +195,8 @@ export default function LeftSidebar() {
 
           {isMenuOpen && (
             <div className="flex flex-col gap-0.5">
+              <SidebarLink link={homeLink} onClick={closeLeftMenu} />
+
               {/* Services dropdown */}
               <div>
                 <button
@@ -208,16 +244,10 @@ export default function LeftSidebar() {
 
               {/* Flat menu links */}
               {menuLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={closeLeftMenu}
-                  className="flex items-center gap-2.5 px-2 py-2 rounded-xl text-sm text-[#2a3f33] hover:bg-[#f4f7f2] hover:text-[#0d3b2e] transition-colors"
-                >
-                  {link.icon}
-                  <span>{link.label}</span>
-                </Link>
+                <SidebarLink key={link.label} link={link} onClick={closeLeftMenu} />
               ))}
+
+              <SidebarLink link={ideaLink} onClick={closeLeftMenu} emphasis />
             </div>
           )}
         </div>

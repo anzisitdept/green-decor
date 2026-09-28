@@ -4,6 +4,7 @@ import { COLLECTIONS } from '@/lib/firestore/collections';
 import { sendMail, getMailConfig } from '@/lib/email';
 import {
   buildOrderNotification,
+  buildOrderConfirmation,
   buildQuoteNotification,
   buildContactNotification,
   buildNewsletterNotification,
@@ -13,10 +14,12 @@ import type { Order, ServiceRequest, ContactMessage, WelcomeSubscriber } from '@
 
 export const runtime = 'nodejs';
 
-type NotifyType = 'order' | 'quote' | 'contact' | 'newsletter';
+type NotifyType = 'order' | 'orderConfirmation' | 'quote' | 'contact' | 'newsletter';
 
 const COLLECTION_FOR: Record<NotifyType, string> = {
   order: COLLECTIONS.orders,
+  // Read from the same document as the shop notice; only the recipient differs.
+  orderConfirmation: COLLECTIONS.orders,
   quote: COLLECTIONS.serviceRequests,
   contact: COLLECTIONS.contactInquiries,
   // Newsletter subscribers share the collection with welcome-coupon claims,
@@ -27,10 +30,21 @@ const COLLECTION_FOR: Record<NotifyType, string> = {
 function isNotifyType(value: unknown): value is NotifyType {
   return (
     value === 'order' ||
+    value === 'orderConfirmation' ||
     value === 'quote' ||
     value === 'contact' ||
     value === 'newsletter'
   );
+}
+
+/**
+ * Absolute site origin for links in customer-facing mail. Falls back to the
+ * request origin so a preview deployment emails working links.
+ */
+function resolveBaseUrl(request: Request): string {
+  const configured = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL;
+  const origin = configured || request.headers.get('origin') || 'https://greendecorpk.com';
+  return origin.replace(/\/+$/, '');
 }
 
 /**
@@ -62,12 +76,18 @@ function toPlain(value: unknown): unknown {
   return value;
 }
 
-function buildFor(type: NotifyType, data: Record<string, unknown>): SendMailInput {
+function buildFor(
+  type: NotifyType,
+  data: Record<string, unknown>,
+  baseUrl: string
+): SendMailInput {
   // The shape of a Firestore document is not discriminable at runtime, so each
   // cast is checked by the collection the document was read from above.
   switch (type) {
     case 'order':
       return buildOrderNotification(data as unknown as Order);
+    case 'orderConfirmation':
+      return buildOrderConfirmation(data as unknown as Order, baseUrl);
     case 'quote':
       return buildQuoteNotification(data as unknown as ServiceRequest);
     case 'contact':
@@ -122,7 +142,15 @@ export async function POST(request: Request) {
   }
 
   const data = toPlain({ id: snap.id, ...snap.data() }) as Record<string, unknown>;
-  const result = await sendMail(buildFor(body.type, data));
+  const mail = buildFor(body.type, data, resolveBaseUrl(request));
+
+  // Checkout only asks for the confirmation when it collected an address, so a
+  // missing one is a no-op rather than a failure worth retrying.
+  if (body.type === 'orderConfirmation' && !mail.to) {
+    return NextResponse.json({ ok: true, skipped: 'no_customer_email' });
+  }
+
+  const result = await sendMail(mail);
 
   if (!result.sent) {
     return NextResponse.json({ ok: false, error: result.error }, { status: 502 });

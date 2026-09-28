@@ -280,6 +280,29 @@ export default function OrderDetailPage({ params }: OrderDetailPageProps) {
                   {order.paymentStatus}
                 </span>
               </div>
+              {order.paymentDetails ? (
+                <div className="pt-2 mt-2 border-t border-[#f0f4ee] space-y-1.5">
+                  <p className="font-semibold text-[#0d3b2e]">Transfer proof submitted</p>
+                  <div className="flex justify-between">
+                    <span>Paid from:</span>
+                    <span>{order.paymentDetails.senderName}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Account:</span>
+                    <span>{order.paymentDetails.senderAccount}</span>
+                  </div>
+                  {order.paymentDetails.transactionId ? (
+                    <div className="flex justify-between">
+                      <span>Transaction / TID:</span>
+                      <span>{order.paymentDetails.transactionId}</span>
+                    </div>
+                  ) : null}
+                  <p className="text-[11px] text-[#52685a] pt-1">
+                    We are verifying your transfer. This order moves to processing as soon as the
+                    payment is confirmed.
+                  </p>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>

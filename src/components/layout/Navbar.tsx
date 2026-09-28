@@ -85,14 +85,14 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`sticky top-0 z-40 w-full transition-all duration-300 ${isNavHidden ? '-translate-y-full' : 'translate-y-0'
+        className={`fixed top-0 inset-x-0 z-50 w-full transition-all duration-300 backdrop-blur-xl backdrop-saturate-150 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-white/70 before:to-transparent ${isNavHidden ? '-translate-y-full' : 'translate-y-0'
           } ${isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#e5ece3] py-4 sm:py-3'
-            : 'bg-transparent py-5 lg:py-4'
+            ? 'bg-white/85 border-b border-white/60 shadow-[0_10px_30px_-14px_rgba(13,59,46,0.35)] py-2.5 sm:py-2'
+            : 'bg-white/30 border-b border-white/20 shadow-[0_8px_24px_-18px_rgba(13,59,46,0.25)] py-3 lg:py-2.5'
           }`}
       >
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-4 min-h-[104px] lg:min-h-0">
+          <div className="flex items-center justify-between gap-4 min-h-[56px] sm:min-h-[64px] lg:min-h-0">
 
             {/* Left Menu Toggle */}
             <div className="flex items-center gap-2 sm:gap-3 shrink-0">
@@ -100,7 +100,7 @@ export default function Navbar() {
                 type="button"
                 onClick={openLeftMenu}
                 aria-label="Open menu"
-                className="relative p-2.5 rounded-full border border-[#d6e2d3] text-[#0d3b2e] hover:bg-[#eaf0e7] hover:border-[#0d3b2e] transition-colors"
+                className="relative p-2.5 rounded-full border border-[#d6e2d3] text-[#0d3b2e] hover:bg-[#eaf0e7] hover:border-[#0d3b2e] transition-colors bg-white/40"
               >
                 <Menu className="w-6 h-6" />
               </button>
@@ -119,7 +119,7 @@ export default function Navbar() {
                 height={98}
                 priority
                 sizes="77px"
-                className="h-28 w-auto object-contain lg:hidden"
+                className="h-20 sm:h-24 w-auto object-contain lg:hidden drop-shadow-xs"
               />
 
               <div className="hidden lg:flex flex-col min-w-0 text-left">
@@ -150,8 +150,8 @@ export default function Navbar() {
                         type="button"
                         onClick={() => setIsMegaMenuOpen(!isMegaMenuOpen)}
                         className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors ${pathname.startsWith('/services')
-                            ? 'text-[#0d3b2e] font-semibold bg-[#eaf0e7]'
-                            : 'text-[#2a3f33] hover:text-[#0d3b2e] hover:bg-[#f0f5ee]'
+                          ? 'text-[#0d3b2e] font-semibold bg-[#eaf0e7]'
+                          : 'text-[#2a3f33] hover:text-[#0d3b2e] hover:bg-[#f0f5ee]'
                           }`}
                       >
                         {link.icon}
@@ -173,8 +173,8 @@ export default function Navbar() {
                     key={link.name}
                     href={link.href}
                     className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors ${isActive
-                        ? 'text-[#0d3b2e] font-semibold bg-[#eaf0e7]'
-                        : 'text-[#2a3f33] hover:text-[#0d3b2e] hover:bg-[#f0f5ee]'
+                      ? 'text-[#0d3b2e] font-semibold bg-[#eaf0e7]'
+                      : 'text-[#2a3f33] hover:text-[#0d3b2e] hover:bg-[#f0f5ee]'
                       }`}
                   >
                     {link.icon}

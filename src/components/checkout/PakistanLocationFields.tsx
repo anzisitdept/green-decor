@@ -22,6 +22,8 @@ export interface LocationSelection {
 interface Props {
   value: LocationSelection;
   onChange: (selection: LocationSelection) => void;
+  /** Drops the data-source banner and the per-field hints to save vertical space. */
+  compact?: boolean;
 }
 
 const selectClass =
@@ -29,7 +31,7 @@ const selectClass =
 const labelClass = 'block text-xs font-bold text-[#172b21] mb-1';
 const hintClass = 'text-[10px] text-[#9fb3a5] mt-1';
 
-export default function PakistanLocationFields({ value, onChange }: Props) {
+export default function PakistanLocationFields({ value, onChange, compact = false }: Props) {
   const province = findProvinceByName(value.province);
   const district = province ? findDistrictByName(value.district, province.id) : undefined;
   const tehsil = district ? findTehsilByName(value.tehsil, district.id) : undefined;
@@ -66,14 +68,18 @@ export default function PakistanLocationFields({ value, onChange }: Props) {
     });
   };
 
+  const hint = (node: React.ReactNode) => (compact ? null : <p className={hintClass}>{node}</p>);
+
   return (
     <div>
-      <div className="flex items-center gap-1.5 text-[10px] font-semibold text-[#52685a] bg-[#f4f7f2] rounded-xl px-3 py-2 mb-4">
-        <Globe2 className="w-3.5 h-3.5 text-[#0d3b2e]" />
-        <span>Locations powered by Pakistan Admin Data (Open Admin Data API)</span>
-      </div>
+      {compact ? null : (
+        <div className="flex items-center gap-1.5 text-[10px] font-semibold text-[#52685a] bg-[#f4f7f2] rounded-xl px-3 py-2 mb-4">
+          <Globe2 className="w-3.5 h-3.5 text-[#0d3b2e]" />
+          <span>Locations powered by Pakistan Admin Data (Open Admin Data API)</span>
+        </div>
+      )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         <div>
           <label className={labelClass}>Province *</label>
           <select
@@ -91,7 +97,7 @@ export default function PakistanLocationFields({ value, onChange }: Props) {
               </option>
             ))}
           </select>
-          <p className={hintClass}>e.g. Punjab, Sindh, Khyber Pakhtunkhwa</p>
+          {hint('e.g. Punjab, Sindh, Khyber Pakhtunkhwa')}
         </div>
 
         <div>
@@ -112,9 +118,7 @@ export default function PakistanLocationFields({ value, onChange }: Props) {
               </option>
             ))}
           </select>
-          <p className={hintClass}>
-            {province ? `${districts.length} districts in ${province.name.en}` : 'Province unlocks the district list'}
-          </p>
+          {hint(province ? `${districts.length} districts in ${province.name.en}` : 'Province unlocks the district list')}
         </div>
 
         <div>
@@ -135,9 +139,7 @@ export default function PakistanLocationFields({ value, onChange }: Props) {
               </option>
             ))}
           </select>
-          <p className={hintClass}>
-            {district ? `${tehsils.length} tehsils in ${district.name.en}` : 'District unlocks the tehsil list'}
-          </p>
+          {hint(district ? `${tehsils.length} tehsils in ${district.name.en}` : 'District unlocks the tehsil list')}
         </div>
 
         <div>
@@ -150,7 +152,7 @@ export default function PakistanLocationFields({ value, onChange }: Props) {
             placeholder="Auto-filled from Tehsil"
             className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#0d3b2e] focus:outline-none"
           />
-          <p className={hintClass}>{tehsil ? `Zip for ${tehsil.name.en}: ${value.postalCode || postalCodeFor(tehsil)}` : 'Auto-filled once Tehsil is selected'}</p>
+          {hint(tehsil ? `Zip for ${tehsil.name.en}: ${value.postalCode || postalCodeFor(tehsil)}` : 'Auto-filled once Tehsil is selected')}
         </div>
       </div>
     </div>

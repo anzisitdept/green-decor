@@ -1,6 +1,11 @@
 'use client';
 
-export type NotifyType = 'order' | 'quote' | 'contact' | 'newsletter';
+export type NotifyType =
+  | 'order'
+  | 'orderConfirmation'
+  | 'quote'
+  | 'contact'
+  | 'newsletter';
 
 /**
  * Asks the server to email a notification for a document that was just written.

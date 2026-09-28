@@ -60,6 +60,12 @@ export interface SendMailInput {
   subject: string;
   html: string;
   text: string;
+  /**
+   * Overrides the default recipient (`NOTIFY_EMAIL`). Used for customer-facing
+   * mail such as the order confirmation, where the order document itself holds
+   * the address to write to.
+   */
+  to?: string;
 }
 
 export type SendMailResult =
@@ -85,7 +91,7 @@ export async function sendMail(input: SendMailInput): Promise<SendMailResult> {
   try {
     const info = await getTransport(config).sendMail({
       from: `"${config.fromName}" <${config.fromEmail}>`,
-      to: config.to,
+      to: input.to || config.to,
       subject: input.subject,
       text: input.text,
       html: input.html,

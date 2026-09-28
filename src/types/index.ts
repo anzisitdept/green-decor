@@ -156,6 +156,26 @@ export interface OrderAddress {
 
 export type PaymentMethod = 'cod' | 'jazzcash' | 'easypaisa' | 'bank_transfer';
 
+/**
+ * Proof of a manual bank/wallet transfer, captured on the payment step for
+ * every method except cash on delivery. The receipt is a client-compressed data
+ * URL rather than a hosted file: this project has no Cloud Storage bucket
+ * (billing is disabled, so one cannot be created), which leaves the order
+ * document itself as the only durable place to keep it.
+ */
+export interface OrderPaymentDetails {
+  /** Account title the customer paid from. */
+  senderName: string;
+  /** Account number or mobile number the money was debited from. */
+  senderAccount: string;
+  /** Bank/wallet transaction id or reference, when the customer has one. */
+  transactionId?: string;
+  paidAmount?: number;
+  receiptDataUrl?: string;
+  receiptFileName?: string;
+  submittedAt: string;
+}
+
 export type OrderStatus = 'placed' | 'confirmed' | 'processing' | 'shipped' | 'delivered' | 'cancelled';
 
 export const ORDER_STATUS_FLOW: OrderStatus[] = [
@@ -173,6 +193,8 @@ export interface Order {
   shippingAddress: OrderAddress;
   paymentMethod: PaymentMethod;
   paymentStatus: 'pending' | 'paid' | 'failed';
+  /** Present when the customer paid by transfer and submitted proof. */
+  paymentDetails?: OrderPaymentDetails;
   subtotal: number;
   shippingFee: number;
   discount: number;

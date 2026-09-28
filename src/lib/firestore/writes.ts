@@ -14,6 +14,8 @@ export async function createOrder(order: Order): Promise<string> {
   // an SMTP round trip. `notifyByEmail` never rejects, so there is no unhandled
   // rejection here.
   void notifyByEmail('order', ref.id);
+  // The customer's own receipt, sent straight from the address on the order.
+  void notifyByEmail('orderConfirmation', ref.id);
   return ref.id;
 }
 

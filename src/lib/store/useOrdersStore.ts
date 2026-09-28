@@ -2,7 +2,7 @@
 
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { Order, CartItem, OrderAddress, PaymentMethod, OrderStatus } from '@/types';
+import { Order, CartItem, OrderAddress, OrderPaymentDetails, PaymentMethod, OrderStatus } from '@/types';
 
 interface OrdersStore {
   orders: Order[];
@@ -23,7 +23,8 @@ interface OrdersStore {
     discount: number,
     total: number,
     userId?: string,
-    promoCode?: string
+    promoCode?: string,
+    paymentDetails?: OrderPaymentDetails
   ) => Order;
   getOrderById: (orderId: string) => Order | undefined;
   updateOrderStatus: (orderId: string, status: OrderStatus, note?: string) => void;
@@ -134,7 +135,8 @@ export const useOrdersStore = create<OrdersStore>()(
         discount,
         total,
         userId,
-        promoCode
+        promoCode,
+        paymentDetails
       ) => {
         const orderId = `GD-${Math.floor(10000 + Math.random() * 90000)}`;
         const trackingNumber = `TCS-${Math.floor(1000000000 + Math.random() * 9000000000)}`;
@@ -146,12 +148,15 @@ export const useOrdersStore = create<OrdersStore>()(
           items,
           shippingAddress,
           paymentMethod,
-          paymentStatus: paymentMethod === 'cod' ? 'pending' : 'paid',
+          // A transfer is only "paid" once someone in the admin panel has
+          // checked the receipt, so every new order starts unverified.
+          paymentStatus: 'pending',
           subtotal,
           shippingFee,
           discount,
           total,
           ...(promoCode ? { promoCode } : {}),
+          ...(paymentDetails ? { paymentDetails } : {}),
           status: 'placed',
           trackingNumber,
           createdAt: now,
@@ -159,7 +164,9 @@ export const useOrdersStore = create<OrdersStore>()(
             {
               status: 'placed',
               timestamp: now,
-              note: 'Order placed successfully. Thank you for choosing Green Decor!',
+              note: paymentDetails
+                ? 'Order placed with transfer receipt attached, awaiting verification.'
+                : 'Order placed successfully. Thank you for choosing Green Decor!',
             },
           ],
         };

@@ -32,17 +32,6 @@ const DEFAULT_SLIDES = [
     badgeLine1: 'Living Energy',
     badgeLine2: 'For Modern Homes',
   },
-  {
-    id: 3,
-    titleLine1: 'Lush Lawns',
-    titleLine2: 'Serene Patios',
-    titleLine3: 'Across Pakistan',
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1800&q=95',
-    wallScript: 'Live\nIn\nNature 💚',
-    badgeWord: 'Bespoke',
-    badgeLine1: 'Lawn & Terrace',
-    badgeLine2: 'Turnkey Excellence',
-  },
 ];
 
 function mapAdminSlides(heroSlides: HeroSlide[]) {
@@ -138,11 +127,11 @@ export default function Hero() {
         </AnimatePresence>
       </div>
 
-      {/* Light fade on the left for readability */}
-      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-white/50 via-white/15 to-transparent" />
+      {/* Light fade on the left for readability. */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-white/45 via-white/10 to-transparent" />
 
       {/* Main Content Area (overlaid on upper region of the image) */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10 lg:pt-12 pb-10 min-h-[440px] sm:min-h-[480px] lg:min-h-[520px] xl:min-h-[560px]">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-24 pb-10 min-h-[440px] sm:min-h-[480px] lg:min-h-[520px] xl:min-h-[560px]">
         <div className="max-w-xl lg:max-w-md xl:max-w-lg space-y-5">
 
           {/* Eyebrow */}

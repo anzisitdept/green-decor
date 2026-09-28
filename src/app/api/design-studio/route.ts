@@ -22,10 +22,11 @@ export interface DesignSuggestion {
 }
 
 const CANDIDATE_MODELS = [
-  'models/gemini-3.1-flash-lite',
-  'models/gemini-3.5-flash-lite',
-  'models/gemini-3.8-flash',
+  'models/gemini-2.5-flash',
+  'models/gemini-2.0-flash',
+  'models/gemini-1.5-flash',
   'models/gemini-flash-latest',
+  'models/gemini-1.5-pro',
 ];
 
 const CURATED_CONCEPT_IMAGES = [
