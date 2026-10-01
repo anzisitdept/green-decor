@@ -16,6 +16,7 @@ import {
   Menu,
   MessageCircle,
   ShoppingBag,
+  Sparkles,
 } from 'lucide-react';
 import { useCartStore } from '@/lib/store/useCartStore';
 import { useUIStore } from '@/lib/store/useUIStore';
@@ -28,9 +29,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const [isNavHidden, setIsNavHidden] = useState(false);
   const megaMenuRef = useRef<HTMLDivElement>(null);
-  const lastScrollYRef = useRef(0);
 
   const cartCount = useCartStore((state) => state.getItemsCount());
   const { openSearch, openCart, openLeftMenu } = useUIStore();
@@ -40,17 +39,8 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    lastScrollYRef.current = window.scrollY;
-
     const handleScroll = () => {
-      const currentY = window.scrollY;
-      const lastY = lastScrollYRef.current;
-      setIsScrolled(currentY > 20);
-
-      // Hide the navbar on any scroll down, bring it back on scroll up (or at the top)
-      setIsNavHidden(currentY > 40 && currentY > lastY);
-
-      lastScrollYRef.current = currentY;
+      setIsScrolled(window.scrollY > 20);
     };
 
     handleScroll();
@@ -71,6 +61,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', href: '/', icon: <Home className="w-4 h-4" /> },
+    { name: 'Design Studio', href: '/design-studio', icon: <Sparkles className="w-4 h-4 text-[#d47343]" /> },
     { name: 'About Us', href: '/about', icon: <Info className="w-4 h-4" /> },
     { name: 'Services', href: '/services', isMega: true, icon: <Leaf className="w-4 h-4" /> },
     { name: 'Gallery', href: '/gallery', icon: <Images className="w-4 h-4" /> },
@@ -85,14 +76,13 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 inset-x-0 z-50 w-full transition-all duration-300 backdrop-blur-xl backdrop-saturate-150 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-white/70 before:to-transparent ${isNavHidden ? '-translate-y-full' : 'translate-y-0'
-          } ${isScrolled
-            ? 'bg-white/85 border-b border-white/60 shadow-[0_10px_30px_-14px_rgba(13,59,46,0.35)] py-2.5 sm:py-2'
-            : 'bg-white/30 border-b border-white/20 shadow-[0_8px_24px_-18px_rgba(13,59,46,0.25)] py-3 lg:py-2.5'
+        className={`fixed top-0 inset-x-0 z-50 w-full transition-all duration-300 backdrop-blur-xl backdrop-saturate-150 border-b border-[#e9dbb9] ${isScrolled
+            ? 'bg-[#faedcd]/95 shadow-[0_10px_30px_-10px_rgba(13,59,46,0.15)] py-2 sm:py-2'
+            : 'bg-[#faedcd]/90 shadow-sm py-2.5 sm:py-2.5'
           }`}
       >
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-4 min-h-[56px] sm:min-h-[64px] lg:min-h-0">
+        <div className="relative w-full max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between gap-3 min-h-[44px] sm:min-h-[52px] lg:min-h-0">
 
             {/* Left Menu Toggle */}
             <div className="flex items-center gap-2 sm:gap-3 shrink-0">
@@ -100,9 +90,9 @@ export default function Navbar() {
                 type="button"
                 onClick={openLeftMenu}
                 aria-label="Open menu"
-                className="relative p-2.5 rounded-full border border-[#d6e2d3] text-[#0d3b2e] hover:bg-[#eaf0e7] hover:border-[#0d3b2e] transition-colors bg-white/40"
+                className="relative p-2 sm:p-2.5 rounded-full border border-[#d6e2d3] text-[#0d3b2e] hover:bg-[#eaf0e7] hover:border-[#0d3b2e] transition-colors bg-white/60"
               >
-                <Menu className="w-6 h-6" />
+                <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
             </div>
 
@@ -119,7 +109,7 @@ export default function Navbar() {
                 height={98}
                 priority
                 sizes="77px"
-                className="h-20 sm:h-24 w-auto object-contain lg:hidden drop-shadow-xs"
+                className="h-16 sm:h-16 w-auto object-contain lg:hidden drop-shadow-xs"
               />
 
               <div className="hidden lg:flex flex-col min-w-0 text-left">
@@ -150,8 +140,8 @@ export default function Navbar() {
                         type="button"
                         onClick={() => setIsMegaMenuOpen(!isMegaMenuOpen)}
                         className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors ${pathname.startsWith('/services')
-                          ? 'text-[#0d3b2e] font-semibold bg-[#eaf0e7]'
-                          : 'text-[#2a3f33] hover:text-[#0d3b2e] hover:bg-[#f0f5ee]'
+                            ? 'text-[#0d3b2e] font-semibold bg-[#eaf0e7]'
+                            : 'text-[#2a3f33] hover:text-[#0d3b2e] hover:bg-[#f0f5ee]'
                           }`}
                       >
                         {link.icon}
@@ -173,8 +163,8 @@ export default function Navbar() {
                     key={link.name}
                     href={link.href}
                     className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-colors ${isActive
-                      ? 'text-[#0d3b2e] font-semibold bg-[#eaf0e7]'
-                      : 'text-[#2a3f33] hover:text-[#0d3b2e] hover:bg-[#f0f5ee]'
+                        ? 'text-[#0d3b2e] font-semibold bg-[#eaf0e7]'
+                        : 'text-[#2a3f33] hover:text-[#0d3b2e] hover:bg-[#f0f5ee]'
                       }`}
                   >
                     {link.icon}
@@ -191,9 +181,9 @@ export default function Navbar() {
                 type="button"
                 onClick={openSearch}
                 aria-label="Search products and services"
-                className="p-2.5 rounded-full text-[#0d3b2e] hover:bg-[#eaf0e7] transition-colors"
+                className="p-2 sm:p-2.5 rounded-full text-[#0d3b2e] hover:bg-[#eaf0e7] transition-colors"
               >
-                <Search className="w-6 h-6" />
+                <Search className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
 
               {/* Cart Drawer Trigger */}
@@ -201,9 +191,9 @@ export default function Navbar() {
                 type="button"
                 onClick={openCart}
                 aria-label="Open cart"
-                className="relative p-2.5 rounded-full text-[#0d3b2e] hover:bg-[#eaf0e7] transition-colors"
+                className="relative p-2 sm:p-2.5 rounded-full text-[#0d3b2e] hover:bg-[#eaf0e7] transition-colors"
               >
-                <ShoppingBag className="w-6 h-6" />
+                <ShoppingBag className="w-5 h-5 sm:w-6 sm:h-6" />
                 {isMounted && cartCount > 0 && (
                   <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 rounded-full bg-[#d47343] border-2 border-white text-white text-[10px] font-bold flex items-center justify-center leading-none">
                     {cartCount > 9 ? '9+' : cartCount}

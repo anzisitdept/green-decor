@@ -10,16 +10,9 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div className="w-full bg-white">
-      {/* Hero — full-bleed image, dark green overlay, centered heading, wavy divider */}
-      <section className="relative w-full h-[70vh] min-h-[440px] sm:h-[78vh] lg:h-[82vh] bg-[#0d3b2e]">
-        <Image
-          src="/about-hero.jpg"
-          alt="Green Decor nursery greenery"
-          fill
-          priority
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+      {/* Hero — plain dark green background, centered heading, wavy divider */}
+      <section className="relative w-full h-[85vh] min-h-[560px] sm:h-[88vh] lg:h-[92vh] bg-[#0d3b2e]">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
         <div className="relative z-10 h-full flex items-center justify-center px-4 text-center">
           <h1 className="font-extrabold text-white text-5xl md:text-7xl tracking-tight">
             About Us
@@ -58,21 +51,23 @@ export default function AboutPage() {
               everyday happiness and well-being.
             </p>
           </div>
-        </div>
+</div>
+      </section>
 
-        {/* Full-width brand work image */}
-        <div className="mt-10 sm:mt-12 relative w-full aspect-[16/7] overflow-hidden rounded-3xl">
-          <Image
-            src="/about.jpg"
-            alt="Green Decor landscaping and installation work"
-            fill
-            className="object-cover object-center"
-          />
-        </div>
+      {/* Full-bleed brand work image — no rounding, spans the section edge to edge */}
+      <section className="relative w-full h-[60vh] min-h-[320px] sm:h-[70vh] lg:h-[85vh]">
+        <Image
+          src="/about us.jpeg"
+          alt="Green Decor landscaping and installation work"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
       </section>
 
       {/* 4 Pillars of Excellence */}
-      <section className="pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="pt-12 sm:pt-16 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="bg-white rounded-3xl p-8 sm:p-12 border border-[#e5ece3] shadow-lg">
           <h3 className="text-2xl font-bold text-[#0d3b2e] text-center mb-10">
             Our Four Pillars of Quality

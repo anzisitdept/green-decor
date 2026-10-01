@@ -1,9 +1,21 @@
 import { NextResponse } from 'next/server';
+import { adminDb } from '@/lib/firebase-admin';
+import { COLLECTIONS } from '@/lib/firestore/collections';
+import { normalizeContact } from '@/lib/phone';
 
 export const runtime = 'nodejs';
 
+/** Attribution tag so the admin panel can tell AI studio leads apart. */
+export const DESIGN_STUDIO_SOURCE = 'ai-studio';
+
+const NAME_MAX = 80;
+const DESCRIPTION_MAX = 2000;
+const USER_AGENT_MAX = 200;
+
 export interface DesignStudioRequest {
   description?: string;
+  name?: string;
+  phone?: string;
   image?: {
     data: string; // Base64 encoded string
     mimeType: string;
@@ -162,20 +174,95 @@ function cleanJsonString(rawText: string): string {
   return cleaned.trim();
 }
 
+function cleanName(value: unknown): string | undefined {
+  if (typeof value !== 'string') return undefined;
+  // Same treatment as the welcome coupon endpoint: collapse whitespace and drop
+  // control characters so a pasted name cannot break the admin table.
+  const trimmed = value.replace(/[\p{Cc}\p{Cf}]/gu, ' ').replace(/\s+/g, ' ').trim();
+  if (!trimmed || trimmed.length > NAME_MAX) return undefined;
+  return trimmed;
+}
+
+function cleanDescription(value: unknown): string | undefined {
+  if (typeof value !== 'string') return undefined;
+  const trimmed = value.replace(/[\p{Cc}]/gu, ' ').replace(/\s+/g, ' ').trim();
+  if (!trimmed || trimmed.length > DESCRIPTION_MAX) return undefined;
+  return trimmed;
+}
+
+/**
+ * Records the visitor as an AI studio lead.
+ *
+ * The design studio already collects a name and phone number before it will
+ * generate anything, but until now those were only used for validation and then
+ * thrown away, so the sales team had no record of anyone using the tool. Written
+ * server-side through the admin SDK because `designStudioLeads` holds phone
+ * numbers and is admin-only in the Firestore rules, exactly like
+ * `welcomeSubscribers`.
+ *
+ * Deliberately never throws: a lead-capture failure must not cost the visitor
+ * their design concepts, so Firestore problems are logged and swallowed.
+ */
+async function recordDesignStudioLead(
+  request: Request,
+  input: { name?: string; phone?: string; description?: string; hasImage: boolean }
+): Promise<void> {
+  const contact = input.phone ? normalizeContact(input.phone) : null;
+  if (!contact) return;
+
+  const name = cleanName(input.name);
+  const description = cleanDescription(input.description);
+  const timestamp = new Date().toISOString();
+  const userAgent = request.headers.get('user-agent')?.slice(0, USER_AGENT_MAX);
+
+  try {
+    const db = adminDb();
+    const leads = db.collection(COLLECTIONS.designStudioLeads);
+
+    // One lead per person per generation session. Auto ids keep repeat visits
+    // as separate rows so the panel can show engagement over time, while
+    // `contact` stays indexed for search and de-duplication by staff.
+    await leads.doc().set({
+      contact,
+      name: name || `Guest ${contact.slice(-4)}`,
+      source: DESIGN_STUDIO_SOURCE,
+      description: description ?? '',
+      hasImage: input.hasImage,
+      imageCount: input.hasImage ? 1 : 0,
+      status: 'new',
+      ...(userAgent ? { userAgent } : {}),
+      createdAt: timestamp,
+      updatedAt: timestamp,
+    });
+  } catch (error) {
+    console.error('[design-studio] failed to record lead:', error);
+  }
+}
+
 export async function POST(request: Request) {
   const defaultFallbacks = buildDefaultFallbackSuggestions();
 
   try {
+    const body: DesignStudioRequest = await request.json().catch(() => ({}));
+    const descriptionText = body.description?.trim() || '';
+    const imageInput = body.image;
+
+    // Capture the lead before anything can bail out. The visitor has already
+    // handed over their details and a design brief, so even a Gemini outage or
+    // a missing API key must not lose the record.
+    await recordDesignStudioLead(request, {
+      name: body.name,
+      phone: body.phone,
+      description: descriptionText,
+      hasImage: Boolean(imageInput?.data && imageInput.mimeType),
+    });
+
     const apiKey = process.env.GEMINI_API_KEY;
 
     if (!apiKey) {
       console.warn('GEMINI_API_KEY is missing in environment. Using fallback suggestions.');
       return NextResponse.json({ success: true, suggestions: defaultFallbacks, source: 'fallback' });
     }
-
-    const body: DesignStudioRequest = await request.json().catch(() => ({}));
-    const descriptionText = body.description?.trim() || '';
-    const imageInput = body.image;
 
     const systemPrompt = `You are an expert landscape architect and botanical interior designer for "Green Decor" (a luxury plant, pot, and outdoor/indoor styling brand).
 Analyze the user's description and uploaded photo (if provided).

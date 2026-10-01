@@ -11,6 +11,13 @@ export interface DesignSuggestion {
 
 export interface GenerateDesignInput {
   description?: string;
+  /**
+   * Contact details collected by the pre-generation modal. Optional so the
+   * generation call still works without them, but when present the server
+   * records the visitor as an AI studio lead for the sales team.
+   */
+  name?: string;
+  phone?: string;
   image?: {
     data: string; // Base64 image
     mimeType: string;
@@ -60,6 +67,8 @@ export async function generateDesignSuggestions(input: GenerateDesignInput): Pro
       },
       body: JSON.stringify({
         description: input.description,
+        ...(input.name?.trim() ? { name: input.name.trim() } : {}),
+        ...(input.phone?.trim() ? { phone: input.phone.trim() } : {}),
         image: input.image
           ? {
               data: input.image.data,

@@ -47,11 +47,10 @@ function SidebarLink({
     <Link
       href={link.href}
       onClick={onClick}
-      className={`flex items-center gap-2.5 px-2 py-2 rounded-xl text-sm transition-colors ${
-        emphasis
+      className={`flex items-center gap-2.5 px-2 py-2 rounded-xl text-sm transition-colors ${emphasis
           ? 'font-semibold text-[#0d3b2e] bg-[#f4f7f2] hover:bg-[#eaf0e7]'
           : 'text-[#2a3f33] hover:bg-[#f4f7f2] hover:text-[#0d3b2e]'
-      }`}
+        }`}
     >
       {link.icon}
       <span>{link.label}</span>
@@ -187,9 +186,8 @@ export default function LeftSidebar() {
           >
             <span className="text-xs font-bold text-[#52685a] uppercase tracking-wider">Menu</span>
             <ChevronDown
-              className={`w-4 h-4 text-[#52685a] transition-transform duration-200 ${
-                isMenuOpen ? 'rotate-180 text-[#0d3b2e]' : ''
-              }`}
+              className={`w-4 h-4 text-[#52685a] transition-transform duration-200 ${isMenuOpen ? 'rotate-180 text-[#0d3b2e]' : ''
+                }`}
             />
           </button>
 
@@ -202,18 +200,16 @@ export default function LeftSidebar() {
                 <button
                   type="button"
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className={`w-full flex items-center gap-2.5 px-2 py-2 rounded-xl text-sm transition-colors ${
-                    isServicesOpen
+                  className={`w-full flex items-center gap-2.5 px-2 py-2 rounded-xl text-sm transition-colors ${isServicesOpen
                       ? 'text-[#0d3b2e] font-semibold bg-[#f4f7f2]'
                       : 'text-[#2a3f33] hover:bg-[#f4f7f2] hover:text-[#0d3b2e]'
-                  }`}
+                    }`}
                 >
                   <LayoutGrid className="w-4 h-4 text-[#0d3b2e]" />
                   <span className="flex-1 text-left">Services</span>
                   <ChevronDown
-                    className={`w-4 h-4 text-[#52685a] transition-transform duration-200 ${
-                      isServicesOpen ? 'rotate-180 text-[#0d3b2e]' : ''
-                    }`}
+                    className={`w-4 h-4 text-[#52685a] transition-transform duration-200 ${isServicesOpen ? 'rotate-180 text-[#0d3b2e]' : ''
+                      }`}
                   />
                 </button>
 
@@ -260,9 +256,8 @@ export default function LeftSidebar() {
           >
             <span className="text-xs font-bold text-[#52685a] uppercase tracking-wider">Shop by Category</span>
             <ChevronDown
-              className={`w-4 h-4 text-[#52685a] transition-transform duration-200 ${
-                isCategoriesOpen ? 'rotate-180 text-[#0d3b2e]' : ''
-              }`}
+              className={`w-4 h-4 text-[#52685a] transition-transform duration-200 ${isCategoriesOpen ? 'rotate-180 text-[#0d3b2e]' : ''
+                }`}
             />
           </button>
 
@@ -291,9 +286,8 @@ export default function LeftSidebar() {
           >
             <span className="text-xs font-bold text-[#52685a] uppercase tracking-wider">Quick Links</span>
             <ChevronDown
-              className={`w-4 h-4 text-[#52685a] transition-transform duration-200 ${
-                isQuickOpen ? 'rotate-180 text-[#0d3b2e]' : ''
-              }`}
+              className={`w-4 h-4 text-[#52685a] transition-transform duration-200 ${isQuickOpen ? 'rotate-180 text-[#0d3b2e]' : ''
+                }`}
             />
           </button>
 

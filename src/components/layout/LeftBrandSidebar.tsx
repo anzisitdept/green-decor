@@ -7,6 +7,15 @@ import Link from 'next/link';
 export default function LeftBrandSidebar() {
   const categories = [
     {
+      label: 'Design Studio',
+      href: '/design-studio',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-5 h-5 text-[#d47343]">
+          <path d="M12 2l2.4 5.3 5.6.8-4 4.1 1 5.8-5-2.8-5 2.8 1-5.8-4-4.1 5.6-.8z" />
+        </svg>
+      ),
+    },
+    {
       label: 'Pots',
       href: '/shop?category=pots',
       icon: (

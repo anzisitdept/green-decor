@@ -1,188 +1,81 @@
 'use client';
 
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import {
   UploadCloud,
-  Sparkles,
   RefreshCw,
   Check,
   ImagePlus,
   X,
   Wand2,
-  Leaf,
-  Lightbulb,
-  ArrowRight,
-  Camera,
 } from 'lucide-react';
 import { generateDesignSuggestions, DesignSuggestion } from '@/lib/designSuggestions';
+import { useAuthStore } from '@/lib/store/useAuthStore';
+import { useUIStore } from '@/lib/store/useUIStore';
+import ContactDetailsModal from '@/components/design/ContactDetailsModal';
 
 interface EnhancedDesignSuggestion extends DesignSuggestion {
   userUploaded?: boolean;
   uploadedImagePreview?: string;
 }
 
-function ConceptCard({ suggestion, index }: { suggestion: EnhancedDesignSuggestion; index: number }) {
-  const [activeView, setActiveView] = useState<'render' | 'userUploaded'>('render');
-  const [currentImgUrl, setCurrentImgUrl] = useState<string>(
-    suggestion.imageUrl || suggestion.fallbackImageUrl || ''
-  );
+function ConceptImage({ suggestion }: { suggestion: EnhancedDesignSuggestion }) {
+  const [currentImgUrl, setCurrentImgUrl] = useState(suggestion.imageUrl || suggestion.fallbackImageUrl || '');
   const [imgLoaded, setImgLoaded] = useState(false);
-  const [hasError, setHasError] = useState(false);
-
-  useEffect(() => {
-    setImgLoaded(false);
-    setHasError(false);
-    if (activeView === 'userUploaded' && suggestion.uploadedImagePreview) {
-      setCurrentImgUrl(suggestion.uploadedImagePreview);
-    } else {
-      setCurrentImgUrl(suggestion.imageUrl || suggestion.fallbackImageUrl || '');
-    }
-  }, [activeView, suggestion]);
+  const fallbackApplied = useRef(false);
 
   const handleImageError = () => {
-    if (!hasError && suggestion.fallbackImageUrl && currentImgUrl !== suggestion.fallbackImageUrl) {
-      setHasError(true);
+    if (!fallbackApplied.current && suggestion.fallbackImageUrl && currentImgUrl !== suggestion.fallbackImageUrl) {
+      fallbackApplied.current = true;
       setCurrentImgUrl(suggestion.fallbackImageUrl);
     }
   };
 
+  if (!currentImgUrl) return null;
+
   return (
-    <article className="group rounded-3xl bg-white border border-[#e5ece3] overflow-hidden hover:border-[#0d3b2e]/40 hover:shadow-xl transition-all flex flex-col justify-between">
-      <div>
-        {/* User Uploaded or Concept Header Image */}
-        <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#172b21]">
-          {currentImgUrl && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={currentImgUrl}
-              alt={suggestion.theme}
-              onLoad={() => setImgLoaded(true)}
-              onError={handleImageError}
-              className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-500 ${
-                imgLoaded ? 'opacity-100 scale-100' : 'opacity-75 scale-105'
-              }`}
-              loading="eager"
-            />
-          )}
-
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
-
-          <div className="absolute top-3 left-3 right-3 z-10 flex items-center justify-between gap-2">
-            {suggestion.userUploaded && suggestion.uploadedImagePreview ? (
-              <div className="inline-flex items-center p-0.5 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-[10px] font-extrabold shadow-sm">
-                <button
-                  type="button"
-                  onClick={() => setActiveView('render')}
-                  className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full transition-all ${
-                    activeView === 'render' ? 'bg-[#0d3b2e] text-white shadow-xs' : 'text-gray-300 hover:text-white'
-                  }`}
-                >
-                  <Sparkles className="w-3 h-3 text-[#8bc34a]" />
-                  AI Vision
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveView('userUploaded')}
-                  className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full transition-all ${
-                    activeView === 'userUploaded' ? 'bg-[#0d3b2e] text-white shadow-xs' : 'text-gray-300 hover:text-white'
-                  }`}
-                >
-                  <Camera className="w-3 h-3 text-[#8bc34a]" />
-                  Your Space
-                </button>
-              </div>
-            ) : (
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-black/70 backdrop-blur-md text-white text-[10px] font-extrabold px-3 py-1 border border-white/20 shadow-xs">
-                <Sparkles className="w-3 h-3 text-[#8bc34a]" />
-                Concept {index + 1} &bull; AI Render
-              </span>
-            )}
-          </div>
-
-          <div className="absolute bottom-3 left-3 right-3 z-10">
-            <p className="text-[10px] font-bold text-[#8bc34a] uppercase tracking-widest">
-              {suggestion.userUploaded ? 'Custom Styling Vision' : 'Green Decor Vision'}
-            </p>
-            <h4 className="font-extrabold text-lg sm:text-xl text-white leading-tight drop-shadow-sm">
-              {suggestion.theme}
-            </h4>
-          </div>
-        </div>
-
-        {/* Concept Details below image */}
-        <div className="p-6">
-          <p className="text-xs sm:text-sm text-[#52685a] leading-relaxed">{suggestion.tagline}</p>
-
-          {/* Styling Tags */}
-          <div className="flex flex-wrap gap-1.5 mt-4">
-            {suggestion.tags.map((tag) => (
-              <span
-                key={tag}
-                className="inline-flex items-center gap-1 rounded-full bg-[#f2f7ef] border border-[#e5ece3] px-2.5 py-1 text-[10px] font-semibold text-[#2a3f33]"
-              >
-                <Check className="w-3 h-3 text-[#0d3b2e]" />
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          {/* Recommended Plants */}
-          {suggestion.recommendedPlants && suggestion.recommendedPlants.length > 0 && (
-            <div className="mt-5 pt-4 border-t border-[#f0f4ee]">
-              <p className="text-[11px] font-bold text-[#172b21] flex items-center gap-1.5 mb-2">
-                <Leaf className="w-3.5 h-3.5 text-[#0d3b2e]" /> Recommended Plants for Your Space
-              </p>
-              <ul className="text-xs text-[#52685a] space-y-1">
-                {suggestion.recommendedPlants.map((plant) => (
-                  <li key={plant} className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#8bc34a]" />
-                    {plant}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {/* Layout Tips */}
-          {suggestion.layoutTips && suggestion.layoutTips.length > 0 && (
-            <div className="mt-4 pt-4 border-t border-[#f0f4ee]">
-              <p className="text-[11px] font-bold text-[#172b21] flex items-center gap-1.5 mb-2">
-                <Lightbulb className="w-3.5 h-3.5 text-[#e6a100]" /> Layout &amp; Placement Tips
-              </p>
-              <ul className="text-xs text-[#52685a] space-y-1.5 italic">
-                {suggestion.layoutTips.map((tip, idx) => (
-                  <li key={idx} className="leading-snug">
-                    &bull; &ldquo;{tip}&rdquo;
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div className="p-4 bg-[#fbfcf9] border-t border-[#e5ece3]">
-        <Link
-          href={`/services?concept=${encodeURIComponent(suggestion.theme)}`}
-          className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#0d3b2e] text-white text-xs font-bold hover:bg-[#145c43] transition-colors shadow-xs"
-        >
-          Request Execution for Concept {index + 1}
-          <ArrowRight className="w-3.5 h-3.5" />
-        </Link>
-      </div>
-    </article>
+    <figure className="relative w-full h-[60vh] min-h-[320px] sm:h-[70vh] lg:h-[80vh] overflow-hidden bg-[#172b21]">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={currentImgUrl}
+        alt={suggestion.theme}
+        onLoad={() => setImgLoaded(true)}
+        onError={handleImageError}
+        className={`w-full h-full object-cover transition-opacity duration-500 ${
+          imgLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
+        loading="eager"
+      />
+      <div className="absolute inset-0 bg-[#f2f7ef] animate-pulse pointer-events-none" style={{ opacity: imgLoaded ? 0 : 1 }} />
+    </figure>
   );
 }
 
+const MAX_GENERATIONS = 3;
+const GENERATIONS_KEY = 'ai_generations_left';
+
+function readGenerationsLeft(): number {
+  if (typeof window === 'undefined') return MAX_GENERATIONS;
+  const saved = window.sessionStorage.getItem(GENERATIONS_KEY);
+  const parsed = saved !== null ? parseInt(saved, 10) : MAX_GENERATIONS;
+  return Number.isNaN(parsed) ? MAX_GENERATIONS : parsed;
+}
+
 export default function DesignStudioForm() {
+  const { user } = useAuthStore();
+  const { showToast } = useUIStore();
+
   const [description, setDescription] = useState('');
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [imageData, setImageData] = useState<{ data: string; mimeType: string } | null>(null);
   const [imageName, setImageName] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
-  const [suggestions, setSuggestions] = useState<EnhancedDesignSuggestion[]>([]);
+  const [suggestion, setSuggestion] = useState<EnhancedDesignSuggestion | null>(null);
+  const [generationsLeft, setGenerationsLeft] = useState(readGenerationsLeft);
+  const [userName, setUserName] = useState(user?.name || '');
+  const [userPhone, setUserPhone] = useState(user?.phone || '');
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const hasInput = description.trim().length > 0 || imageName.length > 0;
@@ -225,23 +118,52 @@ export default function DesignStudioForm() {
 
   const handleSubmit = async () => {
     if (!hasInput || isGenerating) return;
+    if (generationsLeft <= 0) {
+      showToast('You have used all your design concept generations for this session.', 'info');
+      return;
+    }
+
     setIsGenerating(true);
-    setSuggestions([]);
+    setSuggestion(null);
 
     const result = await generateDesignSuggestions({
       description,
+      name: userName,
+      phone: userPhone,
       image: imageData ? { data: imageData.data, mimeType: imageData.mimeType, name: imageName } : null,
     });
 
     setIsGenerating(false);
 
-    const finalSuggestions: EnhancedDesignSuggestion[] = result.map((sug) => ({
-      ...sug,
+    const single = result[0];
+    if (!single) return;
+
+    setSuggestion({
+      ...single,
       userUploaded: Boolean(imagePreview),
       uploadedImagePreview: imagePreview || undefined,
-    }));
+    });
 
-    setSuggestions(finalSuggestions);
+    const nextCount = generationsLeft - 1;
+    setGenerationsLeft(nextCount);
+    window.sessionStorage.setItem(GENERATIONS_KEY, nextCount.toString());
+  };
+
+  const handleRequestClick = () => {
+    if (!userName.trim() || !userPhone.trim()) {
+      setIsContactModalOpen(true);
+      return;
+    }
+    handleSubmit();
+  };
+
+  const handleContactSubmit = () => {
+    if (!userName.trim() || !userPhone.trim()) {
+      showToast('Please enter both your name and phone number.', 'warning');
+      return;
+    }
+    setIsContactModalOpen(false);
+    handleSubmit();
   };
 
   return (
@@ -323,12 +245,11 @@ export default function DesignStudioForm() {
           </div>
           <div className="mt-4 flex items-center justify-between gap-3">
             <p className="text-[11px] text-[#52685a] flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-[#0d3b2e]" />
               Powered by <span className="font-semibold text-[#0d3b2e]">Green Decor AI Studio</span>
             </p>
             <button
               type="button"
-              onClick={handleSubmit}
+              onClick={handleRequestClick}
               disabled={!hasInput || isGenerating}
               className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#172b21] text-white text-xs font-bold hover:bg-[#0d2b1c] transition-colors disabled:opacity-40 disabled:cursor-not-allowed shadow-xs"
             >
@@ -339,7 +260,7 @@ export default function DesignStudioForm() {
                 </>
               ) : (
                 <>
-                  <Sparkles className="w-4 h-4" />
+                  <Wand2 className="w-4 h-4" />
                   Get Render Concepts
                 </>
               )}
@@ -359,33 +280,55 @@ export default function DesignStudioForm() {
         </div>
       )}
 
-      {/* Rendered Results */}
-      {!isGenerating && suggestions.length > 0 && (
+      {/* Rendered Results — one concept per generation */}
+      {!isGenerating && suggestion && (
         <div className="mt-14">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8">
             <div>
-              <h3 className="font-extrabold text-2xl sm:text-3xl text-[#172b21]">AI Design Concepts for Your Space</h3>
+              <h3 className="font-extrabold text-2xl sm:text-3xl text-[#172b21]">Your AI Design Concept</h3>
               <p className="text-xs sm:text-sm text-[#52685a] mt-1">
-                {suggestions.length} custom visual concepts generated directly for your uploaded space.
+                One custom visual concept generated for your space.
               </p>
             </div>
-            <button
-              type="button"
-              onClick={handleSubmit}
-              className="self-start sm:self-auto inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#d6e2d3] text-[#0d3b2e] text-xs font-bold hover:bg-[#f2f7ef] transition-colors bg-white shadow-xs"
-            >
-              <RefreshCw className="w-3.5 h-3.5" />
-              Re-Analyze Space
-            </button>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5">
+              <span
+                className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-[11px] font-bold ${
+                  generationsLeft > 0
+                    ? 'bg-[#f2f7ef] text-[#0d3b2e] border border-[#e5ece3]'
+                    : 'bg-[#fdf1ec] text-[#b85b2e] border border-[#f0d9cd]'
+                }`}
+              >
+                {generationsLeft > 0
+                  ? `${generationsLeft} usage${generationsLeft === 1 ? '' : 's'} remaining`
+                  : 'No usages remaining'}
+              </span>
+              <button
+                type="button"
+                onClick={handleRequestClick}
+                disabled={generationsLeft <= 0}
+                className="self-start sm:self-auto inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#d6e2d3] text-[#0d3b2e] text-xs font-bold hover:bg-[#f2f7ef] transition-colors bg-white shadow-xs disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                <RefreshCw className="w-3.5 h-3.5" />
+                Generate Another
+              </button>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {suggestions.map((suggestion, index) => (
-              <ConceptCard key={suggestion.theme + index} suggestion={suggestion} index={index} />
-            ))}
-          </div>
+          <ConceptImage key={suggestion.imageUrl || suggestion.theme} suggestion={suggestion} />
         </div>
       )}
+
+      <ContactDetailsModal
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+        name={userName}
+        phone={userPhone}
+        onNameChange={setUserName}
+        onPhoneChange={setUserPhone}
+        onSubmit={handleContactSubmit}
+        title="Your Contact Details"
+        description="Enter your details to generate your AI design render concepts."
+      />
     </section>
   );
 }

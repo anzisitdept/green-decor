@@ -184,9 +184,10 @@ async function issueCoupon(request: NextRequest) {
 
   if (existingCode) {
     // Report what the code is actually worth now, not the launch offer, since
-    // staff may have edited the coupon since it was issued.
-    const issued = await coupons.doc(existingCode.toUpperCase()).get();
-    const data = issued.data();
+    // staff may have edited the coupon since it was issued. Lookup is by the
+    // `code` field, not the document id: coupons are written with auto ids.
+    const issued = await coupons.where('code', '==', existingCode.toUpperCase()).limit(1).get();
+    const data = issued.docs[0]?.data();
     return NextResponse.json({
       code: existingCode.toUpperCase(),
       type: data?.type === 'flat' ? 'flat' : 'percent',
@@ -198,12 +199,22 @@ async function issueCoupon(request: NextRequest) {
   const expiresAt = new Date(now.getTime() + offer.validDays * 24 * 60 * 60 * 1000);
   const timestamp = now.toISOString();
 
-  let code = generateCode();
+  // Coupon documents are created with auto ids, so uniqueness has to be
+  // checked against the `code` field - the same key the cart, the redeem
+  // route and the admin panel all query on.
+  let code = '';
 
   for (let attempt = 0; attempt < CODE_ATTEMPTS; attempt += 1) {
-    const clash = await coupons.doc(code).get();
-    if (!clash.exists) break;
-    code = generateCode();
+    const candidate = generateCode();
+    const clash = await coupons.where('code', '==', candidate).limit(1).get();
+    if (clash.empty) {
+      code = candidate;
+      break;
+    }
+  }
+
+  if (!code) {
+    return fail('We could not generate a unique discount code. Please try again.', 503);
   }
 
   const userAgent = request.headers.get('user-agent')?.slice(0, USER_AGENT_MAX);

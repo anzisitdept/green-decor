@@ -1,15 +1,6 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { Sparkles, UploadCloud, MessageSquareText, Wand2, Hammer, MessageCircle } from 'lucide-react';
+import { UploadCloud, MessageSquareText, Wand2 } from 'lucide-react';
 import DesignStudioForm from '@/components/design/DesignStudioForm';
-import { getWhatsAppLink } from '@/lib/utils';
-
-/**
- * The studio is still being tested, so the page advertises the flow without
- * taking submissions. Flip this to `true` once testing is done to bring the
- * form back — nothing else needs to change.
- */
-const DESIGN_STUDIO_LIVE = false;
 
 export const metadata: Metadata = {
   title: 'Design Studio Get Design Ideas for Your Space | Green Decor',
@@ -29,7 +20,7 @@ const steps = [
     text: 'Tell us what vibe you want — tropical, minimal, cozy or resort.',
   },
   {
-    icon: <Sparkles className="w-5 h-5 text-[#0d3b2e]" />,
+    icon: <Wand2 className="w-5 h-5 text-[#0d3b2e]" />,
     title: 'Get design ideas',
     text: 'Receive curated plants, color palettes and layout tips to style it.',
   },
@@ -38,12 +29,7 @@ const steps = [
 export default function DesignStudioPage() {
   return (
     <div className="flex-1 min-w-0 bg-[#fbfcf9] relative">
-      {/* Everything below is blurred and inert while the studio is in testing —
-          the centred notice is the only thing a visitor can see or touch. */}
-      <div
-        className={DESIGN_STUDIO_LIVE ? '' : 'blur-md pointer-events-none select-none'}
-        aria-hidden={DESIGN_STUDIO_LIVE ? undefined : true}
-      >
+      <div>
         {/* Hero */}
         <section className="bg-[#172b21] relative overflow-hidden">
           <div className="absolute inset-0 opacity-[0.06]" aria-hidden>
@@ -58,9 +44,7 @@ export default function DesignStudioPage() {
           </div>
 
           <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 text-center">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white text-[11px] font-bold uppercase tracking-wider">
-              <Wand2 className="w-3.5 h-3.5" /> Green Decor Design Studio
-            </span>
+
             <h1 className="font-extrabold text-3xl sm:text-5xl text-white leading-tight mt-5">
               Show us your space,
               <br />
@@ -90,47 +74,8 @@ export default function DesignStudioPage() {
         </section>
 
         {/* Upload / Describe / Results */}
-        {DESIGN_STUDIO_LIVE ? <DesignStudioForm /> : null}
+        <DesignStudioForm />
       </div>
-
-      {DESIGN_STUDIO_LIVE ? null : (
-        <div className="absolute inset-0 z-20 flex items-center justify-center px-4">
-          <div className="w-full max-w-lg rounded-3xl border border-[#e5ece3] bg-white/95 px-7 py-8 text-center shadow-2xl backdrop-blur-sm sm:px-10 sm:py-10">
-            <span className="inline-flex items-center gap-2 rounded-full bg-[#f2f7ef] px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-wider text-[#0d3b2e]">
-              <Sparkles className="w-3.5 h-3.5" /> Coming soon
-            </span>
-            <h1 className="mt-5 font-extrabold text-2xl text-[#172b21] sm:text-3xl">
-              Something new is growing here
-            </h1>
-
-
-            <div className="mt-6 flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-wider text-[#b85b2e]">
-              <Hammer className="h-3.5 w-3.5" />
-              Under testing
-            </div>
-
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-              <a
-                href={getWhatsAppLink(
-                  'Hello Green Decor! I am waiting for the Design Studio. Can you help me with ideas in the meantime?'
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0d3b2e] px-5 py-3 text-xs font-bold text-white transition-colors hover:bg-[#145c43]"
-              >
-                <MessageCircle className="w-4 h-4" />
-                Get ideas on WhatsApp
-              </a>
-              <Link
-                href="/gallery"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#d6e2d3] px-5 py-3 text-xs font-bold text-[#0d3b2e] transition-colors hover:bg-[#f2f7ef]"
-              >
-                Browse our gallery
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

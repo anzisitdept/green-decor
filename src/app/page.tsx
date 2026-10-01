@@ -1,5 +1,6 @@
 import LeftBrandSidebar from '@/components/layout/LeftBrandSidebar';
 import Hero from '@/components/home/Hero';
+import AnnouncementMarquee from '@/components/home/AnnouncementMarquee';
 import OurMostRequestedServices from '@/components/home/OurMostRequestedServices';
 import FeaturedProducts from '@/components/home/FeaturedProducts';
 import PurposeSection from '@/components/home/PurposeSection';
@@ -28,6 +29,9 @@ export default function HomePage() {
 
         {/* Hero Section */}
         <Hero />
+
+        {/* Announcement Marquee Bar */}
+        <AnnouncementMarquee />
 
         {/* Our Most Requested Services (curved green band) */}
         <OurMostRequestedServices />

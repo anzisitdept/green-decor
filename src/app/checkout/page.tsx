@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { MapPin, ArrowRight, Lock } from 'lucide-react';
+import { MapPin, ArrowRight, Lock, Sparkles, MessageSquare } from 'lucide-react';
 import { useCartStore } from '@/lib/store/useCartStore';
 import { useAuthStore } from '@/lib/store/useAuthStore';
 import { useCheckoutStore } from '@/lib/store/useCheckoutStore';
@@ -42,6 +42,10 @@ export default function CheckoutPage() {
   const discount = getDiscount();
   const shipping = getShippingFee();
   const total = getTotal();
+
+  const handleQuickNote = (badgeText: string) => {
+    setNotes((prev) => (prev ? `${prev} • ${badgeText}` : badgeText));
+  };
 
   if (items.length === 0) {
     return (
@@ -152,15 +156,43 @@ export default function CheckoutPage() {
 
           <PakistanLocationFields value={location} onChange={setLocation} compact />
 
-          <div>
-            <label className={labelClass}>Delivery Notes (Optional)</label>
-            <input
-              type="text"
+          {/* Pot Customization & Order Notes Section */}
+          <div className="pt-3 border-t border-[#f0f4ee] space-y-2.5">
+            <div className="flex items-center justify-between">
+              <label className="text-xs font-extrabold text-[#0d3b2e] flex items-center gap-1.5">
+                <Sparkles className="w-4 h-4 text-[#d47343]" />
+                <span>Pot Customization & Delivery Notes</span>
+              </label>
+              <span className="text-[10px] text-[#52685a] font-medium">Optional</span>
+            </div>
+
+            <textarea
+              rows={3}
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              placeholder="e.g. Ring gate bell, leave with guard if unavailable"
-              className={inputClass}
+              placeholder="Add your pot customization text (e.g. engraved name, color shade), gift message, or special delivery instructions..."
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#d6e2d3] text-xs focus:ring-2 focus:ring-[#0d3b2e] focus:outline-none bg-[#fafcf9]"
             />
+
+            <div className="flex flex-wrap items-center gap-1.5 pt-1">
+              <span className="text-[10px] text-[#52685a] font-semibold">Quick Add:</span>
+              {[
+                'Engrave Custom Name',
+                'Single Drainage Hole',
+                'Include Gift Card',
+                'Ring Gate Bell',
+                'Call Before Delivery',
+              ].map((badgeText) => (
+                <button
+                  key={badgeText}
+                  type="button"
+                  onClick={() => handleQuickNote(badgeText)}
+                  className="px-2.5 py-1 rounded-full bg-[#f4f8f3] hover:bg-[#eaf0e7] border border-[#d6e2d3] text-[#0d3b2e] text-[10px] font-semibold transition-colors"
+                >
+                  + {badgeText}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
